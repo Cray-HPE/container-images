@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/build-curl.yaml
+      - .github/workflows/curl.yaml
       - curl/**
   workflow_dispatch:
 
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/container-images/stable/curl
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/curl
       DOCKER_TAG: v1.0.0
     steps:
       - name: Checkout repo
