@@ -1,4 +1,4 @@
-name: Curl image build
+name: curl image build
 
 on:
   push:
@@ -40,9 +40,6 @@ jobs:
           project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
           service_account_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
           export_default_credentials: true
-
-      - name: Curl Version
-        run: curl --version
 
       - name: Use gcloud CLI
         run: gcloud info

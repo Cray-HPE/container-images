@@ -1,4 +1,4 @@
-name: Curl image build
+name: external-dns image build
 
 on:
   push:
