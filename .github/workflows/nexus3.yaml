@@ -1,12 +1,12 @@
-name: sonatype image build
+name: nexus3 image build
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/sonatype.yaml
-      - sonatype/**
+      - .github/workflows/nexus3.yaml
+      - nexus3/**
   workflow_dispatch:
 
 jobs:
