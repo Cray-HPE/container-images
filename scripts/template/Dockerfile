@@ -1,0 +1,3 @@
+FROM templateimage:latest
+
+
