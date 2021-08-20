@@ -4,7 +4,7 @@ WORKFLOWURL="https://github.com/Cray-HPE/container-images/actions/workflows"
 
 echo ""
 echo "| Image Name | Github Action Workflow | Issues Found | "
-echo "|--------|:--------|:--------:|"
+echo "|--------|:--------|--------:|"
 
 for IMAGE in `ls -1 ../.github/workflows/*.yaml |  grep -Eo "s/([a-z]|-|_).+\." | sed -e s,.$,, -e s,s/,,`
 do
