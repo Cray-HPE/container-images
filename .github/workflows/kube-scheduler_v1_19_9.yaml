@@ -1,12 +1,12 @@
-name: IMGNAME
+name: kube-scheduler_v1_19_9
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/IMGNAME.yaml
-      - IMGNAME/**
+      - .github/workflows/kube-scheduler_v1_19_9.yaml
+      - kube-scheduler_v1_19_9/**
   workflow_dispatch:
 
 jobs:
@@ -14,15 +14,15 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: csm-docker/stable/IMGNAME
-      DOCKER_TAG: v1.0.0
+      DOCKER_REPO: csm-docker/stable/kube-scheduler
+      DOCKER_TAG: v1.19.9
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
 
       - name: Container build
-        uses: ./.github/actions/build-sign-scan
+        uses: ./.github/actions/build-sign-scan-version
         with:
-          context_path: ./IMGNAME
+          context_path: ./kube-scheduler_v1_19_9
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
