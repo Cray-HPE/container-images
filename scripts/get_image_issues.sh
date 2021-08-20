@@ -25,4 +25,6 @@ do
     fi
 done
 
+echo 
 echo "Last update at `date`"
+echo
