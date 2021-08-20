@@ -15,12 +15,5 @@ cd scripts
 ./create_buildfiles.sh <imagename>
 ```
 
-## Images already passed by Snyk check
-
-| Github Action WorkFlow |
-|--------:|
-|[![curl image build](https://github.com/Cray-HPE/container-images/actions/workflows/curl.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/curl.yaml) |
-|[![cephfs-provisioner](https://github.com/Cray-HPE/container-images/actions/workflows/cephfs-provisioner.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/cephfs-provisioner.yaml)|
-|[![mc minio client image build](https://github.com/Cray-HPE/container-images/actions/workflows/mc.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/mc.yaml)|
-|[![external-dns](https://github.com/Cray-HPE/container-images/actions/workflows/external-dns.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/external-dns.yaml)|
-|[![nexus3](https://github.com/Cray-HPE/container-images/actions/workflows/nexus3.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/nexus3.yaml)|
+## Images status from Snyk check
+[Status](/Status.md)
