@@ -7,5 +7,5 @@
 | kube-controller-manager | 63 issues. | [![kube-controller-manager](https://github.com/Cray-HPE/container-images/actions/workflows/kube-controller-manager.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/kube-controller-manager.yaml) |
 | mc | 0 issues. | [![mc](https://github.com/Cray-HPE/container-images/actions/workflows/mc.yaml/badge.svg?branch=main)](https://github.com/Cray-HPE/container-images/actions/workflows/mc.yaml) |
 
-Last update on Fri 20 Aug 2021 04:37:20 PM EDT
 
+Last update on Fri 20 Aug 2021 12:58:45 PM EDT
