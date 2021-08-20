@@ -17,8 +17,9 @@ cd scripts
 
 ## Images already passed by Snyk check
 
-* curl
-* cephfs-provisioner
+[![curl](https://github.com/Cray-HPE/container-images/actions/workflows/curl/badge.svg)](https://github.com/Cray-HPE/
+container-images/actions/workflows/curl.yaml)
+[![cephfs-provisioner](https://github.com/Cray-HPE/container-images/actions/workflows/cephfs-provisioner.yaml/badge.svg)](https://github.com/Cray-HPE/container-images/actions/workflows/cephfs-provisioner.yaml)
 * external-dns
 * mc
 * nexus3
