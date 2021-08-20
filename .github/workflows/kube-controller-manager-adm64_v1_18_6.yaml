@@ -1,4 +1,4 @@
-name: kube-controller-manager-adm64_v1_18_6 image build
+name: kube-controller-manager-adm64_v1_18_6
 
 on:
   push:

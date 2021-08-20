@@ -6,7 +6,7 @@ echo ""
 echo "| Image Name | Github Action Workflow | Issues Found | "
 echo "|--------|:--------|:--------:|"
 
-for IMAGE in `ls -1 ../.github/workflows/*.yaml  | grep -Eo "([a-z]|-|_)+\." | sed s,.$,,`
+for IMAGE in `ls -1 ../.github/workflows/*.yaml |  grep -Eo "s/([a-z]|-|_).+\." | sed -e s,.$,, -e s,s/,,`
 do
     RUNID=`gh run list -w=${IMAGE} -L 1 | grep -Eo "\s[0-9]+\s"`
     RUNLOG=`gh run view ${RUNID} --log-failed | sed -n -e 's/^.*issues, found //p'`
