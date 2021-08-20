@@ -3,12 +3,6 @@
 ## Goal:
 ### Rebuild public images without vulnerabilities!
 
-* curl
-* cephfs-provisioner
-* external-dns
-* mc
-* nexus3
-
 ## What are the steps to do?
 
 * Discover image from Cray-HPE needs.
@@ -21,3 +15,10 @@ cd scripts
 ./create_buildfiles.sh <imagename>
 ```
 
+## Images already passed by Snyk check
+
+* curl
+* cephfs-provisioner
+* external-dns
+* mc
+* nexus3
