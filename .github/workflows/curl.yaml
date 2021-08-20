@@ -1,4 +1,4 @@
-name: curl image build
+name: curl
 
 on:
   push:

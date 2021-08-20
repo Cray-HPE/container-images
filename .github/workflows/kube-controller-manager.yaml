@@ -1,4 +1,4 @@
-name: kube-controller-manager image build
+name: kube-controller-manager
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: mc minio client image build
+name: mc
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: external-dns image build
+name: external-dns
 
 on:
   push:

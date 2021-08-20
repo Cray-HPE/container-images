@@ -1,4 +1,4 @@
-name: nexus3 image build
+name: nexus3
 
 on:
   push:

@@ -1,4 +1,4 @@
-name: cephfs-provisioner image build
+name: cephfs-provisioner
 
 on:
   push:
