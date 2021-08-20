@@ -24,3 +24,5 @@ do
         echo "| ${IMAGE} | [![${IMAGE}](${WORKFLOWURL}/${IMAGE}.yaml/badge.svg?branch=main)](${WORKFLOWURL}/${IMAGE}.yaml) | ${RUNLOG} |"
     fi
 done
+
+echo "Last update at `date`"
