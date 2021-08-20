@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/kube-controller-manager_v1_19_9
-      DOCKER_TAG: v1.0.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/kube-controller-manager
+      DOCKER_TAG: v1.19.9
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
