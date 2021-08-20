@@ -1,17 +1,10 @@
 #!/bin/bash
 
-
-#IMAGE="$1"
-#if [ -z "$IMAGE" ]; then
-#    echo "Usage: $0 <image name>"
-#    exit 1
-#fi
-
 WORKFLOWURL="https://github.com/Cray-HPE/container-images/actions/workflows"
 
 echo ""
 echo "| Image Name | Github Action Workflow | Issues Found | "
-echo "|--------|--------:|:--------|"
+echo "|--------|:--------|:--------:|"
 
 for IMAGE in `ls -1 ../.github/workflows/*.yaml  | grep -Eo "([a-z]|-|_)+\." | sed s,.$,,`
 do
@@ -19,12 +12,12 @@ do
     RUNLOG=`gh run view ${RUNID} --log-failed | sed -n -e 's/^.*issues, found //p'`
 
     if [ -z "$RUNLOG" ]; then
-        echo "| ${IMAGE} | [![${IMAGE}](${WORKFLOWURL}/${IMAGE}.yaml/badge.svg?branch=main)](${WORKFLOWURL}/${IMAGE}.yaml) | 0 issues. |"
+        echo "| ${IMAGE} | 0 issues. | [![${IMAGE}](${WORKFLOWURL}/${IMAGE}.yaml/badge.svg?branch=main)](${WORKFLOWURL}/${IMAGE}.yaml) |"
     else
-        echo "| ${IMAGE} | [![${IMAGE}](${WORKFLOWURL}/${IMAGE}.yaml/badge.svg?branch=main)](${WORKFLOWURL}/${IMAGE}.yaml) | ${RUNLOG} |"
+        echo "| ${IMAGE} | ${RUNLOG} | [![${IMAGE}](${WORKFLOWURL}/${IMAGE}.yaml/badge.svg?branch=main)](${WORKFLOWURL}/${IMAGE}.yaml) |"
     fi
 done
 
 echo 
-echo "Last update at `date`"
+echo "Last update on `date`"
 echo
