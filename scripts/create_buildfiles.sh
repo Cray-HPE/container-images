@@ -14,7 +14,7 @@ if [ ! -d "../$IMAGE" ]; then
     sed -i s,IMGNAME,${IMAGE},g ../.github/workflows/${IMAGE}.yaml
     echo "INFO: Script finished succesfully."
     echo ""
-    echo "Now, go work on your Dockerfile located at ../${IMAGE}/Dockerfile"
+    echo "Now, go to work on your Dockerfile located at ../${IMAGE}/Dockerfile"
 else 
     echo "ERROR: Folder image already exists!"
     exit 1
