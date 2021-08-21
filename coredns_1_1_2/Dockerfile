@@ -1,0 +1,1 @@
+FROM coredns/coredns:1.1.2
