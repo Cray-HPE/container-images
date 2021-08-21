@@ -1,0 +1,1 @@
+FROM bitnami/postgres-exporter:0.10.0-debian-10-r36
