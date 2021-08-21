@@ -1,0 +1,28 @@
+name: nginx
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/nginx.yaml
+      - curl/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ALGOL60_USER: github-actions-cray-hpe
+      DOCKER_REPO: csm-docker/stable/curl
+      DOCKER_TAG: v1.0.0
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Container build
+        uses: ./.github/actions/build-sign-scan-test
+        with:
+          context_path: ./nginx
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
