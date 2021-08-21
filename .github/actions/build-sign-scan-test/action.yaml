@@ -59,13 +59,14 @@ runs:
       run: gcloud info
 
     - name: Build
-        uses: docker/build-push-action@v2
-        with:
-          context: ${{ inputs.context_path }}
-          push: true
-          tags: |
-            ${{ inputs.docker_registry }}/${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
-            ${{ inputs.docker_registry }}/${{ inputs.docker_repo }}:latest
+      shell: bash
+      uses: docker/build-push-action@v2
+      with:
+        context: ${{ inputs.context_path }}
+        push: true
+        tags: |
+          ${{ inputs.docker_registry }}/${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
+          ${{ inputs.docker_registry }}/${{ inputs.docker_repo }}:latest
 
     - name: Sign
       env:

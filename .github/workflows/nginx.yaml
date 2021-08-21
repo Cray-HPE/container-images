@@ -21,6 +21,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Container build
+        shell: bash
         uses: ./.github/actions/build-sign-scan-test
         with:
           context_path: ./nginx
