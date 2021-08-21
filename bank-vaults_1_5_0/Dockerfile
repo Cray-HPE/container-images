@@ -1,0 +1,1 @@
+FROM banzaicloud/bank-vaults:1.5.0
