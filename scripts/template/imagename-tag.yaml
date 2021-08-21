@@ -1,4 +1,4 @@
-name: IMGNAME
+name: IMAGE
 
 on:
   push:
