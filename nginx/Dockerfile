@@ -1,3 +1,1 @@
-FROM templateimage:latest
-
-
+FROM nginx:latest
