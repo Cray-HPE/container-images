@@ -1,0 +1,1 @@
+FROM gcr.io/spiffe-io/oidc-discovery-provider:0.11.0
