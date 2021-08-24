@@ -1,0 +1,66 @@
+name: cephcsi_v3_3_1
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/cephcsi_v3_3_1.yaml
+      - cephcsi_v3_3_1/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      ALGOL60_USER: github-actions-cray-hpe
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/cephcsi
+      DOCKER_TAG: v3.3.1
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Install cosign
+        uses: sigstore/cosign-installer@main
+        with:
+          cosign-release: 'v1.0.0'
+      - name: Check cosign install
+        run: cosign version
+
+      - name: Login to algol60 Container Registry
+        uses: docker/login-action@v1
+        with:
+          registry: artifactory.algol60.net
+          username: ${{ env.ALGOL60_USER }}
+          password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+
+      - name: Set up Cloud SDK for Signing
+        uses: google-github-actions/setup-gcloud@master
+        with:
+          project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+          service_account_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          export_default_credentials: true
+
+      - name: Use gcloud CLI
+        run: gcloud info
+
+      - name: Build
+        uses: docker/build-push-action@v2
+        with:
+          context: ./cephcsi_v3_3_1
+          push: true
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Sign
+        env:
+          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+        run: |
+          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Snyk Scan
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          image: ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
