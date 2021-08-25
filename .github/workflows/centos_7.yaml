@@ -1,4 +1,4 @@
-name: centos_7
+name: centos
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
     paths:
       - .github/workflows/centos_7.yaml
-      - centos_7/**
+      - centos/7/**
   workflow_dispatch:
 
 jobs:
@@ -47,7 +47,7 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v2
         with:
-          context: ./centos_7
+          context: ./centos/7
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
