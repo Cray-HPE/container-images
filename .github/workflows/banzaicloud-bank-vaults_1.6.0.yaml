@@ -1,12 +1,12 @@
-name: bank-vaults_1.5.0
+name: banzaicloud-bank-vaults_1.6.0
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/bank-vaults_1.5.0.yaml
-      - bank-vaults_1.5.0/**
+      - .github/workflows/banzaicloud-bank-vaults_1.6.0.yaml
+      - banzaicloud/bank-vaults/1.6.0/**
   workflow_dispatch:
 
 jobs:
@@ -14,8 +14,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/bank-vaults
-      DOCKER_TAG: 1.5.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/banzaicloud/bank-vaults
+      DOCKER_TAG: 1.6.0
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -47,7 +47,7 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v2
         with:
-          context: ./bank-vaults/1.5.0
+          context: ./banzaicloud/bank-vaults/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
