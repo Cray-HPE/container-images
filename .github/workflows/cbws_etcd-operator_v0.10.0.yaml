@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/cbws_etcd-operator_v0.10.0
     paths:
       - .github/workflows/cbws_etcd-operator_v0.10.0.yaml
       - cbws/etcd-operator/v0.10.0/**
