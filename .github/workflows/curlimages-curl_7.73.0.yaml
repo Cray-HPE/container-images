@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/curlimages_curl_7.73.0
     paths:
       - .github/workflows/curlimages-curl_7.73.0.yaml
       - curlimages/curl/7.73.0/**
