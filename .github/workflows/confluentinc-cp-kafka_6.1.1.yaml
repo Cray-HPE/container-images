@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/confluentinc-cp-kafka_6.1.1
     paths:
       - .github/workflows/confluentinc-cp-kafka_6.1.1.yaml
       - confluentinc/cp-kafka/6.1.1/**
