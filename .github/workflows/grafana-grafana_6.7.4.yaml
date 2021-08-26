@@ -45,17 +45,7 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build Only
-        if: github.event_name == 'pull_request'
-        uses: docker/build-push-action@v2
-        with:
-          context: ./grafana/grafana/${{ env.DOCKER_TAG }}
-          push: false
-          tags: |
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-
-      - name: Build and Push
-        if: github.ref == 'refs/heads/main'
+      - name: Build
         uses: docker/build-push-action@v2
         with:
           context: ./grafana/grafana/${{ env.DOCKER_TAG }}
