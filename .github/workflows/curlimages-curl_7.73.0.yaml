@@ -49,7 +49,7 @@ jobs:
         run: gcloud info
 
       - name: Build Only
-        if: github.ref == 'refs/heads/qa'
+        if: ${{ github.event.issue.pull_request }}
         uses: docker/build-push-action@v2
         with:
           context: ./curlimages/curl/${{ env.DOCKER_TAG }}
