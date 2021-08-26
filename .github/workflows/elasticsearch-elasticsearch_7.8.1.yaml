@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/elasticsearch-elasticsearch_7.8.1
     paths:
       - .github/workflows/elasticsearch-elasticsearch_7.8.1.yaml
       - elasticsearch/elasticsearch/7.8.1/**
@@ -24,7 +23,7 @@ jobs:
       - name: Install cosign
         uses: sigstore/cosign-installer@main
         with:
-          cosign-release: 'v1.0.0'
+          cosign-release: "v1.0.0"
       - name: Check cosign install
         run: cosign version
 
