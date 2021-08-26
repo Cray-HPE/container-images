@@ -48,7 +48,7 @@ jobs:
         run: gcloud info
 
       - name: Build Only
-        if: github.ref == 'refs/heads/qa'
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
           context: ./curlimages/curl/${{ env.DOCKER_TAG }}
@@ -64,7 +64,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest      
+            ${{ env.DOCKER_REPO }}:latest   
 
       - name: Sign
         env:
