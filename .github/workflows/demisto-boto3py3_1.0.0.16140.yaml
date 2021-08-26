@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/demisto-boto3py3_1.0.0.16140
     paths:
       - .github/workflows/demisto-boto3py3_1.0.0.16140.yaml
       - demisto/boto3py3/1.0.0.16140/**
