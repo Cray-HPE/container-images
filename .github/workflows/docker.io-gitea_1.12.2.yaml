@@ -1,15 +1,15 @@
-name: curlimages-curl_7.73.0
+name: docker.io-gitea_1.12.2
 
 on:
   push:
     branches:
       - main
   pull_request:
-    branches:  
-      - main
+    branches:
+      - main    
     paths:
-      - .github/workflows/curlimages-curl_7.73.0.yaml
-      - curlimages/curl/7.73.0/**
+      - .github/workflows/docker.io-gitea_1.12.2.yaml
+      - docker.io/gitea/1.12.2/**
   workflow_dispatch:
 
 jobs:
@@ -17,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/curlimages/curl
-      DOCKER_TAG: 7.73.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/gitea
+      DOCKER_TAG: 1.12.2
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -50,7 +50,7 @@ jobs:
       - name: Build
         uses: docker/build-push-action@v2
         with:
-          context: ./curlimages/curl/${{ env.DOCKER_TAG }}
+          context: ./docker.io/gitea/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
