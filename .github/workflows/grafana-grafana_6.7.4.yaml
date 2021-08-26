@@ -4,7 +4,9 @@ on:
   push:
     branches:
       - main
-      - feat/grafana-grafana_6.7.4
+  pull_request:
+    branches:
+      - main
     paths:
       - .github/workflows/grafana-grafana_6.7.4.yaml
       - grafana/grafana/6.7.4/**
@@ -45,7 +47,17 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./grafana/grafana/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v2
         with:
           context: ./grafana/grafana/${{ env.DOCKER_TAG }}
@@ -58,7 +70,6 @@ jobs:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master
