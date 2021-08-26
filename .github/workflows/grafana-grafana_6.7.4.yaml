@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feat/grafana-grafana_6.7.4
     paths:
       - .github/workflows/grafana-grafana_6.7.4.yaml
       - grafana/grafana/6.7.4/**
