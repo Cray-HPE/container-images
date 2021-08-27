@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
     paths:
       - .github/workflows/centos_7.yaml
       - centos/7/**
@@ -44,15 +47,26 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./centos/7
+          context: ./centos/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./centos/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
