@@ -1,4 +1,4 @@
-name: docker.io-gitea_1.9.3
+name: docker.io-gitea-gitea_1.9.3
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
     branches:
       - main      
     paths:
-      - .github/workflows/docker.io-gitea_1.9.3.yaml
-      - docker.io/gitea/1.9.3/**
+      - .github/workflows/docker.io-gitea-gitea_1.9.3.yaml
+      - docker.io/gitea/gitea/1.9.3/**
   workflow_dispatch:
 
 jobs:
@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/gitea
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea
       DOCKER_TAG: 1.9.3
     steps:
       - name: Checkout repo
@@ -47,14 +47,25 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./docker.io/gitea/${{ env.DOCKER_TAG }}
+          context: ./docker.io/gitea/gitea/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./docker.io/gitea/gitea/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest
+            ${{ env.DOCKER_REPO }}:latest   
 
       - name: Sign
         env:
