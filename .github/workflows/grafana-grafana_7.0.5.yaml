@@ -65,15 +65,16 @@ jobs:
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
-      - name: Sign
-        env:
-          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
-        run: |
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-
       - name: Snyk Scan
         uses: snyk/actions/docker@master
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Sign
+        if: github.ref == 'refs/heads/main'
+        env:
+          COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+        run: |
+          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
