@@ -64,14 +64,12 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest   
 
       - name: Sign
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master

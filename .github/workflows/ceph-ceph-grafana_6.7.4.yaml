@@ -1,4 +1,4 @@
-name: ceph-ceph-grafana_6.7.2
+name: ceph-ceph-grafana_6.7.4
 
 on:
   push:
@@ -8,8 +8,8 @@ on:
     branches:  
       - main
     paths:
-      - .github/workflows/ceph-ceph-grafana_6.7.2.yaml
-      - ceph/ceph-grafana/6.7.2/**
+      - .github/workflows/ceph-ceph-grafana_6.7.4.yaml
+      - ceph/ceph-grafana/6.7.4/**
   workflow_dispatch:
 
 jobs:
@@ -18,7 +18,7 @@ jobs:
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/ceph/ceph-grafana
-      DOCKER_TAG: 6.7.2
+      DOCKER_TAG: 6.7.4
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -63,15 +63,13 @@ jobs:
           context: ./ceph/ceph-grafana/${{ env.DOCKER_TAG }}
           push: true
           tags: |
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest   
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}  
 
       - name: Sign
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master
