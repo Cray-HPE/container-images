@@ -1,12 +1,18 @@
-name: kube-proxy_v1_18_6
+name: k8s.gcr.io-kube-proxy_v1.18.3
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/kube-proxy_v1_18_6.yaml
-      - kube-proxy_v1_18_6/**
+      - .github/workflows/k8s.gcr.io-kube-proxy_v1.18.3.yaml
+      - k8s.gcr.io/kube-proxy/v1.18.3/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/k8s.gcr.io-kube-proxy_v1.18.3.yaml
+      - k8s.gcr.io/kube-proxy/v1.18.3/**
   workflow_dispatch:
 
 jobs:
@@ -14,8 +20,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/kube-proxy
-      DOCKER_TAG: v1.18.6
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-proxy
+      DOCKER_TAG: v1.18.3
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -44,15 +50,26 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./kube-proxy_v1_18_6
+          context: ./k8s.gcr.io/kube-proxy/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./k8s.gcr.io/kube-proxy/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
