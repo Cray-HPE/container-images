@@ -18,9 +18,9 @@ cd scripts
 ## Naming conventions
 Base images can come from multiple places docker.io, quay.io, or arti (both custom and original community cached images). Some images are also
 
-In order to standardize on a naming convetion the following directory structure in `container-images` should be maininted
+In order to standardize on a naming convention the following directory structure in `container-images` should be maintained
 
-`<registry>/<org>|<official image>/<image>
+`<registry>/<org>|<official image>/<image>`
 ```bash
 container-images
 ├── .github
@@ -40,8 +40,9 @@ container-images
 │   └── kube-scheduler
 │       └── v1.18.0
 └── shasta-1.3
-│   └── cray-capmc
-│       └── 1.17.7
+│   └── cray
+│       └── cray-capmc
+│           └── 1.17.7
 ```
 
 These would then match up the algol registry url of
@@ -50,7 +51,8 @@ These would then match up the algol registry url of
 artifactory.algol60.net
 └── stable
     ├── shasta-1.3
-    │   └── cray-capmc:1.17.7
+    │   └── cray
+    │       └── cray-capmc:1.17.7
     ├── quay.io
     │   └── coreos
     │       └── etcd:v3.5.0
