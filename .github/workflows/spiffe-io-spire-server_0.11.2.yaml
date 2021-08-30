@@ -1,12 +1,15 @@
-name: spire-server_0_12_2
+name: spiffe-io-spire-server_0.11.2
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:  
+      - main
     paths:
-      - .github/workflows/spire-server_0_12_2.yaml
-      - spire-server_0_12_2/**
+      - .github/workflows/spiffe-io-spire-server_0.11.2.yaml
+      - spiffe-io/spire-server/0.11.2/**
   workflow_dispatch:
 
 jobs:
@@ -14,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/spire-server
-      DOCKER_TAG: 0.12.2
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/spiffe-io/spire-server
+      DOCKER_TAG: 0.11.2
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -44,15 +47,26 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./spire-server_0_12_2
+          context: ./spiffe-io/spire-server/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./spiffe-io/spire-server/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
