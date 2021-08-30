@@ -1,12 +1,15 @@
-name: weave-kube_2_6_0
+name: weaveworks-weave-kube_2.6.0
 
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:  
+      - main
     paths:
-      - .github/workflows/weave-kube_2_6_0.yaml
-      - weave-kube_2_6_0/**
+      - .github/workflows/weaveworks-weave-kube_2.6.0.yaml
+      - weaveworks/weave-kube/2.6.0/**
   workflow_dispatch:
 
 jobs:
@@ -14,8 +17,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/weave-kube
-      DOCKER_TAG: v1.0.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/weaveworks/weave-kube
+      DOCKER_TAG: 2.6.0
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -44,21 +47,30 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./weave-kube_2_6_0
+          context: ./weaveworks/weave-kube/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./weaveworks/weave-kube/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master
