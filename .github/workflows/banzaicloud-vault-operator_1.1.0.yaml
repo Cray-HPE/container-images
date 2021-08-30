@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/banzaicloud-vault-operator_1.1.0.yaml
+      - banzaicloud/vault-operator/1.1.0/**
   pull_request:
     branches:  
       - main

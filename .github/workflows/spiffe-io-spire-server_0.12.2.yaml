@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/spiffe-io-spire-server_0.12.2.yaml
+      - spiffe-io/spire-server/0.12.2/**
   pull_request:
     branches:  
       - main

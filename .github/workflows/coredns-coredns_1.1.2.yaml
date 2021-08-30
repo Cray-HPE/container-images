@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/coredns-coredns_1.1.2.yaml
+      - coredns/coredns/1.1.2/**
   pull_request:
     branches:  
       - main

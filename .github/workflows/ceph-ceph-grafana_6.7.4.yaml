@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/ceph-ceph-grafana_6.7.4.yaml
+      - ceph/ceph-grafana/6.7.4/**
   pull_request:
     branches:  
       - main

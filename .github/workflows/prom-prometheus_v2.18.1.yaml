@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/prom-prometheus_v2.18.1.yaml
+      - prom/prometheus/v2.18.1/**
   pull_request:
     branches:  
       - main

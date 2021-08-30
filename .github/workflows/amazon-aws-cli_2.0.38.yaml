@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/amazon-aws-cli_2.0.38.yaml
+      - amazon/aws-cli/2.0.38/**
   pull_request:
     branches:
       - main

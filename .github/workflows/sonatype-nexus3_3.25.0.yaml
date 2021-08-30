@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/sonatype-nexus3_3.25.0.yaml
+      - sonatype/nexus3/3.25.0/**
   pull_request:
     branches:  
       - main

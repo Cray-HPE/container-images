@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/quay.io-cephcsi-cephcsi_v2.1.2.yaml
+      - quay.io/cephcsi/cephcsi/v2.1.2/**
   pull_request:
     branches:  
       - main

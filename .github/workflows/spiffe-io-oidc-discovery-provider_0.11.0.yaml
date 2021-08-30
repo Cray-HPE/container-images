@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/spiffe-io-oidc-discovery-provider_0.11.0.yaml
+      - spiffe-io/oidc-discovery-provider/0.11.0/**
   pull_request:
     branches:  
       - main
