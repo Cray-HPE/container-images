@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/ghostunnel-ghostunnel_v1.6.0-rc.3.yaml
+      - ghostunnel/ghostunnel/v1.6.0-rc.3/**
   pull_request:
     branches:
       - main

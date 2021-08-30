@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/minio-mc_latest.yaml
+      - minio/mc/latest/**
   pull_request:
     branches:  
       - main

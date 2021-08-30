@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/bats-bats_v1.1.0.yaml
+      - bats/bats/v1.1.0/**
   pull_request:
     branches:
       - main

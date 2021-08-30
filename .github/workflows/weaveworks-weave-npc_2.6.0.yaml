@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/weaveworks-weave-npc_2.6.0.yaml
+      - weaveworks/weave-npc/2.6.0/**
   pull_request:
     branches:  
       - main

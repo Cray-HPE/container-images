@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/istio-kubectl_1.2.4.yaml
+      - istio/kubectl/1.2.4/**
   pull_request:
     branches:  
       - main

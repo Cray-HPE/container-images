@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/grafana-grafana_7.0.5.yaml
+      - grafana/grafana/7.0.5/**
   pull_request:
     branches:
       - main

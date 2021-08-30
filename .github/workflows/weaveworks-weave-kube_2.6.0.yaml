@@ -4,8 +4,11 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/weaveworks-weave-kube_2.6.0.yaml
+      - weaveworks/weave-kube/2.6.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/weaveworks-weave-kube_2.6.0.yaml
