@@ -1,3 +1,0 @@
-FROM bitnami/minideb:buster
-
-
