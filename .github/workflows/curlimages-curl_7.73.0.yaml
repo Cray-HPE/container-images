@@ -8,7 +8,7 @@ on:
       - .github/workflows/curlimages-curl_7.73.0.yaml
       - curlimages/curl/7.73.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/curlimages-curl_7.73.0.yaml
@@ -67,14 +67,13 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest   
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master
