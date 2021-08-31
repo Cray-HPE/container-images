@@ -4,9 +4,12 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/docker.io-gitea-gitea_1.12.2.yaml
+      - docker.io/gitea/gitea/1.12.2/**
   pull_request:
     branches:
-      - main    
+      - main
     paths:
       - .github/workflows/docker.io-gitea-gitea_1.12.2.yaml
       - docker.io/gitea/gitea/1.12.2/**

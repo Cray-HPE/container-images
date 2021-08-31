@@ -4,8 +4,6 @@ on:
   push:
     branches:
       - main
-      - .github/workflows/banzaicloud-bank-vaults_1.6.0.yaml
-      - banzaicloud/bank-vaults/1.6.0/**
     paths:
       - .github/workflows/banzaicloud-bank-vaults_1.6.0.yaml
       - banzaicloud/bank-vaults/1.6.0/**
@@ -52,21 +50,30 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
+        uses: docker/build-push-action@v2
+        with:
+          context: ./banzaicloud/bank-vaults/${{ env.DOCKER_TAG }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v2
         with:
           context: ./banzaicloud/bank-vaults/${{ env.DOCKER_TAG }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master

@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - main
+    paths:
+      - .github/workflows/ceph-ceph_v16.2.yaml
+      - ceph/ceph/v16.2/**
   pull_request:
     branches:  
       - main
