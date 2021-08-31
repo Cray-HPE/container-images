@@ -8,7 +8,7 @@ on:
       - .github/workflows/banzaicloud-vault-operator_1.1.0.yaml
       - banzaicloud/vault-operator/1.1.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/banzaicloud-vault-operator_1.1.0.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/banzaicloud/vault-operator

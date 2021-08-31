@@ -8,7 +8,7 @@ on:
       - .github/workflows/ceph-ceph-grafana_6.7.4.yaml
       - ceph/ceph-grafana/6.7.4/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/ceph-ceph-grafana_6.7.4.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/ceph/ceph-grafana
@@ -66,7 +66,7 @@ jobs:
           context: ./ceph/ceph-grafana/${{ env.DOCKER_TAG }}
           push: true
           tags: |
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}  
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
       - name: Sign
         if: github.ref == 'refs/heads/main'

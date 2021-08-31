@@ -8,7 +8,7 @@ on:
       - .github/workflows/calico-kube-controllers_v3.13.2.yaml
       - calico/kube-controllers/v3.13.2/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/calico-kube-controllers_v3.13.2.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/calico/kube-controllers

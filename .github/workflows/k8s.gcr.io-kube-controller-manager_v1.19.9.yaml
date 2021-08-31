@@ -8,7 +8,7 @@ on:
       - .github/workflows/k8s.gcr.io-kube-controller-manager_v1.19.9.yaml
       - k8s.gcr.io/kube-controller-manager/v1.19.9/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/k8s.gcr.io-kube-controller-manager_v1.19.9.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-controller-manager

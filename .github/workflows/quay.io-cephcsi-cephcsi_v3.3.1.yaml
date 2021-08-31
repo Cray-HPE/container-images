@@ -8,7 +8,7 @@ on:
       - .github/workflows/quay.io-cephcsi-cephcsi_v3.3.1.yaml
       - quay.io/cephcsi/cephcsi/v3.3.1/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/quay.io-cephcsi-cephcsi_v3.3.1.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi
