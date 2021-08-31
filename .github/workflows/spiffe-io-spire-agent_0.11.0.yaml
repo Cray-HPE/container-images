@@ -8,7 +8,7 @@ on:
       - .github/workflows/spiffe-io-spire-agent_0.11.0.yaml
       - spiffe-io/spire-agent/0.11.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/spiffe-io-spire-agent_0.11.0.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/spiffe-io/spire-agent

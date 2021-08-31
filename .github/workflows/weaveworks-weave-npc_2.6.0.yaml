@@ -8,7 +8,7 @@ on:
       - .github/workflows/weaveworks-weave-npc_2.6.0.yaml
       - weaveworks/weave-npc/2.6.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/weaveworks-weave-npc_2.6.0.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/weaveworks/weave-npc

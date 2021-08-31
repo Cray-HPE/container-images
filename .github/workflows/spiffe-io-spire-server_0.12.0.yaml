@@ -8,7 +8,7 @@ on:
       - .github/workflows/spiffe-io-spire-server_0.12.0.yaml
       - spiffe-io/spire-server/0.12.0/**
   pull_request:
-    branches:  
+    branches:
       - main
     paths:
       - .github/workflows/spiffe-io-spire-server_0.12.0.yaml
@@ -17,7 +17,7 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     env:
       ALGOL60_USER: github-actions-cray-hpe
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/spiffe-io/spire-server
@@ -67,7 +67,7 @@ jobs:
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest   
+            ${{ env.DOCKER_REPO }}:latest
 
       - name: Sign
         if: github.ref == 'refs/heads/main'
