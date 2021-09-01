@@ -1,5 +1,4 @@
-FROM docker.io/postgres:10.3-alpine
+FROM docker.io/postgres:10.3
 
-RUN apk add --upgrade apk-tools &&  \
-    apk update && apk -U upgrade && \
-    rm -rf /var/cache/apk/*
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
