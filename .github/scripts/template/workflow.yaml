@@ -1,21 +1,27 @@
-name: IMGNAME
+name: <<NAME>>
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/IMGNAME.yaml
-      - IMGNAME/**
+      - .github/workflows/<<WORKFLOW>>.yaml
+      - <<CONTEXT_PATH>>/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/<<WORKFLOW>>.yaml
+      - <<CONTEXT_PATH>>/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      ALGOL60_USER: github-actions-cray-hpe
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/IMGNAME
-      DOCKER_TAG: v1.0.0
+      CONTEXT_PATH: <<CONTEXT_PATH>>
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/<<IMAGE>>
+      DOCKER_TAG: <<TAG>>
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -24,6 +30,7 @@ jobs:
         uses: sigstore/cosign-installer@main
         with:
           cosign-release: 'v1.0.0'
+
       - name: Check cosign install
         run: cosign version
 
@@ -31,7 +38,7 @@ jobs:
         uses: docker/login-action@v1
         with:
           registry: artifactory.algol60.net
-          username: ${{ env.ALGOL60_USER }}
+          username: github-actions-cray-hpe
           password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
 
       - name: Set up Cloud SDK for Signing
@@ -44,24 +51,33 @@ jobs:
       - name: Use gcloud CLI
         run: gcloud info
 
-      - name: Build
+      - name: Build Only
+        if: github.event_name == 'pull_request'
         uses: docker/build-push-action@v2
         with:
-          context: ./IMGNAME
+          context: ${{ env.CONTEXT_PATH }}
+          push: false
+          tags: |
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Build and Push
+        if: github.ref == 'refs/heads/main'
+        uses: docker/build-push-action@v2
+        with:
+          context: ${{ env.CONTEXT_PATH }}
           push: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-            ${{ env.DOCKER_REPO }}:latest
 
       - name: Sign
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
           cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
-          cosign sign -key $COSIGN_KEY -a GIT_HASH=$GITHUB_SHA ${{ env.DOCKER_REPO }}:latest
 
       - name: Snyk Scan
         uses: snyk/actions/docker@master
+        continue-on-error: true
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
