@@ -1,56 +1,96 @@
 #!/bin/bash
 
-function error() {
-	echo "Cannot parse image info"
-	exit 1
+set -e
+
+function usage(){
+    cat <<EOF
+Usage:
+
+    create_buildfiles.sh
+
+    Uses templates to generate files needed for github workflow
+
+    -i|--image <string>  Required: The name of the image
+    -t|--tag <string>    Required: The name of the tag
+
+    [-r|--registry <string>]              The registry to use. Defaults to docker.io
+    [-o|--org <string>]                   The docker org. If not set assumes official image with no org (eg alpine)
+    [-p|--package-manager <apk|apt|yum>]  The package manager to use whene generating a docker template. Defaults to apk
+
+    Examples
+
+    ./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1 -p apk
+
+EOF
 }
 
-function help() {
-	echo "Usage: $0 [image full name]"
-	echo "       $0 confluentinc/cp-kafka:6.1.1"
-	exit 1
-}
+REGISTRY="docker.io"
+ORG=""
+PACKAGE_MANAGER="apk"
 
-INPUT="$1"
-[[ -z "$INPUT" ]] && help
+while [[ "$#" -gt 0 ]]
+do
+  case $1 in
+    -h|--help)
+      usage
+      exit
+      ;;
+    -i|--image)
+      IMAGE="$2"
+      ;;
+    -t|--tag)
+      TAG="$2"
+      ;;
+    -r|--registry)
+      REGISTRY="$2"
+      ;;
+    -o|--org)
+      ORG="$2"
+      ;;
+    -p|--package-manager)
+      PACKAGE_MANAGER="$2"
+      ;;
+  esac
+  shift
+done
 
-function run_with_org() {
-    [[ ! -d $IMAGE_ORG/$IMAGE_NAME/$IMAGE_TAG ]] && mkdir -p $IMAGE_ORG/$IMAGE_NAME/$IMAGE_TAG
-    echo "FROM $INPUT" > $IMAGE_ORG/$IMAGE_NAME/$IMAGE_TAG/Dockerfile
-    docker build $IMAGE_ORG/$IMAGE_NAME/$IMAGE_TAG 2>&1 | tee temp_log
-    IMAGE_SHA256="$(awk '/writing image/ { print $4 }' temp_log)"
-    docker scan $IMAGE_SHA256
-    WORKFLOW_NAME="${IMAGE_ORG}-${IMAGE_NAME}_${IMAGE_TAG}"
-    cp .github/workflows/{curlimages-curl_7.73.0,$WORKFLOW_NAME}.yaml
-    sed -i.bkp "s/curlimages/${IMAGE_ORG}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    sed -i.bkp "s/curl/${IMAGE_NAME}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    sed -i.bkp "s/7.73.0/${IMAGE_TAG}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    rm -vf .github/workflows/$WORKFLOW_NAME.yaml.bkp
-    exit 0
-}
-
-function run_without_org() {
-    [[ ! -d $IMAGE_NAME/$IMAGE_TAG ]] && mkdir -p $$IMAGE_NAME/$IMAGE_TAG
-    echo "FROM $INPUT" > $IMAGE_NAME/$IMAGE_TAG/Dockerfile
-    docker build $IMAGE_NAME/$IMAGE_TAG 2>&1 | tee temp_log
-    IMAGE_SHA256="$(awk '/writing image/ { print $4 }' temp_log)"
-    docker scan $IMAGE_SHA256
-    WORKFLOW_NAME="${IMAGE_ORG}-${IMAGE_NAME}_${IMAGE_TAG}"
-    cp .github/workflows/{curlimages-curl_7.73.0,$WORKFLOW_NAME}.yaml
-    sed -i.bkp "s/curlimages/${IMAGE_ORG}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    sed -i.bkp "s/curl/${IMAGE_NAME}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    sed -i.bkp "s/7.73.0/${IMAGE_TAG}/g" .github/workflows/$WORKFLOW_NAME.yaml
-    rm -vf .github/workflows/$WORKFLOW_NAME.yaml.bkp
-    exit 0
-}
-
-IMAGE_FULL_NAME=$(echo $INPUT | cut -d: -f1)
-IMAGE_ORG=$(echo $IMAGE_FULL_NAME | cut -d/ -f1)
-IMAGE_NAME=$(echo $IMAGE_FULL_NAME | cut -d/ -f2)
-IMAGE_TAG="$(echo $INPUT | cut -d: -f2)"
-
-if [[ "$IMAGE_NAME" == "$IMAGE_ORG" ]]; then
-    run_without_org
-else
-    run_with_org
+if [[ -z "$IMAGE" ]]; then
+  echo "Missing Image"
+  usage
+  exit 1
 fi
+
+if [[ -z "$TAG" ]]; then
+  echo "Missing Tag"
+  usage
+  exit 1
+fi
+
+if [[ ! -z "$ORG" ]]; then
+  IMAGE="${ORG}/${IMAGE}"
+fi
+
+
+CONTEXT_PATH="${REGISTRY}/${IMAGE}/${TAG}"
+UPSTREAM_IMAGE="${REGISTRY}/${IMAGE}:${TAG}"
+
+echo "Creating ${CONTEXT_PATH}"
+mkdir -p ${CONTEXT_PATH}
+
+echo "Creating ${CONTEXT_PATH}/Dockerfile for ${PACKAGE_MANAGER} package manager"
+echo "Using upstream image ${UPSTREAM_IMAGE}"
+
+cp .github/scripts/template/Dockerfile.${PACKAGE_MANAGER} ${CONTEXT_PATH}/Dockerfile
+sed -i "s|<<UPSTREAM_IMAGE>>|${UPSTREAM_IMAGE}|g" ${CONTEXT_PATH}/Dockerfile
+
+WORKFLOW_NAME=${UPSTREAM_IMAGE////.}
+WORKFLOW_NAME=${WORKFLOW_NAME//:/.}
+WORKFLOW_PATH=".github/workflows/${WORKFLOW_NAME}.yaml"
+
+echo "Creating workflow ${WORKFLOW_PATH}"
+cp .github/scripts/template/workflow.yaml ${WORKFLOW_PATH}
+sed -i "s|<<NAME>>|${UPSTREAM_IMAGE}|g" ${WORKFLOW_PATH}
+sed -i "s|<<WORKFLOW>>|${WORKFLOW_NAME}|g" ${WORKFLOW_PATH}
+sed -i "s|<<CONTEXT_PATH>>|${CONTEXT_PATH}|g" ${WORKFLOW_PATH}
+sed -i "s|<<IMAGE>>|${REGISTRY}/${IMAGE}|g" ${WORKFLOW_PATH}
+sed -i "s|<<TAG>>|${TAG}|g" ${WORKFLOW_PATH}

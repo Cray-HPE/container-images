@@ -1,4 +1,4 @@
-FROM <<IMAGE>>:<<TAG>>
+FROM <<UPSTREAM_IMAGE>>
 
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/

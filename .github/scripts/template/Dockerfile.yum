@@ -1,3 +1,3 @@
-FROM <<IMAGE>>:<<TAG>>
+FROM <<UPSTREAM_IMAGE>>
 
 RUN yum -y update && yum clean all
