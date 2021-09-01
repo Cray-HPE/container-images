@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - feature/cleanup
     paths:
       - .github/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1.yaml
       - docker.io/unguiculus/docker-python3-phantomjs-selenium/v1/**
