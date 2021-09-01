@@ -70,6 +70,7 @@ jobs:
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
       - name: Sign
+        if: github.ref == 'refs/heads/main'
         env:
           COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
         run: |
