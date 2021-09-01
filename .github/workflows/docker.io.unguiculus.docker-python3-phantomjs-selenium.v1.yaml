@@ -1,0 +1,41 @@
+name: curl
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1
+      - docker.io/unguiculus/docker-python3-phantomjs-selenium/v1/*
+  workflow_dispatch:
+
+jobs:
+  build-sign-scan:
+    runs-on: self-hosted
+
+    env:
+      CONTEXT_PATH: docker.io/unguiculus/docker-python3-phantomjs-selenium/v1
+      DOCKER_REPO: csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium
+      DOCKER_TAG: v1
+
+      ARTIFACTORY_ALGOL60_TOKEN: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+      COSIGN_GCP_PROJECT_ID: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+      COSIGN_GCP_SA_KEY: ${{ secrets.COSIGN_GCP_SA_KEY }}
+      COSIGN_KEY: ${{ secrets.COSIGN_KEY }}
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Build Sign Scan
+        uses: ./.github/actions/build-sign-scan
+        with:
+          CONTEXT_PATH: ${{ env.CONTEXT_PATH }}
+          DOCKER_REPO: ${{ env.DOCKER_REPO }}
+          DOCKER_TAG: ${{ env.DOCKER_TAG }}
+
+          ARTIFACTORY_ALGOL60_TOKEN: ${{ env.ARTIFACTORY_ALGOL60_TOKEN }}
+          COSIGN_GCP_PROJECT_ID: ${{ env.COSIGN_GCP_PROJECT_ID }}
+          COSIGN_GCP_SA_KEY: ${{ env.COSIGN_GCP_SA_KEY }}
+          COSIGN_KEY: ${{ env.COSIGN_KEY }}
+          SNYK_TOKEN: ${{ env.SNYK_TOKEN }}
