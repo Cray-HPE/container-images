@@ -3,16 +3,20 @@
 ## Goal:
 ### Rebuild public images without vulnerabilities!
 
-## What are the steps to do?
+## What are the steps to add a new image?
 
-* Discover image from Cray-HPE needs.
-* Write a Dockerfile.
-* Run github actions workflow and fix vulnerabilites.
+1. Discover the upstream image that needs to be rebuilt for Cray-HPE needs.
+1. Run `create-buildfiles.sh` script
+1. Update Dockerfile if needed to address other vulnerabalities
+1. Create PR to see if job runs and see snyk scan results
+1. Merge PR to trigger build and push
+1. Update CSM references to use new algol60 reference
 
 ```
-git clone https://github.com/Cray-HPE/container-images.git
-cd scripts
-./create_buildfiles.sh <imagename>
+git clone https://github.com/Cray-HPE/container-images
+
+# Example
+./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1
 ```
 
 ## Naming conventions
