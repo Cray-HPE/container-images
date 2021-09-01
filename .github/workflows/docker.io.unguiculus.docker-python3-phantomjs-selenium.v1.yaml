@@ -1,4 +1,4 @@
-name: curl
+name: docker.io/unguiculus/docker-python3-phantomjs-selenium:v1
 
 on:
   push:
