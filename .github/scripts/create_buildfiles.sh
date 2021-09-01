@@ -15,18 +15,16 @@ Usage:
 
     [-r|--registry <string>]              The registry to use. Defaults to docker.io
     [-o|--org <string>]                   The docker org. If not set assumes official image with no org (eg alpine)
-    [-p|--package-manager <apk|apt|yum>]  The package manager to use whene generating a docker template. Defaults to apk
 
     Examples
 
-    ./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1 -p apk
+    ./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1
 
 EOF
 }
 
 REGISTRY="docker.io"
 ORG=""
-PACKAGE_MANAGER="apk"
 
 while [[ "$#" -gt 0 ]]
 do
@@ -46,9 +44,6 @@ do
       ;;
     -o|--org)
       ORG="$2"
-      ;;
-    -p|--package-manager)
-      PACKAGE_MANAGER="$2"
       ;;
   esac
   shift
@@ -73,6 +68,16 @@ fi
 
 CONTEXT_PATH="${REGISTRY}/${IMAGE}/${TAG}"
 UPSTREAM_IMAGE="${REGISTRY}/${IMAGE}:${TAG}"
+
+echo "Figure out package manager"
+for PKG_MGM in apk apt yum; do
+  set +e
+  docker run -ti --entrypoint ${PKG_MGM} ${UPSTREAM_IMAGE} >/dev/null 2>&1
+  if [[ "$?" != 127 ]]; then
+    PACKAGE_MANAGER=${PKG_MGM}
+  fi
+  set -e
+done
 
 echo "Creating ${CONTEXT_PATH}"
 mkdir -p ${CONTEXT_PATH}
