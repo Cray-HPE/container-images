@@ -57,13 +57,13 @@ do
 done
 
 if [[ -z "$IMAGE" ]]; then
-  echo "Missing Image"
+  echo "Error!! Missing Image"
   usage
   exit 1
 fi
 
 if [[ -z "$TAG" ]]; then
-  echo "Missing Tag"
+  echo "Error!! Missing Tag"
   usage
   exit 1
 fi
@@ -76,23 +76,43 @@ fi
 CONTEXT_PATH="${REGISTRY}/${IMAGE}/${TAG}"
 UPSTREAM_IMAGE="${REGISTRY}/${IMAGE}:${TAG}"
 
-echo "Figure out package manager"
-for PKG_MGM in apk apt yum; do
+echo "Using upstream image ${UPSTREAM_IMAGE}"
+echo "Running container locally to determine package manager"
+
+for PKG_MGM in foobar apk apt yum; do
   set +e
   docker run -ti --entrypoint ${PKG_MGM} ${UPSTREAM_IMAGE} >/dev/null 2>&1
-  if [[ "$?" != 127 ]]; then
+  EXIT_CODE=$?
+
+  if [[ "$EXIT_CODE" == 125 ]]; then
+    echo "Error!! Could not pull image ${UPSTREAM_IMAGE}"
+    exit 1
+  fi
+
+  if [[ "$EXIT_CODE" != 127 ]]; then
     PACKAGE_MANAGER=${PKG_MGM}
+    echo "Using package manager ${PACKAGE_MANAGER}"
+    break
   fi
   set -e
 done
 
-echo "Creating ${CONTEXT_PATH}"
+if [[ -z "$PACKAGE_MANAGER" ]]; then
+  echo ""
+  echo "Warning!! Could not determine pacakge manager for ${UPSTREAM_IMAGE}"
+  echo "Update the Dockerfile manually to address updates"
+  echo ""
+  TEMPLATE="Dockerfile"
+else
+  TEMPLATE="Dockerfile.${PACKAGE_MANAGER}"
+fi
+
+echo "Creating folder ${CONTEXT_PATH}"
 mkdir -p ${CONTEXT_PATH}
 
 echo "Creating ${CONTEXT_PATH}/Dockerfile for ${PACKAGE_MANAGER} package manager"
-echo "Using upstream image ${UPSTREAM_IMAGE}"
 
-cp .github/scripts/template/Dockerfile.${PACKAGE_MANAGER} ${CONTEXT_PATH}/Dockerfile
+cp .github/scripts/template/${TEMPLATE} ${CONTEXT_PATH}/Dockerfile
 $SED_BIN -i "s|<<UPSTREAM_IMAGE>>|${UPSTREAM_IMAGE}|g" ${CONTEXT_PATH}/Dockerfile
 
 WORKFLOW_NAME=${UPSTREAM_IMAGE////.}
