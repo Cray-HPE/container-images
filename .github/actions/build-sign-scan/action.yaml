@@ -48,9 +48,6 @@ inputs:
   DOCKER_REGISTRY_PASSWORD:
     description: Password to auth with registry
     required: true
-    default: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
-
-
 
 runs:
   using: "composite"
