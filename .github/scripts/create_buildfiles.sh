@@ -28,6 +28,13 @@ REGISTRY="docker.io"
 ORG=""
 PACKAGE_MANAGER="apk"
 
+OS="$(uname)"
+if [[ "$OS" == "Darwin" ]]; then
+  SED_BIN="gsed"
+else
+  SED_BIN="sed"
+fi
+
 while [[ "$#" -gt 0 ]]
 do
   case $1 in
@@ -81,7 +88,7 @@ echo "Creating ${CONTEXT_PATH}/Dockerfile for ${PACKAGE_MANAGER} package manager
 echo "Using upstream image ${UPSTREAM_IMAGE}"
 
 cp .github/scripts/template/Dockerfile.${PACKAGE_MANAGER} ${CONTEXT_PATH}/Dockerfile
-sed -i "s|<<UPSTREAM_IMAGE>>|${UPSTREAM_IMAGE}|g" ${CONTEXT_PATH}/Dockerfile
+$SED_BIN -i "s|<<UPSTREAM_IMAGE>>|${UPSTREAM_IMAGE}|g" ${CONTEXT_PATH}/Dockerfile
 
 WORKFLOW_NAME=${UPSTREAM_IMAGE////.}
 WORKFLOW_NAME=${WORKFLOW_NAME//:/.}
@@ -89,8 +96,8 @@ WORKFLOW_PATH=".github/workflows/${WORKFLOW_NAME}.yaml"
 
 echo "Creating workflow ${WORKFLOW_PATH}"
 cp .github/scripts/template/workflow.yaml ${WORKFLOW_PATH}
-sed -i "s|<<NAME>>|${UPSTREAM_IMAGE}|g" ${WORKFLOW_PATH}
-sed -i "s|<<WORKFLOW>>|${WORKFLOW_NAME}|g" ${WORKFLOW_PATH}
-sed -i "s|<<CONTEXT_PATH>>|${CONTEXT_PATH}|g" ${WORKFLOW_PATH}
-sed -i "s|<<IMAGE>>|${REGISTRY}/${IMAGE}|g" ${WORKFLOW_PATH}
-sed -i "s|<<TAG>>|${TAG}|g" ${WORKFLOW_PATH}
+$SED_BIN -i "s|<<NAME>>|${UPSTREAM_IMAGE}|g" ${WORKFLOW_PATH}
+$SED_BIN -i "s|<<WORKFLOW>>|${WORKFLOW_NAME}|g" ${WORKFLOW_PATH}
+$SED_BIN -i "s|<<CONTEXT_PATH>>|${CONTEXT_PATH}|g" ${WORKFLOW_PATH}
+$SED_BIN -i "s|<<IMAGE>>|${REGISTRY}/${IMAGE}|g" ${WORKFLOW_PATH}
+$SED_BIN -i "s|<<TAG>>|${TAG}|g" ${WORKFLOW_PATH}
