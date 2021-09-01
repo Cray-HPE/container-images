@@ -5,7 +5,7 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1
+      - .github/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1.yaml
       - docker.io/unguiculus/docker-python3-phantomjs-selenium/v1/*
   workflow_dispatch:
 
