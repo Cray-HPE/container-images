@@ -1,0 +1,4 @@
+FROM <<UPSTREAM_IMAGE>>
+
+RUN microdnf update\
+    && microdnf clean all

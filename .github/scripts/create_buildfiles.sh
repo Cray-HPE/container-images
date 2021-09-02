@@ -79,7 +79,7 @@ UPSTREAM_IMAGE="${REGISTRY}/${IMAGE}:${TAG}"
 echo "Using upstream image ${UPSTREAM_IMAGE}"
 echo "Running container locally to determine package manager"
 
-for PKG_MGM in foobar apk apt yum; do
+for PKG_MGM in foobar apk apt yum microdnf; do
   set +e
   docker run -ti --entrypoint ${PKG_MGM} ${UPSTREAM_IMAGE} >/dev/null 2>&1
   EXIT_CODE=$?
