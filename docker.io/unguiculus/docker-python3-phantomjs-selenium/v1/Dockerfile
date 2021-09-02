@@ -13,3 +13,7 @@ RUN PHANTOMJS_VERSION=2.1.1 && \
     ln -s /usr/local/phantomjs-${PHANTOMJS_VERSION}/phantomjs-${PHANTOMJS_VERSION}-${PHANTOMJS_PLATFORM}/bin/phantomjs /usr/local/bin/phantomjs && \
     rm -f phantomjs-${PHANTOMJS_VERSION}-${PHANTOMJS_PLATFORM}.tar.bz2 && \
     pip install selenium
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y && \
+    rm -rf /var/lib/apt/lists/ && \
+    echo export OPENSSL_CONF=/etc/ssl/ >> /etc/bash.bashrc
+
