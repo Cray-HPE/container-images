@@ -1,1 +1,0 @@
-FROM docker.io/prom/prometheus:v2.18.1

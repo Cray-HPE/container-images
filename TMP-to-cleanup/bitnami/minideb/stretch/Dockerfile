@@ -1,1 +1,0 @@
-FROM bitnami/minideb:stretch
