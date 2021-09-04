@@ -74,4 +74,4 @@ In the case of `shasta-1.3` we will pull unpatched images from `artifactory.algo
 
 
 ## Images status from Snyk check
-[Status](/Status.md)
+[Status](/status.md)
