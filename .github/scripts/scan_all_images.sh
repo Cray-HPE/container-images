@@ -47,8 +47,16 @@ echo "=========================================="
 echo "Scanning images for image directoriries"
 echo "=========================================="
 
-echo "| Docker Repo | Version | OK | Issues | Base Image |" > $STATUS_FILE
-echo "|--------|:--------|--------|--------|--------:|" >> $STATUS_FILE
+cat <<EOT > $STATUS_FILE
+# Snyk Status
+Automatically run by github actions _status_update.yaml worfklow
+
+Last update on `date`
+
+| Docker Repo | Version | OK | Issues | Base Image |
+|:--------|:--------|:--------|:--------|:--------|
+EOT
+
 for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   FULL_IMAGE="$REGISTRY_PREFIX/$IMAGE"
   IMAGE_PARTS=(${FULL_IMAGE//:/ })
@@ -63,6 +71,4 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${ISSUES}|${BASE_IMAGE}|"
   echo $RESULT_ROW
   echo $RESULT_ROW >> $STATUS_FILE
-
-  break
 done
