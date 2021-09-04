@@ -9,6 +9,8 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
 
       - uses: snyk/actions/setup@master
 
@@ -17,10 +19,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
 
-
-      - name: Commit status
-        run: |
-          git config --global user.name 'Github Actions'
-          git config --global user.email 'actions-runner@hpe.com'
-          git add status.md
-          (git commit -m "Status Update" && git push) || echo "No changes"
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: Github actions status update
+          file_pattern: status.md
