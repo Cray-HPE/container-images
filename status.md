@@ -1,14 +1,14 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Sep  4 08:04:51 UTC 2021
+Last update on Sun Sep  5 08:04:40 UTC 2021
 
 | Docker Repo | Version | OK | Issues | Base Image |
 |:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|:white_check_mark:|0|alpine:3.12.0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|:white_check_mark:|0|null|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns|0.5.16-debian-9-r8|:x:|90|bitnami/minideb:stretch|
+|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns|0.5.16-debian-9-r8|:x:|37|debian:11.0-slim|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|stretch|:x:|78|bitnami/minideb:stretch|
 |artifactory.algol60.net/csm-docker/stable/docker.io/centos|7|:white_check_mark:|0|centos:7.9.2009|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|:white_check_mark:|0|centos:8|
@@ -70,7 +70,7 @@ Last update on Sat Sep  4 08:04:51 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.2|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/bitnami/sealed-secrets-controller|v0.12.1|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:white_check_mark:|0|centos:8|
-|artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|:x:|631|null|
+|artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|:x:|632|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|:white_check_mark:|0|alpine:3.11.6|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/kube-state-metrics|v1.9.7|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/prometheus-config-reloader|v0.38.1|:white_check_mark:|0|null|
@@ -78,7 +78,7 @@ Last update on Sat Sep  4 08:04:51 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/jetstack/cert-manager-cainjector|v0.14.1|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/jetstack/cert-manager-controller|v0.14.1|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/jetstack/cert-manager-webhook|v0.14.1|:white_check_mark:|0|null|
-|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-attacher|v2.1.1|:x:|631|null|
+|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-attacher|v2.1.1|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v1.3.0|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v1.6.0|:white_check_mark:|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v0.5.0|:white_check_mark:|0|null|
