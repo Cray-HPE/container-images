@@ -53,8 +53,8 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on `date`
 
-| Docker Repo | Version | OK | Issues | Base Image |
-|:--------|:--------|:--------|:--------|:--------|
+| Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 
 for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
@@ -64,11 +64,17 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   echo "Scanning $FULL_IMAGE"
   RESULT=$(snyk --json container test $FULL_IMAGE)
   OK=$(echo $RESULT | jq -r .ok)
+
   ISSUES=$(echo $RESULT | jq -r .uniqueCount)
+  CRITICAL=$(echo $RESULT | jq -r '[ .vulnerabilities[] | select(.severity=="critical")] | length')
+  HIGH=$(echo $RESULT | jq -r '[ .vulnerabilities[] | select(.severity=="high")] | length')
+  MEDIUM=$(echo $RESULT | jq -r '[ .vulnerabilities[] | select(.severity=="medium")] | length')
+  LOW=$(echo $RESULT | jq -r '[ .vulnerabilities[] | select(.severity=="low")] | length')
+
   BASE_IMAGE=$(echo $RESULT | jq -r .docker.baseImage)
 
   SYMBOL=$([[ $OK = "true" ]] && echo ':white_check_mark:' || echo ':x:')
-  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${ISSUES}|${BASE_IMAGE}|"
+  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${ISSUES}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|"
   echo $RESULT_ROW
   echo $RESULT_ROW >> $STATUS_FILE
 done
