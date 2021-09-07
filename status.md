@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Tue Sep  7 20:39:52 UTC 2021
+Last update on Tue Sep  7 21:20:44 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -49,7 +49,7 @@ Last update on Tue Sep  7 20:39:52 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/operator|0.15.0|:white_check_mark:|0|0|0|0|0|centos:7|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:x:|158|5|5|15|133|python:3.9.7-bullseye|
 |artifactory.algol60.net/csm-docker/stable/docker.io/vault|1.5.5|:white_check_mark:|0|0|0|0|0|alpine:3.10.5|
-|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|:x:|null|||||null|
+|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|:x:|15|0|0|0|15|ubuntu:focal-20200925|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:x:|25|0|0|3|22|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-restic-restore-helper|v1.5.2|:x:|15|0|0|0|15|ubuntu:focal-20200925|
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-kube|2.8.0|:white_check_mark:|0|0|0|0|0|alpine:3.10.5|
@@ -69,7 +69,7 @@ Last update on Tue Sep  7 20:39:52 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.2|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/bitnami/sealed-secrets-controller|v0.12.1|:white_check_mark:|0|0|0|0|0|null|
-|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:white_check_mark:|0|0|0|0|0|centos:8|
+|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:x:|null|||||null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|:x:|632|0|12|276|344|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|:white_check_mark:|0|0|0|0|0|alpine:3.11.6|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/kube-state-metrics|v1.9.7|:white_check_mark:|0|0|0|0|0|null|
