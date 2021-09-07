@@ -1,7 +1,13 @@
 name: docker.io/zeromq/zeromq:v4.0.5
 
 on:
-  [push | pull_request]:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml
+      - docker.io/zeromq/zeromq/v4.0.5/**
+  pull_request:
     branches:
       - main
     paths:
