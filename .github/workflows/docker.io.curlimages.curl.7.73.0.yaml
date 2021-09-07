@@ -53,12 +53,13 @@ jobs:
 
       - name: Build Only
         if: github.event_name == 'pull_request'
-        uses: docker/build-push-action@v2
+        uses: whoan/docker-build-with-cache-action@v5
         with:
-          context: ${{ env.CONTEXT_PATH }}
-          push: false
-          tags: |
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+          username: github-actions-cray-hpe
+          password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          registry: artifactory.algol60.net
+          image_name: csm-docker/stable/docker.io/curlimages/curl
+          image_tag: ${{ env.DOCKER_TAG }}
 
       - name: Build and Push
         if: github.ref == 'refs/heads/main'
