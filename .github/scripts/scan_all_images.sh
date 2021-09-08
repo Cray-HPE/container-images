@@ -79,4 +79,4 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 done
-printf "%s\n" "${RESULT_ROWS[@]}" | sort  --key 6,5 -t '|' -n -r >> $STATUS_FILE
+printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 6 --key 5 -t '|' -n -r >> $STATUS_FILE
