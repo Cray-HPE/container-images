@@ -1,4 +1,5 @@
-FROM docker.io/istio/kubectl:1.5.4
+FROM docker.io/istio/kubectl:1.5.4 as source
 
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+FROM gcr.io/distroless/static
+COPY --from=source /usr/bin/kubectl /usr/bin/kubectl
+CMD ["/usr/bin/kubectl"]
