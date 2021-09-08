@@ -1,4 +1,5 @@
-FROM k8s.gcr.io/kube-proxy:v1.19.9
+FROM k8s.gcr.io/kube-proxy:v1.19.9 as source
 
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+FROM gcr.io/distroless/static
+COPY --from=source /usr/local/bin/kube-proxy /usr/local/bin/kube-proxy
+CMD ["/usr/local/bin/kube-proxy"]
