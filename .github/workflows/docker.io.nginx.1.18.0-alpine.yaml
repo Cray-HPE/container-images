@@ -1,27 +1,27 @@
-name: docker.io/nginx:1.18.0
+name: docker.io/nginx:1.18.0-alpine
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.nginx.1.18.0.yaml
-      - docker.io/nginx/1.18.0/**
+      - .github/workflows/docker.io.nginx.1.18.0-alpine.yaml
+      - docker.io/nginx/1.18.0-alpine/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.nginx.1.18.0.yaml
-      - docker.io/nginx/1.18.0/**
+      - .github/workflows/docker.io.nginx.1.18.0-alpine.yaml
+      - docker.io/nginx/1.18.0-alpine/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/nginx/1.18.0
+      CONTEXT_PATH: docker.io/nginx/1.18.0-alpine
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/nginx
-      DOCKER_TAG: 1.18.0
+      DOCKER_TAG: 1.18.0-alpine
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
