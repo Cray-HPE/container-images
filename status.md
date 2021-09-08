@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Tue Sep  7 21:20:44 UTC 2021
+Last update on Wed Sep  8 08:04:35 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -69,7 +69,7 @@ Last update on Tue Sep  7 21:20:44 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.2|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/bitnami/sealed-secrets-controller|v0.12.1|:white_check_mark:|0|0|0|0|0|null|
-|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:x:|null|||||null|
+|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:white_check_mark:|0|0|0|0|0|centos:8|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|:x:|632|0|12|276|344|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|:white_check_mark:|0|0|0|0|0|alpine:3.11.6|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/kube-state-metrics|v1.9.7|:white_check_mark:|0|0|0|0|0|null|
