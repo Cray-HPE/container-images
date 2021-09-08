@@ -29,7 +29,7 @@ jobs:
       - name: Install cosign
         uses: sigstore/cosign-installer@main
         with:
-          cosign-release: 'v1.0.0'
+          cosign-release: "v1.0.0"
 
       - name: Check cosign install
         run: cosign version
@@ -57,6 +57,8 @@ jobs:
         with:
           context: ${{ env.CONTEXT_PATH }}
           push: false
+          no-cache: true
+          pull: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
@@ -66,6 +68,8 @@ jobs:
         with:
           context: ${{ env.CONTEXT_PATH }}
           push: true
+          no-cache: true
+          pull: true
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
 
