@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Wed Sep  8 08:04:35 UTC 2021
+Last update on Wed Sep  8 07:54:50 -03 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -34,7 +34,7 @@ Last update on Wed Sep  8 08:04:35 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:x:|37|1|0|1|35|openjdk:11.0.12-jre-slim-bullseye|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/gatekeeper|v3.1.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa|0.24.0-envoy-1|:x:|39|6|7|7|19|null|
-|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|10.3|:white_check_mark:|0|0|0|0|0|null|
+|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|10.3|:x:|134|11|19|17|87|postgres:10.3|
 |artifactory.algol60.net/csm-docker/stable/docker.io/postgres|13.2|:x:|81|2|11|10|58|postgres:13.2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/prometheus|v2.19.2|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/pushgateway|v0.8.0|:white_check_mark:|0|0|0|0|0|null|
