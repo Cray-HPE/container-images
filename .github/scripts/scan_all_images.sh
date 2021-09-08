@@ -56,6 +56,7 @@ Last update on `date`
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 
+RESULT_ROWS=()
 for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   FULL_IMAGE="$REGISTRY_PREFIX/$IMAGE"
   IMAGE_PARTS=(${FULL_IMAGE//:/ })
@@ -76,5 +77,6 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
   SYMBOL=$([[ $OK = "true" ]] && echo ':white_check_mark:' || echo ':x:')
   RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|"
   echo $RESULT_ROW
-  echo $RESULT_ROW >> $STATUS_FILE
+  RESULT_ROWS+=("$RESULT_ROW")
 done
+printf "%s\n" "${RESULT_ROWS[@]}" | sort  --key 5 -t '|' -n -r >> $STATUS_FILE
