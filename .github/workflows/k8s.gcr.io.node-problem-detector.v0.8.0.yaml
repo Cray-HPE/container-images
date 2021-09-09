@@ -26,10 +26,13 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
+      - name: debug
+        run: ls -l
+
       - name: Install cosign
         uses: sigstore/cosign-installer@main
         with:
-          cosign-release: 'v1.0.0'
+          cosign-release: "v1.0.0"
 
       - name: Check cosign install
         run: cosign version
@@ -50,6 +53,11 @@ jobs:
 
       - name: Use gcloud CLI
         run: gcloud info
+
+      - name: Pre-build
+        run: |
+          cd ${{ env.CONTEXT_PATH }}
+          [[ -x prebuild.sh ]] && ./prebuild.sh
 
       - name: Build Only
         if: github.event_name == 'pull_request'
