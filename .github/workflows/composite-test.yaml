@@ -1,14 +1,8 @@
-on: [push]
-
 jobs:
-  hello_world_job:
-    runs-on: ubuntu-latest
-    name: A job to say hello
+  build:
+    runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - id: foo
-        uses: actions/container-images@v1
-        with:
-          who-to-greet: 'Mona the Octocat'
-      - run: echo random-number ${{ steps.foo.outputs.random-number }}
-        shell: bash
+    - uses: actions/checkout@v2
+    - uses: octocat/say-hello@v1
+      with: 
+        name: OctoCat
