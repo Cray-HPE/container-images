@@ -4,4 +4,4 @@ FROM gcr.io/distroless/static
 COPY node-problem-detector/output/linux_arm64/bin/node-problem-detector /
 COPY --from=upstream /home/kubernetes /home/kubernetes
 COPY --from=upstream /config /config
-ENTRYPOINT ["/node-problem-detector" "--system-log-monitors=/config/kernel-monitor.json"]
+ENTRYPOINT ["/node-problem-detector","--system-log-monitors=/config/kernel-monitor.json"]
