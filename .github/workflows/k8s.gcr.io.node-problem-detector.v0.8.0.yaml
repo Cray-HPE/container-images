@@ -26,11 +26,6 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: Setup Go binary
-        uses: actions/setup-go@v2
-        with:
-          go-version: "^1.17.1"
-
       - name: Install cosign
         uses: sigstore/cosign-installer@main
         with:
@@ -55,11 +50,6 @@ jobs:
 
       - name: Use gcloud CLI
         run: gcloud info
-
-      - name: Pre-build
-        run: |
-          cd ${{ env.CONTEXT_PATH }}
-          [[ -x prebuild.sh ]] && ./prebuild.sh
 
       - name: Build Only
         if: github.event_name == 'pull_request'
