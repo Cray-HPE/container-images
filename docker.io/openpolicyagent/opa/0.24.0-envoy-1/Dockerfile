@@ -1,7 +1,11 @@
-FROM docker.io/openpolicyagent/opa:0.24.0-envoy-1 as upstream
+FROM golang:1.17-buster as builder
+RUN git clone https://github.com/open-policy-agent/opa-envoy-plugin /opt/opa-envoy-plugin\
+    && cd /opt/opa-envoy-plugin\
+    && git checkout v0.24.0-envoy-1\
+    && CGO_ENABLED=0 make
 
-FROM gcr.io/distroless/base-debian11
-COPY --from=upstream /app /app
+FROM gcr.io/distroless/static
+COPY --from=builder /opt/opa-envoy-plugin/opa_envoy_linux_amd64 /app/opa_envoy_linux_amd64
 WORKDIR /app
 ENTRYPOINT ["./opa_envoy_linux_amd64"]
 CMD ["run"]
