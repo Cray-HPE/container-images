@@ -1,12 +1,11 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Sep 10 19:06:30 UTC 2021
+Last update on Fri Sep 10 23:27:36 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|37|1|0|1|35|bitnami/minideb:bullseye|
-|artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa|0.24.0-envoy-1|:x:|12|1|0|0|11|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|69|0|0|11|58|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|53|0|0|19|34|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|29|0|0|5|24|ubuntu:20.04|
@@ -67,6 +66,7 @@ Last update on Fri Sep 10 19:06:30 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/prometheus|v2.19.2|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/postgres|13.2-alpine|:white_check_mark:|0|0|0|0|0|postgres:13.2-alpine|
 |artifactory.algol60.net/csm-docker/stable/docker.io/postgres|10.3-alpine|:white_check_mark:|0|0|0|0|0|null|
+|artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa|0.24.0-envoy-1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/gatekeeper|v3.1.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/nginx|1.18.0-alpine|:white_check_mark:|0|0|0|0|0|nginx:1.18-alpine|
 |artifactory.algol60.net/csm-docker/stable/docker.io/nfvpe/multus|v3.1|:white_check_mark:|0|0|0|0|0|null|
