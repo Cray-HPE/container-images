@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Sep 10 17:52:50 UTC 2021
+Last update on Fri Sep 10 19:06:30 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -12,7 +12,7 @@ Last update on Fri Sep 10 17:52:50 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|29|0|0|5|24|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|25|0|0|3|22|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:white_check_mark:|15|0|0|0|15|ubuntu:20.04|
-|artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:x:|4|0|2|2|0|python:3.8.2-alpine|
+|artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:white_check_mark:|1|0|0|1|0|python:3.8.2-alpine|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|:white_check_mark:|0|0|0|0|0|alpine:3.12.6|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/prometheus|v2.18.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/node-exporter|v1.0.0|:white_check_mark:|0|0|0|0|0|null|
