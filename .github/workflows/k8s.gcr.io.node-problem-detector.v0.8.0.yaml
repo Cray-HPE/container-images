@@ -1,27 +1,27 @@
-name: k8s.gcr.io/node-problem-detector:v0.8.0
+name: k8s.gcr.io/node-problem-detector:v0.8.1
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.0.yaml
-      - k8s.gcr.io/node-problem-detector/v0.8.0/**
+      - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.1.yaml
+      - k8s.gcr.io/node-problem-detector/v0.8.1/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.0.yaml
-      - k8s.gcr.io/node-problem-detector/v0.8.0/**
+      - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.1.yaml
+      - k8s.gcr.io/node-problem-detector/v0.8.1/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: k8s.gcr.io/node-problem-detector/v0.8.0
+      CONTEXT_PATH: k8s.gcr.io/node-problem-detector/v0.8.1
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/node-problem-detector
-      DOCKER_TAG: v0.8.0
+      DOCKER_TAG: v0.8.1
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
       - name: Install cosign
         uses: sigstore/cosign-installer@main
         with:
-          cosign-release: 'v1.0.0'
+          cosign-release: "v1.0.0"
 
       - name: Check cosign install
         run: cosign version

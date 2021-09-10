@@ -1,27 +1,27 @@
-name: docker.io/bitnami/minideb:stretch
+name: docker.io/bitnami/minideb:bullseye
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.bitnami.minideb.stretch.yaml
-      - docker.io/bitnami/minideb/stretch/**
+      - .github/workflows/docker.io.bitnami.minideb.bullseye.yaml
+      - docker.io/bitnami/minideb/bullseye/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.bitnami.minideb.stretch.yaml
-      - docker.io/bitnami/minideb/stretch/**
+      - .github/workflows/docker.io.bitnami.minideb.bullseye.yaml
+      - docker.io/bitnami/minideb/bullseye/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/bitnami/minideb/stretch
+      CONTEXT_PATH: docker.io/bitnami/minideb/bullseye
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb
-      DOCKER_TAG: stretch
+      DOCKER_TAG: bullseye
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
