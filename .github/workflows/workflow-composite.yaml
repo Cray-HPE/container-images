@@ -1,0 +1,57 @@
+name: workflow-composite
+
+on:
+  push:
+    branches:
+      - workflow-composite
+    paths:
+      - .github/workflows/workflow-composite.yaml
+      - workflow-composite/**
+  pull_request:
+    branches:
+      - workflow-composite
+    paths:
+      - .github/workflows/workflow-composite.yaml
+      - workflow-composite/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+      CONTEXT_PATH: docker.io/curlimages/curl/7.73.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl
+      DOCKER_TAG: 7.73.0
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: composite-build-only
+        if: github.event_name == 'pull_request'
+        uses: ./.github/actions/cray-composite
+        with:
+          context_path: ${{ env.CONTEXT_PATH }}
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
+          docker_push: false
+          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          cosign_key: ${{ secrets.COSIGN_KEY }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
+          github_sha: $GITHUB_SHA
+
+      - name: composite-build-push
+        if: github.ref == 'refs/heads/main'
+        uses: ./.github/actions/cray-composite
+        with:
+          context_path: ${{ env.CONTEXT_PATH }}
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
+          docker_push: true
+          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          cosign_key: ${{ secrets.COSIGN_KEY }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
+          github_sha: $GITHUB_SHA
