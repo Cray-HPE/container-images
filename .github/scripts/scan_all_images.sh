@@ -63,7 +63,6 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
 
   echo "Scanning $FULL_IMAGE"
   RESULT=$(snyk --json container test $FULL_IMAGE)
-  OK=$(echo $RESULT | jq -r .ok)
 
   UNIQUE_COUNT=$(echo $RESULT | jq -r .uniqueCount)
   UNIQUE_ISSUES=$(echo $RESULT | jq -r '.vulnerabilities | unique_by(.id)')
@@ -74,7 +73,11 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
 
   BASE_IMAGE=$(echo $RESULT | jq -r .docker.baseImage)
 
-  SYMBOL=$([[ $OK = "true" ]] && echo ':white_check_mark:' || echo ':x:')
+  SYMBOL=$(echo ':white_check_mark:')
+  if [ "$CRITICAL" != "0" ] || [ "$HIGH" != "0" ]; then
+    SYMBOL=$(echo ':x:')
+  fi
+
   RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
