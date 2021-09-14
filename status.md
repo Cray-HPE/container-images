@@ -1,15 +1,15 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Sep 13 08:04:43 UTC 2021
+Last update on Tue Sep 14 01:58:29 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|37|1|0|1|35|bitnami/minideb:bullseye|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|53|0|0|19|34|ubuntu:bionic-20200403|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|50|0|0|17|33|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|69|0|0|11|58|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|29|0|0|5|24|ubuntu:20.04|
-|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|25|0|0|3|22|ubuntu:bionic-20200403|
+|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|22|0|0|1|21|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:white_check_mark:|1|0|0|1|0|python:3.8.2-alpine|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:white_check_mark:|15|0|0|0|15|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|:white_check_mark:|0|0|0|0|0|alpine:3.12.6|
@@ -44,6 +44,8 @@ Last update on Mon Sep 13 08:04:43 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-controller-manager|v1.19.9|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-apiserver|v1.19.9|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/coredns|1.7.0|:white_check_mark:|0|0|0|0|0|null|
+|artifactory.algol60.net/csm-docker/stable/ghcr.io/banzaicloud/vault-operator|1.8.0|:white_check_mark:|0|0|0|0|0|alpine:3.12.1|
+|artifactory.algol60.net/csm-docker/stable/ghcr.io/banzaicloud/bank-vaults|1.8.0|:white_check_mark:|0|0|0|0|0|alpine:3.12.1|
 |artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/spire-server|0.12.2|:white_check_mark:|0|0|0|0|0|alpine:3.13.4|
 |artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/spire-agent|0.12.2|:white_check_mark:|0|0|0|0|0|alpine:3.13.4|
 |artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/oidc-discovery-provider|0.12.2|:white_check_mark:|0|0|0|0|0|alpine:3.13.4|
