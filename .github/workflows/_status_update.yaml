@@ -27,4 +27,3 @@ jobs:
         with:
           commit_message: Github actions status update
           file_pattern: status.md
-          push_options: --force          
