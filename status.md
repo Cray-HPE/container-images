@@ -1,11 +1,11 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Tue Sep 14 01:58:29 UTC 2021
+Last update on Tue Sep 14 08:04:36 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|37|1|0|1|35|bitnami/minideb:bullseye|
+|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|37|1|0|2|34|bitnami/minideb:bullseye|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|50|0|0|17|33|ubuntu:bionic-20200403|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|69|0|0|11|58|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|29|0|0|5|24|ubuntu:20.04|
