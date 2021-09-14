@@ -69,6 +69,7 @@ jobs:
           tags: |
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
             ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}-csm0.9
+            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}-csm1.0
 
       - name: Sign
         if: github.ref == 'refs/heads/main'
