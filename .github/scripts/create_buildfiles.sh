@@ -122,7 +122,8 @@ if [ "$GENERATE" == "dockerfile" ] || [ "$GENERATE" == "both" ]; then
 
   cp .github/scripts/template/${TEMPLATE} ${CONTEXT_PATH}/Dockerfile
   $SED_BIN -i "s|<<UPSTREAM_IMAGE>>|${UPSTREAM_IMAGE}|g" ${CONTEXT_PATH}/Dockerfile
-elif [ "$GENERATE" == "workflow" ] || [ "$GENERATE" == "both" ]; then
+fi
+if [ "$GENERATE" == "workflow" ] || [ "$GENERATE" == "both" ]; then
   WORKFLOW_NAME=${UPSTREAM_IMAGE////.}
   WORKFLOW_NAME=${WORKFLOW_NAME//:/.}
   WORKFLOW_PATH=".github/workflows/${WORKFLOW_NAME}.yaml"
