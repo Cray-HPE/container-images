@@ -23,6 +23,8 @@ inputs:
     required: true
   fail_on_trivy_action_vulnerabilities:
     default: false
+  docker_additional_tags:
+    default: []
 
 runs:
   using: "composite"
@@ -56,6 +58,7 @@ runs:
         push: ${{ inputs.docker_push }}
         tags: |
           ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
+          ${{ join( inputs.docker_additional_tags, '\n' )}
 
     - name: Sign
       run: |
