@@ -83,3 +83,11 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}
+
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: config
+          exit-code: '1'
+          scan-ref: '${{ env.CONTEXT_PATH }}'
+          severity: 'CRITICAL,HIGH'
