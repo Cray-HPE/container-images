@@ -1,17 +1,17 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Tue Sep 14 08:04:36 UTC 2021
+Last update on Wed Sep 15 08:04:49 UTC 2021
 
 | Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|37|1|0|2|34|bitnami/minideb:bullseye|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|50|0|0|17|33|ubuntu:bionic-20200403|
-|artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|69|0|0|11|58|ubuntu:20.04|
-|artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|29|0|0|5|24|ubuntu:20.04|
-|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|22|0|0|1|21|ubuntu:bionic-20200403|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|51|0|0|18|33|ubuntu:bionic-20200403|
+|artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|70|0|0|12|58|ubuntu:20.04|
+|artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|30|0|0|6|24|ubuntu:20.04|
+|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|23|0|0|2|21|ubuntu:bionic-20200403|
+|artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:white_check_mark:|16|0|0|1|15|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:white_check_mark:|1|0|0|1|0|python:3.8.2-alpine|
-|artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:white_check_mark:|15|0|0|0|15|ubuntu:20.04|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|:white_check_mark:|0|0|0|0|0|alpine:3.12.6|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/prometheus|v2.18.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/node-exporter|v1.0.0|:white_check_mark:|0|0|0|0|0|null|
@@ -21,7 +21,7 @@ Last update on Tue Sep 14 08:04:36 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v2.1.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v2.1.0|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v0.5.0|:white_check_mark:|0|0|0|0|0|null|
-|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v1.6.0|:white_check_mark:|0|0|0|0|0|null|
+|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v1.6.0|:x:|null|||||null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v1.3.0|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-attacher|v2.1.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/jetstack/cert-manager-webhook|v0.14.1|:white_check_mark:|0|0|0|0|0|null|
@@ -30,7 +30,7 @@ Last update on Tue Sep 14 08:04:36 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/prometheus-operator|v0.38.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/prometheus-config-reloader|v0.38.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/kube-state-metrics|v1.9.7|:white_check_mark:|0|0|0|0|0|null|
-|artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|:white_check_mark:|0|0|0|0|0|alpine:3.11.6|
+|artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|:x:|null|||||null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|latest|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|:white_check_mark:|0|0|0|0|0|centos:8|
@@ -66,7 +66,7 @@ Last update on Tue Sep 14 08:04:36 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/statsd-exporter|v0.18.0|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/pushgateway|v0.8.0|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/prometheus|v2.19.2|:white_check_mark:|0|0|0|0|0|null|
-|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|13.2-alpine|:white_check_mark:|0|0|0|0|0|postgres:13.2-alpine|
+|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|13.2-alpine|:x:|null|||||null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/postgres|10.3-alpine|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa|0.24.0-envoy-1|:white_check_mark:|0|0|0|0|0|null|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/gatekeeper|v3.1.1|:white_check_mark:|0|0|0|0|0|null|
