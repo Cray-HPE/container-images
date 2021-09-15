@@ -23,6 +23,8 @@ inputs:
     required: true
   fail_on_trivy_action_vulnerabilities:
     default: false
+  docker_additional_tags:
+    default: ""
 
 runs:
   using: "composite"
@@ -56,7 +58,7 @@ runs:
         push: ${{ inputs.docker_push }}
         tags: |
           ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
-
+          ${{ inputs.docker_additional_tags }}
     - name: Sign
       run: |
         COSIGN_KEY=${{ inputs.cosign_key }} cosign sign -key ${{ inputs.cosign_key }} -a GIT_HASH=${{ inputs.github_sha }} ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
