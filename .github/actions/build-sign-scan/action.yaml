@@ -66,19 +66,20 @@ runs:
         COSIGN_KEY=${{ inputs.cosign_key }} cosign sign -key ${{ inputs.cosign_key }} -a GIT_HASH=${{ inputs.github_sha }} ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
       shell: bash
 
+    - name: Snyk setup
+      uses: snyk/actions/setup@master
+
     - name: Snyk Scan
-      uses: snyk/actions/docker@master
-      continue-on-error: ${{ ! inputs.fail_on_snyk_errors }}
+      run: snyk test --docker ${{ inputs.docker_repo }}:${{ inputs.docker_tag }} || (exit ${{ inputs.fail_on_snyk_errors && '0' || '1' }} )
+      shell: bash
       env:
         SNYK_TOKEN: ${{ inputs.snyk_token }}
-      with:
-        image: ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
 
     - name: Run Trivy vulnerability scanner
       uses: aquasecurity/trivy-action@master
       with:
         scan-type: config
-        exit-code: ${{ inputs.fail_on_trivy_action_vulnerabilities  && '0' || '1' }}
+        exit-code: ${{ inputs.fail_on_trivy_action_vulnerabilities && '0' || '1' }}
         scan-ref: '${{ inputs.context_path }}'
         severity: 'CRITICAL,HIGH'
         hide-progress: false
