@@ -21,6 +21,8 @@ inputs:
     required: true
   github_sha:
     required: true
+  fail_on_trivy_action_vulnerabilities:
+    default: false
 
 runs:
   using: "composite"
@@ -66,3 +68,12 @@ runs:
         SNYK_TOKEN: ${{ inputs.snyk_token }}
       with:
         image: ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
+
+    - name: Run Trivy vulnerability scanner
+      uses: aquasecurity/trivy-action@master
+      with:
+        scan-type: config
+        exit-code: ${{ inputs.fail_on_trivy_action_vulnerabilities  && '0' || '1' }}
+        scan-ref: '${{ inputs.context_path }}'
+        severity: 'CRITICAL,HIGH'
+        hide-progress: false
