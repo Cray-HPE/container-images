@@ -91,4 +91,3 @@ jobs:
           exit-code: '1'
           scan-ref: '${{ env.CONTEXT_PATH }}'
           severity: 'CRITICAL,HIGH'
-          hide-progress: false
