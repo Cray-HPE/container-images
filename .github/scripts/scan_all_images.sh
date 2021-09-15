@@ -22,7 +22,7 @@ for REGISTRY in "${REGISTRY_DIRECTORIES[@]}"; do
         if [ -f "$VERSION_OR_ORG_DIR/Dockerfile" ]; then
           IMAGE="$REGISTRY/$ORG_OR_IMAGE_NAME:$VERSION_OR_ORG_NAME"
           echo "Found $IMAGE"
-          IMAGES_TO_SCAN+=("$IMAGE")
+          IMAGES_TO_SCAN+=("$IMAGE|$VERSION_OR_ORG_DIR")
         else
 
           # In an org level folder
@@ -32,7 +32,7 @@ for REGISTRY in "${REGISTRY_DIRECTORIES[@]}"; do
             if [ -f "$ORG_IMAGE_DIR/Dockerfile" ]; then
               IMAGE="$REGISTRY/$ORG_OR_IMAGE_NAME/$VERSION_OR_ORG_NAME:$ORG_IMAGE_VERSION"
               echo "Found $IMAGE"
-              IMAGES_TO_SCAN+=("$IMAGE")
+              IMAGES_TO_SCAN+=("$IMAGE|$ORG_IMAGE_DIR")
             fi
           done
 
@@ -52,12 +52,16 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on `date`
 
-| Docker Repo | Version | OK | Total Issues | Critical | High | Medium | Low | Base Image |
-|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
+| Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 
 RESULT_ROWS=()
-for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
+for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
+  IMAGE_DIR_PARTS=(${IMAGE_DIR//|/ })
+  IMAGE=${IMAGE_DIR_PARTS[0]}
+  IMAGE_DIR=${IMAGE_DIR_PARTS[1]}
+
   FULL_IMAGE="$REGISTRY_PREFIX/$IMAGE"
   IMAGE_PARTS=(${FULL_IMAGE//:/ })
 
@@ -73,13 +77,24 @@ for IMAGE in "${IMAGES_TO_SCAN[@]}"; do
 
   BASE_IMAGE=$(echo $RESULT | jq -r .docker.baseImage)
 
-  SYMBOL=$(echo ':white_check_mark:')
+  SYMBOL=':white_check_mark:'
   if [ "$CRITICAL" != "0" ] || [ "$HIGH" != "0" ]; then
-    SYMBOL=$(echo ':x:')
+    SYMBOL=':x:'
   fi
 
-  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|"
+  echo "Scanning $IMAGE_DIR"
+  TRIVY_OUTPUT=$(TRIVY_NEW_JSON_SCHEMA=true trivy -q config -f json -s 'CRITICAL,HIGH' $IMAGE_DIR)
+
+  TRIVY_MISCONFIGS=$(echo $TRIVY_OUTPUT | jq '.Results[0].Misconfigurations | length')
+
+  TRIVY_IS_ROOT=$(echo $TRIVY_OUTPUT | jq '.Results[0].Misconfigurations | any(.ID | contains("DS002"))')
+  NON_ROOT_SYMBOL=':white_check_mark:'
+  if [ "$TRIVY_IS_ROOT" == "true" ]; then
+    NON_ROOT_SYMBOL=':x:'
+  fi
+
+  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 done
-printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 6 --key 7 --key 8 --key 9 -t '|' -n -r >> $STATUS_FILE
+printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 7 --key 8 --key 9 --key 10 -t '|' -n -r >> $STATUS_FILE
