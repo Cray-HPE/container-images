@@ -27,7 +27,6 @@ jobs:
         uses: actions/checkout@v2
 
       - name: composite-build-only
-        if: github.event_name == 'pull_request'
         uses: ./.github/actions/cray-composite
         with:
           context_path: ${{ env.CONTEXT_PATH }}
