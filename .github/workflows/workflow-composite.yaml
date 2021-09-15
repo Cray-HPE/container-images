@@ -26,28 +26,14 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v2
 
-      - name: composite-build-only
-        uses: ./.github/actions/cray-composite
+      - name: build-sign-scan
+        uses: ./.github/actions/build-sign-scan
         with:
+          # Only push on main builds
+          docker_push: ${{ github.ref != 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          docker_push: false
-          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
-          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
-          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
-          cosign_key: ${{ secrets.COSIGN_KEY }}
-          snyk_token: ${{ secrets.SNYK_TOKEN }}
-          github_sha: $GITHUB_SHA
-
-      - name: composite-build-push
-        if: github.ref == 'refs/heads/main'
-        uses: ./.github/actions/cray-composite
-        with:
-          context_path: ${{ env.CONTEXT_PATH }}
-          docker_repo: ${{ env.DOCKER_REPO }}
-          docker_tag: ${{ env.DOCKER_TAG }}
-          docker_push: true
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
           cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
           cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
