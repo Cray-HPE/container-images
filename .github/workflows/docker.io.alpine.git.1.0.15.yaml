@@ -34,9 +34,6 @@ jobs:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          docker_additional_tags: |
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}-taylor
-            ${{ env.DOCKER_REPO }}:${{ env.DOCKER_TAG }}-taylor2
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
           cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
           cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
