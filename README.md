@@ -15,8 +15,21 @@
 ```
 git clone https://github.com/Cray-HPE/container-images
 
-# Example
-./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1
+# Script for automation:
+    create_buildfiles.sh
+
+    Uses templates to generate files needed for github workflow
+
+    -i|--image <string>  Required: The name of the image
+    -t|--tag <string>    Required: The name of the tag
+
+    [-r|--registry <string>]              The registry to use. Defaults to docker.io
+    [-o|--org <string>]                   The docker org. If not set assumes official image with no org (eg alpine)
+    [-g|--generate <string>]              What should be generate. Valid options are "both", "dockerfile" or "workflow"
+
+    Examples
+
+    ./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1
 ```
 
 ## Naming conventions
