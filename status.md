@@ -1,13 +1,13 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Sep 17 08:04:44 UTC 2021
+Last update on Sat Sep 18 08:04:38 UTC 2021
 
 | Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|:x:|:x:|37|1|0|2|34|bitnami/minideb:bullseye|2|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|:x:|51|0|0|18|33|ubuntu:bionic-20200403|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|:x:|70|0|0|12|58|ubuntu:20.04|2|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|:white_check_mark:|:x:|53|0|0|20|33|ubuntu:bionic-20200403|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|:x:|71|0|0|13|58|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|:x:|30|0|0|6|24|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|:white_check_mark:|23|0|0|2|21|ubuntu:bionic-20200403|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:white_check_mark:|:x:|1|0|0|1|0|python:3.8.2-alpine|2|
