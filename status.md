@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Sep 18 08:04:38 UTC 2021
+Last update on Sun Sep 19 08:04:48 UTC 2021
 
 | Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
