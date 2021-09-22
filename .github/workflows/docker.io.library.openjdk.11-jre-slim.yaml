@@ -1,26 +1,26 @@
-name: docker.io/openjdk:11-jre-slim
+name: docker.io/library/openjdk:11-jre-slim
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.openjdk.11-jre-slim.yaml
-      - docker.io/openjdk/11-jre-slim/**
+      - .github/workflows/docker.io.library.openjdk.11-jre-slim.yaml
+      - docker.io/library/openjdk/11-jre-slim/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.openjdk.11-jre-slim.yaml
-      - docker.io/openjdk/11-jre-slim/**
+      - .github/workflows/docker.io.library.openjdk.11-jre-slim.yaml
+      - docker.io/library/openjdk/11-jre-slim/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/openjdk/11-jre-slim
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/openjdk
+      CONTEXT_PATH: docker.io/library/openjdk/11-jre-slim
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/openjdk
       DOCKER_TAG: 11-jre-slim
     steps:
       - name: Checkout repo

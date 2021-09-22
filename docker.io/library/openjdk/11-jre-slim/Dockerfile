@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-CMD ["bash"]
 RUN set -eux; apt-get update; apt-get install -y --no-install-recommends ca-certificates p11-kit ; rm -rf /var/lib/apt/lists/*
 ENV JAVA_HOME=/usr/local/openjdk-11
 RUN  { echo '#/bin/sh'; echo 'echo "$JAVA_HOME"'; } > /usr/local/bin/docker-java-home \
