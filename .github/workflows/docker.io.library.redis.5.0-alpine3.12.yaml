@@ -1,26 +1,26 @@
-name: docker.io/redis:5.0-alpine3.12
+name: docker.io/library/redis:5.0-alpine3.12
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.redis.5.0-alpine3.12.yaml
-      - docker.io/redis/5.0-alpine3.12/**
+      - .github/workflows/docker.io.library.redis.5.0-alpine3.12.yaml
+      - docker.io/library/redis/5.0-alpine3.12/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.redis.5.0-alpine3.12.yaml
-      - docker.io/redis/5.0-alpine3.12/**
+      - .github/workflows/docker.io.library.redis.5.0-alpine3.12.yaml
+      - docker.io/library/redis/5.0-alpine3.12/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/redis/5.0-alpine3.12
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/redis
+      CONTEXT_PATH: docker.io/library/redis/5.0-alpine3.12
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/redis
       DOCKER_TAG: 5.0-alpine3.12
     steps:
       - name: Checkout repo
