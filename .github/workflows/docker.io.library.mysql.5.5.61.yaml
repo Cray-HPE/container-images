@@ -5,22 +5,22 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.mysql.5.5.61.yaml
-      - docker.io/mysql/5.5.61/**
+      - .github/workflows/docker.io.library.mysql.5.5.61.yaml
+      - docker.io/library/mysql/5.5.61/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.mysql.5.5.61.yaml
-      - docker.io/mysql/5.5.61/**
+      - .github/workflows/docker.io.library.mysql.5.5.61.yaml
+      - docker.io/library/mysql/5.5.61/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/mysql/5.5.61
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/mysql
+      CONTEXT_PATH: docker.io/library/mysql/5.5.61
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/mysql
       DOCKER_TAG: 5.5.61
     steps:
       - name: Checkout repo
