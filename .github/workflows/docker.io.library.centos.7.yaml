@@ -1,5 +1,4 @@
 name: docker.io/library/centos:7
-name: docker.io/library/centos:7
 
 on:
   push:
