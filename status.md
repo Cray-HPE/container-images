@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Wed Sep 22 08:04:38 UTC 2021
+Last update on Wed Sep 22 12:34:42 UTC 2021
 
 | Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -10,9 +10,9 @@ Last update on Wed Sep 22 08:04:38 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|:white_check_mark:|:x:|71|0|0|13|58|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|:white_check_mark:|:x:|30|0|0|6|24|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|:white_check_mark:|:white_check_mark:|23|0|0|2|21|ubuntu:bionic-20200403|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/mysql|5.5.61|:white_check_mark:|:x:|19|0|0|2|17|ubuntu:20.04|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/mysql|5.5.61|:white_check_mark:|:x:|19|0|0|2|17|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|:white_check_mark:|:x:|1|0|0|1|0|python:3.8.2-alpine|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/openjdk|11-jre-slim|:white_check_mark:|:x:|14|0|0|0|14|ubuntu:20.04|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/openjdk|11-jre-slim|:white_check_mark:|:x:|14|0|0|0|14|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/ghcr.io/banzaicloud/bank-vaults|1.8.0|:white_check_mark:|:white_check_mark:|3|0|0|0|3|alpine:3.12.1|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/operator|0.15.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
@@ -58,7 +58,6 @@ Last update on Wed Sep 22 08:04:38 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-kube|2.8.0|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-restic-restore-helper|v1.5.2|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/vault|1.5.5|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/timothyb89/monasca-sidecar|1.0.0|:white_check_mark:|:x:|0|0|0|0|0|python:3.5-alpine|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/operator|0.15.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka|0.15.0-kafka-2.3.1|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
@@ -67,22 +66,23 @@ Last update on Wed Sep 22 08:04:38 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/scholzj/zoo-entrance-stunnel|v1.0.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:latest|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/roffe/kube-etcdbackup|latest|:white_check_mark:|:x:|0|0|0|0|0|null|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/redis|5.0-alpine|:white_check_mark:|:x:|0|0|0|0|0|redis:5.0.13-alpine3.14|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/redis|5.0-alpine3.12|:white_check_mark:|:x:|0|0|0|0|0|redis:5-alpine3.12|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/statsd-exporter|v0.18.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/pushgateway|v0.8.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/prometheus|v2.19.2|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|13.2-alpine|:white_check_mark:|:x:|0|0|0|0|0|null|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/postgres|10.3-alpine|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa|0.24.0-envoy-1|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/gatekeeper|v3.1.1|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/nginx|1.18.0-alpine|:white_check_mark:|:x:|0|0|0|0|0|nginx:1.18-alpine|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/nfvpe/multus|v3.1|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/monasca/job-cleanup|1.2.1|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/metallb/speaker|v0.8.1|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.1|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/metallb/controller|v0.8.1|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.1|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/memcached|1.5.0-alpine|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine|:white_check_mark:|:x:|0|0|0|0|0|redis:5.0.13-alpine3.14|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/vault|1.5.5|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine|:white_check_mark:|:x:|0|0|0|0|0|redis:5.0.13-alpine3.14|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine3.12|:white_check_mark:|:x:|0|0|0|0|0|redis:5-alpine3.12|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|13.2-alpine|:white_check_mark:|:x:|0|0|0|0|0|postgres:13.2-alpine|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|10.3-alpine|:white_check_mark:|:x:|0|0|0|0|0|postgres:13.2-alpine|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/nginx|1.18.0-alpine|:white_check_mark:|:x:|0|0|0|0|0|nginx:1.18-alpine|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/memcached|1.5.0-alpine|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/centos|7|:white_check_mark:|:x:|0|0|0|0|0|centos:centos7.9.2009|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/kiwigrid/k8s-sidecar|0.1.151|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.11.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jimmidyson/configmap-reload|v0.3.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jettech/kube-webhook-certgen|v1.2.1|:white_check_mark:|:x:|0|0|0|0|0|null|1|
@@ -97,8 +97,7 @@ Last update on Wed Sep 22 08:04:38 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3|1.0.0.16140|:white_check_mark:|:x:|0|0|0|0|0|python:3.8-alpine|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl|7.73.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.11.5|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/coredns/coredns|1.6.2|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|:x:|:x:|null|||||null|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/centos|7|:white_check_mark:|:x:|0|0|0|0|0|centos:centos7.9.2009|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|:white_check_mark:|:x:|0|0|0|0|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns|0.5.16-debian-9-r8|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|:white_check_mark:|:x:|0|0|0|0|0|null|2|
