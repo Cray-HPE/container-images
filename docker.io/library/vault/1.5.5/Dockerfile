@@ -1,0 +1,6 @@
+FROM docker.io/library/vault:1.5.5
+
+RUN apk update && \
+    apk add --upgrade apk-tools &&  \
+    apk -U upgrade && \
+    rm -rf /var/cache/apk/*
