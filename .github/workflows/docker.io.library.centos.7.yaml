@@ -1,26 +1,27 @@
-name: docker.io/centos:7
+name: docker.io/library/centos:7
+name: docker.io/library/centos:7
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.centos.7.yaml
-      - docker.io/centos/7/**
+      - .github/workflows/docker.io.library.centos.7.yaml
+      - docker.io/library/centos/7/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.centos.7.yaml
-      - docker.io/centos/7/**
+      - .github/workflows/docker.io.library.centos.7.yaml
+      - docker.io/library/centos/7/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/centos/7
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/centos
+      CONTEXT_PATH: docker.io/library/centos/7
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/centos
       DOCKER_TAG: 7
     steps:
       - name: Checkout repo
