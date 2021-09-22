@@ -1,5 +1,6 @@
 FROM <<UPSTREAM_IMAGE>>
 
-RUN apk add --upgrade apk-tools &&  \
-    apk update && apk -U upgrade && \
+RUN apk update && \
+    && apk add --upgrade apk-tools &&  \
+    && apk -U upgrade && \
     rm -rf /var/cache/apk/*
