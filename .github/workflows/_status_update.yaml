@@ -5,7 +5,7 @@ on:
 
   schedule:
     # Update schedule every night
-    - cron:  '0 8 * * *'
+    - cron: "0 8 * * *"
 
 jobs:
   scan:
@@ -17,13 +17,6 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - uses: snyk/actions/setup@master
-
-      - name: Setup trivy
-        shell: bash
-        run: |
-            wget https://github.com/aquasecurity/trivy/releases/download/v0.19.2/trivy_0.19.2_Linux-64bit.tar.gz
-            tar xvf trivy_0.19.2_Linux-64bit.tar.gz trivy
-            sudo mv trivy /usr/local/bin
 
       - name: Scan Images
         run: .github/scripts/scan_all_images.sh
