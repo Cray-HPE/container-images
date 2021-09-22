@@ -1,26 +1,26 @@
-name: docker.io/memcached:1.5.0-alpine
+name: docker.io/library/memcached:1.5.0-alpine
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.memcached.1.5.0-alpine.yaml
-      - docker.io/memcached/1.5.0-alpine/**
+      - .github/workflows/docker.io.library.memcached.1.5.0-alpine.yaml
+      - docker.io/library/memcached/1.5.0-alpine/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.memcached.1.5.0-alpine.yaml
-      - docker.io/memcached/1.5.0-alpine/**
+      - .github/workflows/docker.io.library.memcached.1.5.0-alpine.yaml
+      - docker.io/library/memcached/1.5.0-alpine/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/memcached/1.5.0-alpine
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/memcached
+      CONTEXT_PATH: docker.io/library/memcached/1.5.0-alpine
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/memcached
       DOCKER_TAG: 1.5.0-alpine
     steps:
       - name: Checkout repo
