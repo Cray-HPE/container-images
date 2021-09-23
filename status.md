@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Wed Sep 22 13:01:09 UTC 2021
+Last update on Thu Sep 23 08:04:49 UTC 2021
 
 | Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -19,7 +19,9 @@ Last update on Wed Sep 22 13:01:09 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.15.0-kafka-2.3.1|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.15.0-kafka-2.2.1|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/prometheus|v2.18.1|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/node-exporter|v1.2.2|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/node-exporter|v1.0.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/alertmanager|v0.21.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/alertmanager|v0.20.0|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.22|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/keycloak/keycloak-gatekeeper|9.0.0|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.8|1|
