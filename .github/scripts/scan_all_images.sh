@@ -52,8 +52,8 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on `date`
 
-| Docker Repo | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
-|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
+| Docker Repo | Build Date | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 
 RESULT_ROWS=()
@@ -64,6 +64,11 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
 
   FULL_IMAGE="$REGISTRY_PREFIX/$IMAGE"
   IMAGE_PARTS=(${FULL_IMAGE//:/ })
+
+  ## If image was not build on the node status job
+  ## is running it may get old metadata
+  echo "Ensure local image cache is updated"
+  docker pull ${FULL_IMAGE}
 
   echo "Scanning $FULL_IMAGE"
   RESULT=$(snyk --json container test $FULL_IMAGE)
@@ -93,8 +98,12 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
     NON_ROOT_SYMBOL=':x:'
   fi
 
-  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
+  echo "Inspect image to find out build date"
+  BUILD_DATE=$(docker inspect ${FULL_IMAGE} | jq -r '.[0].Created' | cut -d. -f1)
+
+  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${BUILD_DATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
+
 done
-printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 7 --key 8 --key 9 --key 10 -t '|' -n -r >> $STATUS_FILE
+printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 8 --key 9 --key 10 --key 11 -t '|' -n -r >> $STATUS_FILE
