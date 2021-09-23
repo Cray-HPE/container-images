@@ -54,7 +54,7 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on `date`
 
-| Docker Repo | Version | Build Date | Last Run | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+| Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 

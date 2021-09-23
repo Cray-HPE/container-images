@@ -3,7 +3,7 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on Thu Sep 23 15:13:05 -03 2021
 
-| Docker Repo | Version | Build Date | Last Run | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+| Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-09-16T02:51:18](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|38|1|0|2|35|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|[2021-09-15T14:50:35](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.spilo-12.1.6-p3.yaml)|:white_check_mark:|:white_check_mark:|:x:|54|0|0|20|34|ubuntu:bionic-20200403|1|
