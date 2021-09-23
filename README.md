@@ -25,7 +25,7 @@ git clone https://github.com/Cray-HPE/container-images
     -t|--tag <string>    Required: The name of the tag
 
     [-r|--registry <string>]              The registry to use. Defaults to docker.io
-    [-o|--org <string>]                   The docker org. If not set assumes official image with library organization (eg alpine become library/alpine)
+    [-o|--org <string>]                   The docker org. If not set assumes official image with no org (eg alpine)
     [-g|--generate <string>]              What should be generate. Valid options are "both", "dockerfile" or "workflow"
 
     Examples
