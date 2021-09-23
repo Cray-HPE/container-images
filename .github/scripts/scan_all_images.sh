@@ -52,8 +52,8 @@ Automatically run by github actions _status_update.yaml worfklow
 
 Last update on `date`
 
-| Docker Repo | Build Date | Version | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
-|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
+| Docker Repo | Version | Build Date | Last Run | OK | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 EOT
 
 RESULT_ROWS=()
@@ -98,12 +98,12 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
     NON_ROOT_SYMBOL=':x:'
   fi
 
-  echo "Inspect image to find out build date"
+  echo "Gathering build info"
   BUILD_DATE=$(docker inspect ${FULL_IMAGE} | jq -r '.[0].Created' | cut -d. -f1)
-
-  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${BUILD_DATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
+  BUILD_STATE=$(gh workflow view ${IMAGE} | grep -A 1 'Recent runs' | tail -n 1 | grep success >/dev/null 2>&1 && ':white_check_mark:' || ':x:')
+  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${BUILD_DATE}|${BUILD_STATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 
 done
-printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 8 --key 9 --key 10 --key 11 -t '|' -n -r >> $STATUS_FILE
+printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 9 --key 10 --key 11 --key 12 -t '|' -n -r >> $STATUS_FILE
