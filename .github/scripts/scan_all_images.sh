@@ -5,6 +5,7 @@ REPO_DIR="$( cd -- "$(dirname "../../$0")" >/dev/null 2>&1 ; pwd -P )"
 STATUS_FILE="$REPO_DIR/status.md"
 REGISTRY_DIRECTORIES=('docker.io' 'gcr.io' 'ghcr.io' 'k8s.gcr.io' 'quay.io' 'registry.opensource.zalan.do' 'local')
 REGISTRY_PREFIX="artifactory.algol60.net/csm-docker/stable"
+GITHUB_URL_WORKFLOWS="https://github.com/Cray-HPE/container-images/actions/workflows"
 IMAGES_TO_SCAN=()
 
 echo "=========================================="
@@ -66,6 +67,8 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   FULL_IMAGE="$REGISTRY_PREFIX/$IMAGE"
   IMAGE_PARTS=(${FULL_IMAGE//:/ })
 
+  WORKFLOW_YAML="$(echo ${IMAGE} | tr '[/|:]' '.').yaml"
+  WORKFLOW_URL="${GITHUB_URL_WORKFLOWS}/${WORKFLOW_YAML}"
   ## If image was not build on the node status job
   ## is running it may get old metadata
   echo "Ensure local image cache is updated"
@@ -74,6 +77,7 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   echo "Scanning $FULL_IMAGE"
   set +e
   RESULT=$(snyk --json container test $FULL_IMAGE)
+  set -e
   if [ $? == 0 ] || [ $? == 1 ]; then
     UNIQUE_COUNT=$(echo $RESULT | jq -r .uniqueCount)
     UNIQUE_ISSUES=$(echo $RESULT | jq -r '.vulnerabilities | unique_by(.id)')
@@ -98,7 +102,6 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
     BASE_IMAGE=""
     SYMBOL=""
   fi
-  set -e
 
   echo "Scanning $IMAGE_DIR"
   TRIVY_OUTPUT=$(TRIVY_NEW_JSON_SCHEMA=true trivy -q config -f json -s 'CRITICAL,HIGH' $IMAGE_DIR)
@@ -117,7 +120,7 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   echo "Gathering build info"
   BUILD_DATE=$(docker inspect ${FULL_IMAGE} | jq -r '.[0].Created' | cut -d. -f1)
   BUILD_STATE=$(gh workflow view ${IMAGE} | grep -A 1 'Recent runs' | tail -n 1 | grep success >/dev/null 2>&1 && echo ':white_check_mark:' || echo ':x:')
-  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|${BUILD_DATE}|${BUILD_STATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
+  RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|[${BUILD_DATE}]($WORKFLOW_URL)|${BUILD_STATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 done
