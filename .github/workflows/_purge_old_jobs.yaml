@@ -1,0 +1,24 @@
+name: purge_old_jobs
+
+on:
+  workflow_dispatch: {}
+
+  schedule:
+    # Update schedule every night
+    - cron:  '0 8 * * *'
+
+jobs:
+  find-purge:
+    runs-on: self-hosted
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.head_ref }}
+
+      - name: Find and Purge old jobs
+        run: .github/scripts/purge_old_jobs.sh
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          OWNER: ${{ github.repository_owner }}
+          REPO: ${{ github.event.repository.name }}
