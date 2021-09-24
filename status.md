@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Thu Sep 23 15:13:05 -03 2021
+Last update on Fri Sep 24 11:41:37 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -93,6 +93,7 @@ Last update on Thu Sep 23 15:13:05 -03 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/istio/kubectl|1.5.4|[2021-09-16T15:51:24](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.istio.kubectl.1.5.4.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/grafana/grafana|7.0.5|[2021-09-16T02:54:31](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.grafana.grafana.7.0.5.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|grafana/grafana:7.0.5|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/grafana/grafana|7.0.3|[2021-09-15T17:35:19](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.grafana.grafana.7.0.3.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|grafana/grafana:7.0.3|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.15.3-rootless|[2021-09-24T01:05:52](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.15.3-rootless.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.13.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.14.6|[2021-09-16T21:31:35](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.14.6.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.11.6|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.12.6|[2021-09-16T21:31:35](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.12.6.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.11.6|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.12.2|[2021-09-16T21:31:35](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.12.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.11.6|2|
