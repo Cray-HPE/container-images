@@ -1,7 +1,9 @@
 name: purge_old_jobs
 
 on:
-  workflow_dispatch: {}
+  push:
+    branches:
+      - feat/purge_old_jobs
 
   schedule:
     # Update schedule every night
