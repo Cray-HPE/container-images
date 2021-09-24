@@ -1,9 +1,7 @@
 name: purge_old_jobs
 
 on:
-  push:
-    branches:
-      - feat/purge_old_jobs
+  workflow_dispatch: {}
 
   schedule:
     # Update schedule every night
@@ -11,7 +9,7 @@ on:
 
 jobs:
   find-purge:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
