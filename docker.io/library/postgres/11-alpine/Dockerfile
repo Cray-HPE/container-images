@@ -1,4 +1,4 @@
-FROM docker.io/postgres:11-alpine
+FROM docker.io/library/postgres:11-alpine
 
 RUN apk update && \
     apk add --upgrade apk-tools &&  \
