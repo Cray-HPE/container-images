@@ -31,7 +31,7 @@ purge_job() {
     do 
         echo "Job ${JOB_ID} / Workflow $WORKFLOW_ID ($IMAGE)"
         JOB_ELAPSED=`gh run view 1273430453 | grep Triggered | ${SED_BIN} -e s,".*\([0-9]\) days ago","\1",`
-        if [ "${JOB_AGE}" > "${JOB_AGE_LIMIT}" ]
+        if [[ "${JOB_AGE}" > "${JOB_AGE_LIMIT}" ]]
         then
             echo "Purge jobs for workflow id $WORKFLOW_ID ($IMAGE)"
             gh api repos/Cray-HPE/container-images/actions/runs/${JOB_ID} -X DELETE >/dev/null
