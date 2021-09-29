@@ -77,8 +77,17 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   echo "Scanning $FULL_IMAGE"
   set +e
   RESULT=$(snyk --json container test $FULL_IMAGE)
+  RESULT_STATUS=$?
+  if jq -e . >/dev/null 2>&1 <<<"$RESULT"; then
+      echo "Valid snyk json returned"
+      RESULT_JSON=0
+  else
+      echo "ERROR!!! Failed to parse snyk json"
+      RESULT_JSON=1
+  fi
   set -e
-  if [ $? == 0 ] || [ $? == 1 ]; then
+
+  if ([ $RESULT_STATUS == 0 ] || [ $RESULT_STATUS == 1 ]) && [ $RESULT_JSON == 0 ]; then
     UNIQUE_COUNT=$(echo $RESULT | jq -r .uniqueCount)
     UNIQUE_ISSUES=$(echo $RESULT | jq -r '.vulnerabilities | unique_by(.id)')
     CRITICAL=$(echo $UNIQUE_ISSUES | jq -r '[ .[] | select(.severity=="critical")] | length')
