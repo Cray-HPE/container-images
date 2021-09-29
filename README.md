@@ -7,7 +7,7 @@
 ## What are the steps to add a new image?
 
 1. Discover the upstream image that needs to be rebuilt for Cray-HPE needs.
-1. Run `create-buildfiles.sh` script
+1. Run `create-buildfiles.sh` script (If you're on mac, `brew install gnu-sed` to get the prereq command.)
 1. Update Dockerfile if needed to address other vulnerabalities
 1. Create PR to see if job runs and see snyk scan results
 1. Merge PR to trigger build and push
