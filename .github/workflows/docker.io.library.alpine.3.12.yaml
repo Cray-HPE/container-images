@@ -1,0 +1,42 @@
+name: docker.io/library/alpine:3.12
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/docker.io.library.alpine.3.12.yaml
+      - docker.io/library/alpine/3.12/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/docker.io.library.alpine.3.12.yaml
+      - docker.io/library/alpine/3.12/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+      CONTEXT_PATH: docker.io/library/alpine/3.12
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine
+      DOCKER_TAG: 3.12
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: build-sign-scan
+        uses: ./.github/actions/build-sign-scan
+        with:
+          # Only push on main builds
+          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          context_path: ${{ env.CONTEXT_PATH }}
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
+          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          cosign_key: ${{ secrets.COSIGN_KEY }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
+          github_sha: $GITHUB_SHA
