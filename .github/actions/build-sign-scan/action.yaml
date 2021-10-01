@@ -66,9 +66,12 @@ runs:
           ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
           ${{ inputs.docker_additional_tags }}
     - name: Sign
-      if: ${{ inputs.docker_push }}
       run: |
-        COSIGN_KEY=${{ inputs.cosign_key }} cosign sign -key ${{ inputs.cosign_key }} -a GIT_HASH=${{ inputs.github_sha }} ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
+        if [[ "true" == "${{ inputs.docker_push }}" ]]; then
+          COSIGN_KEY=${{ inputs.cosign_key }} cosign sign -key ${{ inputs.cosign_key }} -a GIT_HASH=${{ inputs.github_sha }} ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
+        else
+          echo "Skipping sign when not pushing to registry"
+        fi
       shell: bash
 
     - name: Snyk setup
