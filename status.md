@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Oct  2 00:24:23 UTC 2021
+Last update on Sat Oct  2 01:16:50 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -18,7 +18,7 @@ Last update on Sat Oct  2 00:24:23 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2021-09-16T01:54:37](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|3|0|0|3|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-09-16T02:05:11](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:white_check_mark:|:x:|3|0|0|3|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|[2021-09-16T02:12:55](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero-plugin-for-aws.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|23|0|0|2|21|ubuntu:bionic-20200403|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/mysql|5.5.61|[2021-10-02T00:18:18](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.mysql.5.5.61.yaml)|:white_check_mark:|:white_check_mark:|:x:|17|0|0|1|16|ubuntu:20.04|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/mysql|5.5.61|[2021-10-02T01:13:49](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.mysql.5.5.61.yaml)|:white_check_mark:|:white_check_mark:|:x:|17|0|0|1|16|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|[2021-09-16T02:30:51](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.sighup.gatekeeper-policy-manager.v0.4.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|1|0|0|1|0|python:3.8.2-alpine|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/openjdk|11-jre-slim|[2021-09-16T16:21:05](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.openjdk.11-jre-slim.yaml)|:white_check_mark:|:white_check_mark:|:x:|14|0|0|0|14|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/ghcr.io/banzaicloud/bank-vaults|1.8.0|[2021-09-14T01:04:34](https://github.com/Cray-HPE/container-images/actions/workflows/ghcr.io.banzaicloud.bank-vaults.1.8.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|3|0|0|0|3|alpine:3.12.1|1|
@@ -97,7 +97,7 @@ Last update on Sat Oct  2 00:24:23 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/nginx|1.18.0-alpine|[2021-09-22T11:07:51](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.nginx.1.18.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|nginx:1.18-alpine|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/memcached|1.5.0-alpine|[2021-09-22T10:57:31](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.memcached.1.5.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine|[2021-10-02T00:13:16](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.17.1-alpine3.14|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine3.12|[2021-09-29T21:21:36](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine3.12.yaml)|:x:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.5-alpine3.12|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine3.12|[2021-10-02T01:10:55](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.5-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.16-alpine3.13|[2021-10-02T00:14:10](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.16-alpine3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.8-alpine3.13|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14.9-alpine3.12|[2021-10-02T00:15:02](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14.9-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14.9-alpine|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14-alpine3.12|[2021-10-02T00:15:54](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14-alpine3.12|1|
