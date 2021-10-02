@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Oct  2 01:16:50 UTC 2021
+Last update on Sat Oct  2 08:04:44 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -107,7 +107,7 @@ Last update on Sat Oct  2 01:16:50 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.13|[2021-09-29T01:47:04](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.13.5|[2021-09-29T01:46:31](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.13.5.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.13.2|[2021-10-02T00:23:29](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.13.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13.2|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12|[2021-09-29T01:47:37](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.8|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12|[2021-09-29T01:47:37](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.yaml)|:white_check_mark:||:x:|||||||1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.7|[2021-09-29T01:48:09](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.7.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.6|[2021-10-02T00:22:54](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.6.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.1|[2021-10-02T00:22:23](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.1|1|
