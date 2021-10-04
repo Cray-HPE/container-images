@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Oct  4 11:27:16 UTC 2021
+Last update on Mon Oct  4 12:57:24 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -15,8 +15,6 @@ Last update on Mon Oct  4 11:27:16 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|[2021-09-15T14:50:35](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.spilo-12.1.6-p3.yaml)|:white_check_mark:|:white_check_mark:|:x:|54|0|0|20|34|ubuntu:bionic-20200403|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|[2021-09-16T02:27:48](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1.yaml)|:white_check_mark:|:white_check_mark:|:x:|74|0|0|15|59|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|[2021-09-16T01:39:55](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml)|:white_check_mark:|:white_check_mark:|:x:|31|0|0|6|25|ubuntu:20.04|2|
-|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2021-09-16T01:54:37](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|3|0|0|3|0|centos:8|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-09-16T02:05:11](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:white_check_mark:|:x:|3|0|0|3|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws|v1.1.0|[2021-09-16T02:12:55](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero-plugin-for-aws.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|23|0|0|2|21|ubuntu:bionic-20200403|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/mysql|5.5.61|[2021-10-02T01:13:49](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.mysql.5.5.61.yaml)|:white_check_mark:|:white_check_mark:|:x:|17|0|0|1|16|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/sighup/gatekeeper-policy-manager|v0.4.0|[2021-09-16T02:30:51](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.sighup.gatekeeper-policy-manager.v0.4.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|1|0|0|1|0|python:3.8.2-alpine|2|
@@ -52,6 +50,7 @@ Last update on Mon Oct  4 11:27:16 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/etcd|v3.3.22|[2021-09-16T01:40:46](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.coreos.etcd.v3.3.22.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.11.6|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|v0.0.1|[2017-01-02T23:21:53](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.coreos.configmap-reload.v0.0.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/coreos/configmap-reload|latest|[2017-01-02T23:21:53](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.coreos.configmap-reload.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2021-10-04T12:47:13](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/bitnami/sealed-secrets-controller|v0.12.1|[2020-03-31T17:53:03](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.bitnami.sealed-secrets-controller.v0.12.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.2|[2020-02-14T10:51:50](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.pause.3.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.1|[2017-12-20T21:30:49](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.pause.3.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
@@ -126,7 +125,7 @@ Last update on Mon Oct  4 11:27:16 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3|1.0.0.16140|[2021-09-16T15:53:44](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.demisto.boto3py3.1.0.0.16140.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|python:3.8-alpine|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl|7.73.0|[2021-09-15T18:55:18](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.curlimages.curl.7.73.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.11.5|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/coredns/coredns|1.6.2|[2019-08-14T08:34:24](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.coredns.coredns.1.6.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns|0.5.16-debian-9-r8|[2021-09-08T12:34:09](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.external-dns.0.5.16-debian-9-r8.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-10-04T12:02:04](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|[2021-09-16T02:12:00](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bats.bats.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|[2021-09-16T02:49:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.appropriate.curl.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|[2021-09-25T14:43:38](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.alpine.git.1.0.15.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.0|2|
