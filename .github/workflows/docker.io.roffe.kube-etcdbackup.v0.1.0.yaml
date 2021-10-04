@@ -19,7 +19,7 @@ jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/roffe/kube-etcdbackup/latest
+      CONTEXT_PATH: docker.io/roffe/kube-etcdbackup/v0.1.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/roffe/kube-etcdbackup
       DOCKER_TAG: v0.1.0
     steps:
