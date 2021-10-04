@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Oct  4 11:00:34 UTC 2021
+Last update on Mon Oct  4 11:27:16 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -62,6 +62,7 @@ Last update on Mon Oct  4 11:00:34 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-controller-manager|v1.19.9|[2021-03-18T01:21:45](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-controller-manager.v1.19.9.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-apiserver|v1.19.9|[2021-03-18T01:21:45](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-apiserver.v1.19.9.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/coredns|1.7.0|[2020-06-18T00:55:59](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.coredns.1.7.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/github.com/kubernetes-sigs/external-dns|v0.5.16-distroless-static|[2021-10-04T10:58:24](https://github.com/Cray-HPE/container-images/actions/workflows/github.com.kubernetes-sigs.external-dns.v0.5.16-distroless-static.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/ghcr.io/banzaicloud/vault-operator|1.8.0|[2021-09-14T01:05:31](https://github.com/Cray-HPE/container-images/actions/workflows/ghcr.io.banzaicloud.vault-operator.1.8.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.12.1|1|
 |artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/spire-server|0.12.2|[2021-09-15T18:30:56](https://github.com/Cray-HPE/container-images/actions/workflows/gcr.io.spiffe-io.spire-server.0.12.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13.4|2|
 |artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/spire-agent|0.12.2|[2021-09-16T16:05:24](https://github.com/Cray-HPE/container-images/actions/workflows/gcr.io.spiffe-io.spire-agent.0.12.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13.4|2|
