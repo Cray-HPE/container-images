@@ -5,10 +5,6 @@
 # date          :20211005
 # version       :1.0
 
-IFS=$'\n'
-AGE_LIMIT=15 # Days
-UNIXTIME_NOW=$(date +%s)
-
 OS="$(uname)"
 if [[ "$OS" == "Darwin" ]]; then
   SED_BIN="gsed"
@@ -18,10 +14,14 @@ else
   DATE_BIN="date"
 fi
 
+IFS=$'\n'
+AGE_LIMIT=15 # Days
+UNIXTIME_NOW=$(${DATE_BIN} +%s)
+
 calculate () {
     DATE_CREATED=$1
-    UNIXTIME_CREATED=$(gdate -d $DATE_CREATED '+%s')
-    UNIXTIME_NOW=$(date +%s)
+    UNIXTIME_CREATED=$(${DATE_BIN} -d $DATE_CREATED '+%s')
+    UNIXTIME_NOW=$(${DATE_BIN} +%s)
     AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_CREATED \) / 60 / 60 / 24 )
     echo $AGE
 }
