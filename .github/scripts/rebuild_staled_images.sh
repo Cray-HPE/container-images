@@ -32,7 +32,7 @@ for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'pri
         docker pull $ALGOL60_IMAGE >/dev/null 2>&1
         DATE_IMAGE_CREATED=$(docker inspect ${ALGOL60_IMAGE} | jq -r '.[0].Created')
         AGE=$(calculate $DATE_IMAGE_CREATED)
-        if [[ "$AGE" > "${AGE_LIMIT}" ]]
+        if [[ "$AGE" -gt "${AGE_LIMIT}" ]]
           then 
             echo "Triggering workflow ${IMAGE} - Image is $AGE days old"
             gh workflow run $IMAGE
