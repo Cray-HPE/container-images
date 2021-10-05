@@ -1,6 +1,10 @@
 name: rebuild_staled_images
 
 on:
+  push:
+    branches:
+      - feature/CASMINST-3236
+
   workflow_dispatch: {}
 
   schedule:
