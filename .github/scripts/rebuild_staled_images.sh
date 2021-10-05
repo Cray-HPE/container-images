@@ -1,12 +1,12 @@
 #!/bin/bash
-# title         :purge_old_jobs.sh
-# description   :This script cleans up old workflows on github action
+# title         :rebuild_staled_images.sh
+# description   :This script triggers staled images
 # author        :broadwing
-# date          :20210923
+# date          :20211005
 # version       :1.0
 
 IFS=$'\n'
-IMAGE_AGE_LIMIT=15 # Days
+AGE_LIMIT=15 # Days
 UNIXTIME_NOW=$(date +%s)
 
 OS="$(uname)"
@@ -23,7 +23,7 @@ calculate () {
     UNIXTIME_CREATED=$(gdate -d $DATE_CREATED '+%s')
     UNIXTIME_NOW=$(date +%s)
     AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_CREATED \) / 60 / 60 / 24 )
-    echo "$AGE"
+    echo $AGE
 }
 
 for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'print $2'} )
@@ -32,4 +32,9 @@ for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'pri
         docker pull $ALGOL60_IMAGE >/dev/null 2>&1
         DATE_IMAGE_CREATED=$(docker inspect ${ALGOL60_IMAGE} | jq -r '.[0].Created')
         AGE=$(calculate $DATE_IMAGE_CREATED)
+        if [[ "$AGE" > "${AGE_LIMIT}" ]]
+          then 
+            echo "Triggering workflow ${IMAGE} - Image is $AGE days old"
+            gh workflow run $IMAGE
+        fi
 done
