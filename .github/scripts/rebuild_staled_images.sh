@@ -17,21 +17,32 @@ fi
 IFS=$'\n'
 AGE_LIMIT=15 # Days
 UNIXTIME_NOW=$(${DATE_BIN} +%s)
+DOCKER_REGISTRY="artifactory.algol60.net"
 
 calculate () {
-    DATE_CREATED=$1
-    UNIXTIME_CREATED=$(${DATE_BIN} -d $DATE_CREATED '+%s')
+    BUILD_DATE=$1
+    UNIXTIME_BUILD_DATE=$(${DATE_BIN} -d $BUILD_DATE '+%s')
     UNIXTIME_NOW=$(${DATE_BIN} +%s)
-    AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_CREATED \) / 60 / 60 / 24 )
+    AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_BUILD_DATE \) / 60 / 60 / 24 )
     echo $AGE
 }
 
 for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'print $2'} )
     do
-        ALGOL60_IMAGE="artifactory.algol60.net/csm-docker/stable/${IMAGE}"
-        docker pull $ALGOL60_IMAGE >/dev/null 2>&1
-        DATE_IMAGE_CREATED=$(docker inspect ${ALGOL60_IMAGE} | jq -r '.[0].Created')
-        AGE=$(calculate $DATE_IMAGE_CREATED)
+        IMAGE_PATH="${DOCKER_REGISTRY}/csm-docker/stable/${IMAGE}"
+
+        echo "-> checking image: ${IMAGE_PATH}"
+        $(docker pull ${IMAGE_PATH} >/dev/null 2>&1)
+
+        BUILD_DATE=$(docker inspect --format='{{.Config.Labels.buildDate}}' ${IMAGE_PATH})
+        if [[ "$BUILD_DATE" == "<no value>" ]]
+          then
+            echo "Triggering workflow ${IMAGE} - No such label buildDate"
+            gh workflow run $IMAGE
+            continue
+        fi
+        
+        AGE=$(calculate $BUILD_DATE)
         if [[ "$AGE" -gt "${AGE_LIMIT}" ]]
           then 
             echo "Triggering workflow ${IMAGE} - Image is $AGE days old"

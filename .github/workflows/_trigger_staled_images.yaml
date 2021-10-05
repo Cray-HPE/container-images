@@ -1,18 +1,21 @@
 name: rebuild_staled_images
 
 on:
-  push:
-    branches:
-      - feature/CASMINST-3236
-
   workflow_dispatch: {}
 
   schedule:
     # Update schedule every night
     - cron:  '0 8 * * *'
 
+permissions:
+  actions: write
+  pull-requests: write
+  contents: read
+  repository-projects: read
+
+
 jobs:
-  find-purge:
+  find-trigger:
     runs-on: self-hosted
     steps:
       - name: Checkout repo
@@ -21,6 +24,7 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Trigger to rebuild staled images
+        shell: bash
         run: .github/scripts/rebuild_staled_images.sh
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
