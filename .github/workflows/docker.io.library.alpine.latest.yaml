@@ -35,7 +35,7 @@ jobs:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          artifactory_algol60_token: "eyJ2ZXIiOiIyIiwidHlwIjoiSldUIiwiYWxnIjoiUlMyNTYiLCJraWQiOiI1clA0MTdqU2pwbWlaTFhNY0ZqT20tbjFJOTNmOGNLNmtQQi1jQzFQSExjIn0.eyJzdWIiOiJqZmZlQDAwMFwvdXNlcnNcL2FkbWluIiwic2NwIjoiYXBwbGllZC1wZXJtaXNzaW9uc1wvYWRtaW4gYXBpOioiLCJhdWQiOiJqZnJ0QCoiLCJpc3MiOiJqZmZlQDAwMCIsImV4cCI6MTYzMzUyNTUzMiwiaWF0IjoxNjMzNTE4MzMyLCJqdGkiOiI0Y2EyNmFhOC05MTgwLTRhZWItODExYy1mOWUxYzdmZGNiZmQifQ.ht4nUsBRXrXpsn8eZHFTOdBEiUV-XafRTkuxKbxa4chE2VqmgywL1R_Fe27X25y4X0Zq9-VkdKf-h71iL5fx9rwySYhc1h3X8OF-3EbVocDLqFYRb5HAoqF4w2Evle8wPcQo7kIrphxyQstIWurwJmRBfvJLekq6z4ZzEuTM1nszPMZsna2NBgaJpPYmU14xDzrOoKeYV7sM27KSvPFK8PHsQovKbMjQPfo0tKhzhLW9MmEFgfw04aSXV4NGXXeWw-_Ro99ObBXtibIi4wVGYQcdSxtWJWmBuWV1SBIFf4-duypq8V4c9tESL8ygQAdeUIhE09DJaZGRBn0kSnDbdg"
           cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
           cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
           cosign_key: ${{ secrets.COSIGN_KEY }}
