@@ -31,7 +31,7 @@ jobs:
         with:
           # Only push on main builds
           docker_registry: artifactory.dev.algol60.net
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          docker_push: true
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
