@@ -30,6 +30,7 @@ jobs:
         uses: ./.github/actions/build-sign-scan
         with:
           # Only push on main builds
+          docker_registry: artifactory.dev.algol60.net
           docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
