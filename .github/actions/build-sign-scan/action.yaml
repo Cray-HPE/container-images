@@ -7,6 +7,8 @@ inputs:
     required: true
   docker_push:
     required: true
+  docker_registry:
+    default: "artifactory.algol60.net"
   context_path:
     required: true
   artifactory_algol60_token:
@@ -34,6 +36,10 @@ runs:
     - name: Checkout repo
       uses: actions/checkout@v2
 
+    - id: date
+      run: echo "::set-output name=now::$(date +'%Y-%m-%dT%H:%M:%S')"
+      shell: bash
+
     - name: Set up Docker Buildx
       id: buildx
       uses: docker/setup-buildx-action@v1
@@ -46,7 +52,7 @@ runs:
     - name: Login to algol60 Container Registry
       uses: docker/login-action@v1
       with:
-        registry: artifactory.algol60.net
+        registry: ${{ inputs.docker_registry }}
         username: github-actions-cray-hpe
         password: ${{ inputs.artifactory_algol60_token }}
 
@@ -65,6 +71,8 @@ runs:
         tags: |
           ${{ inputs.docker_repo }}:${{ inputs.docker_tag }}
           ${{ inputs.docker_additional_tags }}
+        labels: buildDate=${{ steps.date.outputs.now }}
+
     - name: Sign
       run: |
         if [[ "true" == "${{ inputs.docker_push }}" ]]; then

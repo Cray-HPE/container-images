@@ -20,6 +20,7 @@ jobs:
     runs-on: self-hosted
     env:
       CONTEXT_PATH: docker.io/curlimages/curl/7.73.0
+      DOCKER_REGISTRY: artifactory.algol60.net
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl
       DOCKER_TAG: 7.73.0
     steps:
@@ -34,6 +35,7 @@ jobs:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
+          docker_registry: ${{ env.DOCKER_REGISTRY }}
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
           cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
           cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
