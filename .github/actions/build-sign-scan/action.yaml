@@ -47,13 +47,13 @@ runs:
     - name: Install cosign
       uses: sigstore/cosign-installer@main
       with:
-        cosign-release: 'v1.0.0'
+        cosign-release: "v1.0.0"
 
     - name: Login to algol60 Container Registry
       uses: docker/login-action@v1
       with:
         registry: ${{ inputs.docker_registry }}
-        username: github-actions-cray-hpe
+        username: _json_key
         password: ${{ inputs.artifactory_algol60_token }}
 
     - name: Set up Cloud SDK for Signing
@@ -96,6 +96,6 @@ runs:
       with:
         scan-type: config
         exit-code: ${{ inputs.fail_on_trivy_action_vulnerabilities && '0' || '1' }}
-        scan-ref: '${{ inputs.context_path }}'
-        severity: 'CRITICAL,HIGH'
+        scan-ref: "${{ inputs.context_path }}"
+        severity: "CRITICAL,HIGH"
         hide-progress: false
