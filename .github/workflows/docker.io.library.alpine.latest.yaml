@@ -20,7 +20,7 @@ jobs:
     runs-on: self-hosted
     env:
       CONTEXT_PATH: docker.io/library/alpine/latest
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine
+      DOCKER_REPO: artifactory.dev.algol60.net/csm-docker/stable/docker.io/library/alpine
       DOCKER_TAG: latest
     steps:
       - name: Checkout repo
