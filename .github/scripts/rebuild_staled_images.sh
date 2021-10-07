@@ -7,11 +7,11 @@
 
 OS="$(uname)"
 if [[ "$OS" == "Darwin" ]]; then
-  SED_BIN="gsed"
-  DATE_BIN="gdate"
+	SED_BIN="gsed"
+	DATE_BIN="gdate"
 else
-  SED_BIN="sed"
-  DATE_BIN="date"
+	SED_BIN="sed"
+	DATE_BIN="date"
 fi
 
 IFS=$'\n'
@@ -20,11 +20,17 @@ UNIXTIME_NOW=$(${DATE_BIN} +%s)
 DOCKER_REGISTRY="artifactory.algol60.net"
 
 calculate () {
-    BUILD_DATE=$1
-    UNIXTIME_BUILD_DATE=$(${DATE_BIN} -d $BUILD_DATE '+%s')
-    UNIXTIME_NOW=$(${DATE_BIN} +%s)
-    AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_BUILD_DATE \) / 60 / 60 / 24 )
-    echo $AGE
+  	BUILD_DATE=$1
+	UNIXTIME_BUILD_DATE=$(${DATE_BIN} -d $BUILD_DATE '+%s')
+  	UNIXTIME_NOW=$(${DATE_BIN} +%s)
+  	AGE=$(expr \( $UNIXTIME_NOW - $UNIXTIME_BUILD_DATE \) / 60 / 60 / 24 )
+  	echo $AGE
+}
+
+trigger_workflow () {
+	WORKFLOW_NAME=$1
+	WORKFLOW_ID=`gh workflow view ${WORKFLOW_NAME} | grep "ID:" | ${SED_BIN} -e s,"ID: \([[:digit:]]\+\)*","\1",`
+	
 }
 
 for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'print $2'} )
