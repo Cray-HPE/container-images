@@ -41,17 +41,11 @@ for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'pri
             gh workflow run $IMAGE
             continue
         fi
-
+        
         AGE=$(calculate $BUILD_DATE)
         if [[ "$AGE" -gt "${AGE_LIMIT}" ]]
-          then
+          then 
             echo "Triggering workflow ${IMAGE} - Image is $AGE days old"
-            gh workflow run $IMAGE
-        fi
-
-        if [[ "$IMAGE_PATH" == "artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.2" ]]
-          then
-            echo "Triggering workflow ${IMAGE} - manual test"
             gh workflow run $IMAGE
         fi
 done
