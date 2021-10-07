@@ -17,16 +17,25 @@ permissions:
 jobs:
   find-trigger:
     runs-on: self-hosted
+    env:
+      GITHUB_AUTH_APP_ID: 129003
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
         with:
           ref: ${{ github.head_ref }}
 
+      - name: Get auth token
+        uses: navikt/github-app-token-generator@v1
+        id: get-token
+        with:
+          private-key: ${{ secrets.ALGOL60_GITHUB_READONLY_APP }}
+          app-id: ${{env.GITHUB_AUTH_APP_ID}}
+
       - name: Trigger to rebuild staled images
         shell: bash
         run: .github/scripts/rebuild_staled_images.sh
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ steps.get-token.outputs.token }}
           OWNER: ${{ github.repository_owner }}
           REPO: ${{ github.event.repository.name }}
