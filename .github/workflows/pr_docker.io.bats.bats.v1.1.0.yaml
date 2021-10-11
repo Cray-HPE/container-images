@@ -1,0 +1,42 @@
+name: docker.io/bats/bats:v1.1.0
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - .github/workflows/docker.io.bats.bats.v1.1.0.yaml
+      - docker.io/bats/bats/v1.1.0/**
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/pr_docker.io.bats.bats.v1.1.0.yaml
+      - docker.io/bats/bats/v1.1.0/**
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: self-hosted
+    env:
+      CONTEXT_PATH: docker.io/bats/bats/v1.1.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/unstable/docker.io/bats/bats
+      DOCKER_TAG: v1.1.0
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: build-sign-scan
+        uses: ./.github/actions/build-sign-scan
+        with:
+          # Only push on main builds
+          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          context_path: ${{ env.CONTEXT_PATH }}
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
+          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
+          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          cosign_key: ${{ secrets.COSIGN_KEY }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
+          github_sha: $GITHUB_SHA
