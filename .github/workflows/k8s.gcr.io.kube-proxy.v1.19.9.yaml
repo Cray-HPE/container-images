@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: build-sign-scan
-        uses: ./.github/actions/build-sign-scan
+        uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/main' }}
