@@ -25,3 +25,5 @@ RUN set -eux; arch="$(dpkg --print-architecture)"; case "$arch" in 'amd64') \
     find "$JAVA_HOME/lib" -name '*.so' -exec dirname '{}' ';' | sort -u > /etc/ld.so.conf.d/docker-openjdk.conf; ldconfig; java -Xshare:dump; java --version
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/ 
+
+USER 65534:65534
