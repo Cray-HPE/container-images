@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Oct 15 08:05:13 UTC 2021
+Last update on Sat Oct 16 02:43:39 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -34,7 +34,7 @@ Last update on Fri Oct 15 08:05:13 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v2.1.0|[2020-04-04T02:27:18](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-snapshotter.v2.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v1.0.1|[2020-10-12T21:58:21](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-resizer.v1.0.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v0.5.0|[2020-04-04T01:11:31](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-resizer.v0.5.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v2.0.4|[2020-10-31T01:26:05](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v2.0.4.yaml)|:white_check_mark:||:x:|||||||1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v2.0.4|[2020-10-31T01:26:05](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v2.0.4.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v1.6.0|[2020-04-02T16:58:25](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v1.6.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v2.0.1|[2020-09-03T18:56:59](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-node-driver-registrar.v2.0.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v1.3.0|[2020-03-31T23:33:30](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-node-driver-registrar.v1.3.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
