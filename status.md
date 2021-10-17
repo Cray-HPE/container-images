@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sun Oct 17 00:42:51 UTC 2021
+Last update on Sun Oct 17 08:05:22 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -93,14 +93,14 @@ Last update on Sun Oct 17 00:42:51 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine|[2021-10-06T02:03:30](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.redis.5.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|redis:5.0.14-alpine3.14|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine3.12|[2021-10-06T02:04:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.redis.5.0-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|redis:5-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|13.2-alpine|[2021-10-06T02:02:49](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.13.2-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|postgres:13.2-alpine|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|11-alpine|[2021-10-06T02:01:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.11-alpine.yaml)|:x:|:white_check_mark:|:x:|0|0|0|0|0|postgres:11.13-alpine3.14|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|11-alpine|[2021-10-17T01:07:37](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.11-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|postgres:11.13-alpine3.14|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|10.3-alpine|[2021-10-06T02:01:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.10.3-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/nginx|1.18.0-alpine|[2021-10-06T01:59:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.nginx.1.18.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|nginx:1.18-alpine|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/memcached|1.5.0-alpine|[2021-10-06T01:56:31](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.memcached.1.5.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine|[2021-10-06T01:54:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.17.1-alpine3.14|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine3.12|[2021-10-06T01:55:47](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.5-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.16-alpine3.13|[2021-10-06T01:53:59](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.16-alpine3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.8-alpine3.13|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14.9-alpine3.12|[2021-10-06T01:53:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14.9-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14.9-alpine|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14.9-alpine3.12|[2021-10-06T01:53:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14.9-alpine3.12.yaml)|:white_check_mark:||:x:|||||||1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14-alpine3.12|[2021-10-06T01:52:13](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/centos|7|[2021-10-06T01:51:06](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.centos.7.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:centos7.9.2009|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|latest|[2021-10-06T01:49:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|1|
