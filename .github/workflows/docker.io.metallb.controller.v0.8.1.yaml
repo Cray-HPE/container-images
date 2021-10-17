@@ -20,7 +20,7 @@ jobs:
     runs-on: self-hosted
     env:
       CONTEXT_PATH: docker.io/metallb/controller/v0.8.1
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/metallb/controller
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/unstable/docker.io/metallb/controller
       DOCKER_TAG: v0.8.1
     steps:
       - name: Checkout repo
@@ -30,7 +30,7 @@ jobs:
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
           # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          docker_push: true
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

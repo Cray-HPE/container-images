@@ -20,7 +20,7 @@ jobs:
     runs-on: self-hosted
     env:
       CONTEXT_PATH: quay.io/k8scsi/csi-snapshotter/v2.1.1
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/unstable/quay.io/k8scsi/csi-snapshotter
       DOCKER_TAG: v2.1.1
     steps:
       - name: Checkout repo
@@ -30,7 +30,7 @@ jobs:
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
           # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          docker_push: true
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

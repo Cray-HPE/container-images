@@ -10,4 +10,7 @@ FROM gcr.io/distroless/static
 COPY --from=builder /opt/node-problem-detector/bin/node-problem-detector /
 COPY --from=upstream /home/kubernetes /home/kubernetes
 COPY --from=upstream /config /config
+
+USER 65534:65534
+
 ENTRYPOINT ["/node-problem-detector","--system-log-monitors=/config/kernel-monitor.json"]

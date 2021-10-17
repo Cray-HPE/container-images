@@ -13,3 +13,5 @@ RUN cd /tmp && wget https://github.com/jedisct1/libsodium/archive/1.0.0.zip && u
 
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
     && rm -rf /var/lib/apt/lists/
+
+USER 65534:65534
