@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sun Oct 17 08:05:22 UTC 2021
+Last update on Mon Oct 18 08:05:28 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -100,7 +100,7 @@ Last update on Sun Oct 17 08:05:22 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine|[2021-10-06T01:54:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.17.1-alpine3.14|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine3.12|[2021-10-06T01:55:47](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.5-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.16-alpine3.13|[2021-10-06T01:53:59](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.16-alpine3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16.8-alpine3.13|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14.9-alpine3.12|[2021-10-06T01:53:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14.9-alpine3.12.yaml)|:white_check_mark:||:x:|||||||1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14.9-alpine3.12|[2021-10-06T01:53:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14.9-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14.9-alpine|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.14-alpine3.12|[2021-10-06T01:52:13](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.14-alpine3.12.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.14-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/centos|7|[2021-10-06T01:51:06](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.centos.7.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:centos7.9.2009|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|latest|[2021-10-06T01:49:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|1|
