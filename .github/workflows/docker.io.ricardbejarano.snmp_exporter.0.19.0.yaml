@@ -4,13 +4,13 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.ricardbejarano.snmp_exporter:0.19.0.yaml
+      - .github/workflows/docker.io.ricardbejarano.snmp_exporter.0.19.0.yaml
       - docker.io/ricardbejarano/snmp_exporter/0.19.0/** 
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.ricardbejarano.snmp_exporter:0.19.0.yaml
+      - .github/workflows/docker.io.ricardbejarano.snmp_exporter.0.19.0.yaml
       - docker.io/ricardbejarano/snmp_exporter/0.19.0/**
   workflow_dispatch:
 
