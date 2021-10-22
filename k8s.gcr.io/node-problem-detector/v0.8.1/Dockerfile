@@ -6,7 +6,8 @@ RUN git clone https://github.com/kubernetes/node-problem-detector.git /opt/node-
     && git checkout v0.8.1\
     && ENABLE_JOURNALD=0 make vet fmt version test build-binaries
 
-FROM gcr.io/distroless/static
+FROM docker.io/ubuntu:20.04
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 COPY --from=builder /opt/node-problem-detector/bin/node-problem-detector /
 COPY --from=upstream /home/kubernetes /home/kubernetes
 COPY --from=upstream /config /config
