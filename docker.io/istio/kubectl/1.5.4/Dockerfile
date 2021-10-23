@@ -1,6 +1,7 @@
 FROM docker.io/istio/kubectl:1.5.4 as source
 
 FROM docker.io/ubuntu:20.04
+RUN apt-get update && apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 COPY --from=source /usr/bin/kubectl /usr/bin/kubectl
 RUN apt update -y && apt install sudo -y \
     && useradd -m --uid 1337 istio-proxy \
