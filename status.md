@@ -1,13 +1,13 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Wed Oct 27 08:06:04 UTC 2021
+Last update on Thu Oct 28 08:06:15 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-10-22T08:33:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|35|1|0|1|33|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-10-22T09:29:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-10-27T00:05:48](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|226|0|1|117|108|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-10-28T00:05:24](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|226|0|1|117|108|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jboss/keycloak|9.0.0|[2021-10-22T08:58:06](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.jboss.keycloak.9.0.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|174|0|1|90|83|jboss/keycloak:9.0.0|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.25.0|[2021-10-22T11:03:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|401|0|0|218|183|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.22|[2021-10-22T11:01:15](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.22.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|401|0|0|218|183|null|0|
@@ -132,4 +132,4 @@ Last update on Wed Oct 27 08:06:04 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-10-22T08:40:14](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|[2021-10-16T13:12:36](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bats.bats.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|[2021-10-22T08:32:48](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.appropriate.curl.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|[2021-10-11T08:30:14](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.alpine.git.1.0.15.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.0|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|[2021-10-28T08:05:49](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.alpine.git.1.0.15.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.12.0|2|
