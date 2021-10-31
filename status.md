@@ -1,13 +1,13 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Oct 30 08:05:57 UTC 2021
+Last update on Sun Oct 31 08:05:32 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-10-22T08:33:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|35|1|0|1|33|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-10-22T09:29:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-10-30T00:06:28](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|228|0|1|119|108|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-10-31T00:07:11](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|228|0|1|119|108|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jboss/keycloak|9.0.0|[2021-10-22T08:58:06](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.jboss.keycloak.9.0.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|176|0|1|92|83|jboss/keycloak:9.0.0|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.28.1|[2021-10-29T15:32:51](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.28.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|403|0|0|220|183|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.25.0|[2021-10-22T11:03:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|403|0|0|220|183|null|0|
