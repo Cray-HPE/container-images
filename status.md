@@ -1,14 +1,14 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Thu Nov  4 08:06:08 UTC 2021
+Last update on Fri Nov  5 08:05:54 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/prom/node-exporter-smartmon|v0.1.0|[2021-11-02T02:38:15](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.prom.node-exporter-smartmon.v0.1.0.yaml)|:white_check_mark:|:x:|:x:|89|2|14|7|66|debian:10.11-slim|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-10-22T08:33:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|35|1|0|1|33|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-10-22T09:29:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-11-04T00:06:05](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|198|0|1|99|98|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2021-11-05T00:05:43](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:x:|:x:|:white_check_mark:|198|0|1|99|98|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jboss/keycloak|9.0.0|[2021-10-22T08:58:06](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.jboss.keycloak.9.0.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|157|0|1|83|73|jboss/keycloak:9.0.0|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.28.1|[2021-10-29T15:32:51](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.28.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|399|0|0|218|181|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.25.0|[2021-10-22T11:03:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|399|0|0|218|181|null|0|
@@ -42,7 +42,7 @@ Last update on Thu Nov  4 08:06:08 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v2.1.0|[2020-04-04T02:27:18](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-snapshotter.v2.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v1.0.1|[2020-10-12T21:58:21](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-resizer.v1.0.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-resizer|v0.5.0|[2020-04-04T01:11:31](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-resizer.v0.5.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v2.0.4|[2020-10-31T01:26:05](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v2.0.4.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v2.0.4|[2020-10-31T01:26:05](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v2.0.4.yaml)|:white_check_mark:||:x:|||||||1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-provisioner|v1.6.0|[2020-04-02T16:58:25](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-provisioner.v1.6.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v2.0.1|[2020-09-03T18:56:59](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-node-driver-registrar.v2.0.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-node-driver-registrar|v1.3.0|[2020-03-31T23:33:30](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-node-driver-registrar.v1.3.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
@@ -60,7 +60,7 @@ Last update on Thu Nov  4 08:06:08 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2021-10-22T10:43:09](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/bitnami/sealed-secrets-controller|v0.12.1|[2020-03-31T17:53:03](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.bitnami.sealed-secrets-controller.v0.12.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.2|[2020-02-14T10:51:50](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.pause.3.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.1|[2017-12-20T21:30:49](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.pause.3.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/pause|3.1|[2017-12-20T21:30:49](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.pause.3.1.yaml)|:white_check_mark:||:x:|||||||1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/metrics-server|v0.3.6|[2019-10-14T12:44:19](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.metrics-server.v0.3.6.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-scheduler|v1.19.9|[2021-03-18T01:21:45](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-scheduler.v1.19.9.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-proxy|v1.19.9|[2021-10-22T10:31:35](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-proxy.v1.19.9.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
