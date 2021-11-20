@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Nov 19 19:33:03 UTC 2021
+Last update on Sat Nov 20 08:05:35 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -105,7 +105,7 @@ Last update on Fri Nov 19 19:33:03 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/wrouesnel/postgres_exporter|0.8.2|[2021-11-08T10:15:35](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.wrouesnel.postgres_exporter.0.8.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-npc|2.8.0|[2021-11-08T10:14:55](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.weaveworks.weave-npc.2.8.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-kube|2.8.0|[2021-11-08T10:14:12](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.weaveworks.weave-kube.2.8.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|[2021-11-04T01:05:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero.v1.5.2.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
+|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|[2021-11-04T01:05:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero.v1.5.2.yaml)|:x:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-restic-restore-helper|v1.5.2|[2021-11-08T10:13:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero-restic-restore-helper.v1.5.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/operator|0.15.0|[2021-11-08T09:52:57](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.operator.0.15.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka|0.15.0-kafka-2.3.1|[2021-11-08T09:49:25](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.kafka.0.15.0-kafka-2.3.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|centos:7|1|
