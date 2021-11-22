@@ -7,5 +7,7 @@ RUN git clone https://github.com/open-policy-agent/opa-envoy-plugin /opt/opa-env
 FROM gcr.io/distroless/static
 COPY --from=builder /opt/opa-envoy-plugin/opa_envoy_linux_amd64 /app/opa_envoy_linux_amd64
 WORKDIR /app
+
+USER 65534:65534
 ENTRYPOINT ["./opa_envoy_linux_amd64"]
 CMD ["run"]
