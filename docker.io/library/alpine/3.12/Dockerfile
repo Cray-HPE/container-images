@@ -4,3 +4,5 @@ RUN apk update && \
     apk add --upgrade apk-tools &&  \
     apk -U upgrade && \
     rm -rf /var/cache/apk/*
+
+USER 65534:65534
