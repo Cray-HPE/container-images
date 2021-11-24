@@ -17,4 +17,6 @@ RUN chmod 755 /entrypoint.sh
 
 VOLUME ["/var/lib/node_exporter"]
 
+USER 65534:65534
+
 ENTRYPOINT ["/entrypoint.sh"]
