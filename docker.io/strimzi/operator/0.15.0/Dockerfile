@@ -2,4 +2,4 @@ FROM docker.io/strimzi/operator:0.15.0
 
 USER root
 RUN yum -y update && yum clean all
-USER strimzi
+USER 1001
