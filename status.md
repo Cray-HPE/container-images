@@ -1,12 +1,12 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sun Nov 28 08:05:22 UTC 2021
+Last update on Mon Nov 29 08:05:24 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
-|artifactory.algol60.net/csm-docker/stable/docker.io/prom/node-exporter-smartmon|v0.1.0|[2021-11-19T19:06:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.prom.node-exporter-smartmon.v0.1.0.yaml)|:white_check_mark:|:x:|:x:|91|2|14|7|68|debian:10.11-slim|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-11-25T08:36:50](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|38|1|0|1|36|bitnami/minideb:bullseye|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/prom/node-exporter-smartmon|v0.1.0|[2021-11-19T19:06:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.prom.node-exporter-smartmon.v0.1.0.yaml)|:white_check_mark:|:x:|:x:|91|2|15|6|68|debian:10.11-slim|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-11-25T08:36:50](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|38|1|1|0|36|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-11-25T09:26:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-8|[2021-11-22T08:35:52](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.0|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|[2021-11-25T11:17:05](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-17.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.6|1|
