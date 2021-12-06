@@ -1,0 +1,75 @@
+@Library('csm-shared-library@main') __
+
+pipeline {
+    agent {
+        label "metal-gcp-builder"
+    }
+
+    options {
+        buildDiscarder(logRotator(numToKeepStr: "10"))
+        timestamps()
+    }
+
+    triggers {
+        cron '@daily'
+    }
+
+    stages {
+        stage("Rebuild Internal Images") {
+            steps {
+                script {
+                    // def externalRegistries = ["quay.io", "k8s.gcr.io", "gcr.io", "ghcr.io", "docker.io", "registry.opensource.zalan.do", "istio"]
+                    git(url: 'https://github.com/Cray-HPE/csm.git', branch: 'release/1.2')
+                    dockerIndex = readYaml(file: 'docker/index.yaml')
+                    int notUs = 0
+                    int noJob = 0
+                    int rebuilt = 0
+                    int upToDate = 0
+                    int total = 0
+                    dockerIndex.each { repo, repoDef ->
+                        repoDef.images.each { imageName, imageTags ->
+                            fullImageName = repo + "/" + imageName
+                            imageTags.each { imageTag ->
+                                def imageNameParts = fullImageName.split("/")
+                                total += 1
+                                def result = sh(returnStdout: true, script: "#!/bin/sh -e\nskopeo inspect docker://${fullImageName}:${imageTag} --retry-times 3 --format '{{ index .Labels \"org.label-schema.vcs-url\" }}|{{ .Created }}'").trim().split('\\|')
+                                def vcsUrl = result[0]
+                                def created = timeUtils.parseDateTime(result[1])
+                                def days = timeUtils.daysSince(created)
+                                if ( days <= 15 ) {
+                                    println("[INFO]: ${fullImageName}:${imageTag}: up to date, age: ${days}")
+                                    upToDate += 1
+                                } else if ( ! vcsUrl ) {
+                                    println("[WARNING]: ${fullImageName}:${imageTag}: is not up to date, age: ${days}, build source unknown")
+                                    notUs += 1
+                                } else if ( ! vcsUrl.startsWith("https://github.com/Cray-HPE/") ) {
+                                    println("[WARNING]: ${fullImageName}:${imageTag}: is not up to date, age: ${days}, not built by us: build source ${vcsUrl}")
+                                    notUs += 1
+                                } else {
+                                    println("[INFO]: ${fullImageName}:${imageTag}: not up to date, age: ${days}, will attempt to re-trigger a build")
+                                    def repoName = vcsUrl.split('/').last().replaceFirst(/\.git$/, "")
+                                    def workflowJob = jenkinsUtils.findJob("Cray-HPE", repoName, "v" + imageTag)
+                                    if (workflowJob) {
+                                        build(job: "Cray-HPE/${repoName}/v${imageTag}", wait: false, quietPeriod: (new Random()).nextInt(3600))
+                                        rebuilt += 1
+                                    } else {
+                                        println("[WARNING]: ${fullImageName}:${imageTag}: unable to retrigger, job which built this image/tag not found")
+                                        noJob += 1
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    echo """
+                        Statistics:
+                            Up to date: ${upToDate}
+                            Out of date, not built by us: ${notUs}
+                            Out of date, unclear how to rebuild: ${noJob}
+                            Rebuild attempted: ${rebuilt}
+                            Total: ${total}
+                        """
+                }
+            }
+        }
+    }
+}
