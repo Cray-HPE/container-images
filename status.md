@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Wed Dec  8 08:04:43 UTC 2021
+Last update on Thu Dec  9 08:05:48 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -10,7 +10,7 @@ Last update on Wed Dec  8 08:04:43 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.22|[2021-11-25T10:58:03](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.22.yaml)|:white_check_mark:|:x:|:white_check_mark:|403|3|0|218|182|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-11-25T08:36:50](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|38|1|1|0|36|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-11-25T09:26:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-8|[2021-11-22T08:35:52](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.0|1|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-8|[2021-11-22T08:35:52](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml)|:x:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.0|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-19|[2021-12-07T19:32:28](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-19.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.8|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|[2021-12-02T20:14:22](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-17.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine3.12|[2021-12-06T08:38:07](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.redis.5.0-alpine3.12.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|redis:5-alpine3.12|1|
@@ -121,7 +121,7 @@ Last update on Wed Dec  8 08:04:43 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine|[2021-11-25T09:12:17](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.17-alpine3.14|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|1.16-alpine3.13|[2021-11-25T09:11:17](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.1.16-alpine3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|golang:1.16-alpine3.13|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/centos|7|[2021-11-25T09:08:02](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.centos.7.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|centos:centos7.9.2009|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/busybox|1.28.0-glibc|[2018-01-24T04:30:15](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.busybox.1.28.0-glibc.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/busybox|1.28.0-glibc|[2018-01-24T04:30:15](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.busybox.1.28.0-glibc.yaml)|:x:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|latest|[2021-11-25T09:05:50](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.15.0|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3|[2021-11-25T09:05:04](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.15.0|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.13|[2021-11-25T09:04:26](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.13.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.13.7|1|
