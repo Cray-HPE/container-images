@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Dec 13 08:08:57 UTC 2021
+Last update on Tue Dec 14 08:05:50 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -27,7 +27,7 @@ Last update on Mon Dec 13 08:08:57 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali-operator|v1.28.1|[2021-12-06T08:44:29](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali-operator.v1.28.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|85|0|0|38|47|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali-operator|v1.25.0|[2021-12-12T10:46:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali-operator.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|85|0|0|38|47|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jboss/keycloak|9.0.0|[2021-12-12T09:01:26](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.jboss.keycloak.9.0.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|78|0|0|32|46|jboss/keycloak:9.0.0|1|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|[2021-11-26T08:38:31](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.spilo-12.1.6-p3.yaml)|:x:|:white_check_mark:|:x:|62|0|0|25|37|ubuntu:bionic-20200403|1|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/spilo-12|1.6-p3|[2021-12-13T08:39:46](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.spilo-12.1.6-p3.yaml)|:white_check_mark:|:white_check_mark:|:x:|62|0|0|25|37|ubuntu:bionic-20200403|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/logical-backup|master-58|[2021-12-06T08:48:53](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.logical-backup.master-58.yaml)|:white_check_mark:|:white_check_mark:|:x:|46|0|0|17|29|ubuntu:bionic-20200403|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/unguiculus/docker-python3-phantomjs-selenium|v1|[2021-12-12T09:59:31](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1.yaml)|:white_check_mark:|:white_check_mark:|:x:|75|0|0|15|60|ubuntu:20.04|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq|v4.0.5|[2021-12-12T10:10:51](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml)|:white_check_mark:|:white_check_mark:|:x:|33|0|0|8|25|ubuntu:20.04|2|
