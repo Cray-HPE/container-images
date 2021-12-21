@@ -1,13 +1,13 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Dec 20 08:05:21 UTC 2021
+Last update on Tue Dec 21 08:05:35 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2021-12-12T08:08:09](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|38|1|3|0|34|bitnami/minideb:bullseye-amd64|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2021-12-12T10:31:44](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:white_check_mark:|:x:|:x:|207|0|12|89|106|centos:8|1|
-|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.4.0|[2021-12-03T08:36:45](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.4.0.yaml)|:x:|:x:|:x:|204|0|12|88|104|centos:8|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.4.0|[2021-12-20T08:35:58](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.4.0.yaml)|:white_check_mark:|:x:|:x:|204|0|12|88|104|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-12-12T08:13:12](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:x:|:x:|204|0|12|88|104|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-12-12T09:30:28](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-19|[2021-12-07T19:32:28](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-19.yaml)|:white_check_mark:|:x:|:white_check_mark:|2|0|2|0|0|alpine:3.12.8|1|
@@ -29,6 +29,7 @@ Last update on Mon Dec 20 08:05:21 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka|0.15.0-kafka-2.3.0|[2021-12-16T08:47:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.kafka.0.15.0-kafka-2.3.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|784|0|0|347|437|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka|0.15.0-kafka-2.2.1|[2021-12-16T08:43:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.kafka.0.15.0-kafka-2.2.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|784|0|0|347|437|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/operator|0.15.0|[2021-12-12T11:05:37](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.operator.0.15.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|749|0|0|334|415|centos:7|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/operator|0.15.0-noJndiLookupClass|[2021-12-20T22:54:32](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.operator.0.15.0-noJndiLookupClass.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|749|0|0|334|415|centos:7|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/operator|0.15.0|[2021-12-16T08:55:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.operator.0.15.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|749|0|0|334|415|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka-bridge|0.15.0|[2021-12-16T08:40:13](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.kafka-bridge.0.15.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|749|0|0|334|415|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/scholzj/zoo-entrance-stunnel|v1.0.0|[2021-12-12T09:42:43](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.scholzj.zoo-entrance-stunnel.v1.0.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|703|0|0|308|395|centos:latest|1|
