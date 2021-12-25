@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Dec 24 08:06:10 UTC 2021
+Last update on Sat Dec 25 08:04:42 UTC 2021
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -10,8 +10,8 @@ Last update on Fri Dec 24 08:06:10 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.4.0|[2021-12-20T08:35:58](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.4.0.yaml)|:white_check_mark:|:x:|:x:|212|0|12|96|104|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2021-12-12T08:13:12](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:white_check_mark:|:x:|:x:|212|0|12|96|104|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2021-12-12T09:30:28](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|7|0|2|5|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-19|[2021-12-07T19:32:28](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-19.yaml)|:x:|:x:|:white_check_mark:|2|0|2|0|0|alpine:3.12.8|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-8|[2021-12-09T08:37:25](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.0|1|
+|artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-19|[2021-12-24T08:37:06](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-19.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.8|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-17|[2021-12-19T08:34:29](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-17.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine3.12|[2021-12-23T08:35:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.redis.5.0-alpine3.12.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|redis:5-alpine3.12|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/golang|alpine3.12|[2021-12-12T09:17:21](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.golang.alpine3.12.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|golang:1.16.5-alpine3.12|1|
@@ -99,7 +99,7 @@ Last update on Fri Dec 24 08:06:10 UTC 2021
 |artifactory.algol60.net/csm-docker/stable/docker.io/wrouesnel/postgres_exporter|0.8.2|[2021-12-12T10:05:16](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.wrouesnel.postgres_exporter.0.8.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-npc|2.8.0|[2021-12-12T10:04:36](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.weaveworks.weave-npc.2.8.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-kube|2.8.0|[2021-12-12T10:03:54](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.weaveworks.weave-kube.2.8.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|[2021-12-07T08:06:40](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero.v1.5.2.yaml)|:x:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
+|artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero|v1.5.2|[2021-12-24T08:36:20](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero.v1.5.2.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
 |artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-restic-restore-helper|v1.5.2|[2021-12-12T10:03:12](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.velero.velero-restic-restore-helper.v1.5.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/timothyb89/monasca-sidecar|1.0.0|[2021-12-23T08:40:52](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.timothyb89.monasca-sidecar.1.0.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|python:3.9.9-alpine3.15|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/squareup/ghostunnel|v1.5.2|[2021-12-12T09:43:53](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.squareup.ghostunnel.v1.5.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.3|2|
