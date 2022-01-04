@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Jan  3 08:07:17 UTC 2022
+Last update on Tue Jan  4 08:05:31 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -58,8 +58,8 @@ Last update on Mon Jan  3 08:07:17 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/node-exporter|v1.0.0|[2020-05-26T06:14:50](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.prometheus.node-exporter.v1.0.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/alertmanager|v0.21.0|[2020-06-17T09:37:02](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.prometheus.alertmanager.v0.21.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/alertmanager|v0.20.0|[2019-12-11T14:53:49](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.prometheus.alertmanager.v0.20.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/quay.io/metallb/speaker|v0.11.0|[2021-12-17T08:37:38](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.metallb.speaker.v0.11.0.yaml)|:x:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|2|
-|artifactory.algol60.net/csm-docker/stable/quay.io/metallb/controller|v0.11.0|[2021-12-17T08:37:01](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.metallb.controller.v0.11.0.yaml)|:x:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|2|
+|artifactory.algol60.net/csm-docker/stable/quay.io/metallb/speaker|v0.11.0|[2022-01-03T08:37:23](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.metallb.speaker.v0.11.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|2|
+|artifactory.algol60.net/csm-docker/stable/quay.io/metallb/controller|v0.11.0|[2022-01-03T08:36:45](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.metallb.controller.v0.11.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.14.2|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/keycloak/keycloak-gatekeeper|9.0.0|[2021-12-29T10:36:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.keycloak.keycloak-gatekeeper.9.0.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.8|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v3.0.2|[2020-10-31T20:04:38](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-snapshotter.v3.0.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/k8scsi/csi-snapshotter|v2.1.1|[2020-04-29T14:44:16](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.k8scsi.csi-snapshotter.v2.1.1.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
