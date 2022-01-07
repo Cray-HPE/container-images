@@ -151,3 +151,4 @@ Last update on Fri Jan  7 08:05:39 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/docker.io/coredns/coredns|1.6.2|[2019-08-14T08:34:24](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.coredns.coredns.1.6.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|[2021-12-22T08:38:16](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bats.bats.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|[2021-12-29T08:36:48](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.appropriate.curl.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
+
