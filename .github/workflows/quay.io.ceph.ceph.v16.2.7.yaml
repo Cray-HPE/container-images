@@ -6,13 +6,13 @@ on:
       - main
     paths:
       - .github/workflows/quay.io.ceph.ceph.v16.2.7.yaml
-      - docker.io/ceph/ceph/v16.2.7/**
+      - quay.io/ceph/ceph/v16.2.7/**
   pull_request:
     branches:
       - main
     paths:
       - .github/workflows/quay.io.ceph.ceph.v16.2.7.yaml
-      - docker.io/ceph/ceph/v16.2.7/**
+      - quay.io/ceph/ceph/v16.2.7/**
   workflow_dispatch:
 
 jobs:
