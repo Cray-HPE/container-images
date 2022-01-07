@@ -3,9 +3,9 @@ name: Status Update
 on:
   workflow_dispatch: {}
 
-#  schedule:
-#    # Update schedule every night
-#    - cron: "0 8 * * *"
+  schedule:
+    # Update schedule every night
+    - cron: "0 8 * * *"
 
 jobs:
   scan:
