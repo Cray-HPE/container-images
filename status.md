@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Jan  8 08:03:02 UTC 2022
+Last update on Sun Jan  9 08:02:55 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -19,7 +19,7 @@ Last update on Sat Jan  8 08:03:02 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.6|[2021-12-29T09:01:21](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.6.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.1|[2021-12-29T09:00:45](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.1.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.1|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3|1.0.0.16140|[2021-12-27T08:37:52](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.demisto.boto3py3.1.0.0.16140.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|python:3.8-alpine|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|[2021-12-22T08:37:28](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.alpine.git.1.0.15.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.0|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git|1.0.15|[2022-01-08T08:35:22](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.alpine.git.1.0.15.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.0|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.15.0-kafka-2.3.1|[2021-12-29T11:05:42](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.kafka.0.15.0-kafka-2.3.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|785|0|0|347|438|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.15.0-kafka-2.2.1|[2021-12-29T11:01:46](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.kafka.0.15.0-kafka-2.2.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|785|0|0|347|438|centos:7|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/strimzi/kafka|0.15.0-kafka-2.3.1|[2022-01-02T08:47:59](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.strimzi.kafka.0.15.0-kafka-2.3.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|785|0|0|347|438|centos:7|1|
@@ -123,7 +123,7 @@ Last update on Sat Jan  8 08:03:02 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/vault|1.5.5|[2021-12-29T09:19:29](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.vault.1.5.5.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|alpine:3.10.5|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/redis|5.0-alpine|[2021-12-23T08:35:11](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.redis.5.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|redis:5.0.14-alpine3.15|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|13.2-alpine|[2021-12-27T08:40:19](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.13.2-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|postgres:13.2-alpine|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|11-alpine|[2021-12-22T08:39:36](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.11-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|postgres:11.14-alpine3.15|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|11-alpine|[2022-01-08T08:37:20](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.11-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|postgres:11.14-alpine3.15|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres|10.3-alpine|[2021-12-29T09:18:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.postgres.10.3-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/nginx|1.18.0-alpine|[2021-12-29T09:16:30](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.nginx.1.18.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|nginx:1.18-alpine|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/memcached|1.5.0-alpine|[2021-12-29T09:13:22](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.memcached.1.5.0-alpine.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|null|0|
@@ -150,5 +150,5 @@ Last update on Sat Jan  8 08:03:02 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl|7.80.0|[2021-12-27T08:37:12](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.curlimages.curl.7.80.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.14.2|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl|7.73.0|[2021-12-27T08:36:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.curlimages.curl.7.73.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|0|0|0|0|0|alpine:3.11.5|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/coredns/coredns|1.6.2|[2019-08-14T08:34:24](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.coredns.coredns.1.6.2.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|[2021-12-22T08:38:16](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bats.bats.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats|v1.1.0|[2022-01-08T08:36:03](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bats.bats.v1.1.0.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/appropriate/curl|latest|[2021-12-29T08:36:48](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.appropriate.curl.latest.yaml)|:white_check_mark:|:white_check_mark:|:x:|0|0|0|0|0|null|2|
