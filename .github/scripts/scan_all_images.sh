@@ -157,5 +157,5 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 done
-git checkout -B "${STATUS_BRANCH}"
+git checkout -B "${STATUS_BRANCH}" -t "origin/${STATUS_BRANCH}"
 printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 9 --key 10 --key 11 --key 12 -t '|' -n -r >> $STATUS_FILE
