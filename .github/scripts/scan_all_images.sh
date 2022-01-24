@@ -26,6 +26,7 @@
 set -e
 REPO_DIR="$( cd -- "$(dirname "../../$0")" >/dev/null 2>&1 ; pwd -P )"
 STATUS_FILE="$REPO_DIR/status.md"
+STATUS_BRANCH="scan-status"
 REGISTRY_DIRECTORIES=('docker.io' 'gcr.io' 'ghcr.io' 'k8s.gcr.io' 'quay.io' 'registry.opensource.zalan.do' 'github.com')
 REGISTRY_PREFIX="artifactory.algol60.net/csm-docker/stable"
 GITHUB_URL_WORKFLOWS="https://github.com/Cray-HPE/container-images/actions/workflows"
@@ -156,4 +157,5 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
 done
+git checkout -B "${STATUS_BRANCH}"
 printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 9 --key 10 --key 11 --key 12 -t '|' -n -r >> $STATUS_FILE
