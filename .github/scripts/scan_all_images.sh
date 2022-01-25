@@ -72,16 +72,6 @@ echo "=========================================="
 echo "Scanning images for image directoriries"
 echo "=========================================="
 
-cat <<EOT > $STATUS_FILE
-# Snyk Status
-Automatically run by github actions _status_update.yaml worfklow
-
-Last update on `date`
-
-| Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
-|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
-EOT
-
 RESULT_ROWS=()
 for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   IMAGE_DIR_PARTS=(${IMAGE_DIR//|/ })
@@ -158,4 +148,13 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   RESULT_ROWS+=("$RESULT_ROW")
 done
 git checkout -B "${STATUS_BRANCH}" -t "origin/${STATUS_BRANCH}"
+cat <<EOT > $STATUS_FILE
+# Snyk Status
+Automatically run by github actions _status_update.yaml worfklow
+
+Last update on `date`
+
+| Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
+|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
+EOT
 printf "%s\n" "${RESULT_ROWS[@]}" | sort --key 9 --key 10 --key 11 --key 12 -t '|' -n -r >> $STATUS_FILE
