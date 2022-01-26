@@ -21,8 +21,9 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM k8s.gcr.io/kube-proxy:v1.20.13 as source
+FROM k8s.gcr.io/kube-proxy:v1.20.13
 
-FROM gcr.io/distroless/static
-COPY --from=source /usr/local/bin/kube-proxy /usr/local/bin/kube-proxy
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
+
 CMD ["/usr/local/bin/kube-proxy"]
