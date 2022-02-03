@@ -38,7 +38,7 @@ else
 fi
 
 IFS=$'\n'
-AGE_LIMIT=15 # Days
+AGE_LIMIT=7 # Days
 UNIXTIME_NOW=$(${DATE_BIN} +%s)
 DOCKER_REGISTRY="artifactory.algol60.net"
 
