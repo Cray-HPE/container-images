@@ -23,5 +23,11 @@
 #
 FROM quay.io/strimzi/kafka:0.15.0-kafka-2.3.1
 USER root
-RUN yum -y update && yum clean all
+RUN yum -y update && yum -y install zip && yum clean all
+
+# Mitigation for CVE-2022-2330[257]
+RUN zip -q -d /opt/kafka/libs/log4j-1.2.17.jar org/apache/log4j/net/JMSAppender.class
+RUN zip -q -d /opt/kafka/libs/log4j-1.2.17.jar org/apache/log4j/chainsaw\*
+RUN zip -q -d /opt/kafka/libs/log4j-1.2.17.jar org/apache/log4j/net/JMSSink.class
+
 USER 1001
