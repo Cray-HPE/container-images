@@ -1,18 +1,18 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Mon Feb  7 08:42:32 UTC 2022
+Last update on Tue Feb  8 08:37:56 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
-|artifactory.algol60.net/csm-docker/stable/quay.io/galexrt/node-exporter-smartmon|v0.1.1|[2022-02-04T09:03:29](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml)|:white_check_mark:|:x:|:x:|66|9|8|1|48|debian:11.2-slim|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/galexrt/node-exporter-smartmon|v0.1.1|[2022-02-04T09:03:29](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml)|:white_check_mark:|:x:|:x:|66|9|8|2|47|debian:11.2-slim|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.5.1|[2022-01-26T14:15:21](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.5.1.yaml)|:x:|:x:|:x:|256|4|12|132|108|centos:centos8.4.2105|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph|v16.2.7|[2022-01-29T08:44:19](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.ceph.ceph.v16.2.7.yaml)|:x:|:x:|:x:|256|4|12|132|108|centos:centos8.4.2105|1|
-|artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-proxy|v1.20.13|[2022-02-04T08:58:29](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-proxy.v1.20.13.yaml)|:white_check_mark:|:x:|:x:|73|4|11|5|53|null|2|
+|artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-proxy|v1.20.13|[2022-02-04T08:58:29](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-proxy.v1.20.13.yaml)|:white_check_mark:|:x:|:x:|73|4|11|6|52|null|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2022-01-28T10:24:32](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:x:|:x:|:x:|269|4|0|146|119|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.4.0|[2022-01-28T10:29:25](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.4.0.yaml)|:x:|:x:|:x:|266|4|0|145|117|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2022-01-28T08:46:42](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:x:|:x:|:x:|266|4|0|145|117|centos:8|2|
-|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2022-02-06T08:41:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|43|3|2|0|38|bitnami/minideb:bullseye|2|
+|artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/minideb|bullseye|[2022-02-06T08:41:33](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.bitnami.minideb.bullseye.yaml)|:white_check_mark:|:x:|:x:|43|3|2|1|37|bitnami/minideb:bullseye|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/openapitools/openapi-generator-cli|v5.1.0|[2022-02-06T10:19:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.openapitools.openapi-generator-cli.v5.1.0.yaml)|:white_check_mark:|:x:|:x:|6|0|1|5|0|null|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-8|[2022-02-06T10:50:57](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.0|1|
 |artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/pgbouncer|master-19|[2022-02-06T11:02:16](https://github.com/Cray-HPE/container-images/actions/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-19.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.12.8|1|
