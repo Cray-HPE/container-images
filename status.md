@@ -1,13 +1,12 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Feb 11 08:37:10 UTC 2022
+Last update on Sat Feb 12 08:38:44 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
-|artifactory.algol60.net/csm-docker/stable/quay.io/galexrt/node-exporter-smartmon|v0.1.1|[2022-02-04T09:03:29](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml)|:white_check_mark:|:x:|:x:|66|9|8|2|47|debian:11.2-slim|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/galexrt/node-exporter-smartmon|v0.1.1|[2022-02-04T09:03:29](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml)|:white_check_mark:|:x:|:x:|67|9|8|2|48|debian:11.2-slim|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.5.1|[2022-01-26T14:15:21](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.5.1.yaml)|:x:|:x:|:x:|257|4|12|133|108|centos:centos8.4.2105|1|
-|artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph|v16.2.7|[2022-01-29T08:44:19](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.ceph.ceph.v16.2.7.yaml)|:x:|:x:|:x:|257|4|12|133|108|centos:centos8.4.2105|1|
 |artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-proxy|v1.20.13|[2022-02-04T08:58:29](https://github.com/Cray-HPE/container-images/actions/workflows/k8s.gcr.io.kube-proxy.v1.20.13.yaml)|:white_check_mark:|:x:|:x:|73|4|11|6|52|null|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2022-01-28T10:24:32](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:x:|:x:|:x:|270|4|0|147|119|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.4.0|[2022-01-28T10:29:25](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.4.0.yaml)|:x:|:x:|:x:|267|4|0|146|117|centos:8|1|
@@ -42,6 +41,8 @@ Last update on Fri Feb 11 08:37:10 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.28.1|[2022-02-04T09:05:11](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.28.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|417|0|0|234|183|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.25.0|[2022-02-06T10:23:15](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|417|0|0|234|183|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali|v1.22|[2022-02-10T08:51:27](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali.v1.22.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|417|0|0|234|183|null|0|
+|artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph|v16.2.7|[2022-02-01T18:12:07](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.ceph.ceph.v16.2.7.yaml)|:white_check_mark:|:white_check_mark:|:x:|186|0|0|109|77|null|1|
+|artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph|v15.2.15|[2022-02-01T18:09:40](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.ceph.ceph.v15.2.15.yaml)|:white_check_mark:|:white_check_mark:|:x:|186|0|0|109|77|null|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2022-02-04T08:46:32](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|165|0|0|84|81|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali-operator|v1.28.1|[2022-02-06T10:20:56](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali-operator.v1.28.1.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|118|0|0|65|53|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali-operator|v1.25.0|[2022-02-10T08:48:59](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.kiali.kiali-operator.v1.25.0.yaml)|:white_check_mark:|:white_check_mark:|:white_check_mark:|118|0|0|65|53|null|0|
