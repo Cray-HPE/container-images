@@ -23,5 +23,8 @@
 #
 FROM velero/velero:v1.6.3
 
+USER root
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/
+
+USER nobody:nogroup
