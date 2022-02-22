@@ -28,22 +28,22 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.bitnami.external-dns.0.debian-10.yaml
-      - docker.io/bitnami/external-dns/0/debian-10/**
+      - .github/workflows/docker.io.bitnami.external-dns.0.10.2-debian-10-r23.yaml
+      - docker.io/bitnami/external-dns/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.bitnami.external-dns.0.debian-10.yaml
-      - docker.io/bitnami/external-dns/0/debian-10/**
+      - .github/workflows/docker.io.bitnami.external-dns.0.10.2-debian-10-r23.yaml
+      - docker.io/bitnami/external-dns/**
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: self-hosted
     env:
-      CONTEXT_PATH: docker.io/bitnami/external-dns/0/debian-10
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns/0/debian-10
+      CONTEXT_PATH: docker.io/bitnami/external-dns
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns
       DOCKER_TAG: 0.10.2-debian-10-r23
     steps:
       - name: Checkout repo
