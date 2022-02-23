@@ -30,6 +30,8 @@ ARG ARCH=x86_64
 RUN \
   zypper --non-interactive rr --all && \
   zypper --non-interactive ar ${SLES_MIRROR}/Products/SLE-Module-Basesystem/15-SP3/${ARCH}/product?auth=basic sles15sp3-Module-Basesystem-product && \
-  zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-Basesystem/15-SP3/${ARCH}/update?auth=basic sles15sp3-Module-Basesystem-update
-
-RUN zypper update -y
+  zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-Basesystem/15-SP3/${ARCH}/update?auth=basic sles15sp3-Module-Basesystem-update && \
+  zypper update -y && \
+  zypper clean -a && \
+  zypper --non-interactive rr --all && \
+  rm -f /etc/zypp/repos.d/*
