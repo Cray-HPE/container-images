@@ -22,5 +22,3 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM quay.io/oauth2-proxy/oauth2-proxy:v7.2.1
-
-USER 2000:2000
