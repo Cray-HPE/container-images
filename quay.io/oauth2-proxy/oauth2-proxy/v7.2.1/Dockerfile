@@ -22,3 +22,8 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM quay.io/oauth2-proxy/oauth2-proxy:v7.2.1
+
+RUN apk update && \
+    apk add --upgrade apk-tools &&  \
+    apk -U upgrade && \
+    rm -rf /var/cache/apk/*
