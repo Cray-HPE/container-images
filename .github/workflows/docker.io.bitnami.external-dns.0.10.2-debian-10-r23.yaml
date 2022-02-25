@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/bitnami/external-dns/0.10.2-debian-10-r23
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns

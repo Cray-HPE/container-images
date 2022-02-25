@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: quay.io/cephcsi/cephcsi/v3.5.1
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi

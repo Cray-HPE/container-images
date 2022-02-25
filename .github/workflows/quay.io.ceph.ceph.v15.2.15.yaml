@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: quay.io/ceph/ceph/v15.2.15
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph
