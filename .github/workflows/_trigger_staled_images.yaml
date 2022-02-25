@@ -39,7 +39,7 @@ permissions:
 
 jobs:
   find-trigger:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       GITHUB_AUTH_APP_ID: 129003
     steps:
