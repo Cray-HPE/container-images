@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/demisto/boto3py3/1.0.0.24037
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3

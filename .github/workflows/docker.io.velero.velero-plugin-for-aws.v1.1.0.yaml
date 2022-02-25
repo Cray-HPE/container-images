@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/velero/velero-plugin-for-aws/v1.1.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/velero/velero-plugin-for-aws
