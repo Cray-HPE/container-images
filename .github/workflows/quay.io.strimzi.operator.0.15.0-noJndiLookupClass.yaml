@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: quay.io/strimzi/operator/0.15.0-noJndiLookupClass
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/operator
