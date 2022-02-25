@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/library/vault/1.5.5
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/vault
