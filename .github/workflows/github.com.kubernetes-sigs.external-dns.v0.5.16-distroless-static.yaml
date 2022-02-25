@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: github.com/kubernetes-sigs/external-dns/v0.5.16-distroless-static
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/github.com/kubernetes-sigs/external-dns
