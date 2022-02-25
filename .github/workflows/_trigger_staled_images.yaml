@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: rebuild_staled_images
+name: Rebuild Staled Images
 
 on:
   workflow_dispatch: {}
