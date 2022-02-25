@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/library/busybox/1.28.0-glibc
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/busybox
