@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: ghcr.io/kyverno/kyvernopre/v1.6.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/ghcr.io/kyverno/kyvernopre
