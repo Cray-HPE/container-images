@@ -50,21 +50,27 @@ calculate () {
     echo $AGE
 }
 
+result=0
+
 for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'print $2'} )
     do
         IMAGE_PATH="${DOCKER_REGISTRY}/csm-docker/stable/${IMAGE}"
-
         echo "-> checking image: ${IMAGE_PATH}"
-        $(docker pull ${IMAGE_PATH} >/dev/null 2>&1)
+        BUILD_DATE=$(docker run --rm quay.io/skopeo/stable:latest inspect --format='{{ .Labels.buildDate }}' docker://${IMAGE_PATH})
 
-        BUILD_DATE=$(docker inspect --format='{{.Config.Labels.buildDate}}' ${IMAGE_PATH})
+        if [ -z "$BUILD_DATE" ]; then
+            echo "::error:: unexpected error happened while retrieving build date for ${IMAGE_PATH}"
+            result=1
+            continue
+        fi
+
         if [[ "$BUILD_DATE" == "<no value>" ]]
           then
             echo "Triggering workflow ${IMAGE} - No such label buildDate"
             gh workflow run $IMAGE
             continue
         fi
-        
+
         AGE=$(calculate $BUILD_DATE)
         if [[ "$AGE" -gt "${AGE_LIMIT}" ]]
           then 
@@ -72,3 +78,5 @@ for IMAGE in $(grep "^name: " .github/workflows/*.yaml -h | grep '/' | awk {'pri
             gh workflow run $IMAGE
         fi
 done
+
+exit $result
