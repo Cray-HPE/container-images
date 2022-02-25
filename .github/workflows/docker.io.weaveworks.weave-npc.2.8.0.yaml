@@ -40,7 +40,7 @@ on:
 
 jobs:
   build:
-    runs-on: self-hosted
+    runs-on: ubuntu-latest
     env:
       CONTEXT_PATH: docker.io/weaveworks/weave-npc/2.8.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-npc
