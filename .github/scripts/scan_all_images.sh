@@ -99,6 +99,7 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
       echo "ERROR!!! Failed to parse snyk json"
       RESULT_JSON=1
   fi
+  docker rmi ${FULL_IMAGE}
   set -e
 
   if ([ $RESULT_STATUS == 0 ] || [ $RESULT_STATUS == 1 ]) && [ $RESULT_JSON == 0 ]; then
