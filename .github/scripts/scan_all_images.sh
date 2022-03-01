@@ -99,7 +99,6 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
       echo "ERROR!!! Failed to parse snyk json"
       RESULT_JSON=1
   fi
-  docker rmi ${FULL_IMAGE}
   set -e
 
   if ([ $RESULT_STATUS == 0 ] || [ $RESULT_STATUS == 1 ]) && [ $RESULT_JSON == 0 ]; then
@@ -147,7 +146,11 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   RESULT_ROW="|${IMAGE_PARTS[0]}|${IMAGE_PARTS[1]}|[${BUILD_DATE}]($WORKFLOW_URL)|${BUILD_STATE}|${SYMBOL}|${NON_ROOT_SYMBOL}|${UNIQUE_COUNT}|${CRITICAL}|${HIGH}|${MEDIUM}|${LOW}|${BASE_IMAGE}|${TRIVY_MISCONFIGS}|"
   echo $RESULT_ROW
   RESULT_ROWS+=("$RESULT_ROW")
+
+  echo "Cleaning up"
+  docker rmi ${FULL_IMAGE}
 done
+git fetch origin "${STATUS_BRANCH}"
 git checkout -B "${STATUS_BRANCH}" -t "origin/${STATUS_BRANCH}"
 cat <<EOT > $STATUS_FILE
 # Snyk Status
