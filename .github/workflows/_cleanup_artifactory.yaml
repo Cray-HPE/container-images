@@ -51,5 +51,5 @@ jobs:
         env:
           JF_ARTIFACTORY_1: ${{ secrets.ARTIFACTORY_ALGOL60_JFROG_CLI_CONFIGURATION }}
 
-      - name: Find and Purge old jobs
+      - name: Cleanup Artifactory
         run: .github/scripts/cleanup_artifactory.sh

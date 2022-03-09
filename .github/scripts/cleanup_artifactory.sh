@@ -22,6 +22,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
+set -e
 
 export CI=true
 export JFROG_CLI_LOG_LEVEL=ERROR
@@ -30,9 +31,9 @@ skopeo="docker run --rm quay.io/skopeo/stable:latest"
 for image in $(grep --color=never "^name: " .github/workflows/*.yaml -h | grep --color=never '/' | awk '{ print $2 }' | awk -F: '{ print $1 }' | sort -u); do
     echo "-> Inspecting $image ..."
     tags=$(jfrog rt curl -Ss api/docker/csm-docker/v2/stable/${image}/tags/list | jq -r '.tags[]')
-    declare -a sig_tags
-    declare -a nonsig_tags
-    declare -a sig_tags_valid
+    declare -a sig_tags=()
+    declare -a nonsig_tags=()
+    declare -a sig_tags_valid=()
     for tag in ${tags}; do
         if [[ ${tag} =~ sha256-[a-f0-9]{64}\.sig ]]; then
             sig_tags+=(${tag})
