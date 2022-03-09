@@ -29,7 +29,7 @@ export JFROG_CLI_LOG_LEVEL=ERROR
 skopeo="docker run --rm quay.io/skopeo/stable:latest"
 for image in $(grep --color=never "^name: " .github/workflows/*.yaml -h | grep --color=never '/' | awk '{ print $2 }' | awk -F: '{ print $1 }' | sort -u); do
     echo "-> Inspecting $image ..."
-    tags=$(${skopeo} list-tags docker://artifactory.algol60.net/csm-docker/stable/${image} | jq -r '.Tags[]')
+    tags=$(jf rt curl -Ss api/docker/csm-docker/v2/stable/${image}/tags/list | jq -r '.tags[]')
     declare -a sig_tags
     declare -a nonsig_tags
     declare -a sig_tags_valid
