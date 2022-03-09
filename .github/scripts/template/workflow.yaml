@@ -42,8 +42,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      id-token: 'write'
+      contents: read
+      id-token: write
     env:
       CONTEXT_PATH: <<CONTEXT_PATH>>
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/<<IMAGE>>
