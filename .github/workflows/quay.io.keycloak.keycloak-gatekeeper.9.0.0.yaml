@@ -41,6 +41,9 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
     env:
       CONTEXT_PATH: quay.io/keycloak/keycloak-gatekeeper/9.0.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/keycloak/keycloak-gatekeeper
@@ -58,8 +61,8 @@ jobs:
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
-          cosign_gcp_project_id: ${{ secrets.COSIGN_GCP_PROJECT_ID }}
-          cosign_gcp_sa_key: ${{ secrets.COSIGN_GCP_SA_KEY }}
+          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
