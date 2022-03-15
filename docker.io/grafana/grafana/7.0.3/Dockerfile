@@ -27,6 +27,12 @@ USER root
 
 RUN apk add --upgrade apk-tools &&  \
     apk update && apk -U upgrade && \
+    apk add zip && \
+    apk add unzip && \
     rm -rf /var/cache/apk/*
+
+COPY ./plugins/grafana-piechart-panel.zip /var/lib/grafana/plugins
+RUN unzip /var/lib/grafana/plugins/grafana-piechart-panel.zip -d /var/lib/grafana/plugins/
+RUN rm -rf /var/lib/grafana/plugins/grafana-piechart-panel.zip
 
 USER grafana
