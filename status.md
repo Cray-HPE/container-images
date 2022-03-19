@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Fri Mar 18 08:49:34 UTC 2022
+Last update on Sat Mar 19 08:45:35 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -9,7 +9,7 @@ Last update on Fri Mar 18 08:49:34 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/quay.io/cephcsi/cephcsi|v3.1.1|[2022-01-28T10:24:32](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.cephcsi.cephcsi.v3.1.1.yaml)|:x:|:x:|:x:|290|4|14|150|122|centos:8|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph|v15.2.8|[2022-01-28T08:46:42](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ceph.ceph.v15.2.8.yaml)|:x:|:x:|:x:|287|4|14|149|120|centos:8|2|
 |artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph|v15.2.15|[2022-03-18T08:08:30](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.ceph.ceph.v15.2.15.yaml)|:white_check_mark:|:x:|:x:|203|0|14|108|81|null|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2022-03-17T08:07:13](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|167|0|3|76|88|null|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/sonatype/nexus3|3.25.0|[2022-03-17T08:07:13](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.sonatype.nexus3.3.25.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|167|0|2|76|89|null|1|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.27.1-noJSM-chainsaw-kafka-3.0.0|[2022-03-18T08:09:14](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.kafka.0.27.1-noJSM-chainsaw-kafka-3.0.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|104|0|2|44|58|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.27.1-noJSM-chainsaw-kafka-2.8.1|[2022-03-18T08:09:21](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.kafka.0.27.1-noJSM-chainsaw-kafka-2.8.1.yaml)|:white_check_mark:|:x:|:white_check_mark:|104|0|2|44|58|null|0|
 |artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka|0.27.1-noJSM-chainsaw-kafka-2.8.0|[2022-03-18T08:09:15](https://github.com/Cray-HPE/container-images/actions/workflows/quay.io.strimzi.kafka.0.27.1-noJSM-chainsaw-kafka-2.8.0.yaml)|:white_check_mark:|:x:|:white_check_mark:|104|0|2|44|58|null|0|
