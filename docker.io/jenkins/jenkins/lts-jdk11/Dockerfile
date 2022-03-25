@@ -24,7 +24,9 @@
 FROM docker.io/jenkins/jenkins:lts-jdk11
 USER root
 # We need libvirt to run libvirt-agents plugin
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
+# && apt-get upgrade -y && apt full-upgrade
+# Remove upgrades for now, as this seem to cause SEGFAULT's in JVM
+RUN apt-get -y update \
     && apt-get -y install libvirt0 \
     && rm -rf /var/lib/apt/lists/
 USER jenkins
