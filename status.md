@@ -1,7 +1,7 @@
 # Snyk Status
 Automatically run by github actions _status_update.yaml worfklow
 
-Last update on Sat Apr  2 08:47:37 UTC 2022
+Last update on Sun Apr  3 08:54:46 UTC 2022
 
 | Docker Repo | Version | Build Date | Last Run | Last Scan | Non ROOT User| Total Issues | Critical | High | Medium | Low | Base Image | Trivy Misconfigurations
 |:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|:--------|
@@ -88,7 +88,7 @@ Last update on Sat Apr  2 08:47:37 UTC 2022
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.6|[2022-03-26T08:05:45](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.6.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.6|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/library/alpine|3.12.1|[2022-03-26T08:05:45](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.library.alpine.3.12.1.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.12.1|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/jnorwood/helm-docs|v1.5.0|[2022-03-26T08:05:36](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.jnorwood.helm-docs.v1.5.0.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.15.2|1|
-|artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.15.3-rootless|[2022-03-25T08:08:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.15.3-rootless.yaml)|:white_check_mark:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.13.8|1|
+|artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.15.3-rootless|[2022-03-25T08:08:46](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.15.3-rootless.yaml)|:x:|:x:|:white_check_mark:|1|0|1|0|0|alpine:3.13.8|1|
 |artifactory.algol60.net/csm-docker/stable/docker.io/gitea/gitea|1.14.6|[2022-03-26T08:05:08](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.gitea.gitea.1.14.6.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.13|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/ghostunnel/ghostunnel|v1.6.0|[2022-03-26T08:05:05](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.ghostunnel.ghostunnel.v1.6.0.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|alpine:3.14.0|2|
 |artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3|1.0.0.24037|[2022-03-26T08:05:05](https://github.com/Cray-HPE/container-images/actions/workflows/docker.io.demisto.boto3py3.1.0.0.24037.yaml)|:white_check_mark:|:x:|:x:|1|0|1|0|0|python:3.9.6-alpine3.14|2|
