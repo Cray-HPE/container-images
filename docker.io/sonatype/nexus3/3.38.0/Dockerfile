@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -33,9 +33,10 @@ USER root
 # Update any base image packagess now so that we keep our Nexus image
 # current.
 RUN dnf update -y
+RUN dnf install jq -y
 
-RUN curl -sfL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/bin/jq \
-    && chmod +x /usr/bin/jq
+#RUN curl -sfL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/bin/jq \
+#    && chmod +x /usr/bin/jq
 
 RUN chown nexus:nexus /opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-${KEYCLOAK_PLUGIN_VERSION}-bundle.kar
 
