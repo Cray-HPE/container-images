@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.cephcsi.cephcsi.v3.5.1.yaml
       - quay.io/cephcsi/cephcsi/v3.5.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '48 1 * * *'
 
 jobs:
   build:

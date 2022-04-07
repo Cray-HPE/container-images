@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.alpine.latest.yaml
       - docker.io/library/alpine/latest/**
   workflow_dispatch:
+  schedule:
+    - cron: '34 21 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.jenkins.jenkins.lts-jdk11.yaml
       - docker.io/jenkins/jenkins/lts-jdk11/**
   workflow_dispatch:
+  schedule:
+    - cron: '9 23 * * *'
 
 jobs:
   build:

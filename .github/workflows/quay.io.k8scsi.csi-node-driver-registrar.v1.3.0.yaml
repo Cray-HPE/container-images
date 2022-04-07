@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.k8scsi.csi-node-driver-registrar.v1.3.0.yaml
       - quay.io/k8scsi/csi-node-driver-registrar/v1.3.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '33 7 * * *'
 
 jobs:
   build:

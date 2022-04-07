@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.wrouesnel.postgres_exporter.0.8.2.yaml
       - docker.io/wrouesnel/postgres_exporter/0.8.2/**
   workflow_dispatch:
+  schedule:
+    - cron: '15 14 * * *'
 
 jobs:
   build:

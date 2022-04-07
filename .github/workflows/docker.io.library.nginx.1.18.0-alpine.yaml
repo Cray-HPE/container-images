@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.nginx.1.18.0-alpine.yaml
       - docker.io/library/nginx/1.18.0-alpine/**
   workflow_dispatch:
+  schedule:
+    - cron: '19 13 * * *'
 
 jobs:
   build:

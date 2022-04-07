@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.jnorwood.helm-docs.v1.5.0.yaml
       - docker.io/jnorwood/helm-docs/v1.5.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '56 2 * * *'
 
 jobs:
   build:

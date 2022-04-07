@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.postgres.10.3-alpine.yaml
       - docker.io/library/postgres/10.3-alpine/**
   workflow_dispatch:
+  schedule:
+    - cron: '44 5 * * *'
 
 jobs:
   build:

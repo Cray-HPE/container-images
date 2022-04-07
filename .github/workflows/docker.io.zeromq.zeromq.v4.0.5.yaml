@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml
       - docker.io/zeromq/zeromq/v4.0.5/**
   workflow_dispatch:
+  schedule:
+    - cron: '57 18 * * *'
 
 jobs:
   build:

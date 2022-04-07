@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.metallb.controller.v0.11.0.yaml
       - quay.io/metallb/controller/v0.11.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '16 5 * * *'
 
 jobs:
   build:

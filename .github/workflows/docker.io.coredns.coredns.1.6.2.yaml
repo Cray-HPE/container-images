@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.coredns.coredns.1.6.2.yaml
       - docker.io/coredns/coredns/1.6.2/**
   workflow_dispatch:
+  schedule:
+    - cron: '43 10 * * *'
 
 jobs:
   build:

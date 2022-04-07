@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.kiwigrid.k8s-sidecar.0.1.151.yaml
       - docker.io/kiwigrid/k8s-sidecar/0.1.151/**
   workflow_dispatch:
+  schedule:
+    - cron: '10 2 * * *'
 
 jobs:
   build:

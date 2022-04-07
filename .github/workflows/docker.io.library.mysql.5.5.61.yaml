@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.mysql.5.5.61.yaml
       - docker.io/library/mysql/5.5.61/**
   workflow_dispatch:
+  schedule:
+    - cron: '1 18 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.scholzj.zoo-entrance-stunnel.v1.0.0.yaml
       - docker.io/scholzj/zoo-entrance-stunnel/v1.0.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '16 20 * * *'
 
 jobs:
   build:

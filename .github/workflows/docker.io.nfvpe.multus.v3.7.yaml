@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.nfvpe.multus.v3.7.yaml
       - docker.io/nfvpe/multus/v3.7/**
   workflow_dispatch:
+  schedule:
+    - cron: '15 22 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.alpine.3.13.2.yaml
       - docker.io/library/alpine/3.13.2/**
   workflow_dispatch:
+  schedule:
+    - cron: '42 10 * * *'
 
 jobs:
   build:

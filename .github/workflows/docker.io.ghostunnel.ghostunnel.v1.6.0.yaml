@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.ghostunnel.ghostunnel.v1.6.0.yaml
       - docker.io/ghostunnel/ghostunnel/v1.6.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '29 17 * * *'
 
 jobs:
   build:

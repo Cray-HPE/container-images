@@ -37,6 +37,8 @@ on:
       - .github/workflows/k8s.gcr.io.sig-storage.csi-resizer.v1.3.0.yaml
       - k8s.gcr.io/sig-storage/csi-resizer/v1.3.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '45 17 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.prom.prometheus.v2.19.2.yaml
       - docker.io/prom/prometheus/v2.19.2/**
   workflow_dispatch:
+  schedule:
+    - cron: '27 17 * * *'
 
 jobs:
   build:

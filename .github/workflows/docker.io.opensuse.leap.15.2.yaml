@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.opensuse.leap.15.2.yaml
       - docker.io/opensuse/leap/15.2/**
   workflow_dispatch:
+  schedule:
+    - cron: '59 1 * * *'
 
 jobs:
   build:

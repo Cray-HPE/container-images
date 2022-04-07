@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.weaveworks.weave-kube.2.8.1.yaml
       - docker.io/weaveworks/weave-kube/2.8.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '4 15 * * *'
 
 jobs:
   build:
