@@ -35,9 +35,6 @@ USER root
 RUN dnf update -y
 RUN dnf install jq -y
 
-#RUN curl -sfL https://github.com/stedolan/jq/releases/download/jq-1.6/jq-linux64 -o /usr/bin/jq \
-#    && chmod +x /usr/bin/jq
-
 RUN chown nexus:nexus /opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-${KEYCLOAK_PLUGIN_VERSION}-bundle.kar
 
 # The plugin requires an updated JVM cacerts file and credential
