@@ -37,8 +37,6 @@ on:
       - .github/workflows/gcr.io.spiffe-io.spire-server.0.12.2.yaml
       - gcr.io/spiffe-io/spire-server/0.12.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '19 9 * * *'
 
 jobs:
   build:

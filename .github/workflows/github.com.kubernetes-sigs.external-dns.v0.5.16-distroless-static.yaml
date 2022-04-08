@@ -37,8 +37,6 @@ on:
       - .github/workflows/github.com.kubernetes-sigs.external-dns.v0.5.16-distroless-static.yaml
       - github.com/kubernetes-sigs/external-dns/v0.5.16-distroless-static/**
   workflow_dispatch:
-  schedule:
-    - cron: '37 9 * * *'
 
 jobs:
   build:

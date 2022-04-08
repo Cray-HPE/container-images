@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.kube-controller-manager.v1.20.15.yaml
       - k8s.gcr.io/kube-controller-manager/v1.20.15/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 4 * * *'
 
 jobs:
   build:

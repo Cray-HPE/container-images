@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.metrics-server.v0.3.6.yaml
       - k8s.gcr.io/metrics-server/v0.3.6/**
   workflow_dispatch:
-  schedule:
-    - cron: '12 21 * * *'
 
 jobs:
   build:

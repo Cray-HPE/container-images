@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.kube-proxy.v1.20.13.yaml
       - k8s.gcr.io/kube-proxy/v1.20.13/**
   workflow_dispatch:
-  schedule:
-    - cron: '43 14 * * *'
 
 jobs:
   build:

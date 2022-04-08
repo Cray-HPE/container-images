@@ -37,8 +37,6 @@ on:
       - .github/workflows/registry.suse.com.suse.sle15.15.1.yaml
       - registry.suse.com/suse/sle15/15.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '36 19 * * *'
 
 jobs:
   build:

@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.coredns.1.7.0.yaml
       - k8s.gcr.io/coredns/1.7.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '10 14 * * *'
 
 jobs:
   build:

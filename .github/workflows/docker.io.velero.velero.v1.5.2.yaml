@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.velero.velero.v1.5.2.yaml
       - docker.io/velero/velero/v1.5.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 16 * * *'
 
 jobs:
   build:

@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.node-exporter-smartmon.v0.1.1.yaml
       - quay.io/galexrt/node-exporter-smartmon/v0.1.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '22 6 * * *'
 
 jobs:
   build:

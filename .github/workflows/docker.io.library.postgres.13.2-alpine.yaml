@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.library.postgres.13.2-alpine.yaml
       - docker.io/library/postgres/13.2-alpine/**
   workflow_dispatch:
-  schedule:
-    - cron: '7 18 * * *'
 
 jobs:
   build:

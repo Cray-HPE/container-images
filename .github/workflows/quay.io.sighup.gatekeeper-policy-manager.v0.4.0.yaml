@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.sighup.gatekeeper-policy-manager.v0.4.0.yaml
       - quay.io/sighup/gatekeeper-policy-manager/v0.4.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '51 18 * * *'
 
 jobs:
   build:

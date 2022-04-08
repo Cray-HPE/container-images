@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.library.busybox.1.28.0-glibc.yaml
       - docker.io/library/busybox/1.28.0-glibc/**
   workflow_dispatch:
-  schedule:
-    - cron: '41 2 * * *'
 
 jobs:
   build:

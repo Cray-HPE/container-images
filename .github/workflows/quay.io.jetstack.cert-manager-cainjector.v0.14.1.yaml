@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.jetstack.cert-manager-cainjector.v0.14.1.yaml
       - quay.io/jetstack/cert-manager-cainjector/v0.14.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '22 12 * * *'
 
 jobs:
   build:

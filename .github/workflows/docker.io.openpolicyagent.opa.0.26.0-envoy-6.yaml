@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.openpolicyagent.opa.0.26.0-envoy-6.yaml
       - docker.io/openpolicyagent/opa/0.26.0-envoy-6/**
   workflow_dispatch:
-  schedule:
-    - cron: '25 23 * * *'
 
 jobs:
   build:

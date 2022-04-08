@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.bitnami.external-dns.0.10.2-debian-10-r23.yaml
       - docker.io/bitnami/external-dns/0.10.2-debian-10-r23/**
   workflow_dispatch:
-  schedule:
-    - cron: '21 17 * * *'
 
 jobs:
   build:

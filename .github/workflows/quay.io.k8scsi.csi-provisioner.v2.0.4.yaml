@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.k8scsi.csi-provisioner.v2.0.4.yaml
       - quay.io/k8scsi/csi-provisioner/v2.0.4/**
   workflow_dispatch:
-  schedule:
-    - cron: '47 21 * * *'
 
 jobs:
   build:

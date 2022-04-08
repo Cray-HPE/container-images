@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.library.centos.7.yaml
       - docker.io/library/centos/7/**
   workflow_dispatch:
-  schedule:
-    - cron: '29 22 * * *'
 
 jobs:
   build:

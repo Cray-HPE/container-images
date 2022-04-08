@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.appropriate.curl.latest.yaml
       - docker.io/appropriate/curl/latest/**
   workflow_dispatch:
-  schedule:
-    - cron: '9 12 * * *'
 
 jobs:
   build:

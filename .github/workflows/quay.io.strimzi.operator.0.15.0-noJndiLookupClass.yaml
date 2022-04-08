@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.strimzi.operator.0.15.0-noJndiLookupClass.yaml
       - quay.io/strimzi/operator/0.15.0-noJndiLookupClass/**
   workflow_dispatch:
-  schedule:
-    - cron: '5 19 * * *'
 
 jobs:
   build:

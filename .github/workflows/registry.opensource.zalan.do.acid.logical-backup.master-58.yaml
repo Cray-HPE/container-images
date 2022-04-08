@@ -37,8 +37,6 @@ on:
       - .github/workflows/registry.opensource.zalan.do.acid.logical-backup.master-58.yaml
       - registry.opensource.zalan.do/acid/logical-backup/master-58/**
   workflow_dispatch:
-  schedule:
-    - cron: '1 8 * * *'
 
 jobs:
   build:

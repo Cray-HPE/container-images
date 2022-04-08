@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.prometheus.node-exporter.v1.0.0.yaml
       - quay.io/prometheus/node-exporter/v1.0.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 20 * * *'
 
 jobs:
   build:

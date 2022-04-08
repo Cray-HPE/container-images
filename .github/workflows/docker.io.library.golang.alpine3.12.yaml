@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.library.golang.alpine3.12.yaml
       - docker.io/library/golang/alpine3.12/**
   workflow_dispatch:
-  schedule:
-    - cron: '10 14 * * *'
 
 jobs:
   build:

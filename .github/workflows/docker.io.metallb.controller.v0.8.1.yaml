@@ -37,8 +37,6 @@ on:
       - .github/workflows/docker.io.metallb.controller.v0.8.1.yaml
       - docker.io/metallb/controller/v0.8.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '45 5 * * *'
 
 jobs:
   build:

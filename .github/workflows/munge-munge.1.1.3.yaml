@@ -37,8 +37,6 @@ on:
       - .github/workflows/munge-munge.1.1.3.yaml
       - munge-munge/1.1.3/**
   workflow_dispatch:
-  schedule:
-    - cron: '13 11 * * *'
 
 jobs:
   build:

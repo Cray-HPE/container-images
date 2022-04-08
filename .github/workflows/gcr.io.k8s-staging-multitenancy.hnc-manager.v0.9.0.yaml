@@ -37,8 +37,6 @@ on:
       - .github/workflows/gcr.io.k8s-staging-multitenancy.hnc-manager.v0.9.0.yaml
       - gcr.io/k8s-staging-multitenancy/hnc-manager/v0.9.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '1 7 * * *'
 
 jobs:
   build:

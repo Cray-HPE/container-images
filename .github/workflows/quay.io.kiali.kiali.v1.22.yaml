@@ -37,8 +37,6 @@ on:
       - .github/workflows/quay.io.kiali.kiali.v1.22.yaml
       - quay.io/kiali/kiali/v1.22/**
   workflow_dispatch:
-  schedule:
-    - cron: '30 13 * * *'
 
 jobs:
   build:

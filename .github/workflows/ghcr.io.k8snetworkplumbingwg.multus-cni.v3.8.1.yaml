@@ -37,8 +37,6 @@ on:
       - .github/workflows/ghcr.io.k8snetworkplumbingwg.multus-cni.v3.8.1.yaml
       - ghcr.io/k8snetworkplumbingwg/multus-cni/v3.8.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '51 9 * * *'
 
 jobs:
   build:

@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.pause.3.1.yaml
       - k8s.gcr.io/pause/3.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '19 11 * * *'
 
 jobs:
   build:

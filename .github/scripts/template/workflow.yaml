@@ -37,8 +37,6 @@ on:
       - .github/workflows/<<WORKFLOW>>.yaml
       - <<CONTEXT_PATH>>/**
   workflow_dispatch:
-  schedule:
-    - cron: '<<MINUTE>> <<HOUR>> * * *'
 
 jobs:
   build:

@@ -37,8 +37,6 @@ on:
       - .github/workflows/k8s.gcr.io.kube-scheduler.v1.20.13.yaml
       - k8s.gcr.io/kube-scheduler/v1.20.13/**
   workflow_dispatch:
-  schedule:
-    - cron: '57 20 * * *'
 
 jobs:
   build:
