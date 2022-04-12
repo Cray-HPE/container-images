@@ -23,7 +23,7 @@
 #
 FROM timothyb89/monasca-sidecar:1.0.0 as upstream
 
-FROM python:3.9.9-alpine
+FROM python:3.10-alpine
 RUN apk add --upgrade apk-tools &&  \
     apk update && apk -U upgrade && \
     rm -rf /var/cache/apk/*
