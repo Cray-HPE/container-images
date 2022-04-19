@@ -38,7 +38,7 @@ on:
       - docker.io/jenkins/jenkins/jdk11/**
   workflow_dispatch:
   schedule:
-    - cron: '15 23 * * 0'
+    - cron: '15 23 * * 6'
 
 jobs:
   build:
