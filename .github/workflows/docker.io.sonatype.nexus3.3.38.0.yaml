@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.sonatype.nexus3.3.38.0.yaml
       - docker.io/sonatype/nexus3/3.38.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '45 23 * * *'
 
 jobs:
   build:

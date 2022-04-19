@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.istio.kubectl.1.5.4.yaml
       - docker.io/istio/kubectl/1.5.4/**
   workflow_dispatch:
+  schedule:
+    - cron: '20 10 * * *'
 
 jobs:
   build:

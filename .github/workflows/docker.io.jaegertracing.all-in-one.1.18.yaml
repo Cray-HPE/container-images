@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.jaegertracing.all-in-one.1.18.yaml
       - docker.io/jaegertracing/all-in-one/1.18/**
   workflow_dispatch:
+  schedule:
+    - cron: '1 14 * * *'
 
 jobs:
   build:

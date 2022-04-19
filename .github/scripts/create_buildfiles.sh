@@ -150,6 +150,9 @@ if [ "$GENERATE" == "workflow" ] || [ "$GENERATE" == "both" ]; then
   WORKFLOW_NAME=${UPSTREAM_IMAGE////.}
   WORKFLOW_NAME=${WORKFLOW_NAME//:/.}
   WORKFLOW_PATH=".github/workflows/${WORKFLOW_NAME}.yaml"
+  SECOND=$((RANDOM * 86400 / 32767))
+  HOUR=$((SECOND / 3600))
+  MINUTE=$((SECOND / 60 - HOUR * 60))
 
   echo "Creating workflow ${WORKFLOW_PATH}"
   cp .github/scripts/template/workflow.yaml ${WORKFLOW_PATH}
@@ -158,5 +161,7 @@ if [ "$GENERATE" == "workflow" ] || [ "$GENERATE" == "both" ]; then
   $SED_BIN -i "s|<<CONTEXT_PATH>>|${CONTEXT_PATH}|g" ${WORKFLOW_PATH}
   $SED_BIN -i "s|<<IMAGE>>|${REGISTRY}/${IMAGE}|g" ${WORKFLOW_PATH}
   $SED_BIN -i "s|<<TAG>>|${TAG}|g" ${WORKFLOW_PATH}
+  $SED_BIN -i "s|<<MINUTE>>|${MINUTE}|g" ${WORKFLOW_PATH}
+  $SED_BIN -i "s|<<HOUR>>|${HOUR}|g" ${WORKFLOW_PATH}
 fi
 

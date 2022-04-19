@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.prometheus.prometheus.v2.18.1.yaml
       - quay.io/prometheus/prometheus/v2.18.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '25 19 * * *'
 
 jobs:
   build:

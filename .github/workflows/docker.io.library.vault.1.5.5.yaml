@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.vault.1.5.5.yaml
       - docker.io/library/vault/1.5.5/**
   workflow_dispatch:
+  schedule:
+    - cron: '7 6 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.strimzi.kafka.0.15.0-kafka-2.3.0.yaml
       - docker.io/strimzi/kafka/0.15.0-kafka-2.3.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '6 14 * * *'
 
 jobs:
   build:

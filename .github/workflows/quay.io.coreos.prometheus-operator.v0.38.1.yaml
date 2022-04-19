@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.coreos.prometheus-operator.v0.38.1.yaml
       - quay.io/coreos/prometheus-operator/v0.38.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '33 20 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.memcached.1.5.0-alpine.yaml
       - docker.io/library/memcached/1.5.0-alpine/**
   workflow_dispatch:
+  schedule:
+    - cron: '27 4 * * *'
 
 jobs:
   build:

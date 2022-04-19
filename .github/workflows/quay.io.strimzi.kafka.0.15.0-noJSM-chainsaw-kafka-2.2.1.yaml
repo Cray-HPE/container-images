@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.strimzi.kafka.0.15.0-noJSM-chainsaw-kafka-2.2.1.yaml
       - quay.io/strimzi/kafka/0.15.0-noJSM-chainsaw-kafka-2.2.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '58 3 * * *'
 
 jobs:
   build:

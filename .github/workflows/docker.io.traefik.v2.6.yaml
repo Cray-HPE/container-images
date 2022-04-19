@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.traefik.v2.6.yaml
       - docker.io/traefik/v2.6/**
   workflow_dispatch:
+  schedule:
+    - cron: '33 4 * * *'
 
 jobs:
   build:

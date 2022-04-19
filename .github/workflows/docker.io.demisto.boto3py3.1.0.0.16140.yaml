@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.demisto.boto3py3.1.0.0.16140.yaml
       - docker.io/demisto/boto3py3/1.0.0.16140/**
   workflow_dispatch:
+  schedule:
+    - cron: '22 5 * * *'
 
 jobs:
   build:

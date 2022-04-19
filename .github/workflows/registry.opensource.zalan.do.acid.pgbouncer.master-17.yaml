@@ -37,6 +37,8 @@ on:
       - .github/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-17.yaml
       - registry.opensource.zalan.do/acid/pgbouncer/master-17/**
   workflow_dispatch:
+  schedule:
+    - cron: '38 19 * * *'
 
 jobs:
   build:

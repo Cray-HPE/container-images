@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.grafana.grafana.7.0.3.yaml
       - docker.io/grafana/grafana/7.0.3/**
   workflow_dispatch:
+  schedule:
+    - cron: '18 13 * * *'
 
 jobs:
   build:

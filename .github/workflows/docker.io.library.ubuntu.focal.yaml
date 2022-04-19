@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.ubuntu.focal.yaml
       - docker.io/library/ubuntu/focal/**
   workflow_dispatch:
+  schedule:
+    - cron: '38 2 * * *'
 
 jobs:
   build:

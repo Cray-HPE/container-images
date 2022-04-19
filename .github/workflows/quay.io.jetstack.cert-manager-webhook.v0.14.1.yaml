@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.jetstack.cert-manager-webhook.v0.14.1.yaml
       - quay.io/jetstack/cert-manager-webhook/v0.14.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '39 18 * * *'
 
 jobs:
   build:

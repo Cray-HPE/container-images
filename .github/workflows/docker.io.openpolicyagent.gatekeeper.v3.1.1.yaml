@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.openpolicyagent.gatekeeper.v3.1.1.yaml
       - docker.io/openpolicyagent/gatekeeper/v3.1.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '28 19 * * *'
 
 jobs:
   build:

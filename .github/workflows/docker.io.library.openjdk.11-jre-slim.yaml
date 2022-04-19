@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.library.openjdk.11-jre-slim.yaml
       - docker.io/library/openjdk/11-jre-slim/**
   workflow_dispatch:
+  schedule:
+    - cron: '19 5 * * *'
 
 jobs:
   build:

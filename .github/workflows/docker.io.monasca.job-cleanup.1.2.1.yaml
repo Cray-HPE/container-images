@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.monasca.job-cleanup.1.2.1.yaml
       - docker.io/monasca/job-cleanup/1.2.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '41 13 * * *'
 
 jobs:
   build:

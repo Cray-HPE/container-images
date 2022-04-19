@@ -26,9 +26,10 @@ name: Rebuild Staled Images
 on:
   workflow_dispatch: {}
 
-  schedule:
-    # Update schedule every night
-    - cron:  '0 8 * * *'
+  # Do not run centralized rebuild job - we have a  daily randomized schedule in each particular workflow now
+  # schedule:
+  #  # Update schedule every night
+  #  - cron:  '0 8 * * *'
 
 permissions:
   actions: write

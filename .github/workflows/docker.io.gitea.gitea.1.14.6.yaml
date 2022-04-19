@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.gitea.gitea.1.14.6.yaml
       - docker.io/gitea/gitea/1.14.6/**
   workflow_dispatch:
+  schedule:
+    - cron: '59 18 * * *'
 
 jobs:
   build:

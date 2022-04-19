@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.coreos.etcd.v3.3.22.yaml
       - quay.io/coreos/etcd/v3.3.22/**
   workflow_dispatch:
+  schedule:
+    - cron: '5 16 * * *'
 
 jobs:
   build:

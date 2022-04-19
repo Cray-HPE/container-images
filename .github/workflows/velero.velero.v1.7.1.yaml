@@ -37,6 +37,8 @@ on:
       - .github/workflows/velero.velero.v1.7.1.yaml
       - velero/velero/v1.7.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '27 8 * * *'
 
 jobs:
   build:

@@ -37,6 +37,8 @@ on:
       - .github/workflows/quay.io.coreos.configmap-reload.v0.0.1.yaml
       - quay.io/coreos/configmap-reload/v0.0.1/**
   workflow_dispatch:
+  schedule:
+    - cron: '56 15 * * *'
 
 jobs:
   build:

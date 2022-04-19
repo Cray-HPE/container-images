@@ -37,6 +37,8 @@ on:
       - .github/workflows/docker.io.prom.snmp-exporter.v0.20.0.yaml
       - docker.io/prom/snmp-exporter/v0.20.0/**
   workflow_dispatch:
+  schedule:
+    - cron: '22 15 * * *'
 
 jobs:
   build:
