@@ -23,15 +23,16 @@
 #
 FROM docker.io/jenkins/jenkins:jdk11
 USER root
-COPY plugins.txt /var/jenkins_home
+COPY plugins.txt /usr/share/jenkins/ref
 
 # We need libvirt to run libvirt-agents plugin
 RUN apt-get -y update \
     && apt-get -y install libvirt0 \
     && apt-get upgrade -y && apt full-upgrade \
     && rm -rf /var/lib/apt/lists/ \
-    && chown jenkins.jenkins /var/jenkins_home/plugins.txt
+    && mkdir -p /usr/share/jenkins/ref/plugins \
+    && chown jenkins /usr/share/jenkins/ref/plugins.txt /usr/share/jenkins/ref/plugins
 USER jenkins
-ENV PLUGIN_DIR=/var/jenkins_home/plugins
-RUN /bin/jenkins-plugin-cli -f /var/jenkins_home/plugins.txt
+ENV PLUGIN_DIR=/usr/share/jenkins/ref/plugins
+RUN /bin/jenkins-plugin-cli -f /usr/share/jenkins/ref/plugins.txt
 WORKDIR /var/jenkins_home
