@@ -84,6 +84,7 @@ jobConfigHistory
 jquery3-api
 jsch
 junit
+kubernetes
 ldap
 lockable-resources
 mailer
