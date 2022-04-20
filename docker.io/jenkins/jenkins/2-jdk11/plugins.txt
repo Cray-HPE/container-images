@@ -53,6 +53,7 @@ echarts-api
 email-ext
 favorite
 font-awesome-api
+gcp-secrets-manager-credentials-provider
 git
 git-client
 git-server

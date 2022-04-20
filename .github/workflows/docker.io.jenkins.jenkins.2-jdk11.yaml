@@ -21,21 +21,21 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/jenkins/jenkins:jdk11
+name: docker.io/jenkins/jenkins:2-jdk11
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.jenkins.jenkins.jdk11.yaml
-      - docker.io/jenkins/jenkins/jdk11/**
+      - .github/workflows/docker.io.jenkins.jenkins.2-jdk11.yaml
+      - docker.io/jenkins/jenkins/2-jdk11/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.jenkins.jenkins.jdk11.yaml
-      - docker.io/jenkins/jenkins/jdk11/**
+      - .github/workflows/docker.io.jenkins.jenkins.2-jdk11.yaml
+      - docker.io/jenkins/jenkins/2-jdk11/**
   workflow_dispatch:
   schedule:
     - cron: '15 23 * * 6'
@@ -47,9 +47,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/jenkins/jenkins/jdk11
+      CONTEXT_PATH: docker.io/jenkins/jenkins/2-jdk11
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/jenkins/jenkins
-      DOCKER_TAG: jdk11
+      DOCKER_TAG: 2-jdk11
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
