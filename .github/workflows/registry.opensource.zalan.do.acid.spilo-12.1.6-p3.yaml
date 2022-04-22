@@ -38,7 +38,7 @@ on:
       - registry.opensource.zalan.do/acid/spilo-12/1.6-p3/**
   workflow_dispatch:
   schedule:
-    - cron: '58 8 * * *'
+    - cron: '58 7 * * *'
 
 jobs:
   build:

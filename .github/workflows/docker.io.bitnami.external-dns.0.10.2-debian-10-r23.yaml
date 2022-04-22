@@ -38,7 +38,7 @@ on:
       - docker.io/bitnami/external-dns/0.10.2-debian-10-r23/**
   workflow_dispatch:
   schedule:
-    - cron: '40 8 * * *'
+    - cron: '40 6 * * *'
 
 jobs:
   build:
