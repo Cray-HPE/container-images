@@ -21,14 +21,16 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM debian:bullseye-slim
+FROM docker.io/library/alpine:3.15
 
-
-RUN apt-get -q update && \
-    apt-get install -y --no-install-recommends smartmontools nvme-cli jq moreutils git ca-certificates && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
-    mkdir -p /scripts && \
+RUN apk add --no-cache \
+    smartmontools \
+    jq \
+    nvme-cli \
+    bash \
+    hwids-pci \ 
+    git 
+RUN mkdir -p /scripts && \
     git clone --depth 1 --branch master --single-branch \
         https://github.com/prometheus-community/node-exporter-textfile-collector-scripts.git \
         /scripts && \
