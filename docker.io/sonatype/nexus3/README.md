@@ -1,0 +1,5 @@
+## Sonatype Nexus
+
+### New image instructions
+
+ After follwing instructions from the readme in the base directory of this repository there is a few more steps for this container image. To ensure nexus is created correctly there is two files that must be brought into the new folder for the new version, the create-trust-store.sh and nexus3-keycloak-plugin-0.5.0-bundle.kar. Then the docker file must be edited to reflect how it is created in the latest previous version (3.38.0 - 04/2022). Once the files have been created and edited a pull request should be made to push the new folder and workflow to main. The pull request will run the workflow and tests then upload the container image to (artifactory)[https://artifactory.algol60.net/ui/repos/tree/General/csm-docker%2Fstable%2Fdocker.io%2Fsonatype%2Fnexus3] to be used in the cray-nexus chart.
