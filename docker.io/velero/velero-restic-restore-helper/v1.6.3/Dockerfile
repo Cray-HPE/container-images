@@ -21,10 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/velero/velero-restic-restore-helper:v1.6.3
-
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+FROM docker.io/velero/velero-restic-restore-helper:v1.6.3 as source
 
 FROM gcr.io/distroless/static
 COPY --from=source /velero-restic-restore-helper /
