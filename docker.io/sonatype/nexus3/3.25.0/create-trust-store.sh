@@ -1,3 +1,4 @@
+#!/bin/sh
 #
 # MIT License
 #
@@ -21,33 +22,31 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/sonatype/nexus3:3.35.0
+if [ $# -lt 2 ]; then
+    echo >&2 "usage: ${0} KEYSTORE CERT..."
+    exit 2
+fi
 
-# Install the Keycloak plugin, see https://github.com/flytreeleft/nexus3-keycloak-plugin
-ARG KEYCLOAK_PLUGIN_VERSION=0.5.0
-COPY ./nexus3-keycloak-plugin-${KEYCLOAK_PLUGIN_VERSION}-bundle.kar /opt/sonatype/nexus/deploy/
+keystore="$1"
+shift
 
-USER root
+if [ ! -f "$keystore" ]; then
+    echo >&2 "Initializing trust store from /usr/lib/jvm/java-1.8.0/jre/lib/security/cacerts"
+    # Start with default JRE trust store
+    cp /usr/lib/jvm/java-1.8.0/jre/lib/security/cacerts "$keystore"
+    # Make sure it is writable
+    chmod -v u=rw,go=r "$keystore"
+fi
 
-# This Nexus image is based on the RHEL Universal Base Image (UBI).
-# Update any base image packagess now so that we keep our Nexus image
-# current.
-RUN dnf update -y
-RUN dnf install jq -y
+# Add every cert specified on the command line
+while [ $# -gt 0 ]; do
+    cert="$1"
+    echo >&2 "Importing $cert"
+    keytool -importcert -keystore "$keystore" -storepass changeit -noprompt \
+        -file "$cert" -alias "cray-hpe-$(basename $cert)" >&2
+    shift
+done
 
-RUN chown nexus:nexus /opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-${KEYCLOAK_PLUGIN_VERSION}-bundle.kar
-
-# The plugin requires an updated JVM cacerts file and credential
-# which must be referenced from nexus.vmoptions.  The nexus user
-# will need to modify the file so it makes sense that nexus
-# should just own the file.
-RUN chown nexus:nexus /opt/sonatype/nexus/bin/nexus.vmoptions
-RUN dnf install -y openssl
-
-# Allow nexus to modify the logging properties for debugging purposes.
-RUN chown nexus:nexus /opt/sonatype/nexus/etc/logback/logback.xml
-
-COPY create-trust-store.sh /usr/local/bin/
-
-USER nexus
+# List all certs in trust-store
+keytool -list -keystore "$keystore" -storepass changeit -noprompt
 
