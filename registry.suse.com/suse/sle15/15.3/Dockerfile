@@ -34,4 +34,5 @@ RUN \
   zypper update -y && \
   zypper clean -a && \
   zypper --non-interactive rr --all && \
-  rm -f /etc/zypp/repos.d/*
+  rm -f /etc/zypp/repos.d/* && \
+  rm -Rf /root/.zypp
