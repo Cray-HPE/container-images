@@ -35,7 +35,7 @@ RUN \
   zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-HPC/15-SP2/${ARCH}/update?auth=basic sles15sp2-Module-HPC-update && \
   zypper update -y && \
   zypper install -y munge && \
-  zypper clean -a && zypper --non-interactive rr --all && rm -f /etc/zypp/repos.d/*
+  zypper clean -a && zypper --non-interactive rr --all && rm -f /etc/zypp/repos.d/* && rm -Rf /root/.zypp
 
 USER munge:munge
 VOLUME /var/run/munge /etc/munge
