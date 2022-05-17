@@ -23,10 +23,13 @@
 #
 FROM docker.io/jenkins/jenkins:lts-jdk11
 USER root
-# We need libvirt to run libvirt-agents plugin
-# && apt-get upgrade -y && apt full-upgrade
-# Remove upgrades for now, as this seem to cause SEGFAULT's in JVM
+# Need Python 3 and gsutil for controller backups
 RUN apt-get -y update \
-    && apt-get -y install libvirt0 \
+    && apt-get upgrade -y && apt full-upgrade \
+    && apt-get -y install python3 \
     && rm -rf /var/lib/apt/lists/
+RUN curl -LSsf -O https://storage.googleapis.com/pub/gsutil.tar.gz \
+    && tar xfz gsutil.tar.gz -C /usr/lib \
+    && rm gsutil.tar.gz \
+    && ln -s /usr/lib/gsutil/gsutil /usr/local/bin
 USER jenkins
