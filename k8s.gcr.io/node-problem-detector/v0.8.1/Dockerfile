@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM k8s.gcr.io/node-problem-detector:v0.8.1 as upstream
+FROM k8s.gcr.io/node-problem-detector/node-problem-detector:v0.8.10 as upstream
 
 FROM golang:1.17-buster as builder
 RUN git clone https://github.com/kubernetes/node-problem-detector.git /opt/node-problem-detector\
     && cd /opt/node-problem-detector\
-    && git checkout v0.8.1\
+    && git checkout v0.8.10\
     && ENABLE_JOURNALD=0 make vet fmt version test build-binaries
 
 FROM docker.io/ubuntu:20.04
