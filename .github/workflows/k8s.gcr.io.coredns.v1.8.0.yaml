@@ -28,14 +28,14 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/k8s.gcr.io.coredns.coredns.v1.8.0.yaml
-      - k8s.gcr.io/coredns/coredns/v1.8.0/**
+      - .github/workflows/k8s.gcr.io.coredns.v1.8.0.yaml
+      - k8s.gcr.io/coredns/v1.8.0/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/k8s.gcr.io.coredns.coredns.v1.8.0.yaml
-      - k8s.gcr.io/coredns/coredns/v1.8.0/**
+      - .github/workflows/k8s.gcr.io.coredns.v1.8.0.yaml
+      - k8s.gcr.io/coredns/v1.8.0/**
   workflow_dispatch:
   schedule:
     - cron: '42 0 * * *'
@@ -47,8 +47,8 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: k8s.gcr.io/coredns/coredns/v1.8.0
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/coredns/coredns
+      CONTEXT_PATH: k8s.gcr.io/coredns/v1.8.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/coredns
       DOCKER_TAG: v1.8.0
     steps:
       - name: Checkout repo
