@@ -38,7 +38,7 @@ on:
       - ghcr.io/kyverno/kyvernopre/v1.6.2/**
   workflow_dispatch:
   schedule:
-    - cron: '51 10 * * *'
+    - cron: '5 8 * * *'
 
 jobs:
   build:
