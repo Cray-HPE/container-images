@@ -22,7 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 
-#junk remove .github/workflows/quay.io.argoproj.workflow-controlle.3.3.5.yaml
 
 name: quay.io/quay.io/argoproj/workflow-controlle:3.3.5
 
