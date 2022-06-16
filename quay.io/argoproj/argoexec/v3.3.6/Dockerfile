@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/quay.io/argoproj/argoexec:v3.3.6
+FROM quay.io/argoproj/argoexec:v3.3.6
 
 USER root$
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\

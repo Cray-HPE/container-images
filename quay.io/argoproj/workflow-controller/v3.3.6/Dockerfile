@@ -21,4 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/quay.io/argoproj/workflow-controller:v3.3.6
+FROM quay.io/argoproj/workflow-controller:v3.3.6
