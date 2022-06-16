@@ -30,14 +30,14 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/quay.io.argoproj.workflow-controlle.v3.3.6.yaml
-      - quay.io.argoproj.workflow-controlle.v3.3.6/**
+      - .github/workflows/quay.io.argoproj.workflow-controller.v3.3.6.yaml
+      - quay.io.argoproj.workflow-controller.v3.3.6/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/quay.io.argoproj.workflow-controlle.v3.3.6.yaml
-      - quay.io.argoproj.workflow-controlle.v3.3.6/**
+      - .github/workflows/quay.io.argoproj.workflow-controller.v3.3.6.yaml
+      - quay.io.argoproj.workflow-controller.v3.3.6/**
   workflow_dispatch:
 
 jobs:
@@ -47,8 +47,8 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: quay.io/argoproj/workflow-controlle/v3.3.6
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/argoproj/workflow-controlle
+      CONTEXT_PATH: quay.io/argoproj/workflow-controller/v3.3.6
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/argoproj/workflow-controller
       DOCKER_TAG: v3.3.6
     steps:
       - name: Checkout repo
