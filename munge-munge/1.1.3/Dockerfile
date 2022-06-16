@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.3 as base
+FROM artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.3
 
 ARG SLES_REPO_USERNAME
 ARG SLES_REPO_PASSWORD
@@ -35,14 +35,11 @@ RUN \
   zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-HPC/15-SP3/${ARCH}/update?auth=basic sles15sp3-Module-HPC-update && \
   zypper update -y && \
   zypper install -y munge && \
-  zypper clean -a && zypper --non-interactive rr --all && rm -f /etc/zypp/repos.d/* && rm -Rf /root/.zypp
+  zypper clean -a && zypper --non-interactive rr --all && rm -f /etc/zypp/repos.d/* && rm -Rf /root/.zypp && \
+  chmod 3777 /run/munge /var/run/munge && \
+  chmod 0700 /etc/munge /var/lib/munge /var/log/munge
 
 USER munge:munge
 VOLUME /var/run/munge /etc/munge
 
-FROM base as testing
-COPY test.sh ./
-ENTRYPOINT ["./test.sh"]
-
-FROM base as app
-ENTRYPOINT ["/usr/sbin/munged", "-F"]
+ENTRYPOINT ["/usr/sbin/munged", "-F", "-f"]
