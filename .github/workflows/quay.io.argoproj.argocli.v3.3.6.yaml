@@ -23,7 +23,7 @@
 #
 
 
-name: quay.io/quay.io/argoproj/argocli:v3.3.6
+name: quay.io/argoproj/argocli:v3.3.6
 
 on:
   push:
@@ -47,7 +47,7 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: quay.io/quay.io/argoproj/argocli/v3.3.6
+      CONTEXT_PATH: quay.io/argoproj/argocli/v3.3.6
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/argoproj/argocli
       DOCKER_TAG: v3.3.6
     steps:
