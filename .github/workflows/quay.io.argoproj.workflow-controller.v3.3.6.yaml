@@ -23,7 +23,7 @@
 #
 
 
-name: quay.io/argoproj/workflow-controlle:v3.3.6
+name: quay.io/argoproj/workflow-controller:v3.3.6
 
 on:
   push:
