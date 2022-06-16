@@ -22,9 +22,3 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM quay.io/argoproj/argoexec:v3.3.6
-
-USER root$
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
-
-USER 8737
