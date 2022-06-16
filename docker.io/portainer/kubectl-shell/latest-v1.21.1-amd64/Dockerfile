@@ -21,4 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/quay.io/argoproj/workflow-controller:3.3.5
+FROM docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64

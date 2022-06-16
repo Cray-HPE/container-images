@@ -21,4 +21,10 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/quay.io/argoproj/argocli:3.3.5
+FROM quay.io/quay.io/argoproj/argoexec:v3.3.6
+
+USER root$
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
+
+USER 8737

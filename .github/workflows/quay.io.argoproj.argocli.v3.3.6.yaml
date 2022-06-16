@@ -23,21 +23,21 @@
 #
 
 
-name: quay.io/quay.io/argoproj/argoexec:3.3.5
+name: quay.io/quay.io/argoproj/argocli:v3.3.6
 
 on:
   push:
     branches:
       - main
     paths:
-      - .github/workflows/quay.io.argoproj.argoexec.3.3.5.yaml
-      - quay.io.argoproj.argoexec.3.3.5/**
+      - .github/workflows/quay.io.argoproj.argocli.v3.3.6.yaml
+      - quay.io.argoproj.argocli.v3.3.6/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/quay.io.argoproj.argoexec.3.3.5.yaml
-      - quay.io.argoproj.argoexec.3.3.5/**
+      - .github/workflows/quay.io.argoproj.argocli.v3.3.6.yaml
+      - quay.io.argoproj.argocli.v3.3.6/**
   workflow_dispatch:
 
 jobs:
@@ -47,9 +47,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: quay.io/quay.io/argoproj/argoexec/3.3.5
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/argoproj/argoexec
-      DOCKER_TAG: 3.3.5
+      CONTEXT_PATH: quay.io/quay.io/argoproj/argocli/v3.3.6
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/argoproj/argocli
+      DOCKER_TAG: v3.3.6
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
