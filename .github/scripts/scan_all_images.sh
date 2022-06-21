@@ -85,7 +85,7 @@ for IMAGE_DIR in "${IMAGES_TO_SCAN[@]}"; do
   WORKFLOW_URL="${GITHUB_URL_WORKFLOWS}/${WORKFLOW_YAML}"
   ## If image was not build on the node status job
   ## is running it may get old metadata
-  echo "Ensure local image cache is updated"
+  echo "Ensure local image cache is updated for ${FULL_IMAGE}"
   docker pull ${FULL_IMAGE}
 
   echo "Scanning $FULL_IMAGE"
