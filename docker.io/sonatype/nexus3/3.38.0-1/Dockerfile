@@ -40,7 +40,7 @@ RUN chown nexus:nexus /opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-${KEYCLO
 # The plugin requires an updated JVM cacerts file and credential
 # which must be referenced from nexus.vmoptions.  The nexus user
 # will need to modify the file so it makes sense that nexus
-# should just own the file.
+# should just own the file.ß
 RUN chown nexus:nexus /opt/sonatype/nexus/bin/nexus.vmoptions
 RUN dnf install -y openssl
 
@@ -48,6 +48,8 @@ RUN dnf install -y openssl
 RUN chown nexus:nexus /opt/sonatype/nexus/etc/logback/logback.xml
 
 COPY create-trust-store.sh /usr/local/bin/
+
+RUN dnf clean all
 
 USER nexus
 
