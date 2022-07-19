@@ -22,3 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM quay.io/argoproj/argocli:v3.3.6
+RUN apk add --upgrade apk-tools &&  \
+    apk update && apk -U upgrade && \
+    rm -rf /var/cache/apk/*
