@@ -39,6 +39,8 @@ on:
       - .github/workflows/quay.io.argoproj.argoexec.v3.3.6.yaml
       - quay.io.argoproj.argoexec.v3.3.6/**
   workflow_dispatch:
+  schedule:
+    - cron: '15 20 * * *'
 
 jobs:
   build:
