@@ -38,7 +38,8 @@ on:
       - docker.io/jenkins/jenkins/lts-jdk11/**
   workflow_dispatch:
   schedule:
-    - cron: '42 23 * * *'
+    # terraform for jenkins controller is run at 9:30
+    - cron: '00 9 * * 5'
 
 jobs:
   build:
@@ -59,6 +60,8 @@ jobs:
         with:
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/main' }}
+          # Needed for Jenkins installation in Kubernetes, chart requires semver compatible version
+          docker_additional_tags: 2-jdk11
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

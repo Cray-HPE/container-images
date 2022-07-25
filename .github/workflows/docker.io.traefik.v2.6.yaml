@@ -38,7 +38,8 @@ on:
       - docker.io/traefik/v2.6/**
   workflow_dispatch:
   schedule:
-    - cron: '33 4 * * *'
+    # terraform for jenkins controller is run at 9:30
+    - cron: '00 9 * * 5'
 
 jobs:
   build:
