@@ -22,8 +22,12 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM quay.io/kiali/kiali:v1.36.7
+
 USER root
+
 RUN microdnf clean all && \
     microdnf update --nodocs && \
     microdnf clean all
-USER kiali
+
+# 1000 is kiali user id
+USER 1000
