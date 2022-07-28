@@ -61,7 +61,7 @@ jobs:
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/main' }}
           # Needed for Jenkins installation in Kubernetes, chart requires semver compatible version
-          docker_additional_tags: 2-jdk11
+          docker_additional_tags: ${{ env.DOCKER_REPO }}:2-jdk11
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
