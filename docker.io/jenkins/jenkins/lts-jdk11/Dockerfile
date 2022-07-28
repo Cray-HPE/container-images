@@ -33,3 +33,6 @@ RUN curl -LSsf -O https://storage.googleapis.com/pub/gsutil.tar.gz \
     && rm gsutil.tar.gz \
     && ln -s /usr/lib/gsutil/gsutil /usr/local/bin
 USER jenkins
+COPY plugins.txt /usr/share/jenkins/ref
+RUN jenkins-plugin-cli --verbose --plugin-file /usr/share/jenkins/ref/plugins.txt
+WORKDIR /var/jenkins_home

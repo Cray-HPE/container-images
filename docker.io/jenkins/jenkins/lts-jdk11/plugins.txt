@@ -53,7 +53,6 @@ echarts-api
 email-ext
 favorite
 font-awesome-api
-gcp-secrets-manager-credentials-provider
 git
 git-client
 git-server
@@ -61,10 +60,10 @@ github
 github-api
 github-branch-source
 github-oauth
+google-cloud-backup
 google-compute-engine
 google-oauth-plugin
 gradle
-greenballs
 handlebars
 handy-uri-templates-2-api
 htmlpublisher
@@ -84,7 +83,6 @@ jobConfigHistory
 jquery3-api
 jsch
 junit
-kubernetes
 ldap
 lockable-resources
 mailer
@@ -92,7 +90,7 @@ matrix-auth
 matrix-project
 maven-plugin
 momentjs
-monitoring
+multibranch-build-strategy-extension
 oauth-credentials
 okhttp-api
 pam-auth
@@ -116,6 +114,7 @@ plugin-util-api
 popper-api
 popper2-api
 pubsub-light
+rebuild
 resource-disposer
 scm-api
 script-security
@@ -137,7 +136,6 @@ workflow-aggregator
 workflow-api
 workflow-basic-steps
 workflow-cps
-workflow-cps-global-lib
 workflow-durable-task-step
 workflow-job
 workflow-multibranch
