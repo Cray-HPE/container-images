@@ -38,7 +38,7 @@ on:
       - registry.suse.com/suse/sle15/15.4/**
   workflow_dispatch:
   schedule:
-    - cron: '2 16 * * *'
+    - cron: '13 11 * * *'
 
 jobs:
   build:
@@ -57,6 +57,9 @@ jobs:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
+          docker_build_args: |
+            SLES_REPO_USERNAME=${{ secrets.ARTIFACTORY_ALGOL60_READONLY_USERNAME }}
+            SLES_REPO_PASSWORD=${{ secrets.ARTIFACTORY_ALGOL60_READONLY_TOKEN }}
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
@@ -68,4 +71,3 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: true
