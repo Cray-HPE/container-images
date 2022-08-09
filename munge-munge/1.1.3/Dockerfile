@@ -23,21 +23,8 @@
 #
 FROM artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.3
 
-ARG SLES_REPO_USERNAME
-ARG SLES_REPO_PASSWORD
-ARG SLES_MIRROR="https://${SLES_REPO_USERNAME}:${SLES_REPO_PASSWORD}@artifactory.algol60.net/artifactory/sles-mirror"
-ARG ARCH=x86_64
-RUN \
-  zypper --non-interactive rr --all && \
-  zypper --non-interactive ar ${SLES_MIRROR}/Products/SLE-Module-Basesystem/15-SP3/${ARCH}/product?auth=basic sles15sp3-Module-Basesystem-product && \
-  zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-Basesystem/15-SP3/${ARCH}/update?auth=basic sles15sp3-Module-Basesystem-update && \
-  zypper --non-interactive ar ${SLES_MIRROR}/Products/SLE-Module-HPC/15-SP3/${ARCH}/product?auth=basic sles15sp3-Module-HPC-product && \
-  zypper --non-interactive ar ${SLES_MIRROR}/Updates/SLE-Module-HPC/15-SP3/${ARCH}/update?auth=basic sles15sp3-Module-HPC-update && \
-  zypper update -y && \
-  zypper install -y munge && \
-  zypper clean -a && zypper --non-interactive rr --all && rm -f /etc/zypp/repos.d/* && rm -Rf /root/.zypp && \
-  chmod 3777 /run/munge /var/run/munge && \
-  chmod 0700 /etc/munge /var/lib/munge /var/log/munge
+COPY zypper.sh /
+RUN --mount=type=secret,id=SLES_REPO_USERNAME --mount=type=secret,id=SLES_REPO_PASSWORD ./zypper.sh && rm /zypper.sh
 
 USER munge:munge
 VOLUME /var/run/munge /etc/munge
