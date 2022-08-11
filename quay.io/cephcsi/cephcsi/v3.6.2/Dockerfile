@@ -23,4 +23,18 @@
 #
 FROM quay.io/cephcsi/cephcsi:v3.6.2
 
+RUN dnf config-manager --disable tcmu-runner,tcmu-runner-noarch,tcmu-runner-source
+
+RUN yum -y install yum-plugin-versionlock\
+    && yum versionlock ceph*\
+    && yum versionlock python3-ceph*\
+    && yum versionlock libceph*\
+    && yum versionlock rbd*\
+    && yum versionlock python3-rbd*\
+    && yum versionlock librbd*\
+    && yum versionlock python3-rgw*\
+    && yum versionlock librgw*\
+    && yum versionlock python3-rados*\
+    && yum versionlock librados*\
+
 RUN yum -y upgrade && yum clean all
