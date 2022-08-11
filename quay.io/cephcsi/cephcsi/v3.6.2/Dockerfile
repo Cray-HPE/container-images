@@ -37,4 +37,4 @@ RUN yum -y install yum-plugin-versionlock\
     && yum versionlock python3-rados*\
     && yum versionlock librados*\
 
-RUN yum --disablerepo tcmu-runner,tcmu-runner-noarch,tcmu-runner-source -y upgrade && yum clean all
+RUN yum -y upgrade && yum clean all
