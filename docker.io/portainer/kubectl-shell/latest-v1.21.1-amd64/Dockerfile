@@ -22,3 +22,7 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
+
+USER 0
+RUN apk add --upgrade apk-tools --no-cache && apk update --no-cache && apk --update-cache upgrade --no-cache
+USER 1000
