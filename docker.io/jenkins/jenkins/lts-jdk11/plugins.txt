@@ -51,6 +51,7 @@ docker-workflow
 durable-task
 echarts-api
 email-ext
+extended-security-settings
 favorite
 font-awesome-api
 git
