@@ -29,7 +29,7 @@ RUN apk add --upgrade apk-tools && \
     apk update && apk -U upgrade && \
     rm -rf /var/cache/apk/*
 
-RUN wget -nv https://grafana.com/api/plugins/grafana-piechart-panel/versions/latest/download -O /var/lib/grafana/grafana-piechart-panel.zip
+RUN wget -nv https://grafana.com/api/plugins/grafana-piechart-panel/versions/latest/download -O /var/lib/grafana/plugins/grafana-piechart-panel.zip
 RUN unzip /var/lib/grafana/plugins/grafana-piechart-panel.zip -d /var/lib/grafana/plugins/
 RUN rm -rf /var/lib/grafana/plugins/grafana-piechart-panel.zip
 
