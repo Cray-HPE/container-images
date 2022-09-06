@@ -33,4 +33,12 @@ RUN wget -nv https://grafana.com/api/plugins/grafana-piechart-panel/versions/lat
 RUN unzip /var/lib/grafana/plugins/grafana-piechart-panel.zip -d /var/lib/grafana/plugins/
 RUN rm -rf /var/lib/grafana/plugins/grafana-piechart-panel.zip
 
+RUN wget -nv https://github.com/MefhigosetH/Grafana_Status_panel/archive/hotfix/issue-159.zip -O /var/lib/grafana/plugins/issue-159.zip
+RUN unzip /var/lib/grafana/plugins/issue-159.zip -d /var/lib/grafana/plugins/
+RUN rm -rf /var/lib/grafana/plugins/issue-159.zip
+
+RUN wget -nv https://grafana.com/api/plugins/vonage-status-panel/versions/1.0.11/download -O /var/lib/grafana/plugins/vonage-status-panel-1.0.11.zip
+RUN unzip /var/lib/grafana/plugins/vonage-status-panel-1.0.11.zip -d /var/lib/grafana/plugins/
+RUN rm -rf /var/lib/grafana/plugins/vonage-status-panel-1.0.11.zip
+
 USER grafana
