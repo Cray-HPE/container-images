@@ -26,6 +26,8 @@ FROM docker.io/grafana/grafana:8.5.9
 USER root
 
 RUN apk add --upgrade apk-tools && \
+    apk add wget && \
+    apk add unzip && \
     apk update && apk -U upgrade && \
     rm -rf /var/cache/apk/*
 
