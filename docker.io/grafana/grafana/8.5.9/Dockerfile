@@ -26,7 +26,19 @@ FROM docker.io/grafana/grafana:8.5.9
 USER root
 
 RUN apk add --upgrade apk-tools && \
+    apk add wget && \
+    apk add unzip && \
     apk update && apk -U upgrade && \
     rm -rf /var/cache/apk/*
+
+RUN mkdir /var/lib/grafana-plugins
+
+RUN wget -nv https://grafana.com/api/plugins/grafana-piechart-panel/versions/latest/download -O /var/lib/grafana-plugins/grafana-piechart-panel.zip
+RUN unzip /var/lib/grafana-plugins/grafana-piechart-panel.zip -d /var/lib/grafana-plugins/
+RUN rm -rf /var/lib/grafana-plugins/grafana-piechart-panel.zip
+
+RUN wget -nv https://grafana.com/api/plugins/vonage-status-panel/versions/latest/download -O /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
+RUN unzip /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip -d /var/lib/grafana-plugins/
+RUN rm -rf /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
 
 USER grafana
