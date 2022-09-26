@@ -28,13 +28,13 @@ on:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.metacontroller.metacontroller.v4.4.0.yaml
+      - .github/workflows/docker.io.metacontrollerio.metacontroller.v4.4.0.yaml
       - docker.io/metacontrollerio/metacontroller/**
   pull_request:
     branches:
       - main
     paths:
-      - .github/workflows/docker.io.metacontroller.metacontroller.v4.4.0.yaml
+      - .github/workflows/docker.io.metacontrollerio.metacontroller.v4.4.0.yaml
       - docker.io/metacontrollerio/metacontroller/**
   workflow_dispatch:
   schedule:
