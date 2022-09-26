@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/metacontroller/metacontroller:v4.4.0
+name: docker.io/metacontrollerio/metacontroller:v4.4.0
 
 on:
   push:
@@ -29,13 +29,13 @@ on:
       - main
     paths:
       - .github/workflows/docker.io.metacontroller.metacontroller.v4.4.0.yaml
-      - docker.io/metacontroller/metacontroller/**
+      - docker.io/metacontrollerio/metacontroller/**
   pull_request:
     branches:
       - main
     paths:
       - .github/workflows/docker.io.metacontroller.metacontroller.v4.4.0.yaml
-      - docker.io/metacontroller/metacontroller/**
+      - docker.io/metacontrollerio/metacontroller/**
   workflow_dispatch:
   schedule:
     - cron: '31 5 * * *'
@@ -47,8 +47,8 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/metacontroller/metacontroller:v4.4.0
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/metacontroller/metacontroller
+      CONTEXT_PATH: docker.io/metacontrollerio/metacontroller:v4.4.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/metacontrollerio/metacontroller
       DOCKER_TAG: v4.4.0
     steps:
       - name: Checkout repo
