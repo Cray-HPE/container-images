@@ -47,7 +47,7 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/metacontrollerio/metacontroller:v4.4.0
+      CONTEXT_PATH: docker.io/metacontrollerio/metacontroller
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/metacontrollerio/metacontroller
       DOCKER_TAG: v4.4.0
     steps:
