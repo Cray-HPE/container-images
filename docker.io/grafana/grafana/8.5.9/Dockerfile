@@ -26,19 +26,31 @@ FROM docker.io/grafana/grafana:8.5.9
 USER root
 
 RUN apk add --upgrade apk-tools && \
-    apk add wget && \
-    apk add unzip && \
+    apk add wget zip unzip mysql-client nodejs npm git && \
     apk update && apk -U upgrade && \
     rm -rf /var/cache/apk/*
 
 RUN mkdir /var/lib/grafana-plugins
 
+#Piechart-panel
 RUN wget -nv https://grafana.com/api/plugins/grafana-piechart-panel/versions/latest/download -O /var/lib/grafana-plugins/grafana-piechart-panel.zip
 RUN unzip /var/lib/grafana-plugins/grafana-piechart-panel.zip -d /var/lib/grafana-plugins/
 RUN rm -rf /var/lib/grafana-plugins/grafana-piechart-panel.zip
 
+#Vonage-status-panel
 RUN wget -nv https://grafana.com/api/plugins/vonage-status-panel/versions/latest/download -O /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
 RUN unzip /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip -d /var/lib/grafana-plugins/
 RUN rm -rf /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
+
+#Clusterview-panel
+RUN mkdir /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
+COPY ./hpe-grafana-clusterview-panel /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
+WORKDIR /var/lib/grafana-plugins/hpe-grafana-clusterview-panel/hpe-clusterview-panel
+RUN npm install -g yarn \
+&& yarn install \
+&& yarn dev \
+&& mv dist hpe-clusterview-panel \
+&& mv hpe-clusterview-panel /var/lib/grafana-plugins/ \
+&& rm -rf /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
 
 USER grafana
