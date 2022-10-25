@@ -25,5 +25,6 @@ FROM docker.io/alpine/helm:3.9.4
 
 RUN apk update && \
     apk add --upgrade apk-tools &&  \
+    apk add --upgrade docker && \
     apk -U upgrade && \
     rm -rf /var/cache/apk/*
