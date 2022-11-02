@@ -25,8 +25,6 @@ name: docker.io/openpolicyagent/opa:0.24.0-envoy-1
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.openpolicyagent.opa.0.24.0-envoy-1.yaml
       - docker.io/openpolicyagent/opa/0.24.0-envoy-1/**

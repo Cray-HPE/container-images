@@ -25,8 +25,6 @@ name: github.com/kubernetes-sigs/external-dns:v0.5.16-distroless-static
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/github.com.kubernetes-sigs.external-dns.v0.5.16-distroless-static.yaml
       - github.com/kubernetes-sigs/external-dns/v0.5.16-distroless-static/**

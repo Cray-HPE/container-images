@@ -25,8 +25,6 @@ name: quay.io/keycloak/keycloak-gatekeeper:9.0.0
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.keycloak.keycloak-gatekeeper.9.0.0.yaml
       - quay.io/keycloak/keycloak-gatekeeper/9.0.0/**

@@ -25,8 +25,6 @@ name: docker.io/coredns/coredns:1.6.2
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.coredns.coredns.1.6.2.yaml
       - docker.io/coredns/coredns/1.6.2/**

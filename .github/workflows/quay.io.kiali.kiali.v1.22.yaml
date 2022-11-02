@@ -25,8 +25,6 @@ name: quay.io/kiali/kiali:v1.22
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.kiali.kiali.v1.22.yaml
       - quay.io/kiali/kiali/v1.22/**

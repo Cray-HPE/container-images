@@ -25,8 +25,6 @@ name: sdlc-ops/wait-for-it:1.0.0
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/sdlc-ops.wait-for-it.1.0.0.yaml
       - sdlc-ops/wait-for-it/1.0.0/**

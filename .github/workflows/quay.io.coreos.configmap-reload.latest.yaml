@@ -25,8 +25,6 @@ name: quay.io/coreos/configmap-reload:latest
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.coreos.configmap-reload.latest.yaml
       - quay.io/coreos/configmap-reload/latest/**

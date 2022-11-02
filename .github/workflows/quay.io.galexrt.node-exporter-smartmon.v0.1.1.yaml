@@ -25,8 +25,6 @@ name: quay.io/galexrt/node-exporter-smartmon:v0.1.1
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml
       - quay.io/galexrt/node-exporter-smartmon/v0.1.1/**

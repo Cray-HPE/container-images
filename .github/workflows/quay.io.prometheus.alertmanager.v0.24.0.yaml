@@ -25,8 +25,6 @@ name: quay.io/prometheus/alertmanager:v0.24.0
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.prometheus.alertmanager.v0.24.0.yaml
       - quay.io/prometheus/alertmanager/v0.24.0/**

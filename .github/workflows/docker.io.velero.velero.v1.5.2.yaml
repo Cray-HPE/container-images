@@ -25,8 +25,6 @@ name: docker.io/velero/velero:v1.5.2
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.velero.velero.v1.5.2.yaml
       - docker.io/velero/velero/v1.5.2/**

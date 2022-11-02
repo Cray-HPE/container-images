@@ -25,8 +25,6 @@ name: k8s.gcr.io/kube-proxy:v1.20.13
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/k8s.gcr.io.kube-proxy.v1.20.13.yaml
       - k8s.gcr.io/kube-proxy/v1.20.13/**

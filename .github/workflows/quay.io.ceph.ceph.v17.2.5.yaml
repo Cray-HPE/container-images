@@ -25,8 +25,6 @@ name: quay.io/ceph/ceph:v17.2.5
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.ceph.ceph.v17.2.5.yaml
       - quay.io/ceph/ceph/v17.2.5/**

@@ -25,8 +25,6 @@ name: docker.io/sonatype/nexus3:3.38.0-1
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.sonatype.nexus3.3.38.0-1.yaml
       - docker.io/sonatype/nexus3/3.38.0-1/**

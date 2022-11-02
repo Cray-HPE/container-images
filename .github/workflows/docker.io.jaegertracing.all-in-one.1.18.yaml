@@ -25,8 +25,6 @@ name: docker.io/jaegertracing/all-in-one:1.18
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.jaegertracing.all-in-one.1.18.yaml
       - docker.io/jaegertracing/all-in-one/1.18/**

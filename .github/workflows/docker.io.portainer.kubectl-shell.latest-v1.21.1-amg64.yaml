@@ -27,8 +27,6 @@ name: docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.portainer.kubectl-shell.latest-v1.21.1-amd64.yaml
       - docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64/**

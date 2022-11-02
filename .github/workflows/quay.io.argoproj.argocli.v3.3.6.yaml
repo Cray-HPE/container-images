@@ -27,8 +27,6 @@ name: quay.io/argoproj/argocli:v3.3.6
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.argoproj.argocli.v3.3.6.yaml
       - quay.io.argoproj.argocli.v3.3.6/**

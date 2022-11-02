@@ -25,8 +25,6 @@ name: docker.io/library/golang:alpine3.12
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.golang.alpine3.12.yaml
       - docker.io/library/golang/alpine3.12/**

@@ -25,8 +25,6 @@ name: docker.io/appropriate/curl:latest
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.appropriate.curl.latest.yaml
       - docker.io/appropriate/curl/latest/**

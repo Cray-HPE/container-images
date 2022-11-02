@@ -26,8 +26,6 @@ name: k8s.gcr.io/kube-apiserver:v1.25.0
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/k8s.gcr.io.kube-apiserver.v1.25.0.yaml
       - k8s.gcr.io/kube-apiserver/v1.25.0/**

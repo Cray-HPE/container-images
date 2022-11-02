@@ -25,8 +25,6 @@ name: quay.io/cilium/cilium:v1.12.0
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.cilium.cilium.v1.12.0.yaml
       - quay.io/cilium/cilium/v1.12.0/**

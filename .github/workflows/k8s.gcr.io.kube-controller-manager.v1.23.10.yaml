@@ -26,8 +26,6 @@ name: k8s.gcr.io/kube-controller-manager:v1.23.10
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/k8s.gcr.io.kube-controller-manager.v1.23.10.yaml
       - k8s.gcr.io/kube-controller-manager/v1.23.10/**

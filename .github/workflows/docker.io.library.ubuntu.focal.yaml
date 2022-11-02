@@ -25,8 +25,6 @@ name: docker.io/library/ubuntu:focal
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.ubuntu.focal.yaml
       - docker.io/library/ubuntu/focal/**

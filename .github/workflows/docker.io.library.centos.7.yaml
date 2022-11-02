@@ -25,8 +25,6 @@ name: docker.io/library/centos:7
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.centos.7.yaml
       - docker.io/library/centos/7/**

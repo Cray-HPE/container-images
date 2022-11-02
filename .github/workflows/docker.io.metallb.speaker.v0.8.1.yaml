@@ -25,8 +25,6 @@ name: docker.io/metallb/speaker:v0.8.1
 
 on:
   push:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.metallb.speaker.v0.8.1.yaml
       - docker.io/metallb/speaker/v0.8.1/**
