@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/galexrt/node-exporter-smartmon:v0.1.1
-
 on:
   push:
     paths:
       - .github/workflows/quay.io.galexrt.node-exporter-smartmon.v0.1.1.yaml
       - quay.io/galexrt/node-exporter-smartmon/v0.1.1/**
-  pull_request:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.node-exporter-smartmon.v0.1.1.yaml
-      - quay.io/galexrt/node-exporter-smartmon/v0.1.1/**
   workflow_dispatch:
   schedule:
     - cron: '2 9 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

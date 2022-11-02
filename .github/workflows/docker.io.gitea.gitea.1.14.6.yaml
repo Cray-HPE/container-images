@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/gitea/gitea:1.14.6
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.gitea.gitea.1.14.6.yaml
-      - docker.io/gitea/gitea/1.14.6/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.gitea.gitea.1.14.6.yaml
       - docker.io/gitea/gitea/1.14.6/**
   workflow_dispatch:
   schedule:
     - cron: '59 18 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

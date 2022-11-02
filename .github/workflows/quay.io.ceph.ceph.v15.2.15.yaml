@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/ceph/ceph:v15.2.15
-
 on:
   push:
-    paths:
-      - .github/workflows/quay.io.ceph.ceph.v15.2.15.yaml
-      - quay.io/ceph/ceph/v15.2.15/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.ceph.ceph.v15.2.15.yaml
       - quay.io/ceph/ceph/v15.2.15/**
   workflow_dispatch:
   schedule:
     - cron: '48 5 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

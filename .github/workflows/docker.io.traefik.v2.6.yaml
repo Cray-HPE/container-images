@@ -22,15 +22,8 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/traefik:v2.6
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.traefik.v2.6.yaml
-      - docker.io/traefik/v2.6/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.traefik.v2.6.yaml
       - docker.io/traefik/v2.6/**
@@ -38,7 +31,6 @@ on:
   schedule:
     # terraform for jenkins controller is run at 9:30
     - cron: '00 9 * * 5'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,7 +44,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

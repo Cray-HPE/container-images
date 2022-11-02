@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/library/golang:1.17.3-alpine3.13
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.library.golang.1.17.3-alpine3.13.yaml
-      - docker.io/library/golang/1.17.3-alpine3.13/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.golang.1.17.3-alpine3.13.yaml
       - docker.io/library/golang/1.17.3-alpine3.13/**
   workflow_dispatch:
   schedule:
     - cron: '36 18 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

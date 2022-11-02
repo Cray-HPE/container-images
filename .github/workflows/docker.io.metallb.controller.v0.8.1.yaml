@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/metallb/controller:v0.8.1
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.metallb.controller.v0.8.1.yaml
-      - docker.io/metallb/controller/v0.8.1/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.metallb.controller.v0.8.1.yaml
       - docker.io/metallb/controller/v0.8.1/**
   workflow_dispatch:
   schedule:
     - cron: '23 11 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

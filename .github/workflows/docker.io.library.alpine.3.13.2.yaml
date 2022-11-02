@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/library/alpine:3.13.2
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.library.alpine.3.13.2.yaml
-      - docker.io/library/alpine/3.13.2/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.alpine.3.13.2.yaml
       - docker.io/library/alpine/3.13.2/**
   workflow_dispatch:
   schedule:
     - cron: '30 5 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

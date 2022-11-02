@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/ceph/ceph:v15.2.8
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.ceph.ceph.v15.2.8.yaml
-      - docker.io/ceph/ceph/v15.2.8/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.ceph.ceph.v15.2.8.yaml
       - docker.io/ceph/ceph/v15.2.8/**
   workflow_dispatch:
   schedule:
     - cron: '17 19 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

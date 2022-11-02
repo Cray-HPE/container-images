@@ -21,24 +21,15 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 
 # DO NOT EDIT DIRECTLY update via k8sversion=1.24.4 ./k8s.sh at the root of this repo
-
 name: k8s.gcr.io/kube-scheduler:v1.24.4
-
 on:
   push:
-    paths:
-      - .github/workflows/k8s.gcr.io.kube-scheduler.v1.24.4.yaml
-      - k8s.gcr.io/kube-scheduler/v1.24.4/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/k8s.gcr.io.kube-scheduler.v1.24.4.yaml
       - k8s.gcr.io/kube-scheduler/v1.24.4/**
   workflow_dispatch:
   schedule:
     - cron: '16 0 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

@@ -22,22 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/roffe/kube-etcdbackup:v0.1.0
-
 on:
   push:
-    paths:
-      - .github/workflows/docker.io.roffe.kube-etcdbackup.v0.1.0.yaml
-      - docker.io/roffe/kube-etcdbackup/v0.1.0/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.roffe.kube-etcdbackup.v0.1.0.yaml
       - docker.io/roffe/kube-etcdbackup/v0.1.0/**
   workflow_dispatch:
   schedule:
     - cron: '23 17 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,7 +43,6 @@ jobs:
     steps:
       - name: Checkout repo
         uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
