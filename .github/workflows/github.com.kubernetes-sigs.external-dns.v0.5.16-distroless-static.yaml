@@ -41,8 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/github.com/kubernetes-sigs/external-dns
       DOCKER_TAG: v0.5.16-distroless-static
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

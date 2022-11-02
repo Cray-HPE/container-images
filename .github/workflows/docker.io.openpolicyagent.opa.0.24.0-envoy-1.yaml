@@ -41,8 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa
       DOCKER_TAG: 0.24.0-envoy-1
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

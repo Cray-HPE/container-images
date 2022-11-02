@@ -39,8 +39,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/portainer/kubectl-shell
       DOCKER_TAG: latest-v1.21.1-amd64
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

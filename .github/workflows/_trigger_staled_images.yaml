@@ -22,22 +22,17 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: Rebuild Staled Images
-
 on:
   workflow_dispatch: {}
-
   # Do not run centralized rebuild job - we have a  daily randomized schedule in each particular workflow now
   # schedule:
   #  # Update schedule every night
   #  - cron:  '0 8 * * *'
-
 permissions:
   actions: write
   pull-requests: write
   contents: read
   repository-projects: read
-
-
 jobs:
   find-trigger:
     runs-on: ubuntu-latest
@@ -48,14 +43,12 @@ jobs:
         uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-
       - name: Get auth token
         uses: navikt/github-app-token-generator@v1
         id: get-token
         with:
           private-key: ${{ secrets.ALGOL60_GITHUB_READONLY_APP }}
           app-id: ${{env.GITHUB_AUTH_APP_ID}}
-
       - name: Trigger to rebuild staled images
         shell: bash
         run: .github/scripts/rebuild_staled_images.sh

@@ -41,8 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/ceph/ceph
       DOCKER_TAG: v15.2.8
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

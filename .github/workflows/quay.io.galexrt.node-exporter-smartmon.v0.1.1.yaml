@@ -41,8 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/galexrt/node-exporter-smartmon
       DOCKER_TAG: v0.1.1
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

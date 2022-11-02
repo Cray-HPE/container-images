@@ -41,8 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/oauth2-proxy/oauth2-proxy
       DOCKER_TAG: v7.3.0
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

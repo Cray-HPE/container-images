@@ -42,8 +42,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl
       DOCKER_TAG: 7.80.0
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
