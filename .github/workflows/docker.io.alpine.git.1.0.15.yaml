@@ -25,8 +25,8 @@ name: docker.io/alpine/git:1.0.15
 
 on:
   push:
-    branches:
-      - main
+    # branches:
+    #   - main
     paths:
       - .github/workflows/docker.io.alpine.git.1.0.15.yaml
       - docker.io/alpine/git/1.0.15/**
@@ -51,11 +51,8 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/alpine/git
       DOCKER_TAG: 1.0.15
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
-        uses: Cray-HPE/github-actions/build-sign-scan@main
+        uses: Cray-HPE/github-actions/build-sign-scan@feature/fix-deprecations
         with:
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/main' }}
