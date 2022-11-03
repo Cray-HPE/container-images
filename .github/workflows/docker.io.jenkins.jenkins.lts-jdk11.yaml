@@ -22,17 +22,8 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/jenkins/jenkins:lts-jdk11
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.jenkins.jenkins.lts-jdk11.yaml
-      - docker.io/jenkins/jenkins/lts-jdk11/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.jenkins.jenkins.lts-jdk11.yaml
       - docker.io/jenkins/jenkins/lts-jdk11/**
@@ -40,7 +31,6 @@ on:
   schedule:
     # terraform for jenkins controller is run at 9:30
     - cron: '00 9 * * 5'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,9 +42,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/jenkins/jenkins
       DOCKER_TAG: lts-jdk11
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

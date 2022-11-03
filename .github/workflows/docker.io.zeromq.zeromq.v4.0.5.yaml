@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/zeromq/zeromq:v4.0.5
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml
-      - docker.io/zeromq/zeromq/v4.0.5/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.zeromq.zeromq.v4.0.5.yaml
       - docker.io/zeromq/zeromq/v4.0.5/**
   workflow_dispatch:
   schedule:
     - cron: '57 23 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/zeromq/zeromq
       DOCKER_TAG: v4.0.5
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

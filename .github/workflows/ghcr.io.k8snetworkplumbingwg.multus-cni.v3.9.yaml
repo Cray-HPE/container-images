@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/ghcr.io.k8snetworkplumbingwg.multus-cni.v3.9.yaml
-      - ghcr.io/k8snetworkplumbingwg/multus-cni/v3.9/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/ghcr.io.k8snetworkplumbingwg.multus-cni.v3.9.yaml
       - ghcr.io/k8snetworkplumbingwg/multus-cni/v3.9/**
   workflow_dispatch:
   schedule:
     - cron: '32 1 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/ghcr.io/k8snetworkplumbingwg/multus-cni
       DOCKER_TAG: v3.9
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

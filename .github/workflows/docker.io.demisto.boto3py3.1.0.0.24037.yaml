@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/demisto/boto3py3:1.0.0.24037
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.demisto.boto3py3.1.0.0.24037.yaml
-      - docker.io/demisto/boto3py3/1.0.0.24037/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.demisto.boto3py3.1.0.0.24037.yaml
       - docker.io/demisto/boto3py3/1.0.0.24037/**
   workflow_dispatch:
   schedule:
     - cron: '3 20 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3
       DOCKER_TAG: 1.0.0.24037
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

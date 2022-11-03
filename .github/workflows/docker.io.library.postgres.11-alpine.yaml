@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/library/postgres:11-alpine
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.library.postgres.11-alpine.yaml
-      - docker.io/library/postgres/11-alpine/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.postgres.11-alpine.yaml
       - docker.io/library/postgres/11-alpine/**
   workflow_dispatch:
   schedule:
     - cron: '21 21 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/postgres
       DOCKER_TAG: 11-alpine
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

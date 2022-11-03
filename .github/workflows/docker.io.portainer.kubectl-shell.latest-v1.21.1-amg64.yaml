@@ -21,25 +21,13 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-
-
 name: docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.portainer.kubectl-shell.latest-v1.21.1-amd64.yaml
-      - docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.portainer.kubectl-shell.latest-v1.21.1-amd64.yaml
       - docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64/**
   workflow_dispatch:
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +39,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/portainer/kubectl-shell
       DOCKER_TAG: latest-v1.21.1-amd64
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

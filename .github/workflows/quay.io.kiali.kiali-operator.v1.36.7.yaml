@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/kiali/kiali-operator:v1.36.7
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.kiali.kiali-operator.v1.36.7.yaml
-      - quay.io/kiali/kiali-operator/v1.36.7/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.kiali.kiali-operator.v1.36.7.yaml
       - quay.io/kiali/kiali-operator/v1.36.7/**
   workflow_dispatch:
   schedule:
     - cron: '15 6 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/kiali/kiali-operator
       DOCKER_TAG: v1.36.7
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

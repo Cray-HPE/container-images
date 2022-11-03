@@ -22,7 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: Cleanup Artifactory
-
 on:
   workflow_dispatch:
     inputs:
@@ -30,11 +29,9 @@ on:
         description: 'Dry run - do not clean, only list'
         required: false
         type: boolean
-
   schedule:
     # Update schedule every night
-    - cron:  '0 11 * * *'
-
+    - cron: '0 11 * * *'
 jobs:
   cleanup-artifactory:
     runs-on: ubuntu-latest
@@ -42,14 +39,12 @@ jobs:
       DRY_RUN: ${{ github.event.inputs.dry_run }}
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           ref: ${{ github.head_ref }}
-
       - name: Setup JFrog/Artifactory CLI
         uses: jfrog/setup-jfrog-cli@v2
         env:
           JF_ARTIFACTORY_1: ${{ secrets.ARTIFACTORY_ALGOL60_JFROG_CLI_CONFIGURATION }}
-
       - name: Cleanup Artifactory
         run: .github/scripts/cleanup_artifactory.sh

@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/ceph/ceph:v17
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.ceph.ceph.v17.yaml
-      - quay.io/ceph/ceph/v17/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.ceph.ceph.v17.yaml
       - quay.io/ceph/ceph/v17/**
   workflow_dispatch:
   schedule:
     - cron: '29 18 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph
       DOCKER_TAG: v17
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

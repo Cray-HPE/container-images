@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/ceph/ceph-grafana:8.3.5
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.ceph.ceph-grafana.8.3.5.yaml
-      - quay.io/ceph/ceph-grafana/8.3.5/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.ceph.ceph-grafana.8.3.5.yaml
       - quay.io/ceph/ceph-grafana/8.3.5/**
   workflow_dispatch:
   schedule:
     - cron: '28 21 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/ceph/ceph-grafana
       DOCKER_TAG: 8.3.5
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

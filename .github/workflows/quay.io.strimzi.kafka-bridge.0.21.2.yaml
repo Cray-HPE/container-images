@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/strimzi/kafka-bridge:0.21.2
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.strimzi.kafka-bridge.0.21.2.yaml
-      - quay.io/strimzi/kafka-bridge/0.21.2/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.strimzi.kafka-bridge.0.21.2.yaml
       - quay.io/strimzi/kafka-bridge/0.21.2/**
   workflow_dispatch:
   schedule:
     - cron: '32 12 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/kafka-bridge
       DOCKER_TAG: 0.21.2
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

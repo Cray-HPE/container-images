@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/weaveworks/weave-npc:2.8.0
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.weaveworks.weave-npc.2.8.0.yaml
-      - docker.io/weaveworks/weave-npc/2.8.0/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.weaveworks.weave-npc.2.8.0.yaml
       - docker.io/weaveworks/weave-npc/2.8.0/**
   workflow_dispatch:
   schedule:
     - cron: '49 21 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/weaveworks/weave-npc
       DOCKER_TAG: 2.8.0
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

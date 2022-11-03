@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/curlimages/curl:7.80.0
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.curlimages.curl.7.80.0.yaml
-      - docker.io/curlimages/curl/7.80.0/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.curlimages.curl.7.80.0.yaml
       - docker.io/curlimages/curl/7.80.0/**
   workflow_dispatch:
   schedule:
     - cron: '13 13 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -52,9 +42,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/curlimages/curl
       DOCKER_TAG: 7.80.0
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

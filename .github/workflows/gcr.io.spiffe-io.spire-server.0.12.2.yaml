@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: gcr.io/spiffe-io/spire-server:0.12.2
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/gcr.io.spiffe-io.spire-server.0.12.2.yaml
-      - gcr.io/spiffe-io/spire-server/0.12.2/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/gcr.io.spiffe-io.spire-server.0.12.2.yaml
       - gcr.io/spiffe-io/spire-server/0.12.2/**
   workflow_dispatch:
   schedule:
     - cron: '26 7 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/gcr.io/spiffe-io/spire-server
       DOCKER_TAG: 0.12.2
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

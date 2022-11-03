@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/openpolicyagent/opa:0.42.1-envoy
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.openpolicyagent.opa.0.42.1-envoy.yaml
-      - docker.io/openpolicyagent/opa/0.42.1-envoy/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.openpolicyagent.opa.0.42.1-envoy.yaml
       - docker.io/openpolicyagent/opa/0.42.1-envoy/**
   workflow_dispatch:
   schedule:
     - cron: "40 3 * * *"
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/openpolicyagent/opa
       DOCKER_TAG: 0.42.1-envoy
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

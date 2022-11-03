@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/library/ubuntu:focal
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.library.ubuntu.focal.yaml
-      - docker.io/library/ubuntu/focal/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.library.ubuntu.focal.yaml
       - docker.io/library/ubuntu/focal/**
   workflow_dispatch:
   schedule:
     - cron: '38 2 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/library/ubuntu
       DOCKER_TAG: focal
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: quay.io/strimzi/operator:0.15.0-noJndiLookupClass
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/quay.io.strimzi.operator.0.15.0-noJndiLookupClass.yaml
-      - quay.io/strimzi/operator/0.15.0-noJndiLookupClass/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/quay.io.strimzi.operator.0.15.0-noJndiLookupClass.yaml
       - quay.io/strimzi/operator/0.15.0-noJndiLookupClass/**
   workflow_dispatch:
   schedule:
     - cron: '51 13 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/strimzi/operator
       DOCKER_TAG: 0.15.0-noJndiLookupClass
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

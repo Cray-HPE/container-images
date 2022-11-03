@@ -22,24 +22,14 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 name: docker.io/bitnami/external-dns:0.10.2-debian-10-r23
-
 on:
   push:
-    branches:
-      - main
-    paths:
-      - .github/workflows/docker.io.bitnami.external-dns.0.10.2-debian-10-r23.yaml
-      - docker.io/bitnami/external-dns/0.10.2-debian-10-r23/**
-  pull_request:
-    branches:
-      - main
     paths:
       - .github/workflows/docker.io.bitnami.external-dns.0.10.2-debian-10-r23.yaml
       - docker.io/bitnami/external-dns/0.10.2-debian-10-r23/**
   workflow_dispatch:
   schedule:
     - cron: '40 6 * * *'
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -51,9 +41,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bitnami/external-dns
       DOCKER_TAG: 0.10.2-debian-10-r23
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v2
-
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
