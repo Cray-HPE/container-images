@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM artifactory.algol60.net/docker.io/library/alpine
+FROM artifactory.algol60.net/csm-docker-private/docker.io/library/alpine
 
 ARG version=1.5.0
 RUN wget -O- https://github.com/norwoodj/helm-docs/releases/download/v${version}/helm-docs_${version}_Linux_x86_64.tar.gz \
