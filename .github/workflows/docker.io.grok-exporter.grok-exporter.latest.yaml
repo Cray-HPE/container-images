@@ -25,7 +25,7 @@ name: docker.io/grok-exporter/grok-exporter:latest
 on:
   push:
     paths:
-      - .github/workflows/docker.io.grok-exporter.grok-exporter.1.0.0.yaml
+      - .github/workflows/docker.io.grok-exporter.grok-exporter.latest.yaml
       - docker.io/grok-exporter/grok-exporter/latest/**
   workflow_dispatch:
   schedule:
@@ -53,5 +53,5 @@ jobs:
           cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
           cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
           cosign_key: ${{ secrets.COSIGN_KEY }}
-          snyk_token: $\{{ secrets.SNYK_TOKEN }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
