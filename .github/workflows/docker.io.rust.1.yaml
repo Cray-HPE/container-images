@@ -42,7 +42,7 @@ jobs:
       DOCKER_TAG: 1
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
@@ -57,4 +57,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: true
+          fail_on_snyk_errors: false
