@@ -42,15 +42,4 @@ RUN wget -nv https://grafana.com/api/plugins/vonage-status-panel/versions/latest
 RUN unzip /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip -d /var/lib/grafana-plugins/
 RUN rm -rf /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
 
-#Clusterview-panel
-RUN mkdir /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
-COPY ./hpe-grafana-clusterview-panel /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
-WORKDIR /var/lib/grafana-plugins/hpe-grafana-clusterview-panel/hpe-clusterview-panel
-RUN npm install -g yarn \
-&& yarn install \
-&& yarn dev \
-&& mv dist hpe-clusterview-panel \
-&& mv hpe-clusterview-panel /var/lib/grafana-plugins/ \
-&& rm -rf /var/lib/grafana-plugins/hpe-grafana-clusterview-panel
-
 USER grafana
