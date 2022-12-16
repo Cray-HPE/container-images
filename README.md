@@ -6,42 +6,39 @@
 
 ## What are the steps to add a new image?
 
-1. Discover the upstream image that needs to be rebuilt for Cray-HPE needs.
-1. Run `create-buildfiles.sh` script (If you're on mac, `brew install gnu-sed` to get the prereq command.)
-1. Update Dockerfile if needed to address other vulnerabilities
-1. Create PR to see if job runs and see snyk scan results
-1. Merge PR to trigger build and push
-1. Update CSM references to use new algol60 reference
+1. Find the image name and registry that needs to be mirrored and/or updated from upstream.
+1. `make add` with that image and registry name.
+1. Create PR to ensure the update job runs and view snyk scan results.
+1. Merge PR to trigger build and push to algol60.
+1. Update CSM references to use mirrored algol60 references.
 
-```
+To add a new image run:
+
+```text
 git clone https://github.com/Cray-HPE/container-images
-
-# Script for automation:
-    create_buildfiles.sh
-
-    Uses templates to generate files needed for github workflow
-
-    -i|--image <string>  Required: The name of the image
-    -t|--tag <string>    Required: The name of the tag
-
-    [-r|--registry <string>]              The registry to use. Defaults to docker.io
-    [-o|--org <string>]                   The docker org. If not set assumes official image with no org (eg alpine)
-    [-g|--generate <string>]              What should be generate. Valid options are "both", "dockerfile" or "workflow"
-
-    Examples
-
-    ./.github/scripts/create_buildfiles.sh -o unguiculus -i docker-python3-phantomjs-selenium -t v1
+cd container-images
+make add IMAGE=container/image:tag REGISTRY=some-registry.tld
 ```
+
+Note `REGISTRY` is optional and set to `docker.io` by default. `PACKAGE_MANAGER` is also optional and will auto detect the package manager but can be set manually to force the generated `Dockerfile` to use that package manager.
+
+```text
+make add IMAGE=container/image:tag
+```
+
+Note: The make setup is an mvp working towards fully automating image detection and adding of images without direct human intervention. The other goal for it is to update all existing files that however doesn't work in the current implementation as-is.
+
+You may also set `V=1` for more output as far as what make is doing as well as output from commands run.
 
 ## Naming conventions
 
-Base images can come from multiple places docker.io, quay.io, or arti (both custom and original community cached images). Some images are also
+Base images can come from multiple places docker.io, quay.io, or arti (both custom and original community cached images). Some images are also ???
 
 In order to standardize on a naming convention the following directory structure in `container-images` should be maintained
 
 `<registry>/<org>/<image>/<tag>`
 
-```bash
+```text
 container-images
 ├── .github
 ├── scripts
@@ -69,7 +66,7 @@ container-images
 
 These would then match up the algol registry url of
 
-```bash
+```text
 artifactory.algol60.net
 └── stable
     ├── shasta-1.3
