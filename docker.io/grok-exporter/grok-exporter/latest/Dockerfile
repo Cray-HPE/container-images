@@ -1,1 +1,1 @@
-FROM docker.io/palobo/grok_exporter:latest
+FROM docker.io/alighufron/grok_exporter:latest
