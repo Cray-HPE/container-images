@@ -1,0 +1,1 @@
+RUN microdnf update && microdnf clean all

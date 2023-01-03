@@ -1,0 +1,1 @@
+RUN yum -y upgrade && yum clean all
