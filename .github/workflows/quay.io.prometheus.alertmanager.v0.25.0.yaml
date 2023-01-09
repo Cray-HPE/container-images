@@ -21,15 +21,15 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: quay.io/prometheus/prometheus:v2.40.3
+name: quay.io/prometheus/alertmanager:v0.25.0
 on:
   push:
     paths:
-      - .github/workflows/quay.io.prometheus.prometheus.v2.40.3.yaml
-      - quay.io/prometheus/prometheus/v2.40.3/**
+      - .github/workflows/quay.io.prometheus.alertmanager.v0.25.0.yaml
+      - quay.io/prometheus/alertmanager/v0.25.0/**
   workflow_dispatch:
   schedule:
-    - cron: '17 10 * * *'
+    - cron: '42 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,9 +37,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: quay.io/prometheus/prometheus/v2.40.3
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/prometheus
-      DOCKER_TAG: v2.40.3
+      CONTEXT_PATH: quay.io/prometheus/alertmanager/v0.25.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/prometheus/alertmanager
+      DOCKER_TAG: v0.25.0
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main

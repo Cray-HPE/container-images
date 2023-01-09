@@ -21,4 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/prometheus/prometheus:v2.40.3
+FROM quay.io/prometheus/prometheus:v2.41.0
