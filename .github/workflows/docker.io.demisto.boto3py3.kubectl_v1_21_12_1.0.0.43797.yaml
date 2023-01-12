@@ -21,11 +21,11 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/demisto/boto3py3/1.0.0.43797_v1.21.1
+name: docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.43797
 on:
   push:
     paths:
-      - .github/workflows/docker.io.demisto.boto3py3.1.0.0.43797_v1.21.1.yaml
+      - .github/workflows/docker.io.demisto.boto3py3.kubectl_v1.21_12_1.0.0.43797.yaml
   workflow_dispatch:
   schedule:
     - cron: '23 14 * * *'
@@ -36,9 +36,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/demisto/boto3py3/1.0.0.43797_v1.21.1
+      CONTEXT_PATH: docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.43797
       DOCKER_REPO: artifactory.algol60.net/docker.io/demisto/boto3py3
-      DOCKER_TAG: 1.0.0.43797_v1.21.1
+      DOCKER_TAG: kubectl_v1_21_12_1.0.0.43797
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
