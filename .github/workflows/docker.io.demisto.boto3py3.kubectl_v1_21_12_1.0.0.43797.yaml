@@ -25,7 +25,7 @@ name: docker.io/demisto/boto3py3:kubectl_v1_21_12_1.0.0.43797
 on:
   push:
     paths:
-      - .github/workflows/docker.io.demisto.boto3py3.kubectl_v1.21_12_1.0.0.43797.yaml
+      - .github/workflows/docker.io.demisto.boto3py3.kubectl_v1_21_12_1.0.0.43797.yaml
   workflow_dispatch:
   schedule:
     - cron: '23 14 * * *'
