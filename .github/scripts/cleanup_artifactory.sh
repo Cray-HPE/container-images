@@ -37,6 +37,8 @@ for image in $(grep --color=never "^name: " .github/workflows/*.yaml -h | grep -
     for tag in ${tags}; do
         if [[ ${tag} =~ sha256-[a-f0-9]{64}\.sig ]]; then
             sig_tags+=(${tag})
+        elif [[ ${tag} =~ sha256:[a-f0-9]{64} ]]; then
+            echo "    Ignoring ${tag} as it represents parts of multi-platform image"
         else
             nonsig_tags+=(${tag})
         fi
