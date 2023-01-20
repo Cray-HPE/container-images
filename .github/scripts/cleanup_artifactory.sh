@@ -42,7 +42,7 @@ for image in $(grep --color=never "^name: " .github/workflows/*.yaml -h | grep -
         fi
     done
     for tag in ${nonsig_tags[@]}; do
-        digest=$(${skopeo} inspect docker://artifactory.algol60.net/csm-docker/stable/${image}:${tag} --format '{{ .Digest }}')
+        digest=$(${skopeo} inspect --creds "${ARTIFACTORY_USERNAME}:${ARTIFACTORY_TOKEN}" docker://artifactory.algol60.net/csm-docker/stable/${image}:${tag} --format '{{ .Digest }}')
         echo "    Tag ${tag} has digest ${digest}"
         sig_tags_valid+=(${digest//:/-}.sig)
     done

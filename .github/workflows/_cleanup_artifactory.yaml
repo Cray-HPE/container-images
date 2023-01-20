@@ -47,4 +47,7 @@ jobs:
         env:
           JF_ENV_1: ${{ secrets.ARTIFACTORY_ALGOL60_JFROG_CLI_CONFIGURATION }}
       - name: Cleanup Artifactory
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets. ARTIFACTORY_ALGOL60_READONLY_USERNAME }}
+          ARTIFACTORY_TOKEN: ${{ secrets. ARTIFACTORY_ALGOL60_READONLY_TOKEN }}
         run: .github/scripts/cleanup_artifactory.sh
