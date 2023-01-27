@@ -29,8 +29,8 @@ on:
       - docker.io/jenkins/jenkins/lts-jdk11/**
   workflow_dispatch:
   schedule:
-    # terraform for jenkins controller is run at 9:30
-    - cron: '00 9 * * 5'
+    # terraform builds image for jenkins controller on Thursdays, then depllys Fridays
+    - cron: '00 9 * * 3'
 jobs:
   build:
     runs-on: ubuntu-latest
