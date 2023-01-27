@@ -61,7 +61,6 @@ github
 github-api
 github-branch-source
 github-oauth
-google-cloud-backup
 google-compute-engine
 google-oauth-plugin
 gradle
