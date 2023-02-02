@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/quintush/helm-unittest:3.3.0-0.2.5
+FROM docker.io/quintush/helm-unittest:latest
 
 RUN apk update && \
     apk add --upgrade apk-tools &&  \

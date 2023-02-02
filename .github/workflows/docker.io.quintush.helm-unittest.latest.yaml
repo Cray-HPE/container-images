@@ -21,15 +21,15 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/quintush/helm-unittest:3.3.0-0.2.5
+name: docker.io/quintush/helm-unittest:latest
 on:
   push:
     paths:
-      - .github/workflows/docker.io.quintush.helm-unittest.3.3.0-0.2.5.yaml
-      - docker.io/quintush/helm-unittest/3.3.0-0.2.5/**
+      - .github/workflows/docker.io.quintush.helm-unittest.latest.yaml
+      - docker.io/quintush/helm-unittest/latest/**
   workflow_dispatch:
   schedule:
-    - cron: '0 3 * * *'
+    - cron: '12 14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,9 +37,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/quintush/helm-unittest/3.3.0-0.2.5
+      CONTEXT_PATH: docker.io/quintush/helm-unittest/latest
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/quintush/helm-unittest
-      DOCKER_TAG: 3.3.0-0.2.5
+      DOCKER_TAG: latest
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
