@@ -22,8 +22,10 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM docker.io/quintush/helm-unittest:latest
-
+USER root
 RUN apk update && \
     apk add --upgrade apk-tools &&  \
     apk -U upgrade && \
     rm -rf /var/cache/apk/*
+USER helmuser
+
