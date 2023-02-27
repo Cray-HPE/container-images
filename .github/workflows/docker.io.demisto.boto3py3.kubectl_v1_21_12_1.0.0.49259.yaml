@@ -1,0 +1,60 @@
+#
+# MIT License
+#
+# (C) Copyright [2023] Hewlett Packard Enterprise Development LP
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+name: docker.io/demisto/boto3py3:kubectl_v1_21_12_1.0.0.49259
+on:
+  push:
+    paths:
+      - .github/workflows/docker.io.demisto.kubectl_v1_21_12_1.0.0.49259.yaml
+      - docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.49259/**
+  workflow_dispatch:
+  schedule:
+    - cron: '42 22 * * *'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    env:
+      CONTEXT_PATH: docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.49259
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/demisto/boto3py3
+      DOCKER_TAG: kubectl_v1_21_12_1.0.0.49259
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
+      - name: build-sign-scan
+        uses: Cray-HPE/github-actions/build-sign-scan@main
+        with:
+          # Only push on main builds
+          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          context_path: ${{ env.CONTEXT_PATH }}
+          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_tag: ${{ env.DOCKER_TAG }}
+          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
+          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
+          cosign_key: ${{ secrets.COSIGN_KEY }}
+          snyk_token: ${{ secrets.SNYK_TOKEN }}
+          github_sha: $GITHUB_SHA
+          fail_on_snyk_errors: false
