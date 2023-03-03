@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2022-2023] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -25,3 +25,11 @@ FROM registry.opensource.zalan.do/acid/spilo-14:2.1-p7
 
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/
+
+# Overwrite the pgq_ticker.ini file in the postgres container due to change in pgqd:3.5-1
+# https://github.com/zalando/spilo/issues/838
+RUN mkdir /root/log /root/pid
+COPY ./pgq_ticker.ini /home/postgres/pgq_ticker.ini
+
+# Capture psql version and packages to the build logs
+RUN psql --version && dpkg -l
