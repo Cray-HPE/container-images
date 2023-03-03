@@ -31,3 +31,11 @@ RUN apt-get update && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
     && update-locale LANG=en_US.UTF-8
+
+# Overwrite the pgq_ticker.ini file in the postgres container due to change in pgqd:3.5-1
+# https://github.com/zalando/spilo/issues/838
+RUN mkdir /root/log /root/pid
+COPY ./pgq_ticker.ini /home/postgres/pgq_ticker.ini
+
+# Capture psql version and packages to the build logs
+RUN psql --version && dpkg -l
