@@ -30,7 +30,6 @@ bootstrap4-api
 bootstrap5-api
 bouncycastle-api
 branch-api
-build-monitor-plugin
 build-timeout
 caffeine-api
 checks-api
