@@ -28,7 +28,8 @@ RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
 
 # Overwrite the pgq_ticker.ini file in the postgres container due to change in pgqd:3.5-1
 # https://github.com/zalando/spilo/issues/838
-RUN mkdir /root/log /root/pid
+RUN mkdir /home/postgres/log /home/postgres/pid
+RUN chown -R 101:103 /home/postgres/log /home/postgres/pid
 COPY ./pgq_ticker.ini /home/postgres/pgq_ticker.ini
 
 # Capture psql version and packages to the build logs
