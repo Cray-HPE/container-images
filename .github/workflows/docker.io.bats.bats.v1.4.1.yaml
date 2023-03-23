@@ -21,15 +21,15 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/bats/bats:1.4.1
+name: docker.io/bats/bats:v1.4.1
 on:
   push:
     paths:
-      - .github/workflows/docker.io.bats.bats.1.4.1.yaml
-      - docker.io/bats/bats/1.4.1/**
+      - .github/workflows/docker.io.bats.bats.v1.4.1.yaml
+      - docker.io/bats/bats/v1.4.1/**
   workflow_dispatch:
   schedule:
-    - cron: '37 11 * * *'
+    - cron: '6 11 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -37,9 +37,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/bats/bats/1.4.1
+      CONTEXT_PATH: docker.io/bats/bats/v1.4.1
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/bats/bats
-      DOCKER_TAG: 1.4.1
+      DOCKER_TAG: v1.4.1
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
