@@ -26,7 +26,9 @@ FROM docker.io/grafana/grafana:9.3.2
 USER root
 
 RUN apk add --upgrade apk-tools && \
-    apk add wget zip unzip mysql-client nodejs npm git
+    apk add wget zip unzip mysql-client nodejs npm git && \
+    apk update && apk -U upgrade && \
+    rm -rf /var/cache/apk/*
 
 RUN mkdir /var/lib/grafana-plugins
 
@@ -34,14 +36,5 @@ RUN mkdir /var/lib/grafana-plugins
 RUN wget -nv https://grafana.com/api/plugins/vonage-status-panel/versions/latest/download -O /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
 RUN unzip /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip -d /var/lib/grafana-plugins/
 RUN rm -rf /var/lib/grafana-plugins/vonage-status-panel-1.0.11.zip
-
-#Cluster-view-panel
-COPY plugins/hpe-grafana-clusterview-panel.zip /var/lib/grafana-plugins/
-RUN unzip /var/lib/grafana-plugins/hpe-grafana-clusterview-panel.zip -d /var/lib/grafana-plugins/
-RUN rm -rf /var/lib/grafana-plugins/hpe-grafana-clusterview-panel.zip
-
-RUN apk update && \
-    apk -U upgrade && \
-    rm -rf /var/cache/apk/*
 
 USER grafana
