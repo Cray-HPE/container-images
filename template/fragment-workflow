@@ -5,6 +5,8 @@
         with:
           minutes: '120'
           random: 'true'
+      - name: Checkout repo
+        uses: actions/checkout@v3
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
