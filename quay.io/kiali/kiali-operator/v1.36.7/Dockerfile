@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2023] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,10 +21,23 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/kiali/kiali-operator:v1.36.7
+FROM quay.io/kiali/kiali-operator:v1.36.7 as base
 
-USER 0
+# rebuild operator image with newer base image
+FROM quay.io/openshift/origin-ansible-operator:4.14
 
-RUN yum -y upgrade && yum clean all
-
+USER root
+# see https://github.com/operator-framework/operator-sdk/issues/5745
+RUN yum remove -y subscription-manager python3-subscription-manager-rhsm
+RUN yum update -y && yum clean all
 USER ${USER_UID}
+
+COPY --from=base ${HOME}/roles/ ${HOME}/roles/
+COPY --from=base ${HOME}/playbooks/ ${HOME}/playbooks/
+COPY --from=base ${HOME}/watches.yaml ${HOME}/watches.yaml
+
+COPY --from=base ${HOME}/requirements.yml ${HOME}/requirements.yml
+RUN ansible-galaxy collection install -r ${HOME}/requirements.yml --force \
+ && chmod -R ug+rwx ${HOME}/.ansible
+
+RUN cp /etc/ansible/ansible.cfg ${HOME}/ansible-profiler.cfg && echo "callbacks_enabled = profile_tasks" >> ${HOME}/ansible-profiler.cfg && echo "callback_whitelist = profile_tasks" >> ${HOME}/ansible-profiler.cfg
