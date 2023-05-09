@@ -21,13 +21,20 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/kiali/kiali:v1.36.7
+FROM quay.io/kiali/kiali:v1.36.7 as base
 
-USER root
+## distroless
+FROM gcr.io/distroless/static
 
-RUN microdnf clean all && \
-    microdnf update --nodocs && \
-    microdnf clean all
-
-# 1000 is kiali user id
 USER 1000
+
+ENV KIALI_HOME=/opt/kiali \
+    PATH=$KIALI_HOME:$PATH
+
+WORKDIR $KIALI_HOME
+
+COPY --chown=1000:1000 --from=base $KIALI_HOME/kiali $KIALI_HOME/
+
+COPY --chown=1000:1000 --from=base $KIALI_HOME/console/ $KIALI_HOME/console/
+
+ENTRYPOINT ["/opt/kiali/kiali"]
