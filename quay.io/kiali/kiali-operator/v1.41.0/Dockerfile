@@ -32,11 +32,11 @@ RUN yum remove -y subscription-manager python3-subscription-manager-rhsm
 RUN yum update -y && yum clean all
 USER ${USER_UID}
 
-COPY --from=base roles/ ${HOME}/roles/
-COPY --from=base playbooks/ ${HOME}/playbooks/
-COPY --from=base watches.yaml ${HOME}/watches.yaml
+COPY --from=base ${HOME}/roles/ ${HOME}/roles/
+COPY --from=base ${HOME}/playbooks/ ${HOME}/playbooks/
+COPY --from=base ${HOME}/watches.yaml ${HOME}/watches.yaml
 
-COPY --from=base requirements.yml ${HOME}/requirements.yml
+COPY --from=base ${HOME}/requirements.yml ${HOME}/requirements.yml
 RUN ansible-galaxy collection install -r ${HOME}/requirements.yml \
  && chmod -R ug+rwx ${HOME}/.ansible
 
