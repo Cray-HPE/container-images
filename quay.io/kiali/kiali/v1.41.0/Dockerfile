@@ -25,7 +25,7 @@ FROM quay.io/kiali/kiali:v1.41.0 as base
 
 ## distroless
 FROM registry.access.redhat.com/ubi8/openssl as ca-certs-source
-FROM registry.access.redhat.com/ubi8-micro
+FROM gcr.io/distroless/static
 
 # Micro container doesn't have CA certificates, install them now
 COPY --from=ca-certs-source /etc/pki /etc/pki
