@@ -21,13 +21,29 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/kiali/kiali:v1.36.7
+FROM quay.io/kiali/kiali:v1.36.7 as base
 
-USER root
+## distroless
+FROM registry.access.redhat.com/ubi8/openssl as ca-certs-source
+FROM registry.access.redhat.com/ubi8-micro
 
-RUN microdnf clean all && \
-    microdnf update --nodocs && \
-    microdnf clean all
+# Micro container doesn't have CA certificates, install them now
+COPY --from=ca-certs-source /etc/pki /etc/pki
+COPY --from=ca-certs-source /usr/share/pki /usr/share/pki
 
-# 1000 is kiali user id
+# Add kiali user and group
+RUN echo kiali:x:1000: >> /etc/group
+RUN echo kiali:x:1000:1000:/home/kiali:/sbin/nologin >> /etc/passwd
+
+ENV KIALI_HOME=/opt/kiali \
+    PATH=$KIALI_HOME:$PATH
+
+WORKDIR $KIALI_HOME
+
+COPY --chown=1000:1000 --from=base $KIALI_HOME/kiali $KIALI_HOME/
+
+COPY --chown=1000:1000 --from=base $KIALI_HOME/console/ $KIALI_HOME/console/
+
 USER 1000
+
+ENTRYPOINT ["/opt/kiali/kiali"]
