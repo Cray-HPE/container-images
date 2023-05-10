@@ -22,15 +22,16 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.3 as base
-# use thin entrypoint
-FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v4.0.1 as base-entrypoint
 
-# Use distroless base image
-FROM gcr.io/distroless/base-debian11:latest
+# Use latest base image
+FROM python:slim
 WORKDIR /
 # Copy necessary files from base
 COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
-COPY --from=base-entrypoint /thin_entrypoint /thin_entrypoint
+COPY --from=base /entrypoint.sh /entrypoint.sh
+
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
 
 # Set the entrypoint
-ENTRYPOINT ["/thin_entrypoint"]
+ENTRYPOINT ["/entrypoint.sh"]
