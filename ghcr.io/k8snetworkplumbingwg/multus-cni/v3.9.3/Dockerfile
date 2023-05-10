@@ -21,7 +21,14 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.3
+FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.3 as base
 
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+# Use distroless base image
+FROM gcr.io/distroless/base-debian11:latest
+
+# Copy necessary files from base
+COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
+COPY --from=base /entrypoint.sh /entrypoint.sh
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
