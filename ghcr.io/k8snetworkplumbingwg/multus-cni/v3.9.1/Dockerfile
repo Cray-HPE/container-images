@@ -21,14 +21,16 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.1  as base
+FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.1 as base
+# use thin entrypoint
+FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v4.0.1 as base-entrypoint
 
 # Use distroless base image
-FROM gcr.io/distroless/base-debian11:latest
-
+FROM gcr.io/distroless/base-debian11:debug
+WORKDIR /
 # Copy necessary files from base
 COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
-COPY --from=base /entrypoint.sh /entrypoint.sh
+COPY --from=base-entrypoint /thin_entrypoint /thin_entrypoint
 
 # Set the entrypoint
-ENTRYPOINT ["/entrypoint.sh"]
+ENTRYPOINT ["/thin_entrypoint"]
