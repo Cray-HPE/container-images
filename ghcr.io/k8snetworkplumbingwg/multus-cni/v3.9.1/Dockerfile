@@ -21,6 +21,17 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.1
+FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.1 as base
 
-RUN yum -y upgrade && yum clean all
+# Use latest base image
+FROM python:slim
+WORKDIR /
+# Copy necessary files from base
+COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
+COPY --from=base /entrypoint.sh /entrypoint.sh
+
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
+
+# Set the entrypoint
+ENTRYPOINT ["/entrypoint.sh"]
