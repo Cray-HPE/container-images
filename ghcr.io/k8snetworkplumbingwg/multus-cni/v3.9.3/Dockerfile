@@ -26,7 +26,7 @@ FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v3.9.3 as base
 FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v4.0.1 as base-entrypoint
 
 # Use distroless base image
-FROM gcr.io/distroless/base-debian11:debug
+FROM gcr.io/distroless/base-debian11:latest
 WORKDIR /
 # Copy necessary files from base
 COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
