@@ -25,7 +25,7 @@ FROM golang:1.20.3 as builder
 RUN git clone https://github.com/open-policy-agent/opa-envoy-plugin /opt/opa-envoy-plugin\
   && cd /opt/opa-envoy-plugin\
   && git checkout v0.52.0-envoy\
-  && GOARCH=amd64 GOOS=linux WASM_ENABLED=0 CGO_ENABLED=0 make
+  && GOOS=linux WASM_ENABLED=0 CGO_ENABLED=0 make
 
 FROM cgr.dev/chainguard/cc-dynamic:latest
 USER 1000:1000
