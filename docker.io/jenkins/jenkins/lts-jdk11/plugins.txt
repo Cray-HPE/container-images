@@ -26,7 +26,6 @@ blueocean-pipeline-scm-api
 blueocean-rest
 blueocean-rest-impl
 blueocean-web
-bootstrap4-api
 bootstrap5-api
 bouncycastle-api
 branch-api
