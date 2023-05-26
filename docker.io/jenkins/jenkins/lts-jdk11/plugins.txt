@@ -106,8 +106,6 @@ pipeline-utility-steps
 plain-credentials
 plot
 plugin-util-api
-popper-api
-popper2-api
 pubsub-light
 rebuild
 resource-disposer
