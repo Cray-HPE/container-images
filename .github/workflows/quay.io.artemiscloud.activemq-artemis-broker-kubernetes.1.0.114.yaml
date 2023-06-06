@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: quay.io/artemiscloud/activemq-artemis-broker-kubernetes:1.0.14-cray1
+name: quay.io/artemiscloud/activemq-artemis-broker-kubernetes:1.0.114
 on:
   push:
     paths:
-      - .github/workflows/activemq-artemis-broker-kubernetes:1.0.14-cray1.yaml
-      - quay.io/artemiscloud/activemq-artemis-broker-kubernetes/1.0.14-cray1/**
+      - .github/workflows/activemq-artemis-broker-kubernetes:1.0.114.yaml
+      - quay.io/artemiscloud/activemq-artemis-broker-kubernetes/1.0.114/**
   workflow_dispatch:
   schedule:
     - cron: '23 2 * * *'
@@ -37,9 +37,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: quay.io/artemiscloud/activemq-artemis-broker-kubernetes/1.0.14-cray1
+      CONTEXT_PATH: quay.io/artemiscloud/activemq-artemis-broker-kubernetes/1.0.114
       DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/artemiscloud/activemq-artemis-broker-kubernetes
-      DOCKER_TAG: 1.0.14-cray1
+      DOCKER_TAG: 1.0.114
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
