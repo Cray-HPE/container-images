@@ -31,7 +31,7 @@ MAKE:=make
 CONTAINERCMD:=docker
 
 # What args to use when pulling images
-CONTAINERCMD_PULL_ARGS:=pull --platform linux/arm64
+CONTAINERCMD_PULL_ARGS:=pull
 
 # And what args to use when running images
 CONTAINERCMD_RUN_ARGS:=run -ti --entrypoint
