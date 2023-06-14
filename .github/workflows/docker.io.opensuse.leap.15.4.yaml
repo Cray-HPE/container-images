@@ -33,7 +33,7 @@ on:
       - docker.io/opensuse/leap/15.4/**
   workflow_dispatch:
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '7 10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -59,7 +59,7 @@ jobs:
           # Only push on main builds
           docker_push: true
           context_path: ${{ env.CONTEXT_PATH }}
-          docker_repo: artifactory.algol60.net/csm-docker/${{ github.ref_type == 'tag' && 'stable' || 'unstable' }}/docker.io/opensuse/leap
+          docker_repo: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/opensuse/leap
           docker_tag: ${{ env.DOCKER_TAG }}
           docker_build_platforms: linux/arm64,linux/amd64
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
