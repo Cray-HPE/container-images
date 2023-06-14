@@ -42,7 +42,7 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: docker.io/opensuse/leap/15.4
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/unstable/docker.io/opensuse/leap
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/opensuse/leap
       DOCKER_TAG: 15.4
     steps:
       - name: Random job slew
@@ -57,11 +57,11 @@ jobs:
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
           # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/add-arm-leap-15.4' }}
+          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          docker_build_platforms: linux/amd64,linux/arm64
+          docker_build_platforms: --platform=linux/arm64
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
           cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
           cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
