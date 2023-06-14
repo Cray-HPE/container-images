@@ -54,7 +54,7 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: build-sign-scan
-        uses: Cray-HPE/github-actions/build-sign-scan@main
+        uses: Cray-HPE/github-actions/build-sign-scan@add-arm-leap-15.4
         with:
           # Only push on main builds
           docker_push: ${{ github.ref == 'refs/heads/add-arm-leap-15.4' }}
