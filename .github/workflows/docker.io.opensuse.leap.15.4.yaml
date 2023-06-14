@@ -57,9 +57,9 @@ jobs:
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
           # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
+          docker_push: true
           context_path: ${{ env.CONTEXT_PATH }}
-          docker_repo: ${{ env.DOCKER_REPO }}
+          docker_repo: artifactory.algol60.net/csm-docker/${{ github.ref_type == 'tag' && 'stable' || 'unstable' }}/docker.io/opensuse/leap
           docker_tag: ${{ env.DOCKER_TAG }}
           docker_build_platforms: linux/arm64
           artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
