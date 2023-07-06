@@ -38,7 +38,7 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: registry.suse.com/suse/sle15/15.4
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.suse.com/suse/sle15
       DOCKER_TAG: 15.4
     steps:
       - name: build-sign-scan
@@ -47,8 +47,6 @@ jobs:
           docker_secrets: |
             SLES_REPO_USERNAME=${{ secrets.ARTIFACTORY_ALGOL60_READONLY_USERNAME }}
             SLES_REPO_PASSWORD=${{ secrets.ARTIFACTORY_ALGOL60_READONLY_TOKEN }}
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

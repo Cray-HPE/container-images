@@ -36,14 +36,12 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/portainer/kubectl-shell
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/portainer/kubectl-shell
       DOCKER_TAG: latest-v1.21.1-amd64
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

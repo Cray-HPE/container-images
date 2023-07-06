@@ -38,14 +38,12 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: docker.io/grafana/grafana/7.0.3
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/grafana/grafana
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/grafana/grafana
       DOCKER_TAG: 7.0.3
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

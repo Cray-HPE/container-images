@@ -38,14 +38,12 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: registry.opensource.zalan.do/acid/logical-backup/v1.8.0
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/registry.opensource.zalan.do/acid/logical-backup
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.opensource.zalan.do/acid/logical-backup
       DOCKER_TAG: v1.8.0
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

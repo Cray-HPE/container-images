@@ -42,7 +42,7 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: quay.io/jetstack/cert-manager-ctl/v1.5.5
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/quay.io/jetstack/cert-manager-ctl
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/quay.io/jetstack/cert-manager-ctl
       DOCKER_TAG: v1.5.5
     steps:
       - name: Random job slew
@@ -56,8 +56,6 @@ jobs:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}

@@ -38,7 +38,7 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: k8s.gcr.io/kube-controller-manager/v1.24.4
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/k8s.gcr.io/kube-controller-manager
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/k8s.gcr.io/kube-controller-manager
       DOCKER_TAG: v1.24.4
     steps:
       - name: Checkout repo
@@ -46,8 +46,6 @@ jobs:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:
-          # Only push on main builds
-          docker_push: ${{ github.ref == 'refs/heads/main' }}
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
