@@ -55,14 +55,24 @@ done
 
 images=$(echo "${images}" | sed -e 's|artifactory.algol60.net/csm-docker/stable/||' | sort -u)
 
-for workflow in $(gh workflow list --limit 500 | grep '/' | awk '{ print $1 }' | sort -u); do
+gh workflow list --limit 1000  --all | grep '/' | sort -u | while read -r workflow status id; do
     echo -ne "-> Inspecting $workflow ... "
-    if echo "${images}" | grep -F -x -q "$workflow"; then
-        echo "ok"
-    else
-        echo "unneeded"
+    used=$(echo "${images}" | grep -F -x "$workflow" || true)
+    if [ -n "${used}" ] && [ "$status" == "active" ]; then
+        echo "active, used - no change"
+    elif [ -z "${used}" ] && [ "$status" == "disabled_manually" ]; then
+        echo "inactive, unused - no change"
+    elif [ "$status" == "active" ]; then
+        echo "active, unused - disabling"
         if [ "$1" != "--dry-run" ]; then
             gh workflow disable "${workflow}"
         fi
+    elif [ "$status" == "disabled_manually" ]; then
+        echo "inactive, used - enabling"
+        if [ "$1" != "--dry-run" ]; then
+            gh workflow enable "${workflow}"
+        fi
+    else
+        echo "unrecognized status $status"
     fi
 done
