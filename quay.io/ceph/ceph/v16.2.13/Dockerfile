@@ -36,7 +36,6 @@ RUN yum install -y yum-plugin-versionlock\
     && yum versionlock python3-rgw*\
     && yum versionlock librgw*\
     && yum versionlock python3-rados*\
-    && yum versionlock librados*\
+    && yum versionlock librados*
 
-RUN yum -y upgrade && yum clean all
 RUN yum -y upgrade && yum clean all
