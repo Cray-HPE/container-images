@@ -51,6 +51,36 @@ etcd_conf_write() {
     cp "$tempfile" "$ETCD_CONF_FILE"
 }
 
+#
+# WAR for CASMINST-6572 -- fixed in cray-etcd-base configmap template
+# in 1.0.11
+#
+add_extra_env_vars_to_conf() {
+  local -a extra_env_vars=(
+    "ETCD_HEARTBEAT_INTERVAL"
+    "ETCD_ELECTION_TIMEOUT"
+    "ETCD_MAX_SNAPSHOTS"
+    "ETCD_QUOTA_BACKEND_BYTES"
+    "ETCD_SNAPSHOT_COUNT"
+    "ETCD_SNAPSHOT_HISTORY_LIMIT"
+    "ETCD_DISABLE_PRESTOP"
+  )
+
+  for var in "${!ETCD_@}"; do
+    value="${!var:-}"
+    if [[ -n "$value" ]]; then
+      if [[ ${extra_env_vars[*]} =~ ${var} ]]; then
+        type="string"
+        if [[ "$value" =~ ^[+-]?[0-9]+([.][0-9]+)?$ || "$value" =~ ^(true|false)$ ]]; then
+          type="raw"
+        fi
+        key=$(echo "$var" | sed 's/ETCD_//' | tr '[:upper:]' '[:lower:]' | sed 's/_/-/g')
+        etcd_conf_write "$key" "$value" "$type"
+      fi
+    fi
+  done
+}
+
 ########################
 # Creates etcd configuration file from environment variables
 # Globals:
@@ -566,6 +596,12 @@ etcd_initialize() {
 
     # Generate user configuration if ETCD_CFG_* variables are provided
     etcd_setup_from_environment_variables
+
+    #
+    # WAR for CASMINST-6572 -- fixed in cray-etcd-base configmap template
+    # in 1.0.11
+    #
+    add_extra_env_vars_to_conf
 
     ETCD_INITIAL_CLUSTER="$(get_initial_cluster)"
     export ETCD_INITIAL_CLUSTER
