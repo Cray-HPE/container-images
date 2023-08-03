@@ -27,5 +27,5 @@ USER 0
 RUN apk add --upgrade apk-tools --no-cache && apk update --no-cache && apk --update-cache upgrade --no-cache && apk add --no-cache rpm2cpio cpio && rm -rf /var/cache/apk/*
 # use curl to download the rpm file
 RUN curl -L https://github.com/Cray-HPE/cray-site-init/releases/download/v1.32.0/cray-site-init-1.32.0-1.x86_64.noos.rpm -o /tmp/cray-site-init.rpm
-RUN cd /tmp && rpm2cpio cray-site-init.rpm | cpio -idmv && cp /tmp/usr/bin/csi /usr/local/bin/csi && rm -rf /tmp
+RUN cd /tmp && rpm2cpio cray-site-init.rpm | cpio -idmv && cp /tmp/usr/bin/csi /usr/local/bin/csi && rm -rf /tmp/*
 USER 1000
