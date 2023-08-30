@@ -23,17 +23,43 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 set -e
-if [ $# -ne 1 ] || ( [ "$1" != "--dry-run" ] && [ "$1" != "--update" ] ) ; then
-    echo "Disable scheduled workflows, which produce images not mentioned neither in CSM releases nor in FROM statements in Dockerfiles"
-    echo "Usage: $0 --dry-run|--update"
+function usage() {
+    echo "* Disable scheduled workflows, which produce images not mentioned neither in CSM releases nor in FROM statements in Dockerfiles"
+    echo "* Enable scheduled workflows, which produce images mentioned either in CSM releases or in FROM statements in Dockerfiles"
+    echo "Usage: $0 [--dry-run] [--enable] [--disable]"
     exit 1
-fi
+}
 
 function acurl {
     curl -Ss -u "${ARTIFACTORY_USER}:${ARTIFACTORY_TOKEN}" $@
 }
 
-images="docker.io/jenkins/jenkins:lts-jdk11"
+dry_run=0
+enable=0
+disable=0
+
+if [ $# -eq 0 ]; then
+    usage
+fi
+for param in "$@"; do
+    case "${param}" in
+        --dry-run)
+            dry_run=1
+            ;;
+        --enable)
+            enable=1
+            ;;
+        --disable)
+            disable=1
+            ;;
+        *)
+            usage
+            ;;
+    esac
+done
+
+
+images=""
 
 echo "Retrieving image references from csm releases ..."
 csm_folders=$(acurl "https://artifactory.algol60.net/artifactory/api/storage/csm-releases/csm" | jq -r '.children[] | select(.folder==true) | .uri ')
@@ -64,12 +90,12 @@ gh workflow list --limit 1000  --all | grep '/' | sort -u | while read -r workfl
         echo "inactive, unused - no change"
     elif [ "$status" == "active" ]; then
         echo "active, unused - disabling"
-        if [ "$1" != "--dry-run" ]; then
+        if [ $dry_run -eq 0 ] && [ $disable -eq 1 ]; then
             gh workflow disable "${workflow}"
         fi
     elif [ "$status" == "disabled_manually" ]; then
         echo "inactive, used - enabling"
-        if [ "$1" != "--dry-run" ]; then
+        if [ $dry_run -eq 0 ] && [ $enable -eq 1 ]; then
             gh workflow enable "${workflow}"
         fi
     else
