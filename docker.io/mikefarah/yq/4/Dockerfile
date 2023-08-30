@@ -23,7 +23,9 @@
 #
 FROM docker.io/mikefarah/yq:4
 
+USER root
 RUN apk update && \
     apk add --upgrade apk-tools &&  \
     apk -U upgrade && \
     rm -rf /var/cache/apk/*
+USER yq
