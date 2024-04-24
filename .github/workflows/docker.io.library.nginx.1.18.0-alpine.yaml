@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.library.nginx.1.18.0-alpine.yaml
       - docker.io/library/nginx/1.18.0-alpine/**
   workflow_dispatch:
-  schedule:
-    - cron: '2 20 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

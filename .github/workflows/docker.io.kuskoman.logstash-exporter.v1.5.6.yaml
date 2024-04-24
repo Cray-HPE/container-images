@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.kuskoman.logstash-exporter.v1.5.6.yaml
       - docker.io/kuskoman/logstash-exporter/v1.5.6/**
   workflow_dispatch:
-  schedule:
-    - cron: '1 8 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,4 +53,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: false  # upstream image
+          fail_on_snyk_errors: false # upstream image

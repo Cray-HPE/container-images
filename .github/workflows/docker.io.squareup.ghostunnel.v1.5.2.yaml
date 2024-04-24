@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.squareup.ghostunnel.v1.5.2.yaml
       - docker.io/squareup/ghostunnel/v1.5.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '4 16 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

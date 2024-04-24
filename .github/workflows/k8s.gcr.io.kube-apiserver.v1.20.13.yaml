@@ -28,8 +28,6 @@ on:
       - .github/workflows/k8s.gcr.io.kube-apiserver.v1.20.13.yaml
       - k8s.gcr.io/kube-apiserver/v1.20.13/**
   workflow_dispatch:
-  schedule:
-    - cron: '11 19 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

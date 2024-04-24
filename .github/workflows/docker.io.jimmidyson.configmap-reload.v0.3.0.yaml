@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.jimmidyson.configmap-reload.v0.3.0.yaml
       - docker.io/jimmidyson/configmap-reload/v0.3.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '10 8 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

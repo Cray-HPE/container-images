@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.library.redis.5.0-alpine3.14.yaml
       - docker.io/library/redis/5.0-alpine3.14/**
   workflow_dispatch:
-  schedule:
-    - cron: '59 19 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

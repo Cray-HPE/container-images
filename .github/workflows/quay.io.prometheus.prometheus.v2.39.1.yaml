@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.prometheus.prometheus.v2.39.1.yaml
       - quay.io/prometheus/prometheus/v2.39.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '17 10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

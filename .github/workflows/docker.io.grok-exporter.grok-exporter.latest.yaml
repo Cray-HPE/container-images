@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.grok-exporter.grok-exporter.latest.yaml
       - docker.io/grok-exporter/grok-exporter/latest/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

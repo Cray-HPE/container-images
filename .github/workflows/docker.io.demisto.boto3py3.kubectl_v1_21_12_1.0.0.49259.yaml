@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.demisto.kubectl_v1_21_12_1.0.0.49259.yaml
       - docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.49259/**
   workflow_dispatch:
-  schedule:
-    - cron: '42 22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

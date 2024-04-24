@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.alpine.git.1.0.15.yaml
       - docker.io/alpine/git/1.0.15/**
   workflow_dispatch:
-  schedule:
-    - cron: '3 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

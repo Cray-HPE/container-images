@@ -1,12 +1,6 @@
     steps:
-      - name: Random job slew
-        uses: 1itachi/sleep-random@v1.0.0
-        if: ${{ github.event_name == 'schedule' }} # Only stagger for scheduled runs
-        with:
-          minutes: '120'
-          random: 'true'
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

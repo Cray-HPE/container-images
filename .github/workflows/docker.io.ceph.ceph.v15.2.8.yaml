@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.ceph.ceph.v15.2.8.yaml
       - docker.io/ceph/ceph/v15.2.8/**
   workflow_dispatch:
-  schedule:
-    - cron: '17 19 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

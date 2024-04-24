@@ -28,8 +28,6 @@ on:
       - .github/workflows/sdlc-ops.wait-for-it.1.0.0.yaml
       - sdlc-ops/wait-for-it/1.0.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '56 15 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

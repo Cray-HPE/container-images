@@ -28,8 +28,6 @@ on:
       - .github/workflows/ghcr.io.banzaicloud.vault-operator.1.8.0.yaml
       - ghcr.io/banzaicloud/vault-operator/1.8.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '12 17 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

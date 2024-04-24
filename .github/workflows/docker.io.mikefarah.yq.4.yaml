@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.mikefarah.yq.4.yaml
       - docker.io/mikefarah/yq/4/**
   workflow_dispatch:
-  schedule:
-    - cron: '20 13 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -28,8 +28,6 @@ on:
       - .github/workflows/registry.opensource.zalan.do.acid.logical-backup.v1.8.2.yaml
       - registry.opensource.zalan.do/acid/logical-backup/v1.8.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '35 23 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,4 +53,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: false  # upstream image
+          fail_on_snyk_errors: false # upstream image

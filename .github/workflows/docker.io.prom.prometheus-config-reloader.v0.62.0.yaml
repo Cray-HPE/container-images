@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.prom.prometheus-config-reloader.v0.62.0.yaml
       - docker.io/prom/prometheus-config-reloader/v0.62.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '5 3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

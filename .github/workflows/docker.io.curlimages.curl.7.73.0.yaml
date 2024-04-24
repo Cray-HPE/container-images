@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.curlimages.curl.7.73.0.yaml
       - docker.io/curlimages/curl/7.73.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '38 14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

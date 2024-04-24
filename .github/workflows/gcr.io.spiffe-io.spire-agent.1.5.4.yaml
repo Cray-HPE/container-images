@@ -28,8 +28,6 @@ on:
       - .github/workflows/gcr.io.spiffe-io.spire-agent.1.5.4.yaml
       - gcr.io/spiffe-io/spire-agent/1.5.4/**
   workflow_dispatch:
-  schedule:
-    - cron: '33 16 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

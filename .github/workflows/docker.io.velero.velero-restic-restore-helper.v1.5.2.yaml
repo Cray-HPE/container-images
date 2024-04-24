@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.velero.velero-restic-restore-helper.v1.5.2.yaml
       - docker.io/velero/velero-restic-restore-helper/v1.5.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '34 13 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

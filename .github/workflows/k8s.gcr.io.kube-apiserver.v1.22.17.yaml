@@ -32,8 +32,6 @@ on:
       - .github/workflows/k8s.gcr.io.kube-apiserver.v1.22.17.yaml
       - k8s.gcr.io/kube-apiserver/v1.22.17/**
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -45,12 +43,6 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/k8s.gcr.io/kube-apiserver
       DOCKER_TAG: v1.22.17
     steps:
-      - name: Random job slew
-        uses: 1itachi/sleep-random@v1.0.0
-        if: ${{ github.event_name == 'schedule' }} # Only stagger for scheduled runs
-        with:
-          minutes: '120'
-          random: 'true'
       - name: Checkout repo
         uses: actions/checkout@v3
       - name: build-sign-scan

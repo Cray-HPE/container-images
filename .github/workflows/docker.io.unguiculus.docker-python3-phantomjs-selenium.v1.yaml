@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.unguiculus.docker-python3-phantomjs-selenium.v1.yaml
       - docker.io/unguiculus/docker-python3-phantomjs-selenium/v1/**
   workflow_dispatch:
-  schedule:
-    - cron: '52 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

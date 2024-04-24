@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.sonatype.nexus3.3.38.0-1.yaml
       - docker.io/sonatype/nexus3/3.38.0-1/**
   workflow_dispatch:
-  schedule:
-    - cron: '45 23 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

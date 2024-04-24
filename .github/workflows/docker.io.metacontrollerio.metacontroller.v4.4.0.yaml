@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.metacontrollerio.metacontroller.v4.4.0.yaml
       - docker.io/metacontrollerio/metacontroller/**
   workflow_dispatch:
-  schedule:
-    - cron: '31 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

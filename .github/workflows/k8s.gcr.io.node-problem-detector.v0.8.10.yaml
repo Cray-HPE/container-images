@@ -28,8 +28,6 @@ on:
       - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.10.yaml
       - k8s.gcr.io/node-problem-detector/v0.8.10/**
   workflow_dispatch:
-  schedule:
-    - cron: '36 22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

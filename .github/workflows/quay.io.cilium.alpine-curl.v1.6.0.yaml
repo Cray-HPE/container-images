@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.cilium.alpine-curl.v1.6.0.yaml
       - quay.io/cilium/alpine-curl/v1.6.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '8 22 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

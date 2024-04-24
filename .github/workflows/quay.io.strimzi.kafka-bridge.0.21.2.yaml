@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.strimzi.kafka-bridge.0.21.2.yaml
       - quay.io/strimzi/kafka-bridge/0.21.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '32 12 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

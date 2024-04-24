@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.grafana.grafana.9.3.3.yaml
       - docker.io/grafana/grafana/9.3.3/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -53,4 +51,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: $\{{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: false  # upstream image
+          fail_on_snyk_errors: false # upstream image

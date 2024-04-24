@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.jettech.kube-webhook-certgen.v1.2.1.yaml
       - docker.io/jettech/kube-webhook-certgen/v1.2.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '52 16 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

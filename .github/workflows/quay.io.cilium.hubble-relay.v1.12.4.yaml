@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.cilium.hubble-relay.v1.12.4.yaml
       - quay.io/cilium/hubble-relay/v1.12.4/**
   workflow_dispatch:
-  schedule:
-    - cron: '14 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

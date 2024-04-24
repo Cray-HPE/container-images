@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.openpolicyagent.opa.0.62.0-envoy-rootless.yaml
       - docker.io/openpolicyagent/opa/0.62.0-envoy-rootless/**
   workflow_dispatch:
-  schedule:
-    - cron: "28 3 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest

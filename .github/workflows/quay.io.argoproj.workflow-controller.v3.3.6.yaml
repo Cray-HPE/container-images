@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.argoproj.workflow-controller.v3.3.6.yaml
       - quay.io.argoproj.workflow-controller.v3.3.6/**
   workflow_dispatch:
-  schedule:
-    - cron: '15 20 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -28,8 +28,6 @@ on:
       - .github/workflows/velero.velero.v1.6.3.yaml
       - velero/velero/v1.6.3/**
   workflow_dispatch:
-  schedule:
-    - cron: '46 11 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

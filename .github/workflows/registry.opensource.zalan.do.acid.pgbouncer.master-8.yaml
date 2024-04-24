@@ -28,8 +28,6 @@ on:
       - .github/workflows/registry.opensource.zalan.do.acid.pgbouncer.master-8.yaml
       - registry.opensource.zalan.do/acid/pgbouncer/master-8/**
   workflow_dispatch:
-  schedule:
-    - cron: '14 10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

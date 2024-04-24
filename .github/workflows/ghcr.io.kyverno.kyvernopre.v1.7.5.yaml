@@ -28,8 +28,6 @@ on:
       - .github/workflows/ghcr.io.kyverno.kyvernopre.v1.7.5.yaml
       - ghcr.io/kyverno/kyvernopre/v1.7.5/**
   workflow_dispatch:
-  schedule:
-    - cron: '5 8 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

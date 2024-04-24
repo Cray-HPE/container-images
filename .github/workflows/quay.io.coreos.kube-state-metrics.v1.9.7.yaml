@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.coreos.kube-state-metrics.v1.9.7.yaml
       - quay.io/coreos/kube-state-metrics/v1.9.7/**
   workflow_dispatch:
-  schedule:
-    - cron: '1 8 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

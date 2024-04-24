@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.bitnami.bitnami-shell.11-debian-11-r128.yaml
       - docker.io/bitnami/bitnami-shell/11-debian-11-r128/**
   workflow_dispatch:
-  schedule:
-    - cron: '51 15 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

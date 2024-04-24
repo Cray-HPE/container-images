@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.cilium.json-mock.v1.3.0.yaml
       - quay.io/cilium/json-mock/v1.3.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '45 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

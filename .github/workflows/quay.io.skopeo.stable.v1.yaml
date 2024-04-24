@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.skopeo.stable.v1.yaml
       - quay.io/skopeo/stable/v1/**
   workflow_dispatch:
-  schedule:
-    - cron: '58 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

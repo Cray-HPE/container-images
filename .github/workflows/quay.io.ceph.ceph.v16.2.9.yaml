@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.ceph.ceph.v16.2.9.yaml
       - quay.io/ceph/ceph/v16.2.9/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 7 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

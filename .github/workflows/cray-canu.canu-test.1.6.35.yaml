@@ -28,8 +28,6 @@ on:
       - .github/workflows/cray-canu.canu-test.1.6.35.yaml
       - cray-canu/canu-test/**
   workflow_dispatch:
-  schedule:
-    - cron: '54 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,4 +53,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: false  # upstream image
+          fail_on_snyk_errors: false # upstream image

@@ -85,8 +85,6 @@ define gen_gh_update_workflow
 	@printf "      -$(1)\n" >> $1
 	@printf "      - $(PPATH)/**\n" >> $1
 	@printf "  workflow_dispatch:\n" >> $1
-	@printf "  schedule:\n" >> $1
-	@printf "    - cron: '0 0 * * *'\n" >> $1
 	@printf "jobs:\n" >> $1
 	@printf "  build:\n" >> $1
 	@printf "    runs-on: ubuntu-latest\n" >> $1

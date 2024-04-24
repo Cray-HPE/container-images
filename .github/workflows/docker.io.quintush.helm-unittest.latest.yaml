@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.quintush.helm-unittest.latest.yaml
       - docker.io/quintush/helm-unittest/latest/**
   workflow_dispatch:
-  schedule:
-    - cron: '12 14 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

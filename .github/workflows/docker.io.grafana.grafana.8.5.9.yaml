@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.grafana.grafana.8.5.9.yaml
       - docker.io/grafana/grafana/8.5.9/**
   workflow_dispatch:
-  schedule:
-    - cron: '18 3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

@@ -28,8 +28,6 @@ on:
       - .github/workflows/registry.opensource.zalan.do.acid.spilo-14.2.1-p7.yaml
       - registry.opensource.zalan.do/acid/spilo-14/2.1-p7/**
   workflow_dispatch:
-  schedule:
-    - cron: '54 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -55,4 +53,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           github_sha: $GITHUB_SHA
-          fail_on_snyk_errors: false  # upstream image
+          fail_on_snyk_errors: false # upstream image

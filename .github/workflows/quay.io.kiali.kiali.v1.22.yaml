@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.kiali.kiali.v1.22.yaml
       - quay.io/kiali/kiali/v1.22/**
   workflow_dispatch:
-  schedule:
-    - cron: '2 9 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

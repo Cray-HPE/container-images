@@ -28,8 +28,6 @@ on:
       - .github/workflows/activemq-artemis-broker-init:1.0.14.yaml
       - quay.io/artemiscloud/activemq-artemis-broker-init/1.0.14/**
   workflow_dispatch:
-  schedule:
-    - cron: '23 2 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

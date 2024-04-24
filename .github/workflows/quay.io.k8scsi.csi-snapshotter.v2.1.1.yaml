@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.k8scsi.csi-snapshotter.v2.1.1.yaml
       - quay.io/k8scsi/csi-snapshotter/v2.1.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '53 17 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

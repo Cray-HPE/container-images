@@ -28,8 +28,6 @@ on:
       - .github/workflows/ghcr.io.k3d-io.k3d-tools.5.4.9.yaml
       - ghcr.io/k3d-io/k3d-tools/5.4.9/**
   workflow_dispatch:
-  schedule:
-    - cron: '1 20 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

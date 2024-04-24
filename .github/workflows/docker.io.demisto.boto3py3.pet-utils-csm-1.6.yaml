@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.demisto.boto3py3.pet-utils-csm-1.6.yaml
       - docker.io/demisto/boto3py3/pet-utils-csm-1.6/**
   workflow_dispatch:
-  schedule:
-    - cron: '19 1 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

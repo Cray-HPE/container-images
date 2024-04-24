@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.python.slim-bullseye.yaml
       - docker.io/python/slim-bullseye/**
   workflow_dispatch:
-  schedule:
-    - cron: '38 16 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

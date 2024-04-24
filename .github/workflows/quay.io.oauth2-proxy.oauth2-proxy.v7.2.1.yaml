@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.oauth2-proxy.oauth2-proxy.v7.2.1.yaml
       - quay.io/oauth2-proxy/oauth2-proxy/v7.2.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '36 11 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

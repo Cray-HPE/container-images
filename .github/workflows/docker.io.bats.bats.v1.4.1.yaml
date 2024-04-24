@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.bats.bats.v1.4.1.yaml
       - docker.io/bats/bats/v1.4.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '6 11 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

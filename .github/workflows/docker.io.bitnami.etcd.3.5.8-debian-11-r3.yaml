@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.bitnami.etcd.3.5.8-debian-11-r3.yaml
       - docker.io/bitnami/etcd/3.5.8-debian-11-r3/**
   workflow_dispatch:
-  schedule:
-    - cron: '54 23 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

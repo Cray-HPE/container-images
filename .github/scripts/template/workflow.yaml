@@ -28,8 +28,6 @@ on:
       - .github/workflows/<<WORKFLOW>>.yaml
       - <<CONTEXT_PATH>>/**
   workflow_dispatch:
-  schedule:
-    - cron: '<<MINUTE>> <<HOUR>> * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -42,7 +40,7 @@ jobs:
       DOCKER_TAG: <<TAG>>
     steps:
       - name: Checkout repo
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@main
         with:

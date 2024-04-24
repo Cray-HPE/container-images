@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.library.golang.1.14-alpine3.12.yaml
       - docker.io/library/golang/1.14-alpine3.12/**
   workflow_dispatch:
-  schedule:
-    - cron: '15 21 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

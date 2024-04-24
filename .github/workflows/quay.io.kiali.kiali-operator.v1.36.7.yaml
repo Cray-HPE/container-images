@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.kiali.kiali-operator.v1.36.7.yaml
       - quay.io/kiali/kiali-operator/v1.36.7/**
   workflow_dispatch:
-  schedule:
-    - cron: '15 6 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

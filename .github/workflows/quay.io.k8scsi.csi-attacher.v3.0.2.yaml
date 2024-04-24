@@ -28,8 +28,6 @@ on:
       - .github/workflows/quay.io.k8scsi.csi-attacher.v3.0.2.yaml
       - quay.io/k8scsi/csi-attacher/v3.0.2/**
   workflow_dispatch:
-  schedule:
-    - cron: '24 7 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

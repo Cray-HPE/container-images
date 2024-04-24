@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.velero.velero-plugin-for-aws.v1.2.1.yaml
       - docker.io/velero/velero-plugin-for-aws/v1.2.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '47 15 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

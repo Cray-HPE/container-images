@@ -28,8 +28,6 @@ on:
       - .github/workflows/k8s.gcr.io.sig-storage.csi-provisioner.v3.1.0.yaml
       - k8s.gcr.io/sig-storage/csi-provisioner/v3.1.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '37 3 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

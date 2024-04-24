@@ -28,8 +28,6 @@ on:
       - .github/workflows/ghcr.io.aquasecurity.trivy-operator.0.16.0
       - ghcr.io/aquasecurity/trivy-operator/0.16.0/**
   workflow_dispatch:
-  schedule:
-    - cron: '5 8 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

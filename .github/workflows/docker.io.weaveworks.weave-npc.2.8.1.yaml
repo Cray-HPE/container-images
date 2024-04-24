@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.weaveworks.weave-npc.2.8.1.yaml
       - docker.io/weaveworks/weave-npc/2.8.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '20 12 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

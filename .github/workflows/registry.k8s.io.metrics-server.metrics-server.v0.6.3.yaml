@@ -28,8 +28,6 @@ on:
       - .github/workflows/registry.k8s.io.metrics-server.metrics-server.v0.6.3.yaml
       - registry.k8s.io/metrics-server/metrics-server/v0.6.3/**
   workflow_dispatch:
-  schedule:
-    - cron: '7 10 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest

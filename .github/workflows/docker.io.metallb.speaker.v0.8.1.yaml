@@ -28,8 +28,6 @@ on:
       - .github/workflows/docker.io.metallb.speaker.v0.8.1.yaml
       - docker.io/metallb/speaker/v0.8.1/**
   workflow_dispatch:
-  schedule:
-    - cron: '31 5 * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
