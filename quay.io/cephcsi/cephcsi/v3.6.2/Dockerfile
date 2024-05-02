@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022,2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -36,5 +36,4 @@ RUN yum -y install yum-plugin-versionlock\
     && yum versionlock librgw*\
     && yum versionlock python3-rados*\
     && yum versionlock librados*\
-
-RUN yum -y upgrade && yum clean all
+    && yum -y upgrade && yum clean all

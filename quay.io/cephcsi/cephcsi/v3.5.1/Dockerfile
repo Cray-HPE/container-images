@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022,2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -23,7 +23,7 @@
 #
 FROM quay.io/cephcsi/cephcsi:v3.5.1
 
-RUN yum install -y yum-plugin-versionlock\
+RUN yum -y install yum-plugin-versionlock\
     && yum versionlock ceph*\
     && yum versionlock python3-ceph*\
     && yum versionlock libceph*\
@@ -34,5 +34,4 @@ RUN yum install -y yum-plugin-versionlock\
     && yum versionlock librgw*\
     && yum versionlock python3-rados*\
     && yum versionlock librados*\
-
-RUN yum -y upgrade && yum clean all
+    && yum -y upgrade && yum clean all
