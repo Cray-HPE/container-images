@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022, 2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -40,14 +40,15 @@ jobs:
       DOCKER_TAG: v1.6.3
     steps:
       - name: build-sign-scan
-        uses: Cray-HPE/github-actions/build-sign-scan@main
+        uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
         with:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
-          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
-          cosign_key: ${{ secrets.COSIGN_KEY }}
+          docker_username: ${{ secrets.ARTIFACTORY_ALGOL60_USERNAME }}
+          docker_password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          sign: ${{ github.ref == 'refs/heads/main' }}
+          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER_RSA }}
+          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT_RSA }}
+          cosign_key: ${{ secrets.COSIGN_KEY_RSA }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
-          github_sha: $GITHUB_SHA
