@@ -26,6 +26,7 @@ on:
   push:
     paths:
       - .github/workflows/docker.io.demisto.boto3py3.kubectl_v1_21_12_1.0.0.43797.yaml
+      - docker.io/demisto/boto3py3/kubectl_v1_21_12_1.0.0.43797/**
   workflow_dispatch:
 jobs:
   build:
@@ -38,18 +39,17 @@ jobs:
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/demisto/boto3py3
       DOCKER_TAG: kubectl_v1_21_12_1.0.0.43797
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v3
       - name: build-sign-scan
-        uses: Cray-HPE/github-actions/build-sign-scan@main
+        uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
         with:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
-          artifactory_algol60_token: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
-          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER }}
-          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT }}
-          cosign_key: ${{ secrets.COSIGN_KEY }}
+          docker_username: ${{ secrets.ARTIFACTORY_ALGOL60_USERNAME }}
+          docker_password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          sign: ${{ github.ref == 'refs/heads/main' }}
+          cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER_RSA }}
+          cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT_RSA }}
+          cosign_key: ${{ secrets.COSIGN_KEY_RSA }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
-          github_sha: $GITHUB_SHA
           fail_on_snyk_errors: false # upstream image
