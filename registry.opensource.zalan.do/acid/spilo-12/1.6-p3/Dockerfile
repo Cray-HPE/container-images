@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022-2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -23,10 +23,11 @@
 #
 FROM registry.opensource.zalan.do/acid/spilo-12:1.6-p3
 ENV DEBIAN_FRONTEND noninteractive
-RUN apt-get update && \
-    # pbbouncer auto upgrade can not be run in noninteractive mode
+RUN sed -i -e 's/apt\.postgresql\.org/apt-archive.postgresql.org/' /etc/apt/sources.list.d/pgdg.list \
+    && apt-get update -y && \
+    # pgbouncer auto upgrade can not be run in noninteractive mode
     # force upgrade/reinstall
-    apt-get -o Dpkg::Options::="--force-confnew" install pgbouncer && \ 
+    apt-get -o Dpkg::Options::="--force-confnew" install pgbouncer && \
     apt-get upgrade -y && rm -rf /var/lib/apt/lists/* && \
     sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen \
     && dpkg-reconfigure --frontend=noninteractive locales \
