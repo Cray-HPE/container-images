@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022-2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -24,15 +24,16 @@
 FROM ubuntu:20.04
 
 ENV DEBIAN_FRONTEND=noninteractive
-RUN apt -y update && apt-get install -y wget build-essential libtool autoconf automake pkg-config unzip libkrb5-dev
+RUN apt -y update && apt-get install -y wget build-essential libtool autoconf automake pkg-config unzip libkrb5-dev \
+    && ln -s /usr/bin/libtoolize /usr/bin/libtool
 
 RUN cd /tmp && wget https://github.com/jedisct1/libsodium/archive/1.0.0.zip && unzip 1.0.0.zip && \
     cd libsodium-1.0.0 && ./autogen.sh && ./configure --prefix=/usr && \
     make check && make install && ldconfig && rm -Rf 1.0.0.zip libsodium-1.0.0
 
-RUN cd /tmp && wget http://download.zeromq.org/zeromq-4.0.5.tar.gz && \
-    tar xzvf zeromq-4.0.5.tar.gz && cd /tmp/zeromq-4.0.5 && ./configure -prefix=/usr && \
-    make && make install && ldconfig && rm -Rf zeromq-4.0.5.tar.gz zeromq-4.0.5
+RUN cd /tmp && wget -O libzmq-4.0.5.tar.gz https://github.com/zeromq/libzmq/archive/refs/tags/v4.0.5.tar.gz && \
+    tar xzvf libzmq-4.0.5.tar.gz && cd /tmp/libzmq-4.0.5 && ./autogen.sh && ./configure -prefix=/usr && \
+    make && make install && ldconfig && rm -Rf libzmq-4.0.5.tar.gz libzmq-4.0.5
 
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
     && rm -rf /var/lib/apt/lists/
