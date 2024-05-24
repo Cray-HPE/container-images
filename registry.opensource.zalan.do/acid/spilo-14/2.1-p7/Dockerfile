@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022-2023] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022-2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -22,9 +22,13 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM registry.opensource.zalan.do/acid/spilo-14:2.1-p7
-
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+ENV DEBIAN_FRONTEND noninteractive
+RUN sed -i -e 's/apt\.postgresql\.org/apt-archive.postgresql.org/' /etc/apt/sources.list.d/pgdg.list \
+    && apt-get update -y && \
+    # pgbouncer auto upgrade can not be run in noninteractive mode
+    # force upgrade/reinstall
+    apt-get -o Dpkg::Options::="--force-confnew" install pgbouncer && \
+    apt-get upgrade -y && rm -rf /var/lib/apt/lists/*
 
 # Overwrite the pgq_ticker.ini file in the postgres container due to change in pgqd:3.5-1
 # https://github.com/zalando/spilo/issues/838
