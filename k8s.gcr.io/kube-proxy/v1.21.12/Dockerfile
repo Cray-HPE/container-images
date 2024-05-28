@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022,2024 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -23,5 +23,6 @@
 #
 FROM k8s.gcr.io/kube-proxy:v1.21.12
 
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+RUN sed -i -e 's|deb http://deb.debian.org/debian buster-backports main|# deb http://deb.debian.org/debian buster-backports main|' /etc/apt/sources.list \
+    && apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/
