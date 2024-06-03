@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: ghcr.io/aquasecurity/trivy-operator:0.23.1
+name: ghcr.io/aquasecurity/trivy-operator:0.21.1
 on:
   push:
     paths:
-      - .github/workflows/ghcr.io.aquasecurity.trivy-operator.0.23.1
-      - ghcr.io/aquasecurity/trivy-operator/0.23.1/**
+      - .github/workflows/ghcr.io.aquasecurity.trivy-operator.0.21.1
+      - ghcr.io/aquasecurity/trivy-operator/0.21.1/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: ghcr.io/aquasecurity/trivy-operator/0.23.1
+      CONTEXT_PATH: ghcr.io/aquasecurity/trivy-operator/0.21.1
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/ghcr.io/aquasecurity/trivy-operator
-      DOCKER_TAG: 0.23.1
+      DOCKER_TAG: 0.21.1
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
