@@ -21,4 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/aquasecurity/trivy-operator:0.23.1
+FROM ghcr.io/aquasecurity/trivy-operator:0.21.1
