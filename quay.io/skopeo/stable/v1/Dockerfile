@@ -24,4 +24,4 @@
 FROM quay.io/skopeo/stable:v1.14
 
 COPY etc/containers/registries.d/enable-signatures.yaml /etc/containers/registries.d/enable-signatures.yaml
-RUN yum -y upgrade && yum clean all
+RUN dnf -y upgrade --exclude=skopeo && dnf clean all
