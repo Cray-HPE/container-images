@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM quay.io/skopeo/stable:v1
+FROM quay.io/skopeo/stable:v1-immutable
 
 COPY etc/containers/registries.d/enable-signatures.yaml /etc/containers/registries.d/enable-signatures.yaml
 RUN yum -y upgrade && yum clean all
