@@ -336,6 +336,12 @@ QUAYIMAGES:=quay.io/strimzi/operator:0.15.0-noJndiLookupClass
 QUAYIMAGES:=quay.io/strimzi/operator:0.15.0
 QUAYIMAGES:=quay.io/strimzi/operator:0.27.0
 QUAYIMAGES:=quay.io/strimzi/operator:0.27.1
+QUAYIMAGES:=quay.io/strimzi/kafka:0.41.0-noJSM-chainsaw-kafka-3.6.0
+QUAYIMAGES:=quay.io/strimzi/kafka:0.41.0-noJSM-chainsaw-kafka-3.6.1
+QUAYIMAGES:=quay.io/strimzi/kafka:0.41.0-noJSM-chainsaw-kafka-3.6.2
+QUAYIMAGES:=quay.io/strimzi/kafka:0.41.0-noJSM-chainsaw-kafka-3.7.0
+QUAYIMAGES:=quay.io/strimzi/operator:0.41.0
+QUAYIMAGES:=quay.io/strimzi/kafka-bridge:0.28.0
 
 # bitnami images
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/logical-backup:master-58
