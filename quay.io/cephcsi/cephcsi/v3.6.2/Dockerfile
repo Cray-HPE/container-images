@@ -25,7 +25,10 @@ FROM quay.io/cephcsi/cephcsi:v3.6.2
 
 RUN dnf config-manager --disable tcmu-runner,tcmu-runner-noarch,tcmu-runner-source
 
-RUN yum -y install yum-plugin-versionlock\
+# CentOS Stream 8 reached EOL and moved to http://vault.centos.org
+RUN sed -i -e 's|mirrorlist=http://mirrorlist.centos.org/|#mirrorlist=http://mirrorlist.centos.org/|' /etc/yum.repos.d/* \
+    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://vault.centos.org/|' /etc/yum.repos.d/* \
+    && yum -y install yum-plugin-versionlock\
     && yum versionlock ceph*\
     && yum versionlock python3-ceph*\
     && yum versionlock libceph*\
