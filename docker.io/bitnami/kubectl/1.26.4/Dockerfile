@@ -22,7 +22,4 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM docker.io/bitnami/kubectl:1.26.4
-USER root
-RUN apt-get update && apt-get upgrade -y && apt full-upgrade -y \
-    && rm -rf /var/lib/apt/lists/*
-USER 1001
+
