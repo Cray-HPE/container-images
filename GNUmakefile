@@ -28,7 +28,7 @@ MAKE:=make
 
 # Swap this out with podman or whatever if needed, just used to probe for
 # package manager commands on image adds
-CONTAINERCMD:=docker
+CONTAINERCMD:=podman
 
 # What args to use when pulling images
 CONTAINERCMD_PULL_ARGS:=pull
