@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: ghcr.io/kyverno/reports-controller:v1.11.5
+name: ghcr.io/kyverno/cleanup-controller:v1.11.5
 on:
   push:
     paths:
-      - .github/workflows/ghcr.io.kyverno.reports-controller.v1.11.5.yaml
-      - ghcr.io/kyverno/reports-controller/v1.11.5/**
+      - .github/workflows/ghcr.io.kyverno.cleanup-controller.v1.11.5.yaml
+      - ghcr.io/kyverno/cleanup-controller/v1.11.5/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,8 +35,8 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: ghcr.io/kyverno/reports-controller/v1.11.5
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/ghcr.io/kyverno/reports-controller
+      CONTEXT_PATH: ghcr.io/kyverno/cleanup-controller/v1.11.5
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/ghcr.io/kyverno/cleanup-controller
       DOCKER_TAG: v1.11.5
     steps:
       - name: build-sign-scan
