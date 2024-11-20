@@ -51,3 +51,4 @@ jobs:
           cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT_RSA }}
           cosign_key: ${{ secrets.COSIGN_KEY_RSA }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
+          
