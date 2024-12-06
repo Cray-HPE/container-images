@@ -27,7 +27,7 @@ RUN git clone https://github.com/open-policy-agent/opa-envoy-plugin /opt/opa-env
   && git checkout v0.52.0-envoy\
   && GOOS=linux WASM_ENABLED=0 CGO_ENABLED=0 make
 
-FROM cgr.dev/chainguard/cc-dynamic:latest
+FROM cgr.dev/chainguard/glibc-dynamic:latest
 USER 1000:1000
 COPY --from=builder /opt/opa-envoy-plugin/opa_envoy_linux_amd64 /app/opa_envoy_linux_amd64
 WORKDIR /app
