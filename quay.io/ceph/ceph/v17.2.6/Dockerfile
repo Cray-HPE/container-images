@@ -25,7 +25,8 @@ FROM quay.io/ceph/ceph:v17.2.6
 
 # CentOS Stream 8 reached EOL and moved to http://vault.centos.org
 RUN sed -i -e 's|mirrorlist=http://mirrorlist.centos.org/|#mirrorlist=http://mirrorlist.centos.org/|' /etc/yum.repos.d/* \
-    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://vault.centos.org/|' /etc/yum.repos.d/* \
+    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=https://vault.centos.org/|' /etc/yum.repos.d/* \
+    && yum config-manager --disable 'Ceph*' ceph-source 'copr:*' epel \
     && yum install -y yum-plugin-versionlock\
     && yum versionlock ceph*\
     && yum versionlock python3-ceph*\
@@ -36,6 +37,6 @@ RUN sed -i -e 's|mirrorlist=http://mirrorlist.centos.org/|#mirrorlist=http://mir
     && yum versionlock python3-rgw*\
     && yum versionlock librgw*\
     && yum versionlock python3-rados*\
-    && yum versionlock librados*\
+    && yum versionlock librados*
 
 RUN yum -y upgrade && yum clean all
