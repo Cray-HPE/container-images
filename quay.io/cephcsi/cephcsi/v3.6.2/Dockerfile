@@ -27,7 +27,8 @@ RUN dnf config-manager --disable tcmu-runner,tcmu-runner-noarch,tcmu-runner-sour
 
 # CentOS Stream 8 reached EOL and moved to http://vault.centos.org
 RUN sed -i -e 's|mirrorlist=http://mirrorlist.centos.org/|#mirrorlist=http://mirrorlist.centos.org/|' /etc/yum.repos.d/* \
-    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=http://vault.centos.org/|' /etc/yum.repos.d/* \
+    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=https://vault.centos.org/|' /etc/yum.repos.d/* \
+    && yum config-manager --disable 'Ceph*' ceph-source 'copr:*' epel epel-modular \
     && yum -y install yum-plugin-versionlock\
     && yum versionlock ceph*\
     && yum versionlock python3-ceph*\
