@@ -30,6 +30,15 @@ Note: The make setup is an mvp working towards fully automating image detection 
 
 You may also set `V=1` for more output as far as what make is doing as well as output from commands run.
 
+### Simple Example Adding an Alpine Image
+
+```text
+> make add IMAGE=library/alpine:3.21
+> git add .github/ docker.io/
+> git commit -a
+> git push
+```
+
 ## Naming conventions
 
 Base images can come from multiple places docker.io, quay.io, or arti (both custom and original community cached images). Some images are also ???
