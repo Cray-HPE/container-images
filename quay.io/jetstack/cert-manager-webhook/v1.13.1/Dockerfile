@@ -25,3 +25,6 @@
 # Generated with: make add IMAGE=jetstack/cert-manager-webhook:v1.13.1 REGISTRY=quay.io PACKAGE_MANAGER=
 #
 FROM quay.io/jetstack/cert-manager-webhook:v1.13.1
+RUN groupadd -r appgroup && useradd -r -g appgroup appuser
+USER appuser
+
