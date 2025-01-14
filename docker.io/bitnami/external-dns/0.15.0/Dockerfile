@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM bitname/external-dns:0.15.0
+FROM bitnami/external-dns:0.15.0
 
 USER root
 RUN apt-get update && apt-get upgrade -y && apt full-upgrade -y \
