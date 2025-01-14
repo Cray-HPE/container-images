@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2024] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,7 +21,9 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
+FROM bitname/external-dns:0.15.0
 
-# Generated with: make add IMAGE=bitnami/external-dns:0.15.0 REGISTRY=docker.io PACKAGE_MANAGER=
-#
-FROM docker.io/bitnami/external-dns:0.15.0
+USER root
+RUN apt-get update && apt-get upgrade -y && apt full-upgrade -y \
+    && rm -rf /var/lib/apt/lists/*
+USER 1001
