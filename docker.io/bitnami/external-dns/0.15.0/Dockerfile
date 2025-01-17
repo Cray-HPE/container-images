@@ -24,6 +24,9 @@
 FROM bitnami/external-dns:0.15.0
 
 USER root
-RUN apt-get update && apt-get upgrade -y && apt full-upgrade -y \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && \
+    apt-get install -y --no-install-recommends zlib1g && \
+    apt-get upgrade -y && \
+    apt full-upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
 USER 1001
