@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright 2024 Hewlett Packard Enterprise Development LP
+# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,12 +21,16 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: <<NAME>>
+
+# Generated with: make add IMAGE=pause:3.10 REGISTRY=registry.k8s.io PACKAGE_MANAGER=
+#
+---
+name: registry.k8s.io/pause:3.10
 on:
   push:
     paths:
-      - .github/workflows/<<WORKFLOW>>.yaml
-      - <<CONTEXT_PATH>>/**
+      - .github/workflows/registry.k8s.io.pause.3.10.yaml
+      - registry.k8s.io/pause/3.10/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +39,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: <<CONTEXT_PATH>>
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/<<IMAGE>>
-      DOCKER_TAG: "<<TAG>>"
+      CONTEXT_PATH: registry.k8s.io/pause/3.10
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.k8s.io/pause
+      DOCKER_TAG: "3.10"
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2

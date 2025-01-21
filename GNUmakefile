@@ -94,7 +94,7 @@ define gen_gh_update_workflow
 	@printf "    env:\n" >> $1
 	@printf "      CONTEXT_PATH: $(DOCKERDIR)\n" >> $1
 	@printf "      DOCKER_REPO: artifactory.algol60.net/csm-docker/$$\x7B\x7B github.ref == 'refs/heads/main' && 'stable' || 'unstable' \x7D\x7D/$(REGISTRY)/$(NAME)\n" >> $1
-	@printf "      DOCKER_TAG: $(TAG)\n" >> $1
+	@printf "      DOCKER_TAG: \"$(TAG)\"\n" >> $1
 	@cat template/fragment-workflow >> $1
 endef
 
