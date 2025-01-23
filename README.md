@@ -39,6 +39,35 @@ You may also set `V=1` for more output as far as what make is doing as well as o
 > git push
 ```
 
+## What are the steps to modify attributes of an existing image?
+
+Edit the GitHub workflow you wish to modify.  In the example below we make a change to produce ARM images:
+
+```text
+> vi .github/workflows/docker.io.library.alpine.3.21.yaml
+> git diff
+diff --git a/.github/workflows/docker.io.library.alpine.3.21.yaml b/.github/workflows/docker.io.library.alpine.3.21.yaml
+index aedcdb64..bef618fb 100644
+--- a/.github/workflows/docker.io.library.alpine.3.21.yaml
++++ b/.github/workflows/docker.io.library.alpine.3.21.yaml
+@@ -49,6 +49,7 @@ jobs:
+           context_path: ${{ env.CONTEXT_PATH }}
+           docker_repo: ${{ env.DOCKER_REPO }}
+           docker_tag: ${{ env.DOCKER_TAG }}
++          docker_build_platforms: linux/arm64,linux/amd64
+           docker_username: ${{ secrets.ARTIFACTORY_ALGOL60_USERNAME }}
+           docker_password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+           sign: ${{ github.ref == 'refs/heads/main' }}
+```
+
+Do not run ```make add```.  Just commit and push:
+
+```text
+> vi .github/workflows/docker.io.library.alpine.3.21.yaml
+> git commit -a
+> git push
+```
+
 ## Naming conventions
 
 Base images can come from multiple places docker.io, quay.io, or arti (both custom and original community cached images). Some images are also ???

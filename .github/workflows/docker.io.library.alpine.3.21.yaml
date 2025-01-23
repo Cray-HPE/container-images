@@ -49,6 +49,7 @@ jobs:
           context_path: ${{ env.CONTEXT_PATH }}
           docker_repo: ${{ env.DOCKER_REPO }}
           docker_tag: ${{ env.DOCKER_TAG }}
+          docker_build_platforms: linux/arm64,linux/amd64
           docker_username: ${{ secrets.ARTIFACTORY_ALGOL60_USERNAME }}
           docker_password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
           sign: ${{ github.ref == 'refs/heads/main' }}
