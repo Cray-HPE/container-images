@@ -27,7 +27,7 @@ FROM golang:1.20-buster as builder
 RUN git clone https://github.com/kubernetes/node-problem-detector.git /opt/node-problem-detector \
     && cd /opt/node-problem-detector \
     && git checkout v0.8.20 \
-    && sed -i 's/go 1.23.1/go 1.23/' go.mod \
+    && sed -i 's/go 1.23.1/go 1.20/' go.mod \
     && go mod tidy \
     && go mod vendor \
     && ENABLE_JOURNALD=0 make vet fmt version test build-binaries
