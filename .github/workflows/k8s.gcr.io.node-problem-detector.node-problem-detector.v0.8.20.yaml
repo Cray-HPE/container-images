@@ -21,16 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-
-# Generated with: make add IMAGE=node-problem-detector/node-problem-detector:v0.8.20 REGISTRY=k8s.gcr.io PACKAGE_MANAGER=
-#
----
-name: k8s.gcr.io/node-problem-detector/node-problem-detector:v0.8.20
+name: k8s.gcr.io/node-problem-detector:v0.8.20
 on:
   push:
     paths:
-      - .github/workflows/k8s.gcr.io.node-problem-detector.node-problem-detector.v0.8.20.yaml
-      - k8s.gcr.io/node-problem-detector/node-problem-detector/v0.8.20/**
+      - .github/workflows/k8s.gcr.io.node-problem-detector.v0.8.20.yaml
+      - k8s.gcr.io/node-problem-detector/v0.8.20/**
   workflow_dispatch:
 jobs:
   build:
@@ -39,8 +35,8 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: k8s.gcr.io/node-problem-detector/node-problem-detector/v0.8.20
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/k8s.gcr.io/node-problem-detector/node-problem-detector
+      CONTEXT_PATH: k8s.gcr.io/node-problem-detector/v0.8.20
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/k8s.gcr.io/node-problem-detector
       DOCKER_TAG: v0.8.20
     steps:
       - name: build-sign-scan
