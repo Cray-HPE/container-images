@@ -1,1 +1,1 @@
-RUN microdnf update && microdnf clean all
+RUN microdnf update -y && microdnf clean all
