@@ -26,5 +26,5 @@
 #
 FROM quay.io/artemiscloud/activemq-artemis-operator:1.2.8
 USER root
-RUN microdnf update && microdnf clean all
+RUN microdnf update -y && microdnf clean all
 USER 185
