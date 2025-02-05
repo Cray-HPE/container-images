@@ -26,5 +26,5 @@
 #
 FROM quay.io/arkmq-org/activemq-artemis-broker-init:2.0.0
 USER root
-RUN microdnf update && microdnf clean all
+RUN microdnf update -y && microdnf clean all
 USER 185
