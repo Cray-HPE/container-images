@@ -30,6 +30,7 @@ USER root
 # See https://github.com/operator-framework/operator-sdk/issues/5745
 RUN yum remove -y subscription-manager python3-subscription-manager-rhsm && \
     yum update -y && \
+    yum install -y python3-setuptools && \
     yum clean all
 USER ${USER_UID}
 
