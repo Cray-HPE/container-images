@@ -22,7 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# Generated with: make add IMAGE=metallb/controller:v0.14.9 REGISTRY=quay.io PACKAGE_MANAGER=apk
+# Generated with: make add IMAGE=metallb/controller:v0.14.9 REGISTRY=quay.io PACKAGE_MANAGER=
 #
 FROM quay.io/metallb/controller:v0.14.9
-RUN apk update && apk add --upgrade apk-tools && apk -U upgrade && rm -rf /var/cache/apk/*
