@@ -37,3 +37,5 @@ COPY ./pgq_ticker.ini /home/postgres/pgq_ticker.ini
 
 # Capture psql version and packages to the build logs
 RUN psql --version && dpkg -l
+
+USER 101:103
