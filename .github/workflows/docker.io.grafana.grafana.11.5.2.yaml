@@ -36,7 +36,7 @@ jobs:
       id-token: write
     env:
       CONTEXT_PATH: docker.io/grafana/grafana/11.5.2
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/unstable/docker.io/grafana/grafana
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/stable/docker.io/grafana/grafana
       DOCKER_TAG: 11.5.2
     steps:
       - name: build-sign-scan
