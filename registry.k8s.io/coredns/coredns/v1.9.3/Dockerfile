@@ -22,6 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# Generated with: make add IMAGE=coredns/coredns:v1.9.3 REGISTRY=k8s.gcr.io PACKAGE_MANAGER=
+# Generated with: make add IMAGE=coredns/coredns:v1.9.3 REGISTRY=registry.k8s.io PACKAGE_MANAGER=
 #
-FROM k8s.gcr.io/coredns/coredns:v1.9.3
+FROM registry.k8s.io/coredns/coredns:v1.9.3
