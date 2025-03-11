@@ -25,4 +25,8 @@
 # Generated with: make add IMAGE=bitnami/kube-state-metrics:2.15.0 REGISTRY=docker.io PACKAGE_MANAGER=apt
 #
 FROM docker.io/bitnami/kube-state-metrics:2.15.0
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y && rm -rf /var/lib/apt/lists/
+
+USER root
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
+    && rm -rf /var/lib/apt/lists/
+USER 1001
