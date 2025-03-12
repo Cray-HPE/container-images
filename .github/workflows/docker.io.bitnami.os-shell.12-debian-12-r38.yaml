@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/bitnami/os-shell:12-debian-12-r5
+name: docker.io/bitnami/os-shell:12-debian-12-r38
 on:
   push:
     paths:
-      - .github/workflows/docker.io.bitnami.os-shell.12-debian-12-r5.yaml
-      - docker.io/bitnami/os-shell/12-debian-12-r5/**
+      - .github/workflows/docker.io.bitnami.os-shell.12-debian-12-r38.yaml
+      - docker.io/bitnami/os-shell/12-debian-12-r38/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/bitnami/os-shell/12-debian-12-r5
+      CONTEXT_PATH: docker.io/bitnami/os-shell/12-debian-12-r38
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/bitnami/os-shell
-      DOCKER_TAG: 12-debian-12-r5
+      DOCKER_TAG: 12-debian-12-r38
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
