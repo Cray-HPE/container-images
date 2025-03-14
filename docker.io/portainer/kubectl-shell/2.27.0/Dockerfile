@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2022, 2025] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,11 +21,11 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
+FROM docker.io/portainer/kubectl-shell:2.27.0
 
 USER 0
-RUN apk add --upgrade apk-tools --no-cache && apk update --no-cache && apk --update-cache upgrade --no-cache && apk add --no-cache rpm2cpio cpio && rm -rf /var/cache/apk/*
+RUN apk add --upgrade apk-tools --no-cache && apk update --no-cache && apk --update-cache upgrade --no-cache && apk add --no-cache rpm2cpio cpio gcompat && rm -rf /var/cache/apk/*
 # use curl to download the rpm file
-RUN curl -L https://github.com/Cray-HPE/cray-site-init/releases/download/v1.32.0/cray-site-init-1.32.0-1.x86_64.noos.rpm -o /tmp/cray-site-init.rpm
+RUN curl -L https://github.com/Cray-HPE/cray-site-init/releases/download/v1.36.8/cray-site-init-1.36.8-1.x86_64.noos.rpm -o /tmp/cray-site-init.rpm
 RUN cd /tmp && rpm2cpio cray-site-init.rpm | cpio -idmv && cp /tmp/usr/bin/csi /usr/local/bin/csi && rm -rf /tmp/*
 USER 1000
