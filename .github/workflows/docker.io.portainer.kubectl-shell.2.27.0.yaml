@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright 2022, 2024 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2022, 2024-2025 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
+name: docker.io/portainer/kubectl-shell:2.27.0
 on:
   push:
     paths:
-      - .github/workflows/docker.io.portainer.kubectl-shell.latest-v1.21.1-amd64.yaml
-      - docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64/**
+      - .github/workflows/docker.io.portainer.kubectl-shell.2.27.0.yaml
+      - docker.io/portainer/kubectl-shell/2.27.0/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/portainer/kubectl-shell/latest-v1.21.1-amd64
+      CONTEXT_PATH: docker.io/portainer/kubectl-shell/2.27.0
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/portainer/kubectl-shell
-      DOCKER_TAG: latest-v1.21.1-amd64
+      DOCKER_TAG: 2.27.0
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
