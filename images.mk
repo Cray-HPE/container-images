@@ -191,6 +191,7 @@ DOCKERIMAGES:=docker.io/openpolicyagent/opa:0.26.0-envoy-6
 DOCKERIMAGES:=docker.io/openpolicyagent/opa:0.42.1-envoy
 DOCKERIMAGES:=docker.io/opensuse/leap:15.2
 DOCKERIMAGES:=docker.io/portainer/kubectl-shell:latest-v1.21.1-amd64
+DOCKERIMAGES:=docker.io/portainer/kubectl-shell:2.27.0
 DOCKERIMAGES:=docker.io/prom/prometheus:v2.19.2
 DOCKERIMAGES:=docker.io/prom/pushgateway:v0.8.0
 DOCKERIMAGES:=docker.io/prom/snmp-exporter:v0.20.0
