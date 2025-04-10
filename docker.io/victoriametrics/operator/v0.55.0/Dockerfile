@@ -1,0 +1,1 @@
+FROM docker.io/victoriametrics/operator:v0.55.0
