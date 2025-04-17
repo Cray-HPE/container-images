@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: docker.io/bats/bats:v1.11
+name: docker.io/bats/bats:1.11.1
 on:
   push:
     paths:
-      - .github/workflows/docker.io.bats.bats.v1.11.yaml
-      - docker.io/bats/bats/v1.11/**
+      - .github/workflows/docker.io.bats.bats.1.11.1.yaml
+      - docker.io/bats/bats/1.11.1/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/bats/bats/v1.11
+      CONTEXT_PATH: docker.io/bats/bats/1.11.1
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/bats/bats
-      DOCKER_TAG: v1.11
+      DOCKER_TAG: 1.11.1
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
