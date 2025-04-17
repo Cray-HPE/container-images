@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/bats/bats:v1.11.1
+FROM docker.io/bats/bats:1.11.1
 
 RUN apk update && \
     apk add --upgrade apk-tools &&  \
