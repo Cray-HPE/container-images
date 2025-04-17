@@ -1,0 +1,1 @@
+FROM docker.io/victoriametrics/vmalert:v1.115.0
