@@ -21,7 +21,13 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/mikefarah/yq:4
+# 4.45.2 seems to have a regression:
+# $ echo '[]' | yq.4.45.2 e '.[] | (.a + "|" + .b)'
+# |
+# $ echo '[]' | yq.4.45.1 e '.[] | (.a + "|" + .b)'
+# <empty string>
+
+FROM docker.io/mikefarah/yq:4.45.1
 
 USER root
 RUN apk update && \
