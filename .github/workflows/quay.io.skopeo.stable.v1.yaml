@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright 2023-2024 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2023-2025 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -47,6 +47,7 @@ jobs:
           docker_tag: ${{ env.DOCKER_TAG }}
           docker_username: ${{ secrets.ARTIFACTORY_ALGOL60_USERNAME }}
           docker_password: ${{ secrets.ARTIFACTORY_ALGOL60_TOKEN }}
+          docker_build_platforms: linux/amd64,linux/arm64
           sign: ${{ github.ref == 'refs/heads/main' }}
           cosign_gcp_workload_identity_provider: ${{ secrets.COSIGN_GCP_WORKLOAD_IDENTITY_PROVIDER_RSA }}
           cosign_gcp_service_account: ${{ secrets.COSIGN_GCP_SERVICE_ACCOUNT_RSA }}
