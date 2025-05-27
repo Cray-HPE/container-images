@@ -42,7 +42,7 @@ RUN chown nexus:nexus /opt/sonatype/nexus/deploy/nexus3-keycloak-plugin-${KEYCLO
 # which must be referenced from nexus.vmoptions.  The nexus user
 # will need to modify the file so it makes sense that nexus
 # should just own the file.
-RUN chown nexus:nexus /opt/sonatype/nexus/bin/nexus.vmoptions
+RUN [ ! -f /opt/sonatype/nexus/bin/nexus.vmoptions ] || chown nexus:nexus /opt/sonatype/nexus/bin/nexus.vmoptions
 RUN microdnf install -y openssl
 
 # Allow nexus to modify the logging properties for debugging purposes.
