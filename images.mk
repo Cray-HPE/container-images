@@ -215,9 +215,11 @@ DOCKERIMAGES:=docker.io/unguiculus/docker-python3-phantomjs-selenium:v1
 DOCKERIMAGES:=docker.io/velero/velero-plugin-for-aws:v1.1.0
 DOCKERIMAGES:=docker.io/velero/velero-plugin-for-aws:v1.2.1
 DOCKERIMAGES:=docker.io/velero/velero-plugin-for-aws:v1.3.1
+DOCKERIMAGES:=docker.io/velero/velero-plugin-for-aws:v1.12.1
 DOCKERIMAGES:=docker.io/velero/velero-restic-restore-helper:v1.5.2
 DOCKERIMAGES:=docker.io/velero/velero-restic-restore-helper:v1.6.3
 DOCKERIMAGES:=docker.io/velero/velero-restic-restore-helper:v1.7.1
+DOCKERIMAGES:=docker.io/velero/velero-restore-helper:v1.15.1
 DOCKERIMAGES:=docker.io/velero/velero:v1.5.2
 DOCKERIMAGES:=docker.io/weaveworks/weave-kube:2.8.0
 DOCKERIMAGES:=docker.io/weaveworks/weave-kube:2.8.1
@@ -372,6 +374,7 @@ SUSEIMAGES:=registry.suse.com/suse/sle15:15.4
 VELEROIMAGES:=velero/velero-plugin-for-csi:v0.2.0
 VELEROIMAGES:=velero/velero:v1.6.3
 VELEROIMAGES:=velero/velero:v1.7.1
+VELEROIMAGES:=velero/velero:v1.16.1
 
 # Misc/one offs?
 MISCIMAGES:=github.com/kubernetes-sigs/external-dns:v0.5.16-distroless-static
