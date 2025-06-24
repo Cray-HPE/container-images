@@ -23,9 +23,9 @@
 #
 FROM debian:12-slim
 
-RUN echo "deb http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list.d/public-debian.list && \
-    echo "deb http://deb.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list.d/public-debian.list && \
-    echo "deb http://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list.d/public-debian.list && \
+RUN echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list.d/public-debian.list && \
     \
     apt-get update && \
     apt-get upgrade -y && \
