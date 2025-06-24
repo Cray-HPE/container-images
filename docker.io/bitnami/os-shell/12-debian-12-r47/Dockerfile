@@ -23,9 +23,15 @@
 #
 FROM debian:12-slim
 
-RUN apt-get update && \
+RUN echo "deb http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb http://deb.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb http://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list.d/public-debian.list && \
+    \
+    apt-get update && \
     apt-get upgrade -y && \
-    rm -rf /var/lib/apt/lists/*
+    \
+    rm -rf /var/lib/apt/lists/* && \
+    rm /etc/apt/sources.list.d/public-debian.list
 
 RUN groupadd -r nonroot -g 1001 && \
     useradd -u 1001 -r -g nonroot -m -d /home/nonroot -s /bin/bash nonroot
