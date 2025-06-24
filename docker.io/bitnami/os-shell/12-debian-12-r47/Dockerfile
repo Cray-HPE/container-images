@@ -25,16 +25,13 @@ FROM debian:12-slim
 
 USER root
 
-RUN echo "Displaying APT source configuration" && \
-    echo "Listing /etc/apt/sources.list.d/:" && \
-    ls -la /etc/apt/sources.list.d/ && \
-    echo "Attempting to cat /etc/apt/sources.list" && \
-    (cat /etc/apt/sources.list || true) && \
-    echo "Attempting to cat files in /etc/apt/sources.list.d/ (will not fail if missing):" && \
-    (cat /etc/apt/sources.list.d/*.list || true)
+RUN echo "--- Method 1: Displaying APT source configuration file ---" && \
+    echo "--- Contents of /etc/apt/sources.list.d/debian.sources: ---" && \
+    cat /etc/apt/sources.list.d/debian.sources && \
+    echo
 
-RUN echo "Attempting verbose APT update" && \
-    apt-get update -o Debug::Acquire::http=true
+RUN echo "--- Method 2: Extracting URLs from verbose apt-get update ---" && \
+    apt-get update -y -o Debug::Acquire::http=true 2>&1 | grep 'Get:' | awk '{print $2}' | cut -d'/' -f3 | sort -u
 
-RUN echo "End of diagnostics. Failing build intentionally." && \
+RUN echo "--- End of diagnostics. Failing build intentionally. ---" && \
     exit 1
