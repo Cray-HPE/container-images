@@ -25,13 +25,19 @@ FROM debian:12-slim
 
 USER root
 
-RUN echo "--- Method 1: Displaying APT source configuration file ---" && \
-    echo "--- Contents of /etc/apt/sources.list.d/debian.sources: ---" && \
-    cat /etc/apt/sources.list.d/debian.sources && \
-    echo
+RUN rm -f /etc/apt/sources.list.d/debian.sources
 
-RUN echo "--- Method 2: Extracting URLs from verbose apt-get update ---" && \
-    apt-get update -y -o Debug::Acquire::http=true 2>&1 | grep 'Get:' | awk '{print $2}' | cut -d'/' -f3 | sort -u
+RUN echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list.d/public-debian.list && \
+    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list.d/public-debian.list
 
-RUN echo "--- End of diagnostics. Failing build intentionally. ---" && \
-    exit 1
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    # Clean up to keep the final image small.
+    rm -rf /var/lib/apt/lists/*
+
+RUN groupadd -r nonroot -g 1001 && \
+    useradd -u 1001 -r -g nonroot -m -d /home/nonroot -s /bin/bash nonroot
+
+USER nonroot
+WORKDIR /home/nonroot
