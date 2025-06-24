@@ -25,4 +25,10 @@
 # Generated with: make add IMAGE=bitnami/os-shell:12-debian-12-r47 REGISTRY=docker.io PACKAGE_MANAGER=apt
 #
 FROM docker.io/bitnami/os-shell:12-debian-12-r47
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y && rm -rf /var/lib/apt/lists/
+
+USER root
+
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
+
+USER 1001:1001
