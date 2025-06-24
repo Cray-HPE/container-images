@@ -23,18 +23,13 @@
 #
 FROM debian:12-slim
 
-RUN echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm main" > /etc/apt/sources.list.d/public-debian.list && \
-    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list.d/public-debian.list && \
-    echo "deb [signed-by=/usr/share/keyrings/debian-archive-keyring.gpg] http://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list.d/public-debian.list && \
-    \
-    apt-get update && \
-    apt-get upgrade -y && \
-    \
-    rm -rf /var/lib/apt/lists/* && \
-    rm /etc/apt/sources.list.d/public-debian.list
+USER root
 
-RUN groupadd -r nonroot -g 1001 && \
-    useradd -u 1001 -r -g nonroot -m -d /home/nonroot -s /bin/bash nonroot
+RUN echo "Displaying APT source configuration" && \
+    cat /etc/apt/sources.list /etc/apt/sources.list.d/*.list
 
-USER nonroot
-WORKDIR /home/nonroot
+RUN echo "Step 2: Attempting verbose APT update" && \
+    apt-get update -o Debug::Acquire::http=true
+
+RUN echo "End of diagnostics. Failing build intentionally" && \
+    exit 1
