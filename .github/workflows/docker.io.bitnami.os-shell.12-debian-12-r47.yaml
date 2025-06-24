@@ -57,3 +57,4 @@ jobs:
           cosign_key: ${{ secrets.COSIGN_KEY_RSA }}
           snyk_token: ${{ secrets.SNYK_TOKEN }}
           fail_on_snyk_errors: true
+          docker_build_args: "--no-cache"
