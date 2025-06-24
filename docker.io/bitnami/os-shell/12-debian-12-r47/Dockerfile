@@ -21,14 +21,14 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
+FROM debian:12-slim
 
-# Generated with: make add IMAGE=bitnami/os-shell:12-debian-12-r47 REGISTRY=docker.io PACKAGE_MANAGER=apt
-#
-FROM docker.io/bitnami/os-shell:12-debian-12-r47
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    rm -rf /var/lib/apt/lists/*
 
-USER root
+RUN groupadd -r nonroot -g 1001 && \
+    useradd -u 1001 -r -g nonroot -m -d /home/nonroot -s /bin/bash nonroot
 
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
-
-USER 1001:1001
+USER nonroot
+WORKDIR /home/nonroot
