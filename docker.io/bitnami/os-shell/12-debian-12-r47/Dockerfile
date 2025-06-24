@@ -26,10 +26,15 @@ FROM debian:12-slim
 USER root
 
 RUN echo "Displaying APT source configuration" && \
-    cat /etc/apt/sources.list /etc/apt/sources.list.d/*.list
+    echo "Listing /etc/apt/sources.list.d/:" && \
+    ls -la /etc/apt/sources.list.d/ && \
+    echo "Attempting to cat /etc/apt/sources.list" && \
+    (cat /etc/apt/sources.list || true) && \
+    echo "Attempting to cat files in /etc/apt/sources.list.d/ (will not fail if missing):" && \
+    (cat /etc/apt/sources.list.d/*.list || true)
 
-RUN echo "Step 2: Attempting verbose APT update" && \
+RUN echo "Attempting verbose APT update" && \
     apt-get update -o Debug::Acquire::http=true
 
-RUN echo "End of diagnostics. Failing build intentionally" && \
+RUN echo "End of diagnostics. Failing build intentionally." && \
     exit 1
