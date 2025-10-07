@@ -1,0 +1,40 @@
+#
+# MIT License
+#
+# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+FROM ghcr.io/k8snetworkplumbingwg/multus-cni:v4.2.2 AS base
+
+# Use latest base image
+FROM python:slim
+WORKDIR /
+# Copy necessary files from base
+COPY --from=base /usr/src/multus-cni/bin /usr/src/multus-cni/bin
+COPY --from=base /usr/src/multus-cni/bin/install_multus /
+COPY --from=base /usr/src/multus-cni/bin/thin_entrypoint /
+COPY --from=base /usr/src/multus-cni/bin/kubeconfig_generator /
+COPY --from=base /usr/src/multus-cni/bin/cert-approver /
+
+RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
+    && rm -rf /var/lib/apt/lists/
+
+# Set the entrypoint
+ENTRYPOINT ["/thin_entrypoint"]
