@@ -2,7 +2,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2022] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2022,2025] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -27,7 +27,7 @@ set -e
 REPO_DIR="$( cd -- "$(dirname "../../$0")" >/dev/null 2>&1 ; pwd -P )"
 STATUS_FILE="$REPO_DIR/status.md"
 STATUS_BRANCH="scan-status"
-REGISTRY_DIRECTORIES=('docker.io' 'gcr.io' 'ghcr.io' 'k8s.gcr.io' 'quay.io' 'registry.opensource.zalan.do' 'github.com')
+REGISTRY_DIRECTORIES=('docker.io' 'gcr.io' 'ghcr.io' 'k8s.gcr.io' 'quay.io' 'registry.opensource.zalan.do' 'registry.suse.com' 'registry.k8s.io' 'github.com')
 REGISTRY_PREFIX="artifactory.algol60.net/csm-docker/stable"
 GITHUB_URL_WORKFLOWS="https://github.com/Cray-HPE/container-images/actions/workflows"
 IMAGES_TO_SCAN=()

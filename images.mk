@@ -369,6 +369,9 @@ SUSEIMAGES:=registry.suse.com/suse/sle15:15.1
 SUSEIMAGES:=registry.suse.com/suse/sle15:15.2
 SUSEIMAGES:=registry.suse.com/suse/sle15:15.3
 SUSEIMAGES:=registry.suse.com/suse/sle15:15.4
+SUSEIMAGES:=registry.suse.com/suse/sle15:15.5
+SUSEIMAGES:=registry.suse.com/suse/sle15:15.6
+SUSEIMAGES:=registry.suse.com/suse/sle15:15.7
 
 # Velero images
 VELEROIMAGES:=velero/velero-plugin-for-csi:v0.2.0
