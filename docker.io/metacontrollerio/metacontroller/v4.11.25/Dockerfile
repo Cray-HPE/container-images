@@ -21,4 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/metacontrollerio/metacontroller:v4.11.25
+FROM ghcr.io/metacontroller/metacontroller:v4.11.25
