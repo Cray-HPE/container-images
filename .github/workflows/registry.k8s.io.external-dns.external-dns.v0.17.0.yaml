@@ -22,15 +22,15 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# Generated with: make add IMAGE=bitnami/external-dns:0.18.0 REGISTRY=docker.io PACKAGE_MANAGER=apt
+# Generated with: make add IMAGE=external-dns/external-dns:v0.17.0 REGISTRY=registry.k8s.io PACKAGE_MANAGER=
 #
 ---
-name: docker.io/bitnami/external-dns:0.18.0
+name: registry.k8s.io/external-dns/external-dns:v0.17.0
 on:
   push:
     paths:
-      - .github/workflows/docker.io.bitnami.external-dns.0.18.0.yaml
-      - docker.io/bitnami/external-dns/0.18.0/**
+      - .github/workflows/registry.k8s.io.external-dns.external-dns.v0.17.0.yaml
+      - registry.k8s.io/external-dns/external-dns/v0.17.0/**
   workflow_dispatch:
 jobs:
   build:
@@ -39,9 +39,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: docker.io/bitnami/external-dns/0.18.0
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/docker.io/bitnami/external-dns
-      DOCKER_TAG: "0.18.0"
+      CONTEXT_PATH: registry.k8s.io/external-dns/external-dns/v0.17.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.k8s.io/external-dns/external-dns
+      DOCKER_TAG: "v0.17.0"
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2

@@ -22,11 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 
-# Generated with: make add IMAGE=bitnami/external-dns:0.18.0 REGISTRY=docker.io PACKAGE_MANAGER=apt
+# Generated with: make add IMAGE=external-dns/external-dns:v0.17.0 REGISTRY=registry.k8s.io PACKAGE_MANAGER=
 #
-FROM bitnami/external-dns:0.18.0
-
-USER root
-RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
-    && rm -rf /var/lib/apt/lists/*
-USER 1001
+FROM registry.k8s.io/external-dns/external-dns:v0.17.0
