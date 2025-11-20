@@ -24,5 +24,6 @@
 FROM registry.opensource.zalan.do/acid/logical-backup:v1.15.0
 
 RUN sed -i -e 's/apt\.postgresql\.org/apt-archive.postgresql.org/' /etc/apt/sources.list.d/pgdg.list \
+    && sed -i -e 's/^deb/#deb/' /etc/apt/sources.list.d/pgdg.list \
     && apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
     && rm -rf /var/lib/apt/lists/
