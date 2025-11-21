@@ -355,14 +355,14 @@ QUAYIMAGES:=quay.io/strimzi/kafka-bridge:0.28.0
 # bitnami images
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/logical-backup:master-58
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/logical-backup:v1.8.0
-BITNAMIIMAGES:=registry.opensource.zalan.do/acid/logical-backup:v1.15.0
+BITNAMIIMAGES:=registry.opensource.zalan.do/acid/logical-backup:v1.14.0
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/pgbouncer:master-17
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/pgbouncer:master-19
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/pgbouncer:master-21
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/pgbouncer:master-22
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/pgbouncer:master-8
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/postgres-operator:v1.8.2
-BITNAMIIMAGES:=registry.opensource.zalan.do/acid/postgres-operator:v1.15.0
+BITNAMIIMAGES:=registry.opensource.zalan.do/acid/postgres-operator:v1.14.0
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/spilo-12:1.6-p3
 BITNAMIIMAGES:=registry.opensource.zalan.do/acid/spilo-14:2.1-p6
 

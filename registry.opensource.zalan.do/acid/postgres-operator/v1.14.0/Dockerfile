@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright 2025 Hewlett Packard Enterprise Development LP
+# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,9 +21,13 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM registry.opensource.zalan.do/acid/logical-backup:v1.15.0
+FROM registry.opensource.zalan.do/acid/postgres-operator:v1.14.0
 
-RUN sed -i -e 's/apt\.postgresql\.org/apt-archive.postgresql.org/' /etc/apt/sources.list.d/pgdg.list \
-    && sed -i -e 's/^deb/#deb/' /etc/apt/sources.list.d/pgdg.list \
-    && apt-get -y update && apt-get upgrade -y && apt full-upgrade -y\
-    && rm -rf /var/lib/apt/lists/
+USER root:root
+
+RUN apk update && \
+    apk add --no-cache --upgrade apk-tools &&  \
+    apk -U upgrade && \
+    rm -rf /var/cache/apk/*
+
+USER 1000:1000

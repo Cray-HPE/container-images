@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: registry.opensource.zalan.do/acid/logical-backup:v1.15.0
+name: registry.opensource.zalan.do/acid/postgres-operator:v1.14.0
 on:
   push:
     paths:
-      - .github/workflows/registry.opensource.zalan.do.acid.logical-backup.v1.15.0.yaml
-      - registry.opensource.zalan.do/acid/logical-backup/v1.15.0/**
+      - .github/workflows/registry.opensource.zalan.do.acid.postgres-operator.v1.14.0.yaml
+      - registry.opensource.zalan.do/acid/postgres-operator/v1.14.0/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: registry.opensource.zalan.do/acid/logical-backup/v1.15.0
-      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.opensource.zalan.do/acid/logical-backup
-      DOCKER_TAG: v1.15.0
+      CONTEXT_PATH: registry.opensource.zalan.do/acid/postgres-operator/v1.14.0
+      DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/registry.opensource.zalan.do/acid/postgres-operator
+      DOCKER_TAG: v1.14.0
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
