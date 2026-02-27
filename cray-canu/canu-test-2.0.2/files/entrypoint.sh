@@ -1,7 +1,7 @@
 #!/bin/bash
 # MIT License
 #
-# (C) Copyright 2026 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2025 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -11,7 +11,7 @@
 # Software is furnished to do so, subject to the following conditions:
 #
 # The above copyright notice and this permission notice shall be included
-# in all copies or substantial portions of the Software.CASMMON-564
+# in all copies or substantial portions of the Software.
 #
 # THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 # IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -23,15 +23,15 @@
 #
 #
 # Make sure that CANU user name and password  is available
-set -x
+set -eux
+exec > /proc/self/fd/1 2>&1
 export CSM_VERSION="${CSM_VERSION:-1.7}"
 export INTERVAL="${INTERVAL:-300}"
 OUTPUT_FILENAME="${OUTPUT_FILENAME:-canu}"
-USERNAME=$(cat $USERNAME_FILE)
-CSM_SWITCH_PASSWORD=$(cat $PASSWORD_FILE)
-
+mkdir -p /var/log
+ln -sf /proc/self/fd/1 /tmp/clog.log
 while true; do
     echo "Performing canu test, check /logs/${OUTPUT_FILENAME}.log for output ..."
-    canu test --csm $CSM_VERSION --username $USERNAME   > "/logs/${OUTPUT_FILENAME}.log" 2>&1
+    canu test --csm $CSM_VERSION --username "$(cat $USERNAME_FILE | tr -d '\n')" --password "$(cat $PASSWORD_FILE | tr -d '\n')"  > "/logs/${OUTPUT_FILENAME}.log" 2>&1
     sleep "${INTERVAL}"
 done

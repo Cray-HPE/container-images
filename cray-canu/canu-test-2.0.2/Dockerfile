@@ -1,6 +1,6 @@
 # MIT License
 #
-# (C) Copyright 2026 Hewlett Packard Enterprise Development LP
+# (C) Copyright 2025 Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -25,11 +25,12 @@ COPY files/entrypoint.sh /entrypoint.sh
 RUN useradd -ms /bin/bash canu && \
     echo 'export PS1="canu \w : "' >> /etc/bash.bashrc && \
     mkdir -p /logs && \
-    curl -L https://github.com/Cray-HPE/canu/releases/download/2.0.8/canu-2.0.8-1.x86_64.noos.rpm -o /logs/canu-2.0.8-1.x86_64.rpm && \
+    curl -L https://github.com/Cray-HPE/canu/releases/download/2.0.1/canu-2.0.1-1.x86_64.noos.rpm -o /logs/canu-2.0.1-1.x86_64.rpm && \
     zypper --no-gpg-checks -n in --allow-unsigned-rpm --auto-agree-with-licenses -y /logs/canu*.rpm && \
     useradd -ms /bin/bash canu && \
     chown -R canu /logs && \
     chmod 755 /entrypoint.sh && \
     rm /logs/canu*.rpm
+RUN ln -sf /proc/1/fd/1 /logs/ram.log
 USER    canu
 ENTRYPOINT ["/entrypoint.sh"]

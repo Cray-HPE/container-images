@@ -21,12 +21,12 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-name: cray-canu/canu-test:2.0.8
+name: cray-canu/canu-test:2.0.2
 on:
   push:
     paths:
-      - .github/workflows/cray-canu.canu-test.2.0.8.yaml
-      - cray-canu/canu-test-2.0.8/**
+      - .github/workflows/cray-canu.canu-test.2.0.2.yaml
+      - cray-canu/canu-test-2.0.2/**
   workflow_dispatch:
 jobs:
   build:
@@ -35,9 +35,9 @@ jobs:
       contents: read
       id-token: write
     env:
-      CONTEXT_PATH: cray-canu/canu-test-2.0.8
+      CONTEXT_PATH: cray-canu/canu-test-2.0.2
       DOCKER_REPO: artifactory.algol60.net/csm-docker/${{ github.ref == 'refs/heads/main' && 'stable' || 'unstable' }}/cray-canu/canu-test
-      DOCKER_TAG: 2.0.8
+      DOCKER_TAG: 2.0.2
     steps:
       - name: build-sign-scan
         uses: Cray-HPE/github-actions/build-sign-scan@build-sign-scan/v2
