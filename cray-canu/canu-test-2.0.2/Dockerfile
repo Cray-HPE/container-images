@@ -31,6 +31,5 @@ RUN useradd -ms /bin/bash canu && \
     chown -R canu /logs && \
     chmod 755 /entrypoint.sh && \
     rm /logs/canu*.rpm
-RUN ln -sf /proc/1/fd/1 /logs/ram.log
 USER    canu
 ENTRYPOINT ["/entrypoint.sh"]

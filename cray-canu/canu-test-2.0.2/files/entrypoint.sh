@@ -23,13 +23,10 @@
 #
 #
 # Make sure that CANU user name and password  is available
-set -eux
-exec > /proc/self/fd/1 2>&1
+set -u
 export CSM_VERSION="${CSM_VERSION:-1.7}"
 export INTERVAL="${INTERVAL:-300}"
 OUTPUT_FILENAME="${OUTPUT_FILENAME:-canu}"
-mkdir -p /var/log
-ln -sf /proc/self/fd/1 /tmp/clog.log
 while true; do
     echo "Performing canu test, check /logs/${OUTPUT_FILENAME}.log for output ..."
     canu test --csm $CSM_VERSION --username "$(cat $USERNAME_FILE | tr -d '\n')" --password "$(cat $PASSWORD_FILE | tr -d '\n')"  > "/logs/${OUTPUT_FILENAME}.log" 2>&1
