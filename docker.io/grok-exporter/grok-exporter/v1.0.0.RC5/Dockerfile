@@ -1,4 +1,4 @@
-FROM ubuntu:24.04
+FROM ubuntu:24.10
 LABEL Maintainer="Pedro Lobo <https://github.com/pslobo>"
 LABEL Name="grok_exporter"
 LABEL Version="1.0.0.RC5"
