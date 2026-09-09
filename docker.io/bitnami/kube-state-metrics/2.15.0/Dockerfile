@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2025,2026] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -24,7 +24,7 @@
 
 # Generated with: make add IMAGE=bitnami/kube-state-metrics:2.15.0 REGISTRY=docker.io PACKAGE_MANAGER=apt
 #
-FROM docker.io/bitnami/kube-state-metrics:2.15.0
+FROM docker.io/bitnamilegacy/kube-state-metrics:2.15.0
 
 USER root
 RUN apt-get -y update && apt-get upgrade -y && apt full-upgrade -y \
