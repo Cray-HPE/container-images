@@ -1,7 +1,7 @@
 #
 # MIT License
 #
-# (C) Copyright [2025] Hewlett Packard Enterprise Development LP
+# (C) Copyright [2025,2026] Hewlett Packard Enterprise Development LP
 #
 # Permission is hereby granted, free of charge, to any person obtaining a
 # copy of this software and associated documentation files (the "Software"),
@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/bitnami/os-shell:12-debian-12-r49
+FROM docker.io/bitnamilegacy/os-shell:12-debian-12-r49
 
 USER root
 
