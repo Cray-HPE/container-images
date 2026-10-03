@@ -21,12 +21,27 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/zalando/spilo-15:3.0-p1
+ARG SPILO_BASE_IMAGE=ghcr.io/zalando/spilo-15:3.0-p1@sha256:c4cc3fa31265fb60b2972bd1e5dbb94fd735107ad5d5e6eb17369f2097469225
+FROM ${SPILO_BASE_IMAGE}
+
+USER root
+
+ARG PG15_DEB_VERSION=15.19-1.pgdg22.04+2
 ENV DEBIAN_FRONTEND=noninteractive
 
 # pgbouncer auto upgrade can not be run in noninteractive mode
 # force upgrade/reinstall
-RUN apt-get -o Dpkg::Options::="--force-confnew" install pgbouncer && \
+RUN set -eux; \
+    test -x /usr/lib/postgresql/14/bin/postgres; \
+    apt-get update; \
+    apt-get -y --no-remove -o Dpkg::Options::="--force-confnew" install pgbouncer; \
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-remove --no-install-recommends \
+        postgresql-15="${PG15_DEB_VERSION}" \
+        postgresql-client-15="${PG15_DEB_VERSION}" \
+        postgresql-plpython3-15="${PG15_DEB_VERSION}"; \
+    /usr/lib/postgresql/15/bin/postgres --version | grep -E '^postgres \(PostgreSQL\) 15[.]19( |$)'; \
+    /usr/lib/postgresql/14/bin/postgres --version | grep -E '^postgres \(PostgreSQL\) 14[.]'; \
+    apt-get clean; \
     rm -rf /var/lib/apt/lists/*
 
 # Overwrite the pgq_ticker.ini file in the postgres container due to change in pgqd:3.5-1
