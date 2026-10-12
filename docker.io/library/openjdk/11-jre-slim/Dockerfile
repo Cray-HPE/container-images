@@ -29,7 +29,7 @@ RUN  { echo '#/bin/sh'; echo 'echo "$JAVA_HOME"'; } > /usr/local/bin/docker-java
     && [ "$JAVA_HOME" = "$(docker-java-home)" ] # backwards compatibility
 ENV PATH=/usr/local/openjdk-11/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 ENV LANG=C.UTF-8
-ENV JAVA_VERSION=11.0.12
+ENV JAVA_VERSION=11.0.28
 RUN set -eux; arch="$(dpkg --print-architecture)"; case "$arch" in 'amd64') \
     downloadUrl='https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/download/jdk-11.0.12%2B7/OpenJDK11U-jre_x64_linux_11.0.12_7.tar.gz'; ;; 'arm64') \
     downloadUrl='https://github.com/AdoptOpenJDK/openjdk11-upstream-binaries/releases/download/jdk-11.0.12%2B7/OpenJDK11U-jre_aarch64_linux_11.0.12_7.tar.gz'; ;; *) \
