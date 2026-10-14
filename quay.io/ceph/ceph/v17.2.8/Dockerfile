@@ -1,0 +1,42 @@
+#
+# MIT License
+#
+# (C) Copyright 2022,2024 Hewlett Packard Enterprise Development LP
+#
+# Permission is hereby granted, free of charge, to any person obtaining a
+# copy of this software and associated documentation files (the "Software"),
+# to deal in the Software without restriction, including without limitation
+# the rights to use, copy, modify, merge, publish, distribute, sublicense,
+# and/or sell copies of the Software, and to permit persons to whom the
+# Software is furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included
+# in all copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+# THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR
+# OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+# ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
+# OTHER DEALINGS IN THE SOFTWARE.
+#
+FROM quay.io/ceph/ceph:v17.2.8
+
+# CentOS Stream 8 reached EOL and moved to http://vault.centos.org
+RUN sed -i -e 's|mirrorlist=http://mirrorlist.centos.org/|#mirrorlist=http://mirrorlist.centos.org/|' /etc/yum.repos.d/* \
+    && sed -i -e 's|#baseurl=http://mirror.centos.org/|baseurl=https://vault.centos.org/|' /etc/yum.repos.d/* \
+    && yum config-manager --disable 'Ceph*' ceph-source 'copr:*' epel \
+    && yum install -y yum-plugin-versionlock\
+    && yum versionlock ceph*\
+    && yum versionlock python3-ceph*\
+    && yum versionlock libceph*\
+    && yum versionlock rbd*\
+    && yum versionlock python3-rbd*\
+    && yum versionlock librbd*\
+    && yum versionlock python3-rgw*\
+    && yum versionlock librgw*\
+    && yum versionlock python3-rados*\
+    && yum versionlock librados*
+
+RUN yum -y upgrade && yum clean all
