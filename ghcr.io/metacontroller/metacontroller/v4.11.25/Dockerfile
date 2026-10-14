@@ -21,7 +21,4 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM ghcr.io/metacontroller/metacontroller:v4.11.25
-USER root
-RUN apk upgrade --no-cache
-USER nonroot:nonroot
+FROM ghcr.io/metacontroller/metacontroller:v4.17.5
