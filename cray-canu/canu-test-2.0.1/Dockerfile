@@ -20,13 +20,11 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 
-FROM artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.6
+FROM artifactory.algol60.net/csm-docker/stable/registry.suse.com/suse/sle15:15.7
 COPY files/entrypoint.sh /entrypoint.sh
 RUN useradd -ms /bin/bash canu && \
     echo 'export PS1="canu \w : "' >> /etc/bash.bashrc && \
     mkdir -p /logs && \
-    zypper -n refresh && \
-    zypper -n update -y && \
     curl -L https://github.com/Cray-HPE/canu/releases/download/2.0.1/canu-2.0.1-1.x86_64.noos.rpm -o /logs/canu-2.0.1-1.x86_64.rpm && \
     zypper --no-gpg-checks -n in --allow-unsigned-rpm --auto-agree-with-licenses -y /logs/canu*.rpm && \
     useradd -ms /bin/bash canu && \
