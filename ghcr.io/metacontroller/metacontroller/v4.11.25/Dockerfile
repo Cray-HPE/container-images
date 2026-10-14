@@ -22,3 +22,6 @@
 # OTHER DEALINGS IN THE SOFTWARE.
 #
 FROM ghcr.io/metacontroller/metacontroller:v4.11.25
+USER root
+RUN apk upgrade --no-cache
+USER nonroot:nonroot
