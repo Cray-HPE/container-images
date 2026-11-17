@@ -21,7 +21,7 @@
 # ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR
 # OTHER DEALINGS IN THE SOFTWARE.
 #
-FROM docker.io/gitea/gitea:1.17.2-rootless
+FROM docker.io/gitea/gitea:28.4.0-rootless
 
 # In order to run apk, we must change to the root user
 USER root
